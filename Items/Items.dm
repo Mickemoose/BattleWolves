@@ -2,6 +2,7 @@ ITEMS
 	parent_type = /mob
 	appearance_flags = PIXEL_SCALE
 	fall_speed=4
+	move_speed=2
 	plane=1
 	var
 		damage = 0
@@ -23,13 +24,15 @@ ITEMS
 			pheight=20
 			pixel_x=-20
 			pixel_y=-16
+			move_speed=2
 			carried=0
 	set_state()
+	action()
 	movement()
 		if(carried) return
 		else
 			..()
-	action()
+
 
 //		for(var/ITEMS/I in oview(1,src))
 //			if(on_ground)

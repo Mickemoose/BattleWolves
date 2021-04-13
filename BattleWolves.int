@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618333249
-DIR: Characters hitboxes Items Stages Stages\Test System UI External 
+LAST_COMPILE_TIME: 1618336116
+DIR: Characters Effects hitboxes Items Stages Stages\Test System UI External 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: Items\Items.dm;Game Vars.dm;Mob Vars.dm;BattleWolves.dm;Items\Containers.dmi;Characters\Derek.dmi
-FILE: BattleWolves.dm
+WINDOW: Items\Items.dm;Game Vars.dm;Mob Vars.dm;BattleWolves.dm;Items\Containers.dmi;Characters\Derek.dmi;Dev Log.dm;Effects\Effects.dm
+FILE: Effects\Effects.dm
 */
 // END_INTERNALS

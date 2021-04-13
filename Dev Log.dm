@@ -1,6 +1,5 @@
 /*
 
-Reeling - To Landing Lag Heavier
 Neutral Special
 Up Special
 Side Special

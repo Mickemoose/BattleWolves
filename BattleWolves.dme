@@ -36,6 +36,7 @@
 #include "Players.dm"
 #include "interface.dmf"
 #include "maps.dmm"
+#include "Effects\Effects.dm"
 #include "Items\Items.dm"
 #include "Stages\Test\stage.dm"
 #include "System\GameCamera.dm"

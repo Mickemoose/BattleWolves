@@ -160,6 +160,12 @@ mob
 						Drop(C)
 						canAttack=1
 						canAct=1
+			if(k == "d" && carrying)
+				for(var/ITEMS/CONTAINERS/C in holdingItem)
+					Throw(C)
+					canAttack=1
+					canAct=1
+
 			if(k == "d" && canAttack && canAct)
 				canAttack=0
 				vel_x=0
@@ -270,10 +276,28 @@ mob
 			item.icon_state=""
 			item.plane=1
 			if(dir == RIGHT)
-				item.set_pos(px+4, py)
+				item.set_pos(px+8, py+12)
 			else
-				item.set_pos(px-8, py)
+				item.set_pos(px-12, py+12)
 		Throw(var/ITEMS/CONTAINERS/item)
+			carrying=0
+			item.carried=0
+			holdingItem.Remove(item)
+			item.carrier = null
+			item.icon_state="moving"
+			item.plane=1
+			if(dir == RIGHT)
+				item.set_pos(px+8, py+12)
+				item.vel_x=5
+				item.vel_y=6
+				spawn(2)
+					item.vel_x=3
+			else
+				item.set_pos(px-12, py+12)
+				item.vel_x=-5
+				item.vel_y=6
+				spawn(3.5)
+					item.vel_x=-3
 
 		Carry(var/ITEMS/CONTAINERS/item)
 			carrying=1
