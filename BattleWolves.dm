@@ -171,12 +171,18 @@ mob
 						vel_y = jump_speed
 			if(k == "f")
 				if(holdingItem.len == 0)
+					vel_x=0
 					for(var/ITEMS/CONTAINERS/C in oview(1,src))
 						if(C.inside(src) && !C.isDeleting)
 							if(holdingItem.len == 1)
 								break
 							canAttack=0
-							Carry(C)
+							flick("squat",src)
+							vel_x=0
+							spawn(2)
+								vel_x=0
+								flick("carrying",src)
+								Carry(C)
 				else
 					for(var/ITEMS/CONTAINERS/C in holdingItem)
 						Drop(C)
@@ -184,9 +190,14 @@ mob
 						canAct=1
 			if(k == "d" && carrying)
 				for(var/ITEMS/CONTAINERS/C in holdingItem)
-					Throw(C)
-					canAttack=1
-					canAct=1
+					canMove=0
+					vel_x=0
+					flick("throw",src)
+					spawn(6)
+						Throw(C)
+						canMove=1
+						canAttack=1
+						canAct=1
 
 			if(k == "d" && canAttack && canAct)
 				canAttack=0
