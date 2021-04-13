@@ -138,9 +138,9 @@ mob
 		else
 			..()
 			if(k == "9")
-				setVolume("DOWN")
+				setVolume("DOWN","MUSIC")
 			if(k == "0")
-				setVolume("UP")
+				setVolume("UP","MUSIC")
 			if(k == "1" && Debug)
 				ItemSpawn("Barrel", src.z)
 			if(k == "2")

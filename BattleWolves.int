@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618340359
-DIR: Characters Effects hitboxes Items Music Stages Stages\Test System UI 
+LAST_COMPILE_TIME: 1618340768
+DIR: Characters Effects hitboxes Items Music Sound Stages Stages\Test System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: Items\Items.dm;Game Vars.dm;Mob Vars.dm;BattleWolves.dm;Items\Containers.dmi;Characters\Derek.dmi;Dev Log.dm;Effects\Effects.dm;Music\Music.dm;System\GameCamera.dm;OOV Circle.dm;Characters.dm;HitBox.dm;HitStun.dm;Players.dm;Fullscreen.dm
-FILE: Items\Items.dm
+WINDOW: Items\Items.dm;Game Vars.dm;Mob Vars.dm;BattleWolves.dm;Items\Containers.dmi;Characters\Derek.dmi;Dev Log.dm;Effects\Effects.dm;Music\Music.dm;System\GameCamera.dm;OOV Circle.dm;Characters.dm;HitBox.dm;HitStun.dm;Players.dm;Fullscreen.dm;Sound\Sound.dm
+FILE: Sound\Sound.dm
 */
 // END_INTERNALS

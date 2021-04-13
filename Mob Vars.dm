@@ -1,5 +1,10 @@
 mob
 	var
+		MUSIC_VOLUME = 25
+		SFX_VOLUME = 30
+		sound/SongPlaying = ""
+
+
 		boostdefault = 8
 		boost = 8
 		dbljumped =0

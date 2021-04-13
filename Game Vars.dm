@@ -2,10 +2,8 @@ var
 	Game_Mode = "Free For All"
 	Enabled_Items = 0
 	Debug = 1 //Turn off to turn off Debug commands
-	Max_Items = 6
-	MUSIC_VOLUME = 25
-	SFX_VOLUME = 30
-	sound/SongPlaying = ""
+	Max_Items = 8
+
 	paused=0
 	list
 		Players_INSERVER = list()

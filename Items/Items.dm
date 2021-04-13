@@ -52,6 +52,7 @@ ITEMS
 		spawn(0.1)
 			animate(src, alpha = 255, transform = matrix()/4, color = "white", time = 2)
 			spawn(2)
+				view()<<ITEMSPAWN
 				carried=0
 				spawn(1)
 					setSpinning()
