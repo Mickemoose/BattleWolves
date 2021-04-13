@@ -1,0 +1,42 @@
+// DM Environment file for BattleWolves.dme.
+// All manual changes should be made outside the BEGIN_ and END_ blocks.
+// New source code should be placed in .dm files: choose File/New --> Code File.
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+#define FILE_DIR "Characters"
+#define FILE_DIR "hitboxes"
+#define FILE_DIR "Items"
+#define FILE_DIR "Stages"
+#define FILE_DIR "Stages/Test"
+#define FILE_DIR "System"
+#define FILE_DIR "UI"
+// END_FILE_DIR
+
+// BEGIN_PREFERENCES
+#define DEBUG
+// END_PREFERENCES
+
+// BEGIN_INCLUDE
+#include <forum_account\keyboard\keyboard.dme>
+#include <forum_account\sidescroller\sidescroller.dme>
+#include "BattleWolves.dm"
+#include "Characters.dm"
+#include "Dev Log.dm"
+#include "Fullscreen.dm"
+#include "Game Vars.dm"
+#include "HitBox.dm"
+#include "HitStun.dm"
+#include "Mob Vars.dm"
+#include "OOV Circle.dm"
+#include "Players.dm"
+#include "interface.dmf"
+#include "maps.dmm"
+#include "Items\Items.dm"
+#include "Stages\Test\stage.dm"
+#include "System\GameCamera.dm"
+// END_INCLUDE
+
