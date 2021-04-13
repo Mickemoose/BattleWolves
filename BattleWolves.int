@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618357761
+LAST_COMPILE_TIME: 1618358336
 DIR: Characters Effects hitboxes Items Music Sound Stages Stages\Test System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
 WINDOW: Items\Items.dm;Game Vars.dm;Mob Vars.dm;BattleWolves.dm;Items\Containers.dmi;Characters\Derek.dmi;Dev Log.dm;Effects\Effects.dm;Music\Music.dm;System\GameCamera.dm;OOV Circle.dm;Characters.dm;HitBox.dm;HitStun.dm;Players.dm;Fullscreen.dm;UI\PercentNumbers.dm;UI\Letters.dmi;UI\OOV.dmi;UI\Faces.dmi;Camera.dm;System\ItemDeleteArea.dm;Characters\RespawnPlatform.dmi;Characters\RespawnPlatform.dm;System\Camera.dmi;maps.dmm;BattleWolves.dme
-FILE: HitStun.dm
+FILE: UI\PercentNumbers.dm
 */
 // END_INTERNALS

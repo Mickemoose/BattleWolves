@@ -11,7 +11,15 @@ UI
 	New(client/c, tracking)
 		c.screen+=src
 		playernum=tracking
-
+proc
+	UpdateWorldUI(var/mob/player)
+		for(var/mob/M in world)
+			if(M.client)
+				M.UI_Update(player)
+	PopulateWorldUI()
+		for(var/mob/M in world)
+			if(M.client)
+				M.UI_Populate()
 
 mob
 	proc
@@ -86,3 +94,10 @@ mob
 						animate(N, transform= matrix()*2, alpha=255, color="#ff6b98", time=0.1)
 					if(player.percent>=1.50)
 						animate(N, transform= matrix()*2, alpha=255, color="red", time=0.1)
+					if(player.percent>=2.50)
+						animate(N, transform= matrix()*2, alpha=255, color="#611c1c", time=0.1)
+					animate(N, transform = turn(matrix()*2, rand(10,22)), time = 1, loop=1 )
+					animate(N, transform = turn(matrix()*2, 0), time = 1,loop=1  )
+					spawn(1.2)
+						animate(N, transform = turn(matrix()*2, rand(330,350)), time = 1,loop=1 )
+						animate(N, transform = turn(matrix()*2, 0), time = 1, loop=1 )
