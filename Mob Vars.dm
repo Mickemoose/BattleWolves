@@ -10,6 +10,7 @@ mob
 		dbljumped =0
 		lasthitby = null
 		character = null
+		respawned=0
 
 		blitz=0
 		lives =0

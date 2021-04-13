@@ -15,3 +15,8 @@ ItemSpawn
 	icon_state="item"
 	invisibility=101
 	parent_type=/obj
+RespawnSpawn
+	icon='System/Camera.dmi'
+	icon_state="respawn"
+	invisibility=101
+	parent_type=/obj

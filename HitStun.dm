@@ -1,11 +1,14 @@
 mob
 	proc
 		setDamage(num)
-			if(num >= 3.0)
-				num = 3.0
+
+			src.percent+=num
+			if(percent >= 3.0)
+				percent = 3.0
 			else if (num <= 0)
-				num = 0
-			src.percent=num
+				percent = 0
+			UI_Update(src)
+			return
 		getDamage()
 			return src.percent
 		HitStun(var/mob/target, time=2)

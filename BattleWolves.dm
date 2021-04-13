@@ -127,6 +127,8 @@ mob
 			canMove=0
 			vel_x=0
 			spawn(1)
+				for(var/RESPAWN_PLATFORM/R in bottom(4))
+					R.Wobble()
 				flick("jumping",src)
 				canMove=1
 				boost = boostdefault
@@ -146,9 +148,10 @@ mob
 		else
 			..()
 			if(k == "9")
-				setVolume("DOWN","MUSIC")
+				setDamage(0.05)
 			if(k == "0")
-				setVolume("UP","MUSIC")
+				//setVolume("UP","MUSIC")
+				new /RESPAWN_PLATFORM(src)
 			if(k == "1" && Debug)
 				ItemSpawn("Barrel", src.z)
 			if(k == "3" && Debug)
@@ -250,7 +253,16 @@ mob
 			spawn(LAG)
 				flick("squatend",src)
 				canMove=1
+	bump(RESPAWN_PLATFORM/R, d)
+		..()
+		if(d==DOWN)
+			//carried=1
+			R.Wobble()
+
+
 	bump(mob/M, d)
+		..()
+
 		if(d==DOWN && M.isPlayer)
 			if(M.hitIndex!="STOMP")
 				M.hitIndex="STOMP"
@@ -265,6 +277,8 @@ mob
 					canMove=1
 					canAttack=1
 					has_jumped=0
+					jumped=0
+					dbljumped=0
 				spawn(6)
 					M.hitIndex="null"
 

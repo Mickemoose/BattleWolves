@@ -38,6 +38,7 @@
 #include "Players.dm"
 #include "interface.dmf"
 #include "maps.dmm"
+#include "Characters\RespawnPlatform.dm"
 #include "Effects\Effects.dm"
 #include "Items\Items.dm"
 #include "Music\Music.dm"
