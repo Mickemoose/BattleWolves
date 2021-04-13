@@ -3,8 +3,9 @@ var
 	Enabled_Items = 0
 	Debug = 1 //Turn off to turn off Debug commands
 	Max_Items = 6
-	MUSIC_VOLUME = 100
-	SFX_VOLUME = 100
+	MUSIC_VOLUME = 25
+	SFX_VOLUME = 30
+	sound/SongPlaying = ""
 	paused=0
 	list
 		Players_INSERVER = list()

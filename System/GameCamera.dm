@@ -1,11 +1,8 @@
 GameCamera
 	icon='System/Camera.dmi'
 	invisibility=101
-	parent_type=/mob
-	set_state()
-	gravity()
-	move()
-	pixel_move()
+	parent_type=/obj
+
 mob
 	proc
 		Shake(c=rand(4,10))

@@ -12,14 +12,20 @@ client
 		ViewHeight() //returns this client's view height, in pixels.
 			if(isnum(view)) return (view * 2 + 1) * world.icon_size
 			else return text2num(copytext(view, findtext(view, "x")+1)) * world.icon_size
-		has_key(k)
-			if(istype(keys))
-				return keys[k]
+
+
+
 
 world
 	fps = 60
 	icon_size = 32
 	view = "40x21"
+//	New()
+//		..()
+//
+//		spawn(10)
+//		movement_loop()
+//		world.set_icon_size()
 
 
 mob
@@ -55,6 +61,10 @@ mob
 		var/mob/player/p = new /mob/player(49,39,2)
 		p.loc=locate(49,39,2)
 		p.setCharacter("Sandbag")
+		src<<MENU
+		SongPlaying = MENU
+
+
 
 	move(d)
 		if(canMove)
@@ -127,6 +137,10 @@ mob
 			return
 		else
 			..()
+			if(k == "9")
+				setVolume("DOWN")
+			if(k == "0")
+				setVolume("UP")
 			if(k == "1" && Debug)
 				ItemSpawn("Barrel", src.z)
 			if(k == "2")
