@@ -4,6 +4,7 @@ ITEMS
 	fall_speed=4
 	move_speed=2
 	plane=1
+	density=0
 	var
 		damage = 0
 
@@ -37,10 +38,10 @@ ITEMS
 			..()
 
 
-//		for(var/ITEMS/I in oview(1,src))
-//			if(on_ground)
-//				while(inside(I))
-//					I.px ++
+		for(var/ITEMS/I in oview(1,src))
+			if(on_ground && !thrown && !I.thrown)
+				while(inside(I))
+					I.px ++
 
 	bump(atom/d)
 		if(!on_ground && !isDeleting)
@@ -64,20 +65,21 @@ ITEMS
 		setCarry()
 			carried=1
 		DeleteFlash()
-			if(flash==0 || flash ==1)
-				flash=1
-				animate(src, alpha = 0, time = 2)
-				spawn(2)
-					animate(src, alpha = 255, time = 2)
+			if(!carried)
+				if(flash==0 || flash ==1)
+					flash=1
+					animate(src, alpha = 0, time = 2)
 					spawn(2)
-						DeleteFlash()
-			else if(flash==2)
-				flash=2
-				animate(src, alpha = 0, time = 1)
-				spawn(1)
-					animate(src, alpha = 255, time = 1)
+						animate(src, alpha = 255, time = 2)
+						spawn(2)
+							DeleteFlash()
+				else if(flash==2)
+					flash=2
+					animate(src, alpha = 0, time = 1)
 					spawn(1)
-						DeleteFlash()
+						animate(src, alpha = 255, time = 1)
+						spawn(1)
+							DeleteFlash()
 
 
 		DeleteTimer()

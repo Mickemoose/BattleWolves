@@ -87,7 +87,13 @@ mob
 					vel_y += 1
 				else
 					boost = 0
+
+
 		if(at_edge())
+			for(var/ITEMS/CONTAINERS/C in holdingItem)
+				Drop(C)
+				canAttack=1
+				canAct=1
 			if(!is_jumping && on_ground && vel_x == move_speed || !is_jumping && on_ground && vel_x == -move_speed)
 				is_jumping=1
 				flick("squat",src)
@@ -166,7 +172,9 @@ mob
 			if(k == "f")
 				if(holdingItem.len == 0)
 					for(var/ITEMS/CONTAINERS/C in oview(1,src))
-						if(C.inside(src))
+						if(C.inside(src) && !C.isDeleting)
+							if(holdingItem.len == 1)
+								break
 							canAttack=0
 							Carry(C)
 				else
@@ -286,6 +294,7 @@ mob
 			carrying=0
 			item.carried=0
 			holdingItem.Remove(item)
+			holdingItem=new()
 			item.carrier = null
 			item.icon_state=""
 			item.plane=1
@@ -297,9 +306,11 @@ mob
 			carrying=0
 			item.carried=0
 			holdingItem.Remove(item)
+			holdingItem=new()
 			item.carrier = null
 			item.icon_state="moving"
 			item.plane=1
+			item.thrown=1
 			if(dir == RIGHT)
 				item.set_pos(px+8, py+12)
 				item.vel_x=5
@@ -314,7 +325,9 @@ mob
 					item.vel_x=-3
 
 		Carry(var/ITEMS/CONTAINERS/item)
+			animate(item, transform = null, time = 0.1)
 			carrying=1
+			item.timer=100
 			item.carried=1
 			item.setCarry()
 			holdingItem.Add(item)
@@ -322,3 +335,6 @@ mob
 			item.icon_state="carried"
 			item.plane=plane-1
 			item.set_pos(px, py+24)
+			item.vel_x=0
+			item.vel_y=0
+			item.thrown=0
