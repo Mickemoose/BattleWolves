@@ -15,6 +15,8 @@ mob
 		target_circles[]
 		LAG = 3
 
+		isPlayer = 0
+
 		hitIndex = "null"
 
 		list

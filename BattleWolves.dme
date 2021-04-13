@@ -23,6 +23,7 @@
 // BEGIN_INCLUDE
 #include <forum_account\keyboard\keyboard.dme>
 #include <forum_account\sidescroller\sidescroller.dme>
+#include <ter13\stdlib\StdLib.dme>
 #include "BattleWolves.dm"
 #include "Characters.dm"
 #include "Dev Log.dm"
@@ -38,5 +39,6 @@
 #include "Items\Items.dm"
 #include "Stages\Test\stage.dm"
 #include "System\GameCamera.dm"
+#include "System\ItemDeleteArea.dm"
 // END_INCLUDE
 

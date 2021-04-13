@@ -105,6 +105,8 @@ mob
 			return
 		else
 			..()
+			if(k == "1" && Debug)
+				ItemSpawn("Barrel", src.z)
 			if(k == "escape")
 				client.ToggleFullscreen()
 			if(k == controls.jump)
@@ -126,7 +128,7 @@ mob
 				canMove=0
 				flick("nspecial",src)
 				for(var/mob/M in front(10,8,8))
-					if(M.hitIndex!="D1")
+					if(M.hitIndex!="D1" && M.isPlayer)
 						M.hitIndex="D1"
 						flick("hit",M)
 						M.face(src)
@@ -141,6 +143,7 @@ mob
 					flick("squatend",src)
 					canMove=1
 					canAttack=1
+
 	bump(atom/a, d)
 		..()
 		animate(src, transform = null, time = 0.5)
@@ -174,7 +177,7 @@ mob
 
 		for(var/mob/M in world)
 			for(var/GameCamera/GC in world)
-				if(GC.z == src.z)
+				if(GC.z == src.z && M.isPlayer)
 
 					if(get_dist(GC,M)<=14)
 						if(M in trackers)
@@ -202,11 +205,11 @@ mob
 								client.screen += target_arrows[M]
 
 
-							src.target = M
+							src.target2 = M
 
 							trackers.Add(M)
 							break
-		var/mob/O = src.target
+		var/mob/O = src.target2
 
 		for(var/GameCamera/GC in world)
 			if(GC.z == src.z)

@@ -3,7 +3,7 @@ turf
 
 	Test_Stage
 		icon = 'Stages/Test/turf.dmi'
-		floor
+		floor1
 			density = 1
 			icon_state = "floor"
 		floor_l

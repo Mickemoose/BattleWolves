@@ -7,6 +7,7 @@ mob
 			target.vel_y=0
 			target.hitstun=1
 			src.hitstun=1
+			sleep(1)
 			spawn(time)
 				target.hitstun=0
 				src.hitstun=0

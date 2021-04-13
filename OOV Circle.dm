@@ -1,6 +1,6 @@
 mob
 	var
-		target
+		target2
 	proc
 		OOV_Circle()
 

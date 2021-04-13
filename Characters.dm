@@ -14,17 +14,22 @@ mob
 				if("HEAVY")
 					LAG=6
 		setStage(name)
+			for(var/ItemSpawn/S in world)
+				if(S.z == z)
+					itemspawns.Add(S)
 			switch(name)
 				if("debug")
 					for(var/GameCamera/GC in world)
 						if(GC.z == 2)
 							usr.client.eye = GC
+
 				else
 					for(var/GameCamera/GC in world)
 						if(GC.z == 2)
 							usr.client.eye = GC
 
 		setCharacter(name)
+			isPlayer=1
 			character = "[name]"
 			dir=RIGHT
 			density=0
