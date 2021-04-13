@@ -17,9 +17,12 @@ mob
 		canMove = 1
 		canAttack = 1
 		canAct = 1
+		hud=0
 		target_arrows[]
 		target_circles[]
 		LAG = 3
+
+		PLAYERNUMBER=0
 
 		isPlayer = 0
 

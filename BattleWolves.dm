@@ -32,7 +32,7 @@ mob
 
 
 	appearance_flags = PIXEL_SCALE
-	density=0
+	scaffold=1
 	pixel_move(dpx, dpy)
 		..()
 		for(var/ITEMS/I in holdingItem)
@@ -58,11 +58,13 @@ mob
 		src.loc=locate(47,37,2)
 		setCharacter("Derek")
 		setStage()
-		var/mob/player/p = new /mob/player(49,39,2)
-		p.loc=locate(49,39,2)
-		p.setCharacter("Sandbag")
+
 		src<<MENU
 		SongPlaying = MENU
+
+		setPlayerNumber()
+		//Players_ALIVE.Add(src)
+
 
 
 
@@ -149,6 +151,14 @@ mob
 				setVolume("UP","MUSIC")
 			if(k == "1" && Debug)
 				ItemSpawn("Barrel", src.z)
+			if(k == "3" && Debug)
+				if(Players >=8) return
+				var/mob/p = new /mob(49,39,src.z)
+				p.loc=locate(49,39,src.z)
+				p.setCharacter("Sandbag")
+				p.setPlayerNumber()
+				UI_Update()
+
 			if(k == "2")
 				if(paused)
 					paused=0
@@ -240,6 +250,24 @@ mob
 			spawn(LAG)
 				flick("squatend",src)
 				canMove=1
+	bump(mob/M, d)
+		if(d==DOWN && M.isPlayer)
+			if(M.hitIndex!="STOMP")
+				M.hitIndex="STOMP"
+				flick("hit",M)
+				//M.face(src)
+				HitStun(M,1)
+				spawn(1)
+					flick("hitend",M)
+					jump()
+					if(dir==RIGHT) vel_x=6
+					else vel_x=-6
+					canMove=1
+					canAttack=1
+					has_jumped=0
+				spawn(6)
+					M.hitIndex="null"
+
 	slow_down()
 
 		if(knockbacked)

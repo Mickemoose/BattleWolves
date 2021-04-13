@@ -1,5 +1,13 @@
 mob
 	proc
+		setDamage(num)
+			if(num >= 3.0)
+				num = 3.0
+			else if (num <= 0)
+				num = 0
+			src.percent=num
+		getDamage()
+			return src.percent
 		HitStun(var/mob/target, time=2)
 			src.vel_x=0
 			src.vel_y=0
@@ -7,8 +15,10 @@ mob
 			target.vel_y=0
 			target.hitstun=1
 			src.hitstun=1
+			animate(target,color=rgb(255,0,0),time=1)
 			sleep(1)
 			spawn(time)
+				animate(target,color=rgb(255,255,255),time=3)
 				target.hitstun=0
 				src.hitstun=0
 		Knockback(power = "LIGHT", where = "UP RIGHT")

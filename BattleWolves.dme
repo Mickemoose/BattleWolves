@@ -11,6 +11,7 @@
 #define FILE_DIR "hitboxes"
 #define FILE_DIR "Items"
 #define FILE_DIR "Music"
+#define FILE_DIR "Sound"
 #define FILE_DIR "Stages"
 #define FILE_DIR "Stages/Test"
 #define FILE_DIR "System"
@@ -44,5 +45,6 @@
 #include "Stages\Test\stage.dm"
 #include "System\GameCamera.dm"
 #include "System\ItemDeleteArea.dm"
+#include "UI\PercentNumbers.dm"
 // END_INCLUDE
 

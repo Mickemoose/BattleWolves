@@ -3,7 +3,8 @@ var
 	Enabled_Items = 0
 	Debug = 1 //Turn off to turn off Debug commands
 	Max_Items = 8
-
+	Max_Players = 8
+	Players = 0
 	paused=0
 	list
 		Players_INSERVER = list()

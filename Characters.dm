@@ -1,5 +1,12 @@
 mob
 	proc
+		setPlayerNumber()
+			if(Players < 8)
+				Players++
+				PLAYERNUMBER = Players
+				Players_ALIVE.Add(src)
+				UI_Populate()
+				return
 		setTumbled()
 			on_ground=0
 			animate(src, transform = turn(matrix(), 120), time = 1.5, loop = -1)
