@@ -28,6 +28,9 @@ ITEMS
 			carried=0
 	set_state()
 	action()
+	gravity()
+		..()
+
 	movement()
 		if(carried) return
 		else
@@ -44,10 +47,19 @@ ITEMS
 			DeleteTimer()
 
 	New()
+		carried=1
 		animate(src, alpha = 0, transform = matrix()*4, color = "black", time = 0.1)
 		spawn(0.1)
 			animate(src, alpha = 255, transform = matrix()/4, color = "white", time = 2)
+			spawn(2)
+				carried=0
+				spawn(1)
+					setSpinning()
 	proc
+		setSpinning()
+			animate(src, transform = turn(matrix(), 120), time = 1.5, loop = -1)
+			animate(transform = turn(matrix(), 240), time = 1.5, loop = -1)
+			animate(transform = null, time = 1.5, loop = -1)
 		setCarry()
 			carried=1
 		DeleteFlash()
@@ -100,4 +112,5 @@ proc
 
 				var/ITEMS/CONTAINERS/Barrel/B = new /ITEMS/CONTAINERS/Barrel(selected.loc)
 				Items_ACTIVE.Add(B)
+
 
