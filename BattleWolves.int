@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618329307
-DIR: Characters hitboxes Items Stages Stages\Test System UI Lib External 
+LAST_COMPILE_TIME: 1618333249
+DIR: Characters hitboxes Items Stages Stages\Test System UI External 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: BattleWolves.dm;Items\Containers.dmi;Items\Items.dm;Game Vars.dm;maps.dmm;Characters.dm;Camera.dm;OOV Circle.dm;Stages\Test\stage.dm;System\GameCamera.dm;HitStun.dm;Mob Vars.dm;Fullscreen.dm;C:\Users\micke\Documents\BYOND\lib\forum_account\keyboard\keyboard.dm;System\Camera.dmi;System\ItemDeleteArea.dm;Dev Log.dm
-FILE: Items\Items.dm
+WINDOW: Items\Items.dm;Game Vars.dm;Mob Vars.dm;BattleWolves.dm;Items\Containers.dmi;Characters\Derek.dmi
+FILE: BattleWolves.dm
 */
 // END_INTERNALS

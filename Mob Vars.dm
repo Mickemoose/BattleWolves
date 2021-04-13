@@ -5,6 +5,7 @@ mob
 		dbljumped =0
 		lasthitby = null
 		character = null
+
 		blitz=0
 		lives =0
 		percent = 0
@@ -21,3 +22,4 @@ mob
 
 		list
 			trackers = list()
+			holdingItem = list()

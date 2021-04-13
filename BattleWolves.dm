@@ -21,6 +21,7 @@ world
 	icon_size = 32
 	view = "40x21"
 
+
 mob
 
 
@@ -28,9 +29,23 @@ mob
 	density=0
 	pixel_move(dpx, dpy)
 		..()
-		for(var/HITBOX/H in world)
-			if(H.OWNER==src)
-				H.pixel_move(move_x, move_y)
+		for(var/ITEMS/I in holdingItem)
+			I.pixel_move(move_x, move_y)
+			I.dir=src.dir
+			if(moved)
+				if(dir==RIGHT)
+					I.px=src.px-4
+					I.py=src.py+28
+				else
+					I.px=src.px
+					I.py=src.py+28
+			else
+				if(dir==RIGHT)
+					I.px=src.px
+					I.py=src.py+24
+				else
+					I.px=src.px-4
+					I.py=src.py+24
 
 	Login()
 
@@ -49,6 +64,12 @@ mob
 
 	action()
 		..()
+		while(paused)
+			vel_x=0
+			vel_y=0
+			canMove=0
+			canAct=0
+
 		if(boost > 0)
 			boost -= 1
 			spawn(0.5)
@@ -57,7 +78,7 @@ mob
 				else
 					boost = 0
 		if(at_edge())
-			if(!is_jumping && on_ground)
+			if(!is_jumping && on_ground && vel_x == move_speed || !is_jumping && on_ground && vel_x == -move_speed)
 				is_jumping=1
 				flick("squat",src)
 				canMove=0
@@ -77,28 +98,29 @@ mob
 
 
 	jump()
-		animate(src, transform = null, time = 1, loop = -1)
-		has_jumped=1
-		is_jumping=1
-		tumbled=0
+		if(canAct)
+			animate(src, transform = null, time = 1, loop = -1)
+			has_jumped=1
+			is_jumping=1
+			tumbled=0
 
-		setLandingLag("LIGHT")
-		flick("squat",src)
-		canMove=0
-		vel_x=0
-		spawn(1)
-			flick("jumping",src)
-			canMove=1
-			boost = boostdefault
-			dbljumped=0
-			vel_y = jump_speed
+			setLandingLag("LIGHT")
+			flick("squat",src)
+			canMove=0
+			vel_x=0
+			spawn(1)
+				flick("jumping",src)
+				canMove=1
+				boost = boostdefault
+				dbljumped=0
+				vel_y = jump_speed
 
 
 			..()
 	key_up(k)
 		..()
 		if(k == controls.left || k == controls.right)
-			if(on_ground && vel_x != 0 && !knockbacked && !is_skidding)
+			if(on_ground && vel_x != 0 && !knockbacked && !is_skidding && !carrying)
 				flick("squatend",src)
 	key_down(k)
 		if(!canAct)
@@ -107,6 +129,12 @@ mob
 			..()
 			if(k == "1" && Debug)
 				ItemSpawn("Barrel", src.z)
+			if(k == "2")
+				if(paused)
+					paused=0
+				else
+					paused=1
+
 			if(k == "escape")
 				client.ToggleFullscreen()
 			if(k == controls.jump)
@@ -121,7 +149,18 @@ mob
 						setLandingLag("LIGHT")
 						boost = boostdefault
 						vel_y = jump_speed
-			if(k == "d" && canAttack)
+			if(k == "f")
+				if(holdingItem.len == 0)
+					for(var/ITEMS/CONTAINERS/C in oview(1,src))
+						if(C.inside(src))
+							canAttack=0
+							Carry(C)
+				else
+					for(var/ITEMS/CONTAINERS/C in holdingItem)
+						Drop(C)
+						canAttack=1
+						canAct=1
+			if(k == "d" && canAttack && canAct)
 				canAttack=0
 				vel_x=0
 				vel_y=0
@@ -171,6 +210,11 @@ mob
 				vel_x += kdecel
 		else
 			..()
+	gravity()
+		if(carried)
+			return
+		else
+			..()
 	movement()
 		..()
 
@@ -217,4 +261,26 @@ mob
 
 		//..()
 
+	proc
+		Drop(var/ITEMS/CONTAINERS/item)
+			carrying=0
+			item.carried=0
+			holdingItem.Remove(item)
+			item.carrier = null
+			item.icon_state=""
+			item.plane=1
+			if(dir == RIGHT)
+				item.set_pos(px+4, py)
+			else
+				item.set_pos(px-8, py)
+		Throw(var/ITEMS/CONTAINERS/item)
 
+		Carry(var/ITEMS/CONTAINERS/item)
+			carrying=1
+			item.carried=1
+			item.setCarry()
+			holdingItem.Add(item)
+			item.carrier = src
+			item.icon_state="carried"
+			item.plane=plane-1
+			item.set_pos(px, py+24)

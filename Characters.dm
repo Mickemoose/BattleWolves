@@ -46,6 +46,7 @@ mob
 					pheight=33
 					fall_speed=9
 					move_speed=5
+					carry_speed=2
 				if("Sandbag")
 					icon='Characters/Sandbag.dmi'
 					jump_speed = 12
@@ -56,3 +57,4 @@ mob
 					pheight=33
 					fall_speed=4
 					move_speed=4
+					carry_speed=3

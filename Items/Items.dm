@@ -5,7 +5,7 @@ ITEMS
 	plane=1
 	var
 		damage = 0
-		carried = 0
+
 		thrown = 0
 		carrier
 		timer = 100
@@ -18,19 +18,23 @@ ITEMS
 	CONTAINERS
 		Barrel
 			icon='Items/Containers.dmi'
-			icon_state="barrel"
+			icon_state=""
 			pwidth=26
 			pheight=20
 			pixel_x=-20
 			pixel_y=-16
+			carried=0
 	set_state()
+	movement()
+		if(carried) return
+		else
+			..()
 	action()
 
 //		for(var/ITEMS/I in oview(1,src))
 //			if(on_ground)
 //				while(inside(I))
 //					I.px ++
-
 
 	bump(atom/d)
 		if(!on_ground && !isDeleting)
@@ -41,6 +45,8 @@ ITEMS
 		spawn(0.1)
 			animate(src, alpha = 255, transform = matrix()/4, color = "white", time = 2)
 	proc
+		setCarry()
+			carried=1
 		DeleteFlash()
 			if(flash==0 || flash ==1)
 				flash=1
