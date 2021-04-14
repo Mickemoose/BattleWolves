@@ -181,12 +181,15 @@ mob
 				UI_Update()
 
 			if(k == "2")
-				var/EFFECT/DASH_SMOKE/FX = new /EFFECT/DASH_SMOKE(src)
+				var/EFFECT/BLAST/FX = new /EFFECT/BLAST(src)
+				animate(FX, transform = turn(matrix()*1.5, 45), color=rgb(255,80,80,255), loop=1 ,easing=BOUNCE_EASING)
+				FX.plane=src.plane+5
 				FX.loc=src.loc
-				FX.dir=EAST
-				FX.step_x=src.step_x - 32
+				FX.y=38
+				FX.x=32
+
 				flick("",FX)
-				spawn(6)
+				spawn(5)
 					del FX
 			if(k == "escape")
 				client.ToggleFullscreen()

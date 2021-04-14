@@ -1,6 +1,7 @@
 EFFECT
 	parent_type=/obj
 	plane=FLOAT_PLANE+2
+	appearance_flags= PIXEL_SCALE
 	density=0
 
 	DASH_SMOKE
@@ -12,5 +13,6 @@ EFFECT
 	LANDING_SMOKE
 		icon='Effects/LandingSmoke.dmi'
 		icon_state=""
-
-
+	BLAST
+		icon='Effects/Blast.dmi'
+		icon_state=""

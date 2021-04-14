@@ -67,6 +67,7 @@ window "window1"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		background-color = none
+		is-visible = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		outer-size = 656x538
 		inner-size = 640x499

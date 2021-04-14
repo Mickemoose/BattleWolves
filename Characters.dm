@@ -1,5 +1,34 @@
 mob
 	proc
+		getPlayerColor(var/mob/src)
+			var/rcolor
+			switch(src.PLAYERNUMBER)
+				if(1)
+					rcolor=color=rgb(255,80,80,255)
+					return rcolor
+				if(2)
+					rcolor=color=rgb(80,80,255,255)
+					return rcolor
+				if(3)
+					rcolor=color=rgb(235, 177, 52,255)
+					return rcolor
+				if(4)
+					rcolor=color=rgb(110, 204, 135, 255)
+					return rcolor
+				if(5)
+					rcolor=color=rgb(255, 115, 0, 255)
+					return rcolor
+				if(6)
+					rcolor=color=rgb(140, 249, 255, 255)
+					return rcolor
+				if(7)
+					rcolor=color=rgb(229, 79, 255, 255)
+					return rcolor
+				if(8)
+					rcolor=color=rgb(10, 10, 10, 255)
+					return rcolor
+
+
 		Death()
 			if(client) client.has_key(null)
 			on_wall=0
