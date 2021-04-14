@@ -32,7 +32,7 @@ mob
 
 
 	appearance_flags = PIXEL_SCALE
-	scaffold=1
+	//scaffold=1
 	pixel_move(dpx, dpy)
 		..()
 		for(var/ITEMS/I in holdingItem)
@@ -159,6 +159,8 @@ mob
 
 			if(k == "1" && Debug)
 				ItemSpawn("Barrel", src.z)
+				spawn(1)
+					ItemSpawn("KFK", src.z)
 			if(k == "3" && Debug)
 				if(Players >=8) return
 				var/mob/p = new /mob(49,39,src.z)
@@ -168,11 +170,8 @@ mob
 				p.setPlayerNumber()
 				UI_Update()
 
-			if(k == "2")
-				if(paused)
-					paused=0
-				else
-					paused=1
+			//if(k == "2")
+
 
 			if(k == "escape")
 				client.ToggleFullscreen()
@@ -191,17 +190,18 @@ mob
 			if(k == "f")
 				if(holdingItem.len == 0)
 					vel_x=0
+					var/ITEMS/CONTAINERS/cue
 					for(var/ITEMS/CONTAINERS/C in oview(1,src))
-						if(C.inside(src) && !C.isDeleting)
-							if(holdingItem.len == 1)
-								break
-							canAttack=0
-							flick("squat",src)
+						cue=pick(C)
+					if(cue.inside(src) && !cue.isDeleting && cue in oview(1,src))
+
+						canAttack=0
+						flick("squat",src)
+						vel_x=0
+						spawn(2)
 							vel_x=0
-							spawn(2)
-								vel_x=0
-								flick("carrying",src)
-								Carry(C)
+							flick("carrying",src)
+							Carry(cue)
 				else
 					for(var/ITEMS/CONTAINERS/C in holdingItem)
 						Drop(C)

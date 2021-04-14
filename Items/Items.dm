@@ -5,6 +5,7 @@ ITEMS
 	move_speed=2
 	plane=1
 	density=0
+	scaffold=0
 	var
 		damage = 0
 
@@ -17,6 +18,16 @@ ITEMS
 		flash = 0
 		list
 			contains = list()
+	INSTANTS
+		KFK_Card
+			icon='Items/KFK.dmi'
+			icon_state=""
+			pwidth=16
+			pheight=24
+			pixel_x=-24
+			pixel_y=-16
+			move_speed=2
+			carried=0
 	CONTAINERS
 		Barrel
 			icon='Items/Containers.dmi'
@@ -38,12 +49,13 @@ ITEMS
 			..()
 
 
-		for(var/ITEMS/I in oview(1,src))
-			if(on_ground && !thrown && !I.thrown)
-				while(inside(I))
-					I.px ++
+	//	for(var/ITEMS/I in oview(1,src))
+	//		if(on_ground && !thrown && !I.thrown)
+	//			while(inside(I))
+	//				I.px ++
 
 	bump(atom/d)
+
 		if(!on_ground && !isDeleting)
 			DeleteTimer()
 
@@ -111,6 +123,9 @@ proc
 
 		selected = pick(itemspawns)
 		switch(name)
+			if("KFK")
+				var/ITEMS/INSTANTS/KFK_Card/B = new /ITEMS/INSTANTS/KFK_Card(selected.loc)
+				Items_ACTIVE.Add(B)
 			if("Barrel")
 
 				var/ITEMS/CONTAINERS/Barrel/B = new /ITEMS/CONTAINERS/Barrel(selected.loc)

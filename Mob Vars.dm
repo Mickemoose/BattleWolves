@@ -35,3 +35,12 @@ mob
 			trackers = list()
 			holdingItem = list()
 
+
+
+		//STATS
+		DEATHS = 0
+		KILLS = 0
+		SELF_DESTRUCTS = 0
+		TOTAL_DAMAGE_MATCH = 0
+
+

@@ -36,7 +36,6 @@ TO BE FEATURE COMPLETE:
 
 Volume (settable)
 Lives (settable)
-Respawns/Deaths
 4 Stages
 - Whale Boat
 - Glitch Realm

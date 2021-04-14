@@ -2,6 +2,7 @@ mob
 	proc
 		Death()
 			client.has_key(null)
+			on_wall=0
 			setPlayerLives(1,"REMOVE")
 			canMove=0
 			canAct=0

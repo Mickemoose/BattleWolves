@@ -12,4 +12,5 @@ var
 		Players_READY = list()
 		Players_ALIVE = list()
 		Items_ACTIVE = list()
+	MATCH_WINNER
 
