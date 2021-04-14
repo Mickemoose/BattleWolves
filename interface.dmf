@@ -46,13 +46,11 @@ window "default"
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
-		background-color = none
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
 		macro = "macro"
 		menu = "menu"
-		outer-size = 656x539
 	elem "map1"
 		type = MAP
 		pos = 0,0
@@ -60,4 +58,24 @@ window "default"
 		anchor1 = 0,0
 		anchor2 = 100,100
 		saved-params = "zoom;letterbox;zoom-mode"
+
+window "window1"
+	elem "window1"
+		type = MAIN
+		pos = 281,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		outer-size = 656x538
+		inner-size = 640x499
+	elem "output1"
+		type = OUTPUT
+		pos = 0,0
+		size = 640x488
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = "max-lines"
 

@@ -44,6 +44,7 @@
 #include "Music\Music.dm"
 #include "Sound\Sound.dm"
 #include "Stages\Test\stage.dm"
+#include "System\BlastZone.dm"
 #include "System\GameCamera.dm"
 #include "System\ItemDeleteArea.dm"
 #include "UI\PercentNumbers.dm"

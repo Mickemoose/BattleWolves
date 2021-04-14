@@ -61,7 +61,9 @@ mob
 
 		src<<MENU
 		SongPlaying = MENU
-
+		SongPlaying.volume = MUSIC_VOLUME
+		SongPlaying.status = SOUND_UPDATE
+		src<<SongPlaying
 		setPlayerNumber()
 		//Players_ALIVE.Add(src)
 
@@ -148,14 +150,13 @@ mob
 		else
 			..()
 			if(k == "7")
-				setPlayerLives(1,"REMOVE")
+				setVolume("DOWN", "MUSIC")
 			if(k == "8")
-				UI_Destroy(src)
+				setVolume("UP", "MUSIC")
 			if(k == "9")
 				setDamage(0.05, "ADD")
-			if(k == "0")
-				//setVolume("UP","MUSIC")
-				new /RESPAWN_PLATFORM(src)
+		//	if(k == "0")
+
 			if(k == "1" && Debug)
 				ItemSpawn("Barrel", src.z)
 			if(k == "3" && Debug)

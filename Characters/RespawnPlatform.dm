@@ -23,11 +23,7 @@ RESPAWN_PLATFORM
 		for(var/RespawnSpawn/S in world)
 			if(S.z==m.z)
 				spawns.Add(S)
-		for(var/RespawnSpawn/S2 in spawns)
-			if(!S2.taken)
-				selected=pick(S2)
-				S2.taken=1
-				S2.takenBy = src
+		selected=pick(spawns)
 		src.loc=selected.loc
 		dir=DOWN
 		m.y=selected.y+2
@@ -85,10 +81,6 @@ RESPAWN_PLATFORM
 					Timer()
 		Active()
 		Deactivate()
-			for(var/RespawnSpawn/S2 in spawns)
-				if(S2.takenBy==src)
-					S2.taken=0
-					S2.takenBy=null
 			animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
 			spawn(3)
 				del src

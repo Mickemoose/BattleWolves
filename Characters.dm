@@ -1,23 +1,28 @@
 mob
 	proc
 		Death()
+			setPlayerLives(1,"REMOVE")
 			canMove=0
 			canAct=0
+			dead=1
 			vel_x=0
 			vel_y=0
 			invisibility=101
-			setPlayerLives(1,"REMOVE")
 			setDamage(0)
+			world<<output("[src] DIED with [src.lives] lives","window1.output1")
 			spawn(10)
 				if(lives>0)
 					Respawn()
 				else
 					Players_ALIVE.Remove(src)
 					UpdateWorldUI(src)
+			return
+
 		Respawn()
+			dead=0
 			new /RESPAWN_PLATFORM(src)
 			invisibility=0
-			spawn(3)
+			spawn(2)
 				canMove=1
 				canAct=1
 		setPlayerLives(num,option)
@@ -25,12 +30,17 @@ mob
 				if("ADD")
 					lives+=num
 					UpdateWorldUI(src)
+					return
 				if("REMOVE")
+
 					lives-=num
 					DestroyWorldUI(src)
+
+					return
 				else
 					lives=num
 					UpdateWorldUI(src)
+					return
 			if(lives>6)
 				lives=6
 			if(lives<0)
