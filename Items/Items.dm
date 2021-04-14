@@ -28,6 +28,30 @@ ITEMS
 			pixel_y=-16
 			move_speed=2
 			carried=0
+			var
+				ctype = "character" //or sacrifice
+			Activate(var/mob/activator)
+				activator.holdingItem.Remove(src)
+				var/matrix/M = matrix()
+				carried=1
+				//set_pos(px, activator.py+16)
+				animate(src, transform = M.Translate(0,42), ,time = 5, loop = 0, easing = CIRCULAR_EASING)
+				spawn(5)
+					//vel_y=0
+
+
+					animate(src, transform = M.Scale(-1, 1)  , time = 5, loop = 0, easing = SINE_EASING)
+					spawn(3)
+						if(prob(75)) ctype="character"
+						else ctype = "sacrifice"
+						icon_state=ctype
+					spawn(10)
+						flick("summon",src)
+						view()<<KFKSUMMON
+						spawn(8)
+
+							del src
+
 	CONTAINERS
 		Barrel
 			icon='Items/Containers.dmi'
@@ -40,8 +64,7 @@ ITEMS
 			carried=0
 	set_state()
 	action()
-	gravity()
-		..()
+
 
 	movement()
 		if(carried) return
@@ -70,6 +93,7 @@ ITEMS
 				spawn(1)
 					setSpinning()
 	proc
+		Activate(var/mob/activator)
 		setSpinning()
 			animate(src, transform = turn(matrix(), 120), time = 1.5, loop = -1)
 			animate(transform = turn(matrix(), 240), time = 1.5, loop = -1)
@@ -106,7 +130,9 @@ ITEMS
 					isDeleting=1
 					animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
 					spawn(3)
+
 						Items_ACTIVE.Remove(src)
+
 						del src
 				spawn(10)
 					DeleteTimer()
@@ -121,11 +147,18 @@ proc
 		if(Items_ACTIVE.len > Max_Items) return
 		var/ItemSpawn/selected
 
+
 		selected = pick(itemspawns)
 		switch(name)
 			if("KFK")
-				var/ITEMS/INSTANTS/KFK_Card/B = new /ITEMS/INSTANTS/KFK_Card(selected.loc)
-				Items_ACTIVE.Add(B)
+				var/found = locate(/ITEMS/INSTANTS/KFK_Card) in Items_ACTIVE
+				if(found)
+					return
+				else
+				    // It does not.
+					var/ITEMS/INSTANTS/KFK_Card/B= new /ITEMS/INSTANTS/KFK_Card(selected.loc)
+
+					Items_ACTIVE.Add(B)
 			if("Barrel")
 
 				var/ITEMS/CONTAINERS/Barrel/B = new /ITEMS/CONTAINERS/Barrel(selected.loc)

@@ -8,7 +8,7 @@ area
 			if(M.isPlayer && !M.dead)
 				if(dir==SOUTHEAST)
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
-					animate(FX, transform = turn(matrix()*1.5, 45), color=M.getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
+					animate(FX, transform = turn(matrix()*1.5, 45), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
 					FX.plane=M.plane+5
 					FX.loc=M.loc
 					FX.y=38
@@ -20,7 +20,7 @@ area
 
 				if(dir==SOUTHWEST)
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
-					animate(FX, transform = turn(matrix()*1.5, 140), color=M.getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
+					animate(FX, transform = turn(matrix()*1.5, 140), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
 					FX.plane=M.plane+5
 					FX.loc=M.loc
 					FX.y=38
@@ -31,7 +31,7 @@ area
 
 				if(dir==NORTHEAST)
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
-					animate(FX, transform = turn(matrix()*1.5, 140), color=M.getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
+					animate(FX, transform = turn(matrix()*1.5, 140), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
 					FX.plane=M.plane+5
 					FX.loc=M.loc
 					FX.y=33
@@ -43,7 +43,7 @@ area
 
 				if(dir==NORTHWEST)
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
-					animate(FX, transform = turn(matrix()*1.5, 45), color=M.getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
+					animate(FX, transform = turn(matrix()*1.5, 45), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
 					FX.plane=M.plane+5
 					FX.loc=M.loc
 					FX.y=33
@@ -55,7 +55,7 @@ area
 
 				if(dir==WEST)
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(src)
-					animate(FX, transform = turn(matrix()*1.5, 0), color=M.getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
+					animate(FX, transform = turn(matrix()*1.5, 0), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
 					FX.plane=M.plane+5
 					FX.loc=M.loc
 					FX.step_y=M.step_y
@@ -67,7 +67,7 @@ area
 
 				if(dir==EAST)
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(src)
-					animate(FX, transform = turn(matrix()*1.5, 0), color=M.getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
+					animate(FX, transform = turn(matrix()*1.5, 0), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
 					FX.plane=M.plane+5
 					FX.loc=M.loc
 					FX.step_y=M.step_y
@@ -79,7 +79,7 @@ area
 
 				if(dir==NORTH || dir==SOUTH)
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
-					animate(FX, transform = turn(matrix()*1.5, rand(80,105)), color=M.getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
+					animate(FX, transform = turn(matrix()*1.5, rand(80,105)), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
 					FX.plane=M.plane+5
 					FX.loc=M.loc
 					FX.step_x=M.step_x-264

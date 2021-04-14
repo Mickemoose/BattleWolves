@@ -52,7 +52,7 @@ mob
 				var/UI/FACE/F= new (src.client, M.PLAYERNUMBER)
 				F.icon_state=M.character
 				F.screen_loc="CENTER-1:[num2],CENTER-7:-7"
-				animate(F, transform= matrix()*2, alpha=255, time=3)
+				animate(F, transform= matrix()*2, color=getPlayerColor(M), alpha=255, time=3)
 				var num=13
 				var num3=8
 				var percent2 = num2text(M.getDamage()*100) + "%"
@@ -69,7 +69,7 @@ mob
 				for(var/i2=1, i2<=M.lives,i2++)
 					var/UI/LIFE/L= new (src.client, M.PLAYERNUMBER)
 					L.screen_loc="CENTER:[num3 + num2],CENTER-6:-16"
-					animate(L, transform = matrix(), alpha= 255,time = 3)
+					animate(L, transform = matrix(),color=getPlayerColor(M),  alpha= 255)
 
 					num3+=8
 
@@ -141,7 +141,7 @@ mob
 								var/UI/FACE/F= new (src.client, M.PLAYERNUMBER)
 								F.icon_state=M.character
 								F.screen_loc="CENTER-1:[num2],CENTER-7:-7"
-								animate(F, transform= matrix()*2, alpha=255)
+								animate(F, transform= matrix()*2, color=getPlayerColor(M), alpha=255)
 								var num=13
 								var num3=8
 								var percent2 = num2text(M.getDamage()*100) + "%"
@@ -154,7 +154,7 @@ mob
 								for(var/i2=1, i2<=M.lives,i2++)
 									var/UI/LIFE/L= new (src.client, M.PLAYERNUMBER)
 									L.screen_loc="CENTER:[num3 + num2],CENTER-6:-16"
-									animate(L, transform = matrix(), alpha= 255,time = 3)
+									animate(L, transform = matrix(),color=getPlayerColor(M),  alpha= 255)
 
 									num3+=8
 								num2+=120
@@ -180,7 +180,7 @@ mob
 				var/UI/FACE/F= new (src.client, M.PLAYERNUMBER)
 				F.icon_state=M.character
 				F.screen_loc="CENTER-1:[num2],CENTER-7:-7"
-				animate(F, transform= matrix()*2, alpha=255)
+				animate(F, transform= matrix()*2,  color=getPlayerColor(M),  alpha=255)
 				var num=13
 				var num3=8
 				var percent2 = num2text(M.getDamage()*100) + "%"
@@ -193,7 +193,7 @@ mob
 				for(var/i2=1, i2<=M.lives,i2++)
 					var/UI/LIFE/L= new (src.client, M.PLAYERNUMBER)
 					L.screen_loc="CENTER:[num3 + num2],CENTER-6:-16"
-					animate(L, transform = matrix(), alpha= 255,time = 3)
+					animate(L, transform = matrix(),color=getPlayerColor(M),  alpha= 255)
 
 					num3+=8
 

@@ -181,16 +181,9 @@ mob
 				UI_Update()
 
 			if(k == "2")
-				var/EFFECT/BLAST/FX = new /EFFECT/BLAST(src)
-				animate(FX, transform = turn(matrix()*1.5, 45), color=rgb(255,80,80,255), loop=1 ,easing=BOUNCE_EASING)
-				FX.plane=src.plane+5
-				FX.loc=src.loc
-				FX.y=38
-				FX.x=32
-
-				flick("",FX)
-				spawn(5)
-					del FX
+				PLAYERNUMBER++
+				if(PLAYERNUMBER>8)
+					PLAYERNUMBER=1
 			if(k == "escape")
 				client.ToggleFullscreen()
 			if(k == controls.jump)
@@ -207,19 +200,36 @@ mob
 						vel_y = jump_speed
 			if(k == "f")
 				if(holdingItem.len == 0)
-					vel_x=0
-					var/ITEMS/CONTAINERS/cue
-					for(var/ITEMS/CONTAINERS/C in oview(1,src))
-						cue=pick(C)
-					if(cue.inside(src) && !cue.isDeleting && cue in oview(1,src))
+					var/ITEMS/cue
+					for(var/ITEMS/I in oview(1,src))
+						cue=pick(I)
+						//INSTANTS
+						if(istype(I, /ITEMS/INSTANTS))
 
-						canAttack=0
-						flick("squat",src)
-						vel_x=0
-						spawn(2)
 							vel_x=0
-							flick("carrying",src)
-							Carry(cue)
+							if(cue.inside(src) && !cue.isDeleting && cue in oview(1,src))
+								holdingItem.Add(cue)
+								canAttack=0
+								flick("squat",src)
+								vel_x=0
+								spawn(2)
+									vel_x=0
+									flick("carrying",src)
+									cue.Activate(src)
+							break
+						//CONTAINERS
+						if(istype(I, /ITEMS/CONTAINERS))
+							vel_x=0
+
+							if(cue.inside(src) && !cue.isDeleting && cue in oview(1,src))
+								canAttack=0
+								flick("squat",src)
+								vel_x=0
+								spawn(2)
+									vel_x=0
+									flick("carrying",src)
+									Carry(cue)
+							break
 				else
 					for(var/ITEMS/CONTAINERS/C in holdingItem)
 						Drop(C)
@@ -415,6 +425,7 @@ mob
 
 		Carry(var/ITEMS/CONTAINERS/item)
 			animate(item, transform = null, time = 0.1)
+			view()<<PICKUP
 			carrying=1
 			item.timer=100
 			item.carried=1
