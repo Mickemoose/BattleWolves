@@ -165,7 +165,7 @@ mob
 			if(k == "8")
 				setVolume("UP", "MUSIC")
 			if(k == "9")
-				Shake()
+				Shake("LIGHT")
 		//	if(k == "0")
 
 			if(k == "1" && Debug)

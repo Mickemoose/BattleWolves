@@ -32,6 +32,8 @@ mob
 			return src.percent
 		HitStun(var/mob/target, time=2)
 			if(target.INVINCIBLE||target.SUPERARMOR) return
+			Shake("LIGHT")
+			target.Shake("LIGHT")
 			src.vel_x=0
 			src.vel_y=0
 			target.vel_x=0

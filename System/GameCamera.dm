@@ -7,10 +7,13 @@ GameCamera
 
 mob
 	proc
-		Shake(level="LIGHT")
+		Shake(level="MEDIUM")
 			//var/matrix/m = matrix()
-
-			animate(src.client, pixel_y=pick(-rand(40,50),rand(40,50)), pixel_x=pick(-rand(40,50),rand(40,50)), time=15, easing=BOUNCE_EASING)
+			switch(level)
+				if("LIGHT")
+					animate(src.client, pixel_y=pick(-rand(6,14),rand(6,14)), pixel_x=pick(-rand(6,14),rand(6,14)), time=8, easing=BOUNCE_EASING)
+				if("MEDIUM")
+					animate(src.client, pixel_y=pick(-rand(40,50),rand(40,50)), pixel_x=pick(-rand(40,50),rand(40,50)), time=15, easing=BOUNCE_EASING)
 					//animate(pixel_y=pick(-rand(30,80),rand(30,80)), pixel_x=pick(-rand(30,80),rand(30,80)), time=5, easing=BOUNCE_EASING)
 
 
