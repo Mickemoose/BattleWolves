@@ -41,6 +41,7 @@ mob
 		on_wall = 0
 		dead=0
 		respawning=0
+		fxd=0
 
 		hitstun =0
 		knockbacked=0
@@ -268,8 +269,25 @@ mob
 
 			vel_y -= gravity
 			if(on_wall)
+
 				if(vel_y < -slide_speed)
 					vel_y = -slide_speed
+					spawn(1)
+						if(!fxd)
+							fxd=1
+							var/EFFECT/SLIDE_SMOKE/FX = new /EFFECT/SLIDE_SMOKE(src)
+							FX.loc=src.loc
+							if(dir==RIGHT)
+								FX.dir=EAST
+								FX.step_x=src.step_x-22
+							else
+								FX.dir=WEST
+								FX.step_x=src.step_x-22
+							flick("",FX)
+							spawn(3) fxd=0
+							spawn(6)
+
+								del FX
 			else
 				if(vel_y < -fall_speed)
 					vel_y = -fall_speed

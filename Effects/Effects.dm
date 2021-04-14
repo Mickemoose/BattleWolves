@@ -6,6 +6,9 @@ EFFECT
 	DASH_SMOKE
 		icon='Effects/DashSmoke.dmi'
 		icon_state=""
+	SLIDE_SMOKE
+		icon='Effects/SlideSmoke.dmi'
+		icon_state=""
 
 
 
