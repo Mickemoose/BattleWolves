@@ -12,6 +12,10 @@ UI
 		c.screen+=src
 		playernum=tracking
 proc
+	DestroyWorldUI(var/mob/player)
+		for(var/mob/M in world)
+			if(M.client)
+				M.UI_Destroy(player)
 	UpdateWorldUI(var/mob/player)
 		for(var/mob/M in world)
 			if(M.client)
@@ -56,6 +60,39 @@ mob
 				num2+=120
 
 		UI_Destroy(var/mob/player)
+			for(var/UI/NAME/N2 in usr.client.screen)
+				if(N2.playernum==player.PLAYERNUMBER)
+					var/matrix/m = matrix()*2
+					animate(N2, transform=m.Translate(rand(2,8),10), time=1)
+					animate(transform=m.Translate(rand(2,8),2), time=1)
+					animate(transform=m.Translate(rand(2,8),-200), time=3)
+					spawn(5)
+						var num2 =0
+						num2-=52*Players
+
+						for(var/UI/U in usr.client.screen)
+							del U
+
+						for(var/mob/M in Players_ALIVE)
+							//if(M.hud) continue
+							//M.hud=1
+
+
+
+							var/UI/FACE/F= new (usr.client, M.PLAYERNUMBER)
+							F.icon_state=M.character
+							F.screen_loc="CENTER-1:[num2],CENTER-7:-7"
+							animate(F, transform= matrix()*2, alpha=255)
+							var num=13
+							var percent2 = num2text(M.getDamage()*100) + "%"
+							for(var/i=1, i<=length(percent2),i++)
+								var/UI/NAME/N= new (usr.client, M.PLAYERNUMBER)
+								N.screen_loc="CENTER:[num + num2],CENTER-7"
+								N.icon_state="[copytext(percent2,i,i+1)]"
+								num+=13
+								animate(N, transform= matrix()*2, alpha=255, time=3)
+							num2+=120
+
 		UI_Update(var/mob/player)
 			var num2 =0
 
@@ -74,7 +111,7 @@ mob
 				var/UI/FACE/F= new (usr.client, M.PLAYERNUMBER)
 				F.icon_state=M.character
 				F.screen_loc="CENTER-1:[num2],CENTER-7:-7"
-				animate(F, transform= matrix()*2, alpha=255, time=0.1)
+				animate(F, transform= matrix()*2, alpha=255)
 				var num=13
 				var percent2 = num2text(M.getDamage()*100) + "%"
 				for(var/i=1, i<=length(percent2),i++)

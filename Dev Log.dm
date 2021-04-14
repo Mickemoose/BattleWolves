@@ -30,4 +30,43 @@ When it hits 100%, You transform into your Blitz Forme
 This makes you faster, stronger and allows you to use your Ultimate Special
 
 
+
+
+TO BE FEATURE COMPLETE:
+
+Volume (settable)
+Lives (settable)
+Respawns/Deaths
+4 Stages
+- Whale Boat
+- Glitch Realm
+- Canadark
+- Fifth Dimension
+Stage Select
+
+Items (settable[rate of spawn, each one enabled])
+- 8 Character KFKs
+- 4 Sacrifice KFKs
+- Food for healing
+- Crate Container
+- Random chance for bomb in containers
+- Bomb
+- Mine
+- Web Trap
+
+Character Select
+- Derek
+- Brendan
+- Laundry
+- Smitty
+- Hunter
+- Matt
+- Becca
+- Hartshorne
+- Froese
+- Schnerch
+
+General VFX & SFX
+Xbox Controller Mapping
+
 */

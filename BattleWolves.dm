@@ -147,6 +147,8 @@ mob
 			return
 		else
 			..()
+			if(k == "8")
+				UI_Destroy(src)
 			if(k == "9")
 				setDamage(0.05)
 			if(k == "0")
