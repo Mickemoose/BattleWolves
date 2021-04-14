@@ -9,11 +9,13 @@ RESPAWN_PLATFORM
 
 
 	var
-		timer=100
+		timer=30
+		isTimer=0
 		start_py
 		end_py
 		list/spawns = list()
 		stopped=0
+		list/riders=list()
 	set_state()
 	gravity()
 	New(var/mob/m)
@@ -28,8 +30,10 @@ RESPAWN_PLATFORM
 		plane=src.plane+1
 		start_py = py
 		end_py = py - 10
+		spawn(2)
+			Timer()
 	pixel_move(dpx, dpy)
-		var/list/riders = top(1)
+		riders = top(1)
 		if(stopped)
 			return
 		else
@@ -43,16 +47,20 @@ RESPAWN_PLATFORM
 
 		if(stopped)
 			vel_y=0
+
 		else
 			..()
-
+			riders = top(1)
 			vel_y=-3
 			spawn(5)
 				vel_y=-1
 			spawn(12)
 				vel_y=-0.5
+
 				spawn(1)
+
 					stopped=1
+
 
 
 	proc
@@ -64,4 +72,14 @@ RESPAWN_PLATFORM
 				animate(src, transform = null, time = 1.5, loop=1 )
 
 		Timer()
+			timer--
+			if(timer<=0 || riders.len==0)
+				Deactivate()
+			if(timer>0)
+				spawn(2)
+					Timer()
 		Active()
+		Deactivate()
+			animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
+			spawn(3)
+				del src
