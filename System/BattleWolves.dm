@@ -1,14 +1,4 @@
-#include "alibs\sidescroller\_flags.dm"
-#include "alibs\sidescroller\background.dm"
-#include "alibs\sidescroller\camera.dm"
-#include "alibs\sidescroller\collision.dm"
-#include "alibs\sidescroller\debugging.dm"
-#include "alibs\sidescroller\keyboard.dm"
-#include "alibs\sidescroller\movement.dm"
-#include "alibs\sidescroller\pathing.dm"
-#include "alibs\sidescroller\pixel-movement.dm"
-#include "alibs\sidescroller\procs.dm"
-#include "alibs\sidescroller\world.dm"
+
 client
 	perspective = EYE_PERSPECTIVE
 	key_down(k)

@@ -7,6 +7,12 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
+#define FILE_DIR "alibs"
+#define FILE_DIR "alibs/sidescroller"
+#define FILE_DIR "alibs/sidescroller/background-demo"
+#define FILE_DIR "alibs/sidescroller/common"
+#define FILE_DIR "alibs/sidescroller/game-demo-2"
+#define FILE_DIR "alibs/sidescroller/mario-demo"
 #define FILE_DIR "Characters"
 #define FILE_DIR "hitboxes"
 #define FILE_DIR "Items"
@@ -24,7 +30,6 @@
 
 // BEGIN_INCLUDE
 #include <forum_account\keyboard\keyboard.dme>
-#include <forum_account\sidescroller\sidescroller.dme>
 #include <ter13\stdlib\StdLib.dme>
 #include "BattleWolves.dm"
 #include "Characters.dm"
@@ -38,6 +43,17 @@
 #include "Players.dm"
 #include "interface.dmf"
 #include "maps.dmm"
+#include "alibs\sidescroller\_flags.dm"
+#include "alibs\sidescroller\background.dm"
+#include "alibs\sidescroller\camera.dm"
+#include "alibs\sidescroller\collision.dm"
+#include "alibs\sidescroller\debugging.dm"
+#include "alibs\sidescroller\keyboard.dm"
+#include "alibs\sidescroller\movement.dm"
+#include "alibs\sidescroller\pathing.dm"
+#include "alibs\sidescroller\pixel-movement.dm"
+#include "alibs\sidescroller\procs.dm"
+#include "alibs\sidescroller\world.dm"
 #include "Characters\RespawnPlatform.dm"
 #include "Effects\Effects.dm"
 #include "Items\Items.dm"

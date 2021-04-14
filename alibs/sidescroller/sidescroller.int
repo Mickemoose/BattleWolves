@@ -1,0 +1,12 @@
+// BEGIN_INTERNALS
+/*
+MAP_ZOOM: 1.000
+LAST_COMPILE_TIME: 1618373985
+DIR: v2.5 game-demo interaction-demo movement-demo External 
+AUTO_FILE_DIR: OFF
+MAP_ICON_TYPE: 0
+LAST_COMPILE_VERSION: 514.1552
+WINDOW: keyboard.dm;movement.dm;C:\Users\micke\Documents\BYOND\lib\forum_account\keyboard\keyboard.dm;collision.dm;_flags.dm;background.dm;camera.dm;debugging.dm;pathing.dm;world.dm;procs.dm;pixel-movement.dm;_readme.dm;interaction-demo\enemy.dm;v2.5\demo.dm
+FILE: movement.dm
+*/
+// END_INTERNALS
