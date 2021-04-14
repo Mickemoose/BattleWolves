@@ -29,6 +29,8 @@ ITEMS
 			move_speed=2
 			carried=0
 			var
+				list/chars = list("Doop")
+				list/sacs = list()
 				ctype = "character" //or sacrifice
 			Activate(var/mob/activator)
 				activator.holdingItem.Remove(src)
@@ -42,15 +44,34 @@ ITEMS
 
 					animate(src, transform = M.Scale(-1, 1)  , time = 5, loop = 0, easing = SINE_EASING)
 					spawn(3)
-						if(prob(75)) ctype="character"
-						else ctype = "sacrifice"
+						if(prob(80)) ctype="character"
+						else if(prob(20)) ctype = "sacrifice"
 						icon_state=ctype
+						animate(transform = M.Scale(1, 1)  , loop = 0, easing = SINE_EASING)
 					spawn(10)
 						flick("summon",src)
 						view()<<KFKSUMMON
+						spawn(2)
+							Summon(ctype,activator)
 						spawn(8)
 
 							del src
+			proc
+				Summon(ctype,var/mob/owner)
+					var/result= 0
+					var/F
+					switch(ctype)
+						if("character")
+							F=pick(chars)
+						if("sacrifice")
+							F=pick(sacs)
+					var/KFK_Mobs/O = text2path("/KFK_Mobs/[F]")
+					new O(src.loc)
+					O.set_pos(src.px-8, src.py+16)
+					O.owner=owner
+					if(O) result=1
+					else result=0
+					return result
 
 	CONTAINERS
 		Barrel
@@ -130,7 +151,7 @@ ITEMS
 					isDeleting=1
 					animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
 					spawn(3)
-
+						if(istype(src, /ITEMS/INSTANTS/KFK_Card)) Current_KFK--
 						Items_ACTIVE.Remove(src)
 
 						del src
@@ -151,14 +172,11 @@ proc
 		selected = pick(itemspawns)
 		switch(name)
 			if("KFK")
-				var/found = locate(/ITEMS/INSTANTS/KFK_Card) in Items_ACTIVE
-				if(found)
-					return
-				else
-				    // It does not.
-					var/ITEMS/INSTANTS/KFK_Card/B= new /ITEMS/INSTANTS/KFK_Card(selected.loc)
+				if(Current_KFK > Max_KFK) return
+				var/ITEMS/INSTANTS/KFK_Card/B= new /ITEMS/INSTANTS/KFK_Card(selected.loc)
 
-					Items_ACTIVE.Add(B)
+				Items_ACTIVE.Add(B)
+				Current_KFK++
 			if("Barrel")
 
 				var/ITEMS/CONTAINERS/Barrel/B = new /ITEMS/CONTAINERS/Barrel(selected.loc)

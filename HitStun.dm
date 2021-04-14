@@ -34,18 +34,19 @@ mob
 			if(target.INVINCIBLE||target.SUPERARMOR) return
 			Shake("LIGHT")
 			target.Shake("LIGHT")
-			src.vel_x=0
-			src.vel_y=0
+			world<<HIT
+			//src.vel_x=0
+			//src.vel_y=0
 			target.vel_x=0
 			target.vel_y=0
 			target.hitstun=1
-			src.hitstun=1
+			//src.hitstun=1
 			animate(target,color=rgb(255,0,0),time=1)
 			sleep(1)
 			spawn(time)
 				animate(target,color=rgb(255,255,255),time=3)
 				target.hitstun=0
-				src.hitstun=0
+				//src.hitstun=0
 		Knockback(power = "LIGHT", where = "UP RIGHT")
 			if(src.INVINCIBLE||src.SUPERARMOR) return
 			var magnitude = 0

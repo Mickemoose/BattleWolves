@@ -211,9 +211,11 @@ mob
 								holdingItem.Add(cue)
 								canAttack=0
 								flick("squat",src)
+								view()<<PICKUP
 								vel_x=0
 								spawn(2)
 									vel_x=0
+									canAttack=1
 									flick("carrying",src)
 									cue.Activate(src)
 							break
@@ -347,7 +349,7 @@ mob
 
 
 		for(var/mob/M in world)
-			for(var/GameCamera/GC in world)
+			for(var/GameCamera/GC in Players_ALIVE)
 				if(GC.z == src.z && M.isPlayer)
 
 					if(get_dist(GC,M)<=14)

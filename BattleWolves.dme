@@ -17,6 +17,7 @@
 #define FILE_DIR "Effects"
 #define FILE_DIR "hitboxes"
 #define FILE_DIR "Items"
+#define FILE_DIR "Items/KFK"
 #define FILE_DIR "Music"
 #define FILE_DIR "Sound"
 #define FILE_DIR "Stages"
@@ -31,13 +32,11 @@
 
 // BEGIN_INCLUDE
 #include <forum_account\keyboard\keyboard.dme>
-#include <ter13\stdlib\StdLib.dme>
 #include "BattleWolves.dm"
 #include "Characters.dm"
 #include "Dev Log.dm"
 #include "Fullscreen.dm"
 #include "Game Vars.dm"
-#include "HitBox.dm"
 #include "HitStun.dm"
 #include "Mob Vars.dm"
 #include "OOV Circle.dm"
@@ -58,6 +57,7 @@
 #include "Characters\RespawnPlatform.dm"
 #include "Effects\Effects.dm"
 #include "Items\Items.dm"
+#include "Items\KFK\Cards.dm"
 #include "Music\Music.dm"
 #include "Sound\Sound.dm"
 #include "Stages\Test\stage.dm"
