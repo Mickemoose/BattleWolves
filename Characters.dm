@@ -1,6 +1,7 @@
 mob
 	proc
 		Death()
+			client.has_key(null)
 			setPlayerLives(1,"REMOVE")
 			canMove=0
 			canAct=0
@@ -19,10 +20,12 @@ mob
 			return
 
 		Respawn()
+			respawning=1
 			dead=0
 			new /RESPAWN_PLATFORM(src)
 			invisibility=0
-			spawn(2)
+			spawn(12)
+				respawning=0
 				canMove=1
 				canAct=1
 		setPlayerLives(num,option)
