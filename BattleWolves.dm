@@ -11,6 +11,7 @@
 #include "alibs\sidescroller\world.dm"
 client
 	perspective = EYE_PERSPECTIVE
+	preload_rsc = 2
 	key_down(k)
 		..()
 
@@ -180,9 +181,14 @@ mob
 				p.setPlayerNumber()
 				UI_Update()
 
-			//if(k == "2")
-
-
+			if(k == "2")
+				var/EFFECT/DASH_SMOKE/FX = new /EFFECT/DASH_SMOKE(src)
+				FX.loc=src.loc
+				FX.dir=EAST
+				FX.step_x=src.step_x - 32
+				flick("",FX)
+				spawn(6)
+					del FX
 			if(k == "escape")
 				client.ToggleFullscreen()
 			if(k == controls.jump)

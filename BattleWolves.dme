@@ -14,6 +14,7 @@
 #define FILE_DIR "alibs/sidescroller/game-demo-2"
 #define FILE_DIR "alibs/sidescroller/mario-demo"
 #define FILE_DIR "Characters"
+#define FILE_DIR "Effects"
 #define FILE_DIR "hitboxes"
 #define FILE_DIR "Items"
 #define FILE_DIR "Music"

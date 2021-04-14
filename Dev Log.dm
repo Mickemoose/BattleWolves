@@ -7,7 +7,6 @@ Down Special
 Lives / Respawn
 Game End & Start
 
--> Brendan
 
 Make all characters,
 then make some stages

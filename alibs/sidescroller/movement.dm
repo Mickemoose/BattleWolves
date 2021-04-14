@@ -359,10 +359,21 @@ mob
 					if(client.has_key(controls.right))
 						if(on_ground)
 							if(dir == RIGHT && vel_x == 0  && on_ground && ready2dash && !carrying)
-								ready2dash = 0
+								if(ready2dash)
+									var/EFFECT/DASH_SMOKE/FX = new /EFFECT/DASH_SMOKE(src)
+									FX.loc=src.loc
+									FX.dir=EAST
+									FX.step_x=src.step_x - 32
+									flick("",FX)
+									spawn(6)
+										del FX
+									ready2dash = 0
+
 								if(!is_jumping)
 									is_skidding=0
+
 									flick("dash",src)
+
 								vel_x += move_speed + 3
 
 							else if(dir == LEFT && vel_x < 0 && !carrying)
@@ -393,10 +404,21 @@ mob
 					if(client.has_key(controls.left))
 						if(on_ground)
 							if(dir == LEFT && vel_x == 0 && on_ground && ready2dash && !carrying)
-								ready2dash = 0
+								if(ready2dash)
+									var/EFFECT/DASH_SMOKE/FX = new /EFFECT/DASH_SMOKE(src)
+									FX.loc=src.loc
+									FX.dir=WEST
+									FX.step_x=src.step_x
+									flick("",FX)
+									spawn(6)
+										del FX
+									ready2dash = 0
 								if(!is_jumping)
 									is_skidding=0
+
 									flick("dash",src)
+
+
 								vel_x -= move_speed + 3
 							else if(dir == RIGHT && vel_x > 0 && !carrying)
 								is_skidding=1
