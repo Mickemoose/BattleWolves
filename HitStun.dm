@@ -7,7 +7,7 @@ mob
 				percent = 3.0
 			else if (num <= 0)
 				percent = 0
-			UI_Update(src)
+			UpdateWorldUI(src)
 			return
 		getDamage()
 			return src.percent

@@ -13,7 +13,7 @@ mob
 		respawned=0
 
 		blitz=0
-		lives =0
+		lives =6
 		percent = 0
 		canMove = 1
 		canAttack = 1

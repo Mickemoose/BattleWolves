@@ -147,6 +147,8 @@ mob
 			return
 		else
 			..()
+			if(k == "7")
+				setPlayerLives(1,"REMOVE")
 			if(k == "8")
 				UI_Destroy(src)
 			if(k == "9")
@@ -160,6 +162,7 @@ mob
 				if(Players >=8) return
 				var/mob/p = new /mob(49,39,src.z)
 				p.loc=locate(49,39,src.z)
+				p.lives=6
 				p.setCharacter("Sandbag")
 				p.setPlayerNumber()
 				UI_Update()

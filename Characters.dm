@@ -1,9 +1,27 @@
 mob
 	proc
+		setPlayerLives(num,option)
+			switch(option)
+				if("ADD")
+					lives+=num
+					UpdateWorldUI(src)
+				if("REMOVE")
+					lives-=num
+					DestroyWorldUI(src)
+				else
+					lives=num
+					UpdateWorldUI(src)
+			if(lives>6)
+				lives=6
+			if(lives<0)
+				lives=0
+
+
 		setPlayerNumber()
 			if(Players < 8)
 				Players++
 				PLAYERNUMBER = Players
+				setPlayerLives(6)
 				Players_ALIVE.Add(src)
 				UI_Populate()
 				return
