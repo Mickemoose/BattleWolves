@@ -228,7 +228,7 @@ mob
 					canMove=0
 					vel_x=0
 					flick("throw",src)
-					spawn(6)
+					spawn(5.5)
 						Throw(C)
 						canMove=1
 						canAttack=1

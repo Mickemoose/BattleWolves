@@ -42,6 +42,7 @@ mob
 		dead=0
 		respawning=0
 		fxd=0
+		footstepsound=0
 
 		hitstun =0
 		knockbacked=0
@@ -146,6 +147,12 @@ mob
 				icon_state = base + CARRYMOVING
 			else if(moved)
 				icon_state = base + MOVING
+				spawn(1.5)
+					if(!footstepsound)
+						footstepsound=1
+						src<<FOOTSTEP
+						spawn(3.3)
+							footstepsound=0
 			else
 				icon_state = base + STANDING
 
