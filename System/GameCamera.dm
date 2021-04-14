@@ -1,14 +1,18 @@
 GameCamera
 	icon='System/Camera.dmi'
 	invisibility=101
+	density=0
 	parent_type=/obj
+
 
 mob
 	proc
-		Shake(c=rand(4,10))
-			pixel_x -= c
-			pixel_y -= c
-			animate(src,pixel_x=pixel_x+c,pixel_y=pixel_y+c,time=6,easing=BOUNCE_EASING)
+		Shake(level="LIGHT")
+			//var/matrix/m = matrix()
+
+			animate(src.client, pixel_y=pick(-rand(40,50),rand(40,50)), pixel_x=pick(-rand(40,50),rand(40,50)), time=15, easing=BOUNCE_EASING)
+					//animate(pixel_y=pick(-rand(30,80),rand(30,80)), pixel_x=pick(-rand(30,80),rand(30,80)), time=5, easing=BOUNCE_EASING)
+
 
 ItemSpawn
 	icon='System/Camera.dmi'

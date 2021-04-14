@@ -165,7 +165,7 @@ mob
 			if(k == "8")
 				setVolume("UP", "MUSIC")
 			if(k == "9")
-				setDamage(0.05, "ADD")
+				Shake()
 		//	if(k == "0")
 
 			if(k == "1" && Debug)
