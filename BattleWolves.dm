@@ -152,7 +152,7 @@ mob
 			if(k == "8")
 				UI_Destroy(src)
 			if(k == "9")
-				setDamage(0.05)
+				setDamage(0.05, "ADD")
 			if(k == "0")
 				//setVolume("UP","MUSIC")
 				new /RESPAWN_PLATFORM(src)

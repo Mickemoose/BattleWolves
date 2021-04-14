@@ -1,14 +1,31 @@
 mob
 	proc
-		setDamage(num)
-
-			src.percent+=num
-			if(percent >= 3.0)
-				percent = 3.0
-			else if (num <= 0)
-				percent = 0
-			UpdateWorldUI(src)
-			return
+		setDamage(num,option)
+			switch(option)
+				if("ADD")
+					src.percent+=num
+					if(percent >= 3.0)
+						percent = 3.0
+					else if (num <= 0)
+						percent = 0
+					UpdateWorldUI(src)
+					return
+				if("REMOVE")
+					src.percent-=num
+					if(percent >= 3.0)
+						percent = 3.0
+					else if (num <= 0)
+						percent = 0
+					UpdateWorldUI(src)
+					return
+				else
+					src.percent=num
+					if(percent >= 3.0)
+						percent = 3.0
+					else if (num <= 0)
+						percent = 0
+					//UpdateWorldUI(src)
+					return
 		getDamage()
 			return src.percent
 		HitStun(var/mob/target, time=2)

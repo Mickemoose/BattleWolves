@@ -1,5 +1,25 @@
 mob
 	proc
+		Death()
+			canMove=0
+			canAct=0
+			vel_x=0
+			vel_y=0
+			invisibility=101
+			setPlayerLives(1,"REMOVE")
+			setDamage(0)
+			spawn(10)
+				if(lives>0)
+					Respawn()
+				else
+					Players_ALIVE.Remove(src)
+					UpdateWorldUI(src)
+		Respawn()
+			new /RESPAWN_PLATFORM(src)
+			invisibility=0
+			spawn(3)
+				canMove=1
+				canAct=1
 		setPlayerLives(num,option)
 			switch(option)
 				if("ADD")

@@ -20,3 +20,6 @@ RespawnSpawn
 	icon_state="respawn"
 	invisibility=101
 	parent_type=/obj
+	var
+		taken=0
+		takenBy
