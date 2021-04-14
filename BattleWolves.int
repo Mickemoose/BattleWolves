@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618416631
+LAST_COMPILE_TIME: 1618418358
 DIR: alibs alibs\sidescroller Characters Effects hitboxes Items Music Sound Stages Stages\Test System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: Effects\Effects.dm;BattleWolves.dm;alibs\sidescroller\movement.dm;Characters\RespawnPlatform.dm;Effects\DashSmoke.dmi;interface.dmf;Effects\SlideSmoke.dmi;Characters\Derek.dmi;Sound\Sound.dm
-FILE: BattleWolves.dm
+WINDOW: Effects\Effects.dm;BattleWolves.dm;alibs\sidescroller\movement.dm;Characters\RespawnPlatform.dm;Effects\DashSmoke.dmi;interface.dmf;Effects\SlideSmoke.dmi;Characters\Derek.dmi;Sound\Sound.dm;Music\Music.dm;Effects\LandingSmoke.dmi;Camera.dm;Characters.dm;System\BlastZone.dm;System\BattleWolves.dm;UI\PercentNumbers.dm;Characters\Characters.dm;HitStun.dm
+FILE: Characters\RespawnPlatform.dm
 */
 // END_INTERNALS

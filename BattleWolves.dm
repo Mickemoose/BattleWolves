@@ -176,7 +176,6 @@ mob
 				if(Players >=8) return
 				var/mob/p = new /mob(49,39,src.z)
 				p.loc=locate(49,39,src.z)
-				p.lives=6
 				p.setCharacter("Sandbag")
 				p.setPlayerNumber()
 				UI_Update()
@@ -265,14 +264,26 @@ mob
 			setLandingLag("HEAVY")
 			tumbled=0
 		if(d == DOWN)
+			var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
+			FX.plane=src.plane-1
+			FX.loc=src.loc
+			FX.dir=EAST
+			FX.step_x=src.step_x-32
+			FX.step_y-=2
+			flick("",FX)
+			spawn(6)
+				del FX
 			flick("squat",src)
+
 			canMove=0
 			vel_y = 0
 			vel_x = 0
 			is_jumping=0
 			is_skidding=0
+			reeled=0
 			has_jumped=0
 			spawn(LAG)
+				del FX
 				flick("squatend",src)
 				canMove=1
 	bump(RESPAWN_PLATFORM/R, d)

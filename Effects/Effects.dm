@@ -9,6 +9,8 @@ EFFECT
 	SLIDE_SMOKE
 		icon='Effects/SlideSmoke.dmi'
 		icon_state=""
-
+	LANDING_SMOKE
+		icon='Effects/LandingSmoke.dmi'
+		icon_state=""
 
 

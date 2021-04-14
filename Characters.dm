@@ -1,11 +1,12 @@
 mob
 	proc
 		Death()
-			client.has_key(null)
+			if(client) client.has_key(null)
 			on_wall=0
 			setPlayerLives(1,"REMOVE")
 			canMove=0
 			canAct=0
+			reeled=0
 			dead=1
 			vel_x=0
 			vel_y=0
@@ -16,8 +17,12 @@ mob
 				if(lives>0)
 					Respawn()
 				else
+
 					Players_ALIVE.Remove(src)
+					Players--
+					PopulateWorldUI(src)
 					UpdateWorldUI(src)
+					if(!client) del src
 			return
 
 		Respawn()
@@ -55,7 +60,7 @@ mob
 			if(Players < 8)
 				Players++
 				PLAYERNUMBER = Players
-				setPlayerLives(6)
+				//setPlayerLives(6)
 				Players_ALIVE.Add(src)
 				UI_Populate()
 				return
@@ -89,6 +94,7 @@ mob
 
 		setCharacter(name)
 			isPlayer=1
+			dead=0
 			character = "[name]"
 			dir=RIGHT
 			density=0
@@ -106,6 +112,7 @@ mob
 					fall_speed=9
 					move_speed=5
 					carry_speed=2
+					setPlayerLives(3)
 				if("Sandbag")
 					icon='Characters/Sandbag.dmi'
 					jump_speed = 12
@@ -117,3 +124,4 @@ mob
 					fall_speed=4
 					move_speed=4
 					carry_speed=3
+					setPlayerLives(1)

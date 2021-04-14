@@ -108,6 +108,15 @@ mob
 				animate(transform=m.Translate(rand(2,8),-200), time=3)
 				spawn(8)
 					del selected
+			if(player.lives<=0)
+				for(var/UI/FACE/F in src.client.screen)
+					if(F.playernum==player.PLAYERNUMBER)
+						var/matrix/m = matrix()*2
+						animate(F, transform=m.Translate(rand(2,8),10), time=1)
+						animate(transform=m.Translate(rand(2,8),2), time=1)
+						animate(transform=m.Translate(rand(2,8),-200), time=3)
+
+
 			for(var/UI/NAME/N2 in src.client.screen)
 				if(N2.playernum==player.PLAYERNUMBER)
 					//Life_Destroy(player)
@@ -116,41 +125,42 @@ mob
 					animate(transform=m.Translate(rand(2,8),2), time=1)
 					animate(transform=m.Translate(rand(2,8),-200), time=3)
 					spawn(8)
-						var num2 =0
-						num2-=52*Players
+						if(player.lives>0)
+							var num2 =0
+							num2-=52*Players
 
-						for(var/UI/U in src.client.screen)
-							del U
+							for(var/UI/U in src.client.screen)
+								del U
 
-						for(var/mob/M in Players_ALIVE)
-							//if(M.hud) continue
-							//M.hud=1
+							for(var/mob/M in Players_ALIVE)
+								//if(M.hud) continue
+								//M.hud=1
 
 
 
-							var/UI/FACE/F= new (src.client, M.PLAYERNUMBER)
-							F.icon_state=M.character
-							F.screen_loc="CENTER-1:[num2],CENTER-7:-7"
-							animate(F, transform= matrix()*2, alpha=255)
-							var num=13
-							var num3=8
-							var percent2 = num2text(M.getDamage()*100) + "%"
-							for(var/i=1, i<=length(percent2),i++)
-								var/UI/NAME/N= new (src.client, M.PLAYERNUMBER)
-								N.screen_loc="CENTER:[num + num2],CENTER-7"
-								N.icon_state="[copytext(percent2,i,i+1)]"
-								num+=13
-								animate(N, transform= matrix()*2, alpha=255, time=3)
-							for(var/i2=1, i2<=M.lives,i2++)
-								var/UI/LIFE/L= new (src.client, M.PLAYERNUMBER)
-								L.screen_loc="CENTER:[num3 + num2],CENTER-6:-16"
-								animate(L, transform = matrix(), alpha= 255,time = 3)
+								var/UI/FACE/F= new (src.client, M.PLAYERNUMBER)
+								F.icon_state=M.character
+								F.screen_loc="CENTER-1:[num2],CENTER-7:-7"
+								animate(F, transform= matrix()*2, alpha=255)
+								var num=13
+								var num3=8
+								var percent2 = num2text(M.getDamage()*100) + "%"
+								for(var/i=1, i<=length(percent2),i++)
+									var/UI/NAME/N= new (src.client, M.PLAYERNUMBER)
+									N.screen_loc="CENTER:[num + num2],CENTER-7"
+									N.icon_state="[copytext(percent2,i,i+1)]"
+									num+=13
+									animate(N, transform= matrix()*2, alpha=255, time=3)
+								for(var/i2=1, i2<=M.lives,i2++)
+									var/UI/LIFE/L= new (src.client, M.PLAYERNUMBER)
+									L.screen_loc="CENTER:[num3 + num2],CENTER-6:-16"
+									animate(L, transform = matrix(), alpha= 255,time = 3)
 
-								num3+=8
-							num2+=120
+									num3+=8
+								num2+=120
 
-							spawn(1)
-								UI_Update(M)
+								spawn(1)
+									UI_Update(M)
 
 		UI_Update(var/mob/player)
 			var num2 =0

@@ -6,7 +6,6 @@ area
 		Entered(mob/M)
 			if(M.isPlayer && !M.dead)
 				world<<PLAYERDEATH
-
 				M.Death()
-				world<<output("[M] DIED","window1.output1")
+				world<<output("[M] DIED with [M.lives] lives left","window1.output1")
 				return

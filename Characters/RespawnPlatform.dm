@@ -6,7 +6,7 @@ RESPAWN_PLATFORM
 	pwidth=31
 	pheight=6
 	density=1
-
+	scaffold=1
 
 	var
 		timer=30

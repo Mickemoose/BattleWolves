@@ -50,6 +50,7 @@ mob
 		reeled=0
 		is_jumping = 0
 		is_skidding = 0
+		is_dashing = 0
 		has_jumped = 0
 		carrying = 0
 		carried = 0
@@ -147,12 +148,20 @@ mob
 				icon_state = base + CARRYMOVING
 			else if(moved)
 				icon_state = base + MOVING
-				spawn(1.5)
-					if(!footstepsound)
-						footstepsound=1
-						src<<FOOTSTEP
-						spawn(3.3)
-							footstepsound=0
+				if(is_dashing)
+					spawn(0.5)
+						if(!footstepsound)
+							footstepsound=1
+							src<<FOOTSTEP
+							spawn(1.3)
+								footstepsound=0
+				else
+					spawn(1.5)
+						if(!footstepsound)
+							footstepsound=1
+							src<<FOOTSTEP
+							spawn(3.3)
+								footstepsound=0
 			else
 				icon_state = base + STANDING
 
@@ -392,15 +401,17 @@ mob
 									flick("",FX)
 									spawn(6)
 										del FX
+									footstepsound=0
 									ready2dash = 0
 
 								if(!is_jumping)
 									is_skidding=0
-
+									is_dashing=1
 									flick("dash",src)
 
 								vel_x += move_speed + 3
-
+								spawn(2.5)
+									is_dashing=0
 							else if(dir == LEFT && vel_x < 0 && !carrying)
 								is_skidding=1
 								flick("skid",src)
@@ -437,14 +448,17 @@ mob
 									flick("",FX)
 									spawn(6)
 										del FX
+									footstepsound=0
 									ready2dash = 0
 								if(!is_jumping)
 									is_skidding=0
-
+									is_dashing=1
 									flick("dash",src)
 
 
 								vel_x -= move_speed + 3
+								spawn(2.5)
+									is_dashing=0
 							else if(dir == RIGHT && vel_x > 0 && !carrying)
 								is_skidding=1
 								flick("skid",src)
