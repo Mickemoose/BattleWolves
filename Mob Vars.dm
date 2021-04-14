@@ -23,6 +23,8 @@ mob
 		target_circles[]
 		LAG = 3
 
+		INVINCIBLE=0
+		SUPERARMOR=0
 		PLAYERNUMBER=0
 
 		isPlayer = 0

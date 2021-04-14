@@ -1,6 +1,7 @@
 mob
 	proc
 		setDamage(num,option)
+
 			switch(option)
 				if("ADD")
 					src.percent+=num
@@ -11,6 +12,7 @@ mob
 					UpdateWorldUI(src)
 					return
 				if("REMOVE")
+					if(src.INVINCIBLE) return
 					src.percent-=num
 					if(percent >= 3.0)
 						percent = 3.0
@@ -29,6 +31,7 @@ mob
 		getDamage()
 			return src.percent
 		HitStun(var/mob/target, time=2)
+			if(target.INVINCIBLE||target.SUPERARMOR) return
 			src.vel_x=0
 			src.vel_y=0
 			target.vel_x=0
@@ -42,6 +45,7 @@ mob
 				target.hitstun=0
 				src.hitstun=0
 		Knockback(power = "LIGHT", where = "UP RIGHT")
+			if(src.INVINCIBLE||src.SUPERARMOR) return
 			var magnitude = 0
 			canAct=0
 			hitstun=0
