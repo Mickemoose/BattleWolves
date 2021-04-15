@@ -1,3 +1,6 @@
+var
+	list
+		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate")
 ITEMS
 	parent_type = /mob
 	appearance_flags = PIXEL_SCALE
@@ -10,6 +13,7 @@ ITEMS
 		damage = 0
 
 		thrown = 0
+		mover=0
 		carrier
 		timer = 100
 		isDeleting = 0
@@ -82,9 +86,25 @@ ITEMS
 			pixel_x=-20
 			pixel_y=-16
 			move_speed=2
+			mover=1
 			carried=0
+		Crate
+			icon='Items/Crate.dmi'
+			icon_state="3"
+			pwidth=26
+			pheight=20
+			pixel_x=-20
+			pixel_y=-16
+			move_speed=2
+			carried=0
+			New()
+				..()
+				icon_state=pick("1","2","3")
 	set_state()
 	action()
+		if(mover) return
+		else
+			..()
 
 
 	movement()
@@ -101,6 +121,17 @@ ITEMS
 	bump(atom/d)
 
 		if(!on_ground && !isDeleting)
+			for(var/mob/m in world)
+				m<<FOOTSTEP
+			var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
+			FX.plane=src.plane-1
+			FX.loc=src.loc
+			FX.dir=EAST
+			FX.step_x=src.step_x-32
+			FX.step_y-=2
+			flick("",FX)
+			spawn(6)
+				del FX
 			DeleteTimer()
 
 	New()
@@ -171,6 +202,13 @@ proc
 
 		selected = pick(itemspawns)
 		switch(name)
+			if("item")
+				var/F=pick(itemlist)
+				var/ITEMS/O = text2path("/ITEMS/[F]")
+				new O(selected.loc)
+				Items_ACTIVE.Add(O)
+				if(istype(O, /ITEMS/INSTANTS/KFK_Card))
+					Current_KFK++
 			if("KFK")
 				if(Current_KFK > Max_KFK) return
 				var/ITEMS/INSTANTS/KFK_Card/B= new /ITEMS/INSTANTS/KFK_Card(selected.loc)

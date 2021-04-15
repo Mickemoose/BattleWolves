@@ -173,9 +173,7 @@ mob
 		//	if(k == "0")
 
 			if(k == "1" && Debug)
-				ItemSpawn("Barrel", src.z)
-				spawn(1)
-					ItemSpawn("KFK", src.z)
+				ItemSpawn("item", src.z)
 			if(k == "3" && Debug)
 				if(Players >=8) return
 				var/mob/p = new /mob(49,39,src.z)
@@ -401,7 +399,15 @@ mob
 			holdingItem.Remove(item)
 			holdingItem=new()
 			item.carrier = null
-			item.icon_state=""
+			if(istype(item,/ITEMS/CONTAINERS/Crate))
+				switch(item.icon_state)
+					if("1-carried")
+						item.icon_state="1"
+					if("2-carried")
+						item.icon_state="2"
+					if("3-carried")
+						item.icon_state="3"
+			else item.icon_state=""
 			item.plane=1
 			if(dir == RIGHT)
 				item.set_pos(px+8, py+12)
@@ -413,9 +419,10 @@ mob
 			holdingItem.Remove(item)
 			holdingItem=new()
 			item.carrier = null
-			item.icon_state="moving"
 			item.plane=1
 			item.thrown=1
+			if(item.mover) item.icon_state="moving"
+			else item.setSpinning()
 			if(dir == RIGHT)
 				item.set_pos(px+8, py+12)
 				item.vel_x=5
@@ -438,7 +445,15 @@ mob
 			item.setCarry()
 			holdingItem.Add(item)
 			item.carrier = src
-			item.icon_state="carried"
+			if(istype(item,/ITEMS/CONTAINERS/Crate))
+				switch(item.icon_state)
+					if("1")
+						item.icon_state="1-carried"
+					if("2")
+						item.icon_state="2-carried"
+					if("3")
+						item.icon_state="3-carried"
+			else item.icon_state="carried"
 			item.plane=plane-1
 			item.set_pos(px, py+24)
 			item.vel_x=0

@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618494823
-DIR: alibs alibs\sidescroller alibs\sidescroller\game-demo-2 alibs\sidescroller\pathing-demo Characters Effects Items Items\KFK Music Sound Stages Stages\Test System UI 
+LAST_COMPILE_TIME: 1618497420
+DIR: alibs alibs\sidescroller\game-demo-2 alibs\sidescroller\pathing-demo Characters Effects Items Items\KFK Music Sound Stages Stages\Test System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: Items\KFK\Doop.dmi;Characters\Derek.dmi;Characters\Sandbag.dmi;Items\KFK\Cards.dm;BattleWolves.dm;Characters.dm;HitStun.dm;Dev Log.dm;alibs\sidescroller\pixel-movement.dm;alibs\sidescroller\movement.dm;alibs\sidescroller\keyboard.dm
-FILE: BattleWolves.dm
+WINDOW: Items\KFK\Doop.dmi;Characters\Derek.dmi;Characters\Sandbag.dmi;Items\KFK\Cards.dm;BattleWolves.dm;Characters.dm;HitStun.dm;Dev Log.dm;alibs\sidescroller\pixel-movement.dm;alibs\sidescroller\movement.dm;alibs\sidescroller\keyboard.dm;Items\Containers.dmi;Items\Crate.dmi;Items\Items.dm;Items\KFK\Summon.dmi
+FILE: Items\Items.dm
 */
 // END_INTERNALS
