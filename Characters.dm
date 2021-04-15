@@ -142,8 +142,11 @@ mob
 					pixel_y=-16
 					pwidth=22
 					pheight=33
-					fall_speed=9
+					fall_speed=6
 					move_speed=5
+					air_move_speed=4.5
+					air_decel=0.14
+					gravity=0.65
 					carry_speed=2
 					setPlayerLives(3)
 				if("Sandbag")

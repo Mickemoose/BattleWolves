@@ -134,7 +134,7 @@ mob
 			has_jumped=1
 			is_jumping=1
 			tumbled=0
-
+			//jumped=1
 			setLandingLag("LIGHT")
 			flick("squat",src)
 			canMove=0

@@ -63,11 +63,14 @@ mob
 		// acceleration and deceleration rates
 		accel = 0.75
 		decel = 0.5
+		air_accel = 0.3
+		air_decel = 0.3
 		kdecel = 0.1
 		gravity = 1
 		skidspeed = 0.8
 
 		move_speed = 5
+		air_move_speed = 3
 		carry_speed = 3
 		climb_speed = 5
 		jump_speed = 10
@@ -231,6 +234,11 @@ mob
 						vel_x += accel
 						if(vel_x > carry_speed)
 							vel_x = carry_speed
+				else if(!on_ground)
+					if(vel_x < air_move_speed)
+						vel_x += air_accel
+						if(vel_x > air_move_speed)
+							vel_x = air_move_speed
 				else if(vel_x < move_speed)
 					vel_x += accel
 					if(vel_x > move_speed)
@@ -243,7 +251,11 @@ mob
 						vel_x -= accel
 						if(vel_x < -carry_speed)
 							vel_x = -carry_speed
-
+				else if(!on_ground)
+					if(vel_x > -air_move_speed)
+						vel_x -= air_accel
+						if(vel_x < -air_move_speed)
+							vel_x = -air_move_speed
 				else if(vel_x > -move_speed)
 					vel_x -= accel
 					if(vel_x < -move_speed)
@@ -283,7 +295,9 @@ mob
 				return
 			if(on_ladder || hitstun || carried || dead) return
 
+
 			vel_y -= gravity
+
 			if(on_wall)
 
 				if(vel_y < -slide_speed)
@@ -344,6 +358,7 @@ mob
 			// if the mob's movement isn't controlled by a call to move_to or
 			// move_towards, we use the client's keyboard input to control the mob.
 			else if(client)
+
 				if(knockbacked || on_wall || respawning)
 					if(client.has_key(controls.right))
 						return
@@ -488,7 +503,12 @@ mob
 					if(client.has_key(controls.up))
 						move(UP)
 					if(client.has_key(controls.down))
-						move(DOWN)
+						if(!on_ground)
+							vel_y-=fall_speed+2
+							spawn(2)
+								vel_y=-fall_speed
+							//slow_down()
+						//move(DOWN)
 
 				// by default the jumped var is set to 1 when you press the space bar
 				if(jumped)
@@ -566,72 +586,100 @@ mob
 			// if you're moving faster than your move_speed, slow down
 			// whether you're pressing an arrow key or not.
 
-
-			if(vel_x > move_speed)
-				vel_x -= decel
-			else if(vel_x < -move_speed)
-				vel_x += decel
-
-			// if you're not pressing left or right, slow down.
-			// we want this to happen whether you're on a ladder or not
+			if(!on_ground)
+				if(vel_x > move_speed)
+					vel_x -= decel
+				else if(vel_x < -move_speed)
+					vel_x += decel
 			else
-				if(client)
-					if(reeled)
-						if(!client.has_key(controls.right) && !client.has_key(controls.left))
-							if(vel_x > kdecel)
-								vel_x -= kdecel
-								if(!tumbled && !on_wall)
-									animate(src, transform = turn(matrix(), 6), time = 1.5, loop = -1)
-									animate(src, transform = null, time = 1.5, loop = -1)
-							else if(vel_x < -kdecel)
-								vel_x += kdecel
-								if(!tumbled && !on_wall)
-									animate(src, transform = turn(matrix(), 356), time = 1.5, loop = -1)
-									animate(src, transform = null, time = 1.5, loop = -1)
-							else
-								vel_x = 0
-					else
-						if(!client.has_key(controls.right) && !client.has_key(controls.left))
-							if(vel_x > decel)
-								vel_x -= decel
-								if(!tumbled && !on_wall)
-									animate(src, transform = turn(matrix(), 6), time = 1.5, loop = -1)
-									animate(src, transform = null, time = 1.5, loop = -1)
-							else if(vel_x < -decel)
-								vel_x += decel
-								if(!tumbled && !on_wall)
-									animate(src, transform = turn(matrix(), 356), time = 1.5, loop = -1)
-									animate(src, transform = null, time = 1.5, loop = -1)
-							else
-								vel_x = 0
+				if(vel_x > air_move_speed)
+					vel_x -= air_decel
+				else if(vel_x < -air_move_speed)
+					vel_x += air_decel
 
-					// if you are on a ladder also slow down in the y direction.
-					if(on_ladder && !client.has_key(controls.up) && !client.has_key(controls.down))
-						if(vel_y > decel)
-							vel_y -= decel
-						else if(vel_y < -decel)
-							vel_y += decel
-						else
-							vel_y = 0
-
-				// for non-clients we check the moved var
-				else if(!moved)
-					if(!(moved & EAST) && !(moved & WEST))
+				// if you're not pressing left or right, slow down.
+				// we want this to happen whether you're on a ladder or not
+				else
+					if(client)
 						if(reeled)
+							if(!client.has_key(controls.right) && !client.has_key(controls.left))
+								if(vel_x > kdecel)
+									vel_x -= kdecel
+									if(!tumbled && !on_wall)
+										animate(src, transform = turn(matrix(), 6), time = 1.5, loop = -1)
+										animate(src, transform = null, time = 1.5, loop = -1)
+								else if(vel_x < -kdecel)
+									vel_x += kdecel
+									if(!tumbled && !on_wall)
+										animate(src, transform = turn(matrix(), 356), time = 1.5, loop = -1)
+										animate(src, transform = null, time = 1.5, loop = -1)
+								else
+									vel_x = 0
 
-							if(vel_x > kdecel)
-								vel_x -= kdecel
-							else if(vel_x < -kdecel)
-								vel_x += kdecel
-							else
-								vel_x = 0
+						else if(!on_ground)
+							if(!client.has_key(controls.right) && !client.has_key(controls.left))
+								if(vel_x > air_decel)
+									vel_x -= air_decel
+									if(!tumbled && !on_wall)
+										animate(src, transform = turn(matrix(), 6), time = 1.5, loop = -1)
+										animate(src, transform = null, time = 1.5, loop = -1)
+								else if(vel_x < -air_decel)
+									vel_x += air_decel
+									if(!tumbled && !on_wall)
+										animate(src, transform = turn(matrix(), 356), time = 1.5, loop = -1)
+										animate(src, transform = null, time = 1.5, loop = -1)
+								else
+									vel_x = 0
 						else
-							if(vel_x > decel)
-								vel_x -= decel
-							else if(vel_x < -decel)
-								vel_x += decel
+							if(!client.has_key(controls.right) && !client.has_key(controls.left))
+								if(vel_x > decel)
+									vel_x -= decel
+									if(!tumbled && !on_wall)
+										animate(src, transform = turn(matrix(), 6), time = 1.5, loop = -1)
+										animate(src, transform = null, time = 1.5, loop = -1)
+								else if(vel_x < -decel)
+									vel_x += decel
+									if(!tumbled && !on_wall)
+										animate(src, transform = turn(matrix(), 356), time = 1.5, loop = -1)
+										animate(src, transform = null, time = 1.5, loop = -1)
+								else
+									vel_x = 0
+
+						// if you are on a ladder also slow down in the y direction.
+						if(on_ladder && !client.has_key(controls.up) && !client.has_key(controls.down))
+							if(vel_y > decel)
+								vel_y -= decel
+							else if(vel_y < -decel)
+								vel_y += decel
 							else
-								vel_x = 0
+								vel_y = 0
+
+					// for non-clients we check the moved var
+					else if(!moved)
+						if(!(moved & EAST) && !(moved & WEST))
+							if(reeled)
+
+								if(vel_x > kdecel)
+									vel_x -= kdecel
+								else if(vel_x < -kdecel)
+									vel_x += kdecel
+								else
+									vel_x = 0
+							else if(!on_ground)
+								if(vel_x > air_decel)
+									vel_x -= air_decel
+								else if(vel_x < -air_decel)
+									vel_x += air_decel
+								else
+									vel_x = 0
+
+							else
+								if(vel_x > decel)
+									vel_x -= decel
+								else if(vel_x < -decel)
+									vel_x += decel
+								else
+									vel_x = 0
 
 		// This proc is called every tick by the default movement proc. It sets
 		// the on_ground, on_ceiling, on_left, and on_right flags so you can
