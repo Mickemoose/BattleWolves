@@ -224,16 +224,16 @@ mob
 						//CONTAINERS
 						if(istype(I, /ITEMS/CONTAINERS))
 							vel_x=0
-
-							if(cue.inside(src) && !cue.isDeleting && cue in oview(1,src))
-								canAttack=0
-								flick("squat",src)
-								vel_x=0
-								spawn(2)
+							if(I.canCarry)
+								if(cue.inside(src) && !cue.isDeleting && cue in oview(1,src))
+									canAttack=0
+									flick("squat",src)
 									vel_x=0
-									flick("carrying",src)
-									Carry(cue)
-							break
+									spawn(2)
+										vel_x=0
+										flick("carrying",src)
+										Carry(cue)
+								break
 				else
 					for(var/ITEMS/CONTAINERS/C in holdingItem)
 						Drop(C)

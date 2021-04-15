@@ -16,6 +16,7 @@ ITEMS
 		mover=0
 		carrier
 		timer = 100
+		canCarry=1
 		isDeleting = 0
 		isReallyDeleting = 0
 		isActuallyDeleting =0
