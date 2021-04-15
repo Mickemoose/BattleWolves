@@ -72,10 +72,6 @@ Xbox Controller Mapping
 
 
 What I wanna do - 4/15/2021
-- Crate (+ Crate with wheels?)
-- Barrel and Crate functionality
-- Food
-- Knockback smoke
 - Jump & DblJump smoke & sfx
 
 */

@@ -36,7 +36,7 @@ ITEMS
 			Activate(var/mob/activator)
 				carried=1
 				activator.holdingItem.Remove(src)
-				world<<EAT
+				view()<<EAT
 				animate(src,alpha=0,time=0.5)
 				animate(activator,color=rgb(0,200,0),time=1)
 				activator.setDamage(pick(0.01,0.02,0.03,0.04,0.05,0.06),"REMOVE")
@@ -103,13 +103,40 @@ ITEMS
 		Barrel
 			icon='Items/Containers.dmi'
 			icon_state=""
-			pwidth=26
+			pwidth=24
 			pheight=20
 			pixel_x=-20
 			pixel_y=-16
 			move_speed=2
 			mover=1
 			carried=0
+			movement()
+				..()
+				if(icon_state=="moving")
+					for(var/ITEMS/CONTAINERS/C in oview(1,src))
+						if(C.inside(src))
+							C.Destroy()
+							Destroy()
+					for(var/mob/M in oview(1,src))
+						if(M.isPlayer && carrier!=M)
+							if(M.inside(src))
+								if(M.hitIndex!="Barrel" && M.isPlayer && !reeled && !hitstun)
+									if(hitstun) return
+									spawn(3.5)
+										if(hitstun) return
+										M.hitIndex="Barrel"
+										flick("hit",M)
+										HitStun(M,2)
+										M.setDamage(pick(0.06),"ADD")
+										spawn(1)
+											flick("hitend",M)
+											if(M.dir==RIGHT)
+												M.Knockback(power = "LIGHT", where = "UP RIGHT")
+											else
+												M.Knockback(power = "LIGHT", where = "UP LEFT")
+										spawn(6)
+											M.hitIndex="null"
+								Destroy()
 		Wheel_Crate
 			icon='Items/WheelCrate.dmi'
 			icon_state="3"
@@ -121,6 +148,7 @@ ITEMS
 			carried=0
 			scaffold=1
 			canCarry=0
+
 			//mover=1
 
 			New()
@@ -151,7 +179,7 @@ ITEMS
 		Crate
 			icon='Items/Crate.dmi'
 			icon_state="3"
-			pwidth=26
+			pwidth=24
 			pheight=20
 			pixel_x=-20
 			pixel_y=-16
@@ -164,33 +192,84 @@ ITEMS
 				..()
 				if(d==DOWN&&thrown)
 					src.Destroy()
-		proc
-			Destroy()
-				if(!carried)
-					var/F
-					carried=1
-					vel_x=0
-					vel_y=0
-					canMove=0
-					icon_state="break"
-					world<<BREAK
-					animate(src, transform = matrix(), alpha = 0, time = 5)
-					animate(transform = turn(matrix(), 120), time = 1.5, loop = -1)
-					animate(transform = turn(matrix(), 240), time = 1.5, loop = -1)
-					//animate(transform = null, time = 1.5, loop = -1)
-					animate(src, transform = matrix().Translate(0,42), ,time = 5, loop = 0, easing = SINE_EASING)
-					if(Items_ACTIVE.len < Max_Items)
+			bump(ITEMS/CONTAINERS/C)
+				..()
+				if(thrown)
+					src.Destroy()
+					C.Destroy()
+			movement()
+				..()
+				if(thrown)
+					for(var/ITEMS/CONTAINERS/C in oview(1,src))
+						if(C.inside(src))
+							C.Destroy()
+							Destroy()
+					for(var/mob/M in oview(1,src))
+						if(M.inside(src))
+							if(M.isPlayer && carrier!=M)
+								if(M.hitIndex!="Barrel" && M.isPlayer && !reeled && !hitstun)
+									if(hitstun) return
+									spawn(3.5)
+										if(hitstun) return
+										M.hitIndex="Barrel"
+										flick("hit",M)
+										HitStun(M,2)
+										M.setDamage(pick(0.06),"ADD")
+										spawn(1)
+											flick("hitend",M)
+											if(M.dir==RIGHT)
+												M.Knockback(power = "LIGHT", where = "UP RIGHT")
+											else
+												M.Knockback(power = "LIGHT", where = "UP LEFT")
+										spawn(6)
+											M.hitIndex="null"
+								Destroy()
+	proc
+		Destroy()
+			if(!carried)
+				var/F
+				var/ITEMS/O
+				var/ITEMS/O2
+				carried=1
+				vel_x=0
+				vel_y=0
+				canMove=0
+				icon_state="break"
+				view()<<BREAK
+				animate(src, transform = matrix(), alpha = 0, time = 5)
+				animate(transform = turn(matrix(), 120), time = 1.5, loop = -1)
+				animate(transform = turn(matrix(), 240), time = 1.5, loop = -1)
+				//animate(transform = null, time = 1.5, loop = -1)
+				animate(src, transform = matrix().Translate(0,42), ,time = 5, loop = 0, easing = SINE_EASING)
+				if(Items_ACTIVE.len < Max_Items)
 
+					F=pick(contains)
+					O = text2path("/ITEMS/[F]")
+					O2 = new O(src.loc)
+					O2.set_pos(src.px-8, src.py+16)
+					O2.vel_y=rand(3,5)
+					O2.vel_x=rand(-2,2)
+					Items_ACTIVE.Add(O2)
+					if(Items_ACTIVE.len < Max_Items)
 						F=pick(contains)
-						var/ITEMS/O = text2path("/ITEMS/[F]")
-						var/ITEMS/O2 = new O(src.loc)
+						O = text2path("/ITEMS/[F]")
+						O2 = new O(src.loc)
 						O2.set_pos(src.px-8, src.py+16)
 						O2.vel_y=rand(3,5)
 						O2.vel_x=rand(-2,2)
 						Items_ACTIVE.Add(O2)
-					spawn(6)
-						Items_ACTIVE.Remove(src)
-						del src
+						if(Items_ACTIVE.len < Max_Items)
+							F=pick(contains)
+							O = text2path("/ITEMS/[F]")
+							O2 = new O(src.loc)
+							O2.set_pos(src.px-8, src.py+16)
+							O2.vel_y=rand(3,5)
+							O2.vel_x=rand(-2,2)
+							Items_ACTIVE.Add(O2)
+
+				spawn(8)
+					Items_ACTIVE.Remove(src)
+					del src
 
 
 
@@ -208,17 +287,17 @@ ITEMS
 		else
 			..()
 
-
-	//	for(var/ITEMS/I in oview(1,src))
-	//		if(on_ground && !thrown && !I.thrown)
-	//			while(inside(I))
-	//				I.px ++
+		for(var/ITEMS/I in oview(1,src))
+			if(on_ground && !thrown && !I.thrown && vel_x==0)
+				if(inside(I))
+					if(I.vel_x==0) I.px +=8
+					if(vel_x==0) px -=8
 
 	bump(atom/a, d)
 
 		if(!on_ground && !isDeleting && vel_y==0 && d==DOWN)
-			for(var/mob/m in world)
-				m<<FOOTSTEP
+
+			view()<<FOOTSTEP
 			var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
 			FX.plane=src.plane-1
 			FX.loc=src.loc

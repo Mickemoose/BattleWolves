@@ -54,12 +54,25 @@ mob
 			hitstun=0
 			tumbled = 1
 			reeled = 1
+			spawn(7)
+				reeled=0
 			switch(power)
-				if("NONE") magnitude = 0.3
-				if("LIGHT") magnitude = 4
-				if("MEDIUM") magnitude = 7.5
-				if("HEAVY") magnitude = 14
-				if("EXTREME") magnitude = 16
+				if("NONE")
+					magnitude = 0.3
+				if("LIGHT")
+					magnitude = 1
+					KBSMOKE()
+				if("MEDIUM")
+					magnitude = 4
+					kblevel=1
+					KBSMOKE()
+				if("HEAVY")
+					magnitude = 6
+					kblevel=2
+					KBSMOKE()
+				if("EXTREME")
+					magnitude = 12
+					KBSMOKE()
 			switch(where)
 				if("RIGHT")
 					knockbacked=1
@@ -82,7 +95,7 @@ mob
 				if("UP LEFT")
 					knockbacked=1
 					vel_x=-magnitude
-					vel_y=magnitude+8
+					vel_y=magnitude+4
 					spawn(3)
 						canAct=1
 						knockbacked=0
@@ -90,7 +103,7 @@ mob
 				if("UP RIGHT")
 					knockbacked=1
 					vel_x=magnitude
-					vel_y=magnitude+8
+					vel_y=magnitude+4
 					spawn(3)
 						setTumbled()
 						canAct=1
@@ -114,5 +127,6 @@ mob
 					spawn(3)
 						canAct=1
 						knockbacked=0
+
 
 

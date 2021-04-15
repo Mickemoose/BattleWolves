@@ -43,7 +43,6 @@ mob
 
 
 	appearance_flags = PIXEL_SCALE
-	//scaffold=1
 	pixel_move(dpx, dpy)
 		..()
 		for(var/ITEMS/I in holdingItem)
@@ -76,6 +75,7 @@ mob
 		SongPlaying.status = SOUND_UPDATE
 		src<<SongPlaying
 		setPlayerNumber()
+		can_bump(/ITEMS/CONTAINERS/Wheel_Crate)
 		//Players_ALIVE.Add(src)
 
 
@@ -117,11 +117,14 @@ mob
 				has_jumped=1
 				setLandingLag("MEDIUM")
 				spawn(0.5)
+					slow_down()
 					flick("jumping",src)
 					canMove=1
 					boost = boostdefault
 					dbljumped=0
 					vel_y = jump_speed
+					if(reeled)
+						reeled=0
 					if(dir==RIGHT)
 						vel_x=8
 					else
@@ -144,12 +147,15 @@ mob
 
 
 			spawn(1)
+				slow_down()
 				for(var/RESPAWN_PLATFORM/R in bottom(4))
 					R.Wobble()
 				flick("jumping",src)
 				canMove=1
 				boost = boostdefault
 				dbljumped=0
+				if(reeled)
+					reeled=0
 				vel_y = jump_speed
 
 
@@ -171,7 +177,13 @@ mob
 			if(k == "9")
 				setDamage(1,"ADD")
 			if(k == "0")
-				setDamage(0.1,"REMOVE")
+				var/EFFECT/KBSMOKE/FX = new /EFFECT/KBSMOKE(src)
+				FX.plane=src.plane+1
+				FX.loc=src.loc
+				FX.step_x=src.step_x-6
+				FX.step_y-=2
+
+
 			if(k == "1" && Debug)
 				ItemSpawn("item", src.z)
 			if(k == "3" && Debug)
@@ -260,6 +272,7 @@ mob
 				for(var/ITEMS/CONTAINERS/Wheel_Crate/W in front(10,8,8))
 					if(dir==RIGHT) W.vel_x=4
 					else W.vel_x=-4
+
 				for(var/mob/M in front(10,8,8))
 					if(M.hitIndex!="D1" && M.isPlayer)
 						M.hitIndex="D1"
@@ -428,7 +441,7 @@ mob
 			item.carried=0
 			holdingItem.Remove(item)
 			holdingItem=new()
-			item.carrier = null
+			spawn(2) item.carrier = null
 			item.plane=1
 			item.thrown=1
 			if(item.mover) item.icon_state="moving"

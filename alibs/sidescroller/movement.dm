@@ -635,6 +635,20 @@ mob
 										animate(src, transform = null, time = 1.5, loop = -1)
 								else
 									vel_x = 0
+						else if(is_dashing)
+							if(!client.has_key(controls.right) && !client.has_key(controls.left))
+								if(vel_x > decel)
+									vel_x -= decel
+									if(!tumbled && !on_wall)
+										animate(src, transform = turn(matrix(), 6), time = 1.5, loop = -1)
+										animate(src, transform = null, time = 1.5, loop = -1)
+								else if(vel_x < -decel)
+									vel_x += decel
+									if(!tumbled && !on_wall)
+										animate(src, transform = turn(matrix(), 356), time = 1.5, loop = -1)
+										animate(src, transform = null, time = 1.5, loop = -1)
+								else
+									vel_x = 0
 						else
 							if(!client.has_key(controls.right) && !client.has_key(controls.left))
 								if(vel_x > decel)

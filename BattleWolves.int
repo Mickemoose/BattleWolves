@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618517635
-DIR: alibs alibs\sidescroller\game-demo-2 alibs\sidescroller\pathing-demo Characters Effects Items Items\KFK Music Sound Stages Stages\Test System UI 
+LAST_COMPILE_TIME: 1618523042
+DIR: alibs\sidescroller\game-demo-2 alibs\sidescroller\pathing-demo Characters Effects Items Items\KFK Music Sound Stages Stages\Test System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: Items\Items.dm;BattleWolves.dm;Items\Containers.dmi;Items\WheelCrate.dmi;Characters\RespawnPlatform.dm;System\BlastZone.dm;System\ItemDeleteArea.dm;interface.dmf;Game Vars.dm;UI\OOV.dmi;Items\Crate.dmi;Sound\Sound.dm;Items\Food.dmi;HitStun.dm;Characters.dm
-FILE: HitStun.dm
+WINDOW: BattleWolves.dm;Effects\Effects.dm;Characters.dm;HitStun.dm;Mob Vars.dm;Characters\Characters.dm;Dev Log.dm
+FILE: Dev Log.dm
 */
 // END_INTERNALS

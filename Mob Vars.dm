@@ -18,6 +18,8 @@ mob
 		canMove = 1
 		canAttack = 1
 		canAct = 1
+		kbsmoke=0
+		kblevel=0
 		hud=0
 		target_arrows[]
 		target_circles[]

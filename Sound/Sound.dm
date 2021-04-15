@@ -1,6 +1,6 @@
 var/sound/ITEMSPAWN = sound('Sound/itemSpawn.wav', channel=1, volume=20)
 var/sound/PLAYERDEATH = sound('Sound/splode.wav', channel=3, volume=15)
-var/sound/FOOTSTEP = sound('Sound/footstep.WAV', channel=1, volume=5)
+var/sound/FOOTSTEP = sound('Sound/footstep.WAV', channel=4, volume=5)
 var/sound/KFKSUMMON = sound('Sound/kfksummon.WAV', channel=1, volume=15)
 var/sound/PICKUP = sound('Sound/pickup.wav', channel=1, volume=5)
 var/sound/HIT = sound('Sound/hit.WAV', channel=1, volume=5)

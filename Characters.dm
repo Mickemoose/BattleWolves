@@ -28,6 +28,23 @@ proc
 				return rcolor
 mob
 	proc
+		KBSMOKE()
+			if(reeled)
+				if(!kbsmoke)
+					kbsmoke=1
+					var/EFFECT/KBSMOKE/FX = new /EFFECT/KBSMOKE(src)
+					FX.level=kblevel
+					FX.plane=src.plane+1
+					FX.loc=src.loc
+					FX.step_x=src.step_x-6
+					FX.step_y-=2
+					spawn(0.8)
+						kbsmoke=0
+						KBSMOKE()
+				else()
+					KBSMOKE()
+			else
+				return
 		setPlayerColor(num)
 			PLAYERNUMBER=num
 
