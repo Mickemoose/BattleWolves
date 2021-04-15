@@ -136,8 +136,8 @@ mob
 
 				if("Derek")
 					icon='Characters/Derek.dmi'
-					jump_speed = 10
-					boostdefault = 8
+					jump_speed = 6
+					boostdefault = 2
 					pixel_x=-22
 					pixel_y=-16
 					pwidth=22
@@ -146,7 +146,7 @@ mob
 					move_speed=5
 					air_move_speed=4.5
 					air_decel=0.14
-					gravity=0.65
+					gravity=1
 					carry_speed=2
 					setPlayerLives(3)
 				if("Sandbag")

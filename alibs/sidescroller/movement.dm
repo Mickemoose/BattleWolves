@@ -295,8 +295,13 @@ mob
 				return
 			if(on_ladder || hitstun || carried || dead) return
 
-
-			vel_y -= gravity
+			if(vel_y==0)
+				spawn(2)
+					vel_y-=0.1
+			if(vel_y > -gravity && vel_y!=0)
+				vel_y-=0.3
+			else
+				vel_y -= gravity
 
 			if(on_wall)
 

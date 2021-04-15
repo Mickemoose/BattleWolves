@@ -138,7 +138,11 @@ mob
 			setLandingLag("LIGHT")
 			flick("squat",src)
 			canMove=0
-			vel_x=0
+
+
+
+
+
 			spawn(1)
 				for(var/RESPAWN_PLATFORM/R in bottom(4))
 					R.Wobble()
