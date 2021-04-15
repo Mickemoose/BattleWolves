@@ -3,8 +3,23 @@ area
 		icon='System/Camera.dmi'
 		invisibility=101
 		icon_state="blast"
-
+		Entered(ITEMS/M)
+			world<<output("[M] DELETE","window1.output1")
+			M.dead=1
+			Items_ACTIVE.Remove(M)
+			if(istype(M, /ITEMS/INSTANTS/KFK_Card)) Current_KFK--
+			Items_ACTIVE.Remove(M)
+			del M
 		Entered(mob/M)
+			if(istype(M,/ITEMS))
+
+				M.dead=1
+				Items_ACTIVE.Remove(M)
+				if(istype(M, /ITEMS/INSTANTS/KFK_Card))
+					Current_KFK--
+				world<<output("[M] DELETE now [Items_ACTIVE.len] items remain","window1.output1")
+				spawn(1)
+					del M
 			if(M.isPlayer && !M.dead)
 				if(dir==SOUTHEAST)
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)

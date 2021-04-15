@@ -256,6 +256,9 @@ mob
 				vel_y=0
 				canMove=0
 				flick("nspecial",src)
+				for(var/ITEMS/CONTAINERS/Wheel_Crate/W in front(10,8,8))
+					if(dir==RIGHT) W.vel_x=4
+					else W.vel_x=-4
 				for(var/mob/M in front(10,8,8))
 					if(M.hitIndex!="D1" && M.isPlayer)
 						M.hitIndex="D1"
@@ -303,6 +306,12 @@ mob
 				del FX
 				flick("squatend",src)
 				canMove=1
+	bump(ITEMS/a, d)
+		..()
+		if(d==DOWN && isPlayer)
+			if(istype(a, /ITEMS/CONTAINERS/Wheel_Crate))
+				if(dir==RIGHT) a.vel_x=1
+				else a.vel_x=-1
 	bump(RESPAWN_PLATFORM/R, d)
 		..()
 		if(d==DOWN)

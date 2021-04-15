@@ -1,6 +1,6 @@
 var
 	list
-		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate")
+		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate","CONTAINERS/Wheel_Crate")
 ITEMS
 	parent_type = /mob
 	appearance_flags = PIXEL_SCALE
@@ -89,6 +89,44 @@ ITEMS
 			move_speed=2
 			mover=1
 			carried=0
+		Wheel_Crate
+			icon='Items/WheelCrate.dmi'
+			icon_state="3"
+			pwidth=34
+			pheight=37
+			pixel_x=-20
+			pixel_y=-15
+			move_speed=2
+			carried=0
+			scaffold=1
+			canCarry=0
+			//mover=1
+
+			New()
+				..()
+				icon_state=pick("1","2","3")
+			action()
+				//..()
+				if(vel_x!=0 && on_ground)
+					switch(icon_state)
+						if("1") icon_state="1-moving"
+						if("2") icon_state="2-moving"
+						if("3") icon_state="3-moving"
+
+			pixel_move(dpx, dpy)
+				var/riders = top(1)
+
+				..()
+
+				for(var/mob/m in riders)
+					if(on_ground)
+
+						m.pixel_move(move_x, move_y)
+					else
+						m.jump()
+						setSpinning()
+
+
 		Crate
 			icon='Items/Crate.dmi'
 			icon_state="3"
@@ -121,7 +159,7 @@ ITEMS
 
 	bump(atom/d)
 
-		if(!on_ground && !isDeleting)
+		if(!on_ground && !isDeleting && vel_y==0)
 			for(var/mob/m in world)
 				m<<FOOTSTEP
 			var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
@@ -206,8 +244,8 @@ proc
 			if("item")
 				var/F=pick(itemlist)
 				var/ITEMS/O = text2path("/ITEMS/[F]")
-				new O(selected.loc)
-				Items_ACTIVE.Add(O)
+				var/ITEMS/O2 = new O(selected.loc)
+				Items_ACTIVE.Add(O2)
 				if(istype(O, /ITEMS/INSTANTS/KFK_Card))
 					Current_KFK++
 			if("KFK")
