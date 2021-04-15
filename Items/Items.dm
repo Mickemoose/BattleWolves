@@ -35,7 +35,7 @@ ITEMS
 				icon_state=pick("pizza","icecream","shrimp","sushi","donut")
 			Activate(var/mob/activator)
 				carried=1
-				activator.holdingItem.Remove(src)
+				activator.holdingItem=new()
 				view()<<EAT
 				animate(src,alpha=0,time=0.5)
 				animate(activator,color=rgb(0,200,0),time=1)
@@ -59,7 +59,7 @@ ITEMS
 				ctype = "character" //or sacrifice
 			Activate(var/mob/activator)
 				carried=1
-				activator.holdingItem.Remove(src)
+				activator.holdingItem=new()
 				var/matrix/M = matrix()
 
 				//set_pos(px, activator.py+16)
@@ -287,16 +287,16 @@ ITEMS
 		else
 			..()
 
-		for(var/ITEMS/I in oview(1,src))
-			if(on_ground && !thrown && !I.thrown && vel_x==0)
-				if(inside(I))
-					if(I.vel_x==0) I.px +=8
-					if(vel_x==0) px -=8
+	//	for(var/ITEMS/I in oview(1,src))
+	//		if(on_ground && !thrown && !I.thrown && vel_x==0)
+	//			if(inside(I))
+	//				if(I.vel_x==0) I.px +=8
+	//				if(vel_x==0) px -=8
 
 	bump(atom/a, d)
 
 		if(!on_ground && !isDeleting && vel_y==0 && d==DOWN)
-
+			carried=0
 			view()<<FOOTSTEP
 			var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
 			FX.plane=src.plane-1
