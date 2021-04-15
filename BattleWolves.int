@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618523562
+LAST_COMPILE_TIME: 1618523579
 DIR: alibs\sidescroller\game-demo-2 alibs\sidescroller\pathing-demo Characters Effects Items Items\KFK Music Sound Stages Stages\Test System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: BattleWolves.dm;Effects\Effects.dm;Characters.dm;HitStun.dm;Mob Vars.dm;Characters\Characters.dm;Dev Log.dm;Items\Items.dm
-FILE: Items\Items.dm
+WINDOW: BattleWolves.dm;Effects\Effects.dm;Characters.dm;HitStun.dm;Mob Vars.dm;Characters\Characters.dm;Dev Log.dm;Items\Items.dm;Items\Crate.dmi;Items\WheelCrate.dmi;UI\Faces.dmi;UI\Logo.dmi
+FILE: UI\Logo.dmi
 */
 // END_INTERNALS
