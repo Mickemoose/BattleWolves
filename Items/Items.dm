@@ -1,6 +1,6 @@
 var
 	list
-		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate","CONTAINERS/Wheel_Crate")
+		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate","CONTAINERS/Wheel_Crate","INSTANTS/Food")
 ITEMS
 	parent_type = /mob
 	appearance_flags = PIXEL_SCALE
@@ -22,8 +22,28 @@ ITEMS
 		isActuallyDeleting =0
 		flash = 0
 		list
-			contains = list()
+			contains = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food")
 	INSTANTS
+		Food
+			icon='Items/Food.dmi'
+			carried=0
+			move_speed=2
+			pwidth=20
+			pheight=20
+			New()
+				..()
+				icon_state=pick("pizza","icecream","shrimp","sushi","donut")
+			Activate(var/mob/activator)
+				carried=1
+				activator.holdingItem.Remove(src)
+				world<<EAT
+				animate(src,alpha=0,time=0.5)
+				animate(activator,color=rgb(0,200,0),time=1)
+				activator.setDamage(pick(0.01,0.02,0.03,0.04,0.05,0.06),"REMOVE")
+				spawn(1.5)
+					animate(activator,color=rgb(255,255,255),time=1)
+					spawn(1)
+						del src
 		KFK_Card
 			icon='Items/KFK.dmi'
 			icon_state=""
@@ -38,9 +58,10 @@ ITEMS
 				list/sacs = list()
 				ctype = "character" //or sacrifice
 			Activate(var/mob/activator)
+				carried=1
 				activator.holdingItem.Remove(src)
 				var/matrix/M = matrix()
-				carried=1
+
 				//set_pos(px, activator.py+16)
 				animate(src, transform = M.Translate(0,42), ,time = 5, loop = 0, easing = CIRCULAR_EASING)
 				spawn(5)
@@ -139,6 +160,42 @@ ITEMS
 			New()
 				..()
 				icon_state=pick("1","2","3")
+			bump(atom/a, d)
+				..()
+				if(d==DOWN&&thrown)
+					src.Destroy()
+		proc
+			Destroy()
+				if(!carried)
+					var/F
+					carried=1
+					vel_x=0
+					vel_y=0
+					canMove=0
+					icon_state="break"
+					world<<BREAK
+					animate(src, transform = matrix(), alpha = 0, time = 5)
+					animate(transform = turn(matrix(), 120), time = 1.5, loop = -1)
+					animate(transform = turn(matrix(), 240), time = 1.5, loop = -1)
+					//animate(transform = null, time = 1.5, loop = -1)
+					animate(src, transform = matrix().Translate(0,42), ,time = 5, loop = 0, easing = SINE_EASING)
+					if(Items_ACTIVE.len < Max_Items)
+
+						F=pick(contains)
+						var/ITEMS/O = text2path("/ITEMS/[F]")
+						var/ITEMS/O2 = new O(src.loc)
+						O2.set_pos(src.px-8, src.py+16)
+						O2.vel_y=rand(3,5)
+						O2.vel_x=rand(-2,2)
+						Items_ACTIVE.Add(O2)
+					spawn(6)
+						Items_ACTIVE.Remove(src)
+						del src
+
+
+
+
+
 	set_state()
 	action()
 		if(mover) return
@@ -157,9 +214,9 @@ ITEMS
 	//			while(inside(I))
 	//				I.px ++
 
-	bump(atom/d)
+	bump(atom/a, d)
 
-		if(!on_ground && !isDeleting && vel_y==0)
+		if(!on_ground && !isDeleting && vel_y==0 && d==DOWN)
 			for(var/mob/m in world)
 				m<<FOOTSTEP
 			var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
@@ -171,7 +228,10 @@ ITEMS
 			flick("",FX)
 			spawn(6)
 				del FX
-			DeleteTimer()
+
+
+
+
 
 	New()
 		carried=1
@@ -183,6 +243,8 @@ ITEMS
 				carried=0
 				spawn(1)
 					setSpinning()
+					spawn(4)
+						DeleteTimer()
 	proc
 		Activate(var/mob/activator)
 		setSpinning()

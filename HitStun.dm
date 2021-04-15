@@ -4,19 +4,19 @@ mob
 
 			switch(option)
 				if("ADD")
+					if(src.INVINCIBLE) return
 					src.percent+=num
 					if(percent >= 3.0)
 						percent = 3.0
-					else if (num <= 0)
+					else if (percent <= 0)
 						percent = 0
 					UpdateWorldUI(src)
 					return
 				if("REMOVE")
-					if(src.INVINCIBLE) return
 					src.percent-=num
 					if(percent >= 3.0)
 						percent = 3.0
-					else if (num <= 0)
+					else if (percent <= 0)
 						percent = 0
 					UpdateWorldUI(src)
 					return
@@ -24,7 +24,7 @@ mob
 					src.percent=num
 					if(percent >= 3.0)
 						percent = 3.0
-					else if (num <= 0)
+					else if (percent <= 0)
 						percent = 0
 					//UpdateWorldUI(src)
 					return

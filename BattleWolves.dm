@@ -169,9 +169,9 @@ mob
 			if(k == "8")
 				setVolume("UP", "MUSIC")
 			if(k == "9")
-				Shake("LIGHT")
-		//	if(k == "0")
-
+				setDamage(1,"ADD")
+			if(k == "0")
+				setDamage(0.1,"REMOVE")
 			if(k == "1" && Debug)
 				ItemSpawn("item", src.z)
 			if(k == "3" && Debug)
@@ -183,9 +183,10 @@ mob
 				UI_Update()
 
 			if(k == "2")
-				PLAYERNUMBER++
-				if(PLAYERNUMBER>8)
-					PLAYERNUMBER=1
+				for(var/ITEMS/I in world)
+					Items_ACTIVE.Remove(I)
+					if(istype(I,/ITEMS/INSTANTS/KFK_Card)) Current_KFK--
+					del I
 			if(k == "escape")
 				client.ToggleFullscreen()
 			if(k == controls.jump)
@@ -200,7 +201,7 @@ mob
 						setLandingLag("LIGHT")
 						boost = boostdefault
 						vel_y = jump_speed
-			if(k == "f")
+			if(k == "f" && on_ground)
 				if(holdingItem.len == 0)
 					var/ITEMS/cue
 					for(var/ITEMS/I in oview(1,src))
@@ -209,8 +210,8 @@ mob
 						if(istype(I, /ITEMS/INSTANTS))
 
 							vel_x=0
-							if(cue.inside(src) && !cue.isDeleting && cue in oview(1,src))
-								holdingItem.Add(cue)
+							if(cue.inside(src) && !cue.isDeleting && !cue.carried && cue in oview(1,src))
+								//holdingItem.Add(cue)
 								canAttack=0
 								flick("squat",src)
 								view()<<PICKUP
@@ -225,7 +226,7 @@ mob
 						if(istype(I, /ITEMS/CONTAINERS))
 							vel_x=0
 							if(I.canCarry)
-								if(cue.inside(src) && !cue.isDeleting && cue in oview(1,src))
+								if(cue.inside(src) && !cue.isDeleting && !cue.carried && cue in oview(1,src))
 									canAttack=0
 									flick("squat",src)
 									vel_x=0
@@ -244,7 +245,7 @@ mob
 					canMove=0
 					vel_x=0
 					flick("throw",src)
-					spawn(5.5)
+					spawn(4)
 						Throw(C)
 						canMove=1
 						canAttack=1
