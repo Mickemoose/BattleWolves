@@ -128,19 +128,34 @@ mob
 				if("HEAVY")
 					LAG=6
 		setStage(name)
-			for(var/ItemSpawn/S in world)
-				if(S.z == z)
-					itemspawns.Add(S)
+			itemspawns=new()
+
 			switch(name)
+				if("whale")
+					for(var/GameCamera/GC in world)
+						if(GC.z == 3)
+							client.eye = GC
+							my_background.show()
+							loc=locate(47,37,3)
+							for(var/ItemSpawn/S in world)
+								if(S.z == 3) itemspawns.Add(S)
+
+
 				if("debug")
 					for(var/GameCamera/GC in world)
 						if(GC.z == 2)
-							usr.client.eye = GC
+							client.eye = GC
+							loc=locate(47,37,2)
+							for(var/ItemSpawn/S in world)
+								if(S.z == 2) itemspawns.Add(S)
 
 				else
 					for(var/GameCamera/GC in world)
 						if(GC.z == 2)
 							usr.client.eye = GC
+							loc=locate(47,37,2)
+							for(var/ItemSpawn/S in world)
+								if(S.z == 2) itemspawns.Add(S)
 
 		setCharacter(name)
 			isPlayer=1

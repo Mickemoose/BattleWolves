@@ -1,6 +1,6 @@
 UI
 	parent_type=/obj
-	plane=FLOAT_PLANE+1
+	plane=FLOAT_PLANE+10
 	appearance_flags = PIXEL_SCALE
 	var
 		playernum

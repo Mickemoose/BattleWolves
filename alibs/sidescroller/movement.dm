@@ -74,6 +74,7 @@ mob
 		carry_speed = 3
 		climb_speed = 5
 		jump_speed = 10
+		riding=0
 		fall_speed = 20
 		slide_speed = 2
 
@@ -134,7 +135,7 @@ mob
 				icon_state = base + CLIMBING
 			else if(!on_ground && vel_y > 0 && !reeled)
 				icon_state = base + JUMPING
-			else if(!on_ground && vel_y < 0 && !on_wall && !tumbled)
+			else if(!on_ground && vel_y < 0 && !on_wall && !tumbled && !riding)
 				icon_state = base + FALLING
 			else if(!on_ground && vel_y == 0 && !on_wall && !tumbled)
 				icon_state = base + MIDFALL

@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618523579
-DIR: alibs\sidescroller\game-demo-2 alibs\sidescroller\pathing-demo Characters Effects Items Items\KFK Music Sound Stages Stages\Test System UI 
+LAST_COMPILE_TIME: 1618534552
+DIR: alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Effects Items Items\KFK Music Sound Stages Stages\Test Stages\Whale System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: BattleWolves.dm;Effects\Effects.dm;Characters.dm;HitStun.dm;Mob Vars.dm;Characters\Characters.dm;Dev Log.dm;Items\Items.dm;Items\Crate.dmi;Items\WheelCrate.dmi;UI\Faces.dmi;UI\Logo.dmi
-FILE: UI\Logo.dmi
+WINDOW: BattleWolves.dm;Stages\Test\stage.dm;alibs\sidescroller\background.dm;alibs\sidescroller\background-demo\demo.dm;maps.dmm;Characters.dm;Stages\Whale\Boat.dmi;Stages\Whale\Water.dmi;Stages\Whale\stage.dm;UI\PercentNumbers.dm;Stages\Whale\turf.dmi;Items\Items.dm;System\GameCamera.dm
+FILE: Stages\Test\stage.dm
 */
 // END_INTERNALS

@@ -40,7 +40,8 @@ world
 
 
 mob
-
+	var
+		Background/my_background
 
 	appearance_flags = PIXEL_SCALE
 	pixel_move(dpx, dpy)
@@ -77,7 +78,17 @@ mob
 		setPlayerNumber()
 		can_bump(/ITEMS/CONTAINERS/Wheel_Crate)
 		//Players_ALIVE.Add(src)
+		my_background = background('background.png', REPEAT_X + REPEAT_Y)
+		my_background.hide()
+	set_background()
+		if(my_background)
 
+			// The background object isn't an atom, but it has px and py vars.
+			// These vars set it's position relative to the center of the player's
+			// screen. We set their values based on the player's position so the
+			// background scrolls as you move.
+			my_background.px = -px * 1.3
+			my_background.py = -py * 1.3
 
 
 
@@ -88,7 +99,11 @@ mob
 			return
 
 	action()
+		var/list/ridees = bottom(2)
 		..()
+		while(!/STAGEART/WhaleBoat in ridees)
+			riding=0
+
 		while(paused)
 			vel_x=0
 			vel_y=0
@@ -122,6 +137,7 @@ mob
 					canMove=1
 					boost = boostdefault
 					dbljumped=0
+					riding=0
 					vel_y = jump_speed
 					if(reeled)
 						reeled=0
@@ -141,17 +157,13 @@ mob
 			setLandingLag("LIGHT")
 			flick("squat",src)
 			canMove=0
-
-
-
-
-
 			spawn(1)
 				slow_down()
 				for(var/RESPAWN_PLATFORM/R in bottom(4))
 					R.Wobble()
 				flick("jumping",src)
 				canMove=1
+				riding=0
 				boost = boostdefault
 				dbljumped=0
 				if(reeled)
@@ -177,11 +189,7 @@ mob
 			if(k == "9")
 				setDamage(1,"ADD")
 			if(k == "0")
-				var/EFFECT/KBSMOKE/FX = new /EFFECT/KBSMOKE(src)
-				FX.plane=src.plane+1
-				FX.loc=src.loc
-				FX.step_x=src.step_x-6
-				FX.step_y-=2
+				setStage("whale")
 
 
 			if(k == "1" && Debug)
@@ -320,21 +328,27 @@ mob
 				del FX
 				flick("squatend",src)
 				canMove=1
+	bump(STAGEART/WhaleBoat)
+		jumped=0
+		dbljumped=0
+		canMove=1
+		reeled=0
+		tumbled=0
+		is_jumping=0
+		has_jumped=0
+		is_skidding=0
 	bump(ITEMS/a, d)
-		..()
+
 		if(d==DOWN && isPlayer)
 			if(istype(a, /ITEMS/CONTAINERS/Wheel_Crate))
 				if(dir==RIGHT) a.vel_x=1
 				else a.vel_x=-1
-	bump(RESPAWN_PLATFORM/R, d)
 		..()
-		if(d==DOWN)
-			//carried=1
-			R.Wobble()
+
 
 
 	bump(mob/M, d)
-		..()
+
 
 		if(d==DOWN && M.isPlayer)
 			if(M.hitIndex!="STOMP")
@@ -354,6 +368,7 @@ mob
 					dbljumped=0
 				spawn(6)
 					M.hitIndex="null"
+		..()
 
 	slow_down()
 

@@ -22,6 +22,7 @@
 #define FILE_DIR "Sound"
 #define FILE_DIR "Stages"
 #define FILE_DIR "Stages/Test"
+#define FILE_DIR "Stages/Whale"
 #define FILE_DIR "System"
 #define FILE_DIR "UI"
 // END_FILE_DIR
@@ -61,6 +62,7 @@
 #include "Music\Music.dm"
 #include "Sound\Sound.dm"
 #include "Stages\Test\stage.dm"
+#include "Stages\Whale\stage.dm"
 #include "System\BlastZone.dm"
 #include "System\GameCamera.dm"
 #include "System\ItemDeleteArea.dm"

@@ -45,10 +45,10 @@ Background
 
 		object = new()
 		object.animate_movement = 0
-		object.layer = 0
+		object.plane=-4
 
 		image = new(i, object)
-		image.layer = 0
+		image.plane = -4
 
 		// depending on the scroll_mode we need to create
 		// overlays to cover additional area:
@@ -62,21 +62,21 @@ Background
 		//
 		if(scroll_mode & REPEAT_X)
 			var/obj/o = new()
-			o.layer = 0
+			o.plane = -4
 			o.icon = I
 			o.pixel_x = width
 			image.overlays += o
 
 		if(scroll_mode & REPEAT_Y)
 			var/obj/o = new()
-			o.layer = 0
+			o.plane = -4
 			o.icon = I
 			o.pixel_y = height
 			image.overlays += o
 
 			if(scroll_mode & REPEAT_X)
 				var/obj/o2 = new()
-				o2.layer = 0
+				o2.plane = -4
 				o2.icon = I
 				o2.pixel_x = width
 				o2.pixel_y = height
