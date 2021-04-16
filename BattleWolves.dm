@@ -139,6 +139,7 @@ mob
 				canAttack=1
 				canAct=1
 			if(!is_jumping && on_ground && vel_x == move_speed || !is_jumping && on_ground && vel_x == -move_speed)
+				canAct=0
 				is_jumping=1
 				flick("squat",src)
 				canMove=0
@@ -146,6 +147,7 @@ mob
 				has_jumped=1
 				setLandingLag("MEDIUM")
 				spawn(0.5)
+					canAct=1
 					slow_down()
 					flick("jumping",src)
 					canMove=1
@@ -163,6 +165,7 @@ mob
 
 	jump()
 		if(canAct && !inTitle)
+			canAct=0
 			animate(src, transform = null, time = 1, loop = -1)
 			has_jumped=1
 			is_jumping=1
@@ -171,6 +174,7 @@ mob
 			flick("squat",src)
 			canMove=0
 			spawn(1)
+				canAct=1
 				slow_down()
 				for(var/RESPAWN_PLATFORM/R in bottom(4))
 					R.Wobble()
@@ -197,7 +201,8 @@ mob
 			..()
 			if(k == "return" || k == "space" || k == "enter")
 				if(inTitle)
-					src.client.clear_input()
+					inTitle=0
+					src.client.lock_input()
 					for(var/UI/LOGO/L in client.screen)
 						L.Disappear()
 
@@ -210,12 +215,15 @@ mob
 						setStage()
 						setPlayerNumber()
 					spawn(15)
-						inTitle=0
+						src.client.unlock_input()
 
 			if(k == "7")
 				setVolume("DOWN", "MUSIC")
 			if(k == "8")
-				setVolume("UP", "MUSIC")
+				src.HitStun(src,4)
+				spawn(hitstun)
+					flick("hitend",src)
+					Knockback(power = "MEDIUM", where = "UP RIGHT")
 			if(k == "9")
 
 				new /UI/StarKO(src.client,src.character)
@@ -243,10 +251,12 @@ mob
 				client.ToggleFullscreen()
 			if(k == controls.jump && !inTitle)
 				if(!dbljumped && !on_ground)
+					canAct=0
 					flick("squat",src)
 					hitstun=1
 					vel_y=0
 					spawn(1)
+						canAct=1
 						hitstun=0
 						flick("jumping",src)
 						dbljumped = 1
@@ -315,8 +325,6 @@ mob
 				for(var/mob/M in front(10,8,8))
 					if(M.hitIndex!="D1" && M.isPlayer)
 						M.hitIndex="D1"
-						flick("hit",M)
-						M.face(src)
 						HitStun(M,1)
 						spawn(1)
 							flick("hitend",M)

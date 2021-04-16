@@ -1,6 +1,7 @@
 mob
 	proc
 		SpiritBurst()
+			client.lock_input()
 			INVINCIBLE=1
 			setLandingLag("HEAVY")
 			canAttack=0
@@ -19,9 +20,20 @@ mob
 			FX.step_x=src.step_x-53
 			FX.step_y=src.step_y-43
 			flick("",FX)
+			spawn(2)
+				var/obj/hitbox/hit=new/obj/hitbox(src,_bounds="-30,-60 to 30,60", px=60, py=120, frames=15, hitstun=4, knockback="MEDIUM", direction="UP RIGHT")
+				hit.step_x=step_x+40
+				hit.step_y=step_y+20
+				hit.dir=RIGHT
+
+				var/obj/hitbox/hit2=new/obj/hitbox(src,_bounds="-30,-60 to 30,60", px=60, py=120, frames=15, hitstun=4, knockback="MEDIUM", direction="UP RIGHT")
+				hit2.step_x=step_x-20
+				hit2.step_y=step_y+20
+				hit2.dir=LEFT
 			spawn(6)
 				del FX
 			spawn(10)
+				client.unlock_input()
 				INVINCIBLE=0
 				canMove=1
 				canAct=1

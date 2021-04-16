@@ -164,6 +164,7 @@ mob
 
 		setCharacter(name)
 			isPlayer=1
+			inTitle=0
 			dead=0
 			character = "[name]"
 			dir=RIGHT
