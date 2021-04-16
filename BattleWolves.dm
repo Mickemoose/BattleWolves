@@ -60,19 +60,28 @@ mob
 
 	Login()
 
-		src.loc=locate(47,37,2)
-		setCharacter("Derek")
-		setStage()
+		src.inTitle=1
+		for(var/GameCamera/GC in world)
+			if(GC.z==1)
+				src.client.eye=GC
+		var/UI/LOGO/L = new /UI/LOGO(client)
+		L.Appear()
+		spawn(5)
+			L.WaterEffect()
+		var/UI/LOGO/L2 = new /UI/LOGO(client)
+		L2.Appear()
+		fade.FadeIn(time=10)
 
 		src<<MENU
 		SongPlaying = MENU
 		SongPlaying.volume = MUSIC_VOLUME
 		SongPlaying.status = SOUND_UPDATE
 		src<<SongPlaying
-		setPlayerNumber()
-		can_bump(/ITEMS/CONTAINERS/Wheel_Crate)
-		my_background = background('background.png', REPEAT_X + REPEAT_Y)
-		my_background.hide()
+
+	//	my_background = background('background.png', REPEAT_X + REPEAT_Y)
+	//	my_background.hide()
+	//	fade.FadeIn()
+
 	set_background()
 		if(my_background)
 
@@ -142,7 +151,7 @@ mob
 
 
 	jump()
-		if(canAct)
+		if(canAct && !inTitle)
 			animate(src, transform = null, time = 1, loop = -1)
 			has_jumped=1
 			is_jumping=1
@@ -175,12 +184,31 @@ mob
 			return
 		else
 			..()
+			if(k == "return" || k == "space" || k == "enter")
+				if(inTitle)
+					src.client.clear_input()
+					for(var/UI/LOGO/L in client.screen)
+						L.Disappear()
+
+
+
+					spawn(11)
+						fade.FadeOut(time=1)
+						fade.FadeIn(time=15)
+						setCharacter("Derek")
+						setStage()
+						setPlayerNumber()
+					spawn(15)
+						inTitle=0
+
 			if(k == "7")
 				setVolume("DOWN", "MUSIC")
 			if(k == "8")
 				setVolume("UP", "MUSIC")
 			if(k == "9")
-				setDamage(1,"ADD")
+
+				new /UI/StarKO(src.client,src.character)
+
 			if(k == "0")
 				setStage("whale")
 
@@ -202,7 +230,7 @@ mob
 					del I
 			if(k == "escape")
 				client.ToggleFullscreen()
-			if(k == controls.jump)
+			if(k == controls.jump && !inTitle)
 				if(!dbljumped && !on_ground)
 					flick("squat",src)
 					hitstun=1

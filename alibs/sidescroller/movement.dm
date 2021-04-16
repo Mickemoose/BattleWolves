@@ -365,7 +365,7 @@ mob
 			// move_towards, we use the client's keyboard input to control the mob.
 			else if(client)
 
-				if(knockbacked || on_wall || respawning || hitstun)
+				if(knockbacked || on_wall || respawning || hitstun || inTitle)
 					if(client.has_key(controls.right))
 						return
 					if(client.has_key(controls.left))

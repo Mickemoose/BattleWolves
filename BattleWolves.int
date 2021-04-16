@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618585866
-DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Derek Effects Effects\Derek Items\KFK Sound Stages\Test 
+LAST_COMPILE_TIME: 1618601282
+DIR: alibs alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Derek Effects Items Sound Stages Stages\Test System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: BattleWolves.dm;Dev Log.dm;Characters\Derek.dmi;Effects\Blast.dmi;Characters\Derek\NSpecial.dm;Characters.dm;Effects\Effects.dm;alibs\sidescroller\procs.dm;HitStun.dm
-FILE: Effects\Effects.dm
+WINDOW: Stages\Test\stage.dm;System\ScreenFade.dm;BattleWolves.dm;UI\TopBlastEffect.dm;UI\Title.dm;Mob Vars.dm;alibs\sidescroller\movement.dm;maps.dmm;alibs\sidescroller\_readme.dm;interface.dmf
+FILE: interface.dmf
 */
 // END_INTERNALS

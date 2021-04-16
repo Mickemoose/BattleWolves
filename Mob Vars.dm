@@ -4,7 +4,7 @@ mob
 		SFX_VOLUME = 30
 		sound/SongPlaying = ""
 
-
+		inTitle=0
 		boostdefault = 8
 		boost = 8
 		dbljumped =0

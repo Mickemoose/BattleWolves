@@ -68,6 +68,9 @@
 #include "System\BlastZone.dm"
 #include "System\GameCamera.dm"
 #include "System\ItemDeleteArea.dm"
+#include "System\ScreenFade.dm"
 #include "UI\PercentNumbers.dm"
+#include "UI\Title.dm"
+#include "UI\TopBlastEffect.dm"
 // END_INCLUDE
 

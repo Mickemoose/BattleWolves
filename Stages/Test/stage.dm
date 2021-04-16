@@ -77,6 +77,7 @@ STAGEART
 			for(var/mob/m in riders)
 				m.riding=1
 				//m.fall_speed=20
+				//m.appearance=appearance
 				m.pixel_move(move_x, move_y)
 				//m.set_pos(m.px,m.py=py)
 
