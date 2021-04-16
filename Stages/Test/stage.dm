@@ -37,6 +37,7 @@ STAGEART
 		loop=0
 	set_state()
 	gravity()
+
 	action()
 		..()
 	proc

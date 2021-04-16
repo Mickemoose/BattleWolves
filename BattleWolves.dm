@@ -31,12 +31,6 @@ world
 	fps = 60
 	icon_size = 32
 	view = "40x21"
-//	New()
-//		..()
-//
-//		spawn(10)
-//		movement_loop()
-//		world.set_icon_size()
 
 
 mob
@@ -77,7 +71,6 @@ mob
 		src<<SongPlaying
 		setPlayerNumber()
 		can_bump(/ITEMS/CONTAINERS/Wheel_Crate)
-		//Players_ALIVE.Add(src)
 		my_background = background('background.png', REPEAT_X + REPEAT_Y)
 		my_background.hide()
 	set_background()
@@ -99,8 +92,9 @@ mob
 			return
 
 	action()
-		var/list/ridees = bottom(2)
+
 		..()
+		var/list/ridees = bottom(2)
 		while(!/STAGEART/WhaleBoat in ridees)
 			riding=0
 
@@ -153,7 +147,6 @@ mob
 			has_jumped=1
 			is_jumping=1
 			tumbled=0
-			//jumped=1
 			setLandingLag("LIGHT")
 			flick("squat",src)
 			canMove=0
@@ -272,11 +265,10 @@ mob
 						canAct=1
 
 			if(k == "d" && canAttack && canAct)
-				canAttack=0
-				vel_x=0
-				vel_y=0
-				canMove=0
-				flick("nspecial",src)
+				NeutralSpecial()
+
+
+				/*
 				for(var/ITEMS/CONTAINERS/Wheel_Crate/W in front(10,8,8))
 					if(dir==RIGHT) W.vel_x=4
 					else W.vel_x=-4
@@ -296,79 +288,85 @@ mob
 				spawn(4)
 					flick("squatend",src)
 					canMove=1
-					canAttack=1
+					canAttack=1 */
 
 	bump(atom/a, d)
 		..()
 		animate(src, transform = null, time = 0.5)
-
-		if(tumbled)
-			setLandingLag("HEAVY")
-			tumbled=0
-		if(d == DOWN)
-			var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
-			FX.plane=src.plane-1
-			FX.loc=src.loc
-			FX.dir=EAST
-			FX.step_x=src.step_x-32
-			FX.step_y-=2
-			flick("",FX)
-			spawn(6)
-				del FX
-			flick("squat",src)
-
-			canMove=0
-			vel_y = 0
-			vel_x = 0
-			is_jumping=0
-			is_skidding=0
-			reeled=0
-			has_jumped=0
-			spawn(LAG)
-				del FX
-				flick("squatend",src)
-				canMove=1
-	bump(STAGEART/WhaleBoat)
-		jumped=0
-		dbljumped=0
-		canMove=1
-		reeled=0
-		tumbled=0
-		is_jumping=0
-		has_jumped=0
-		is_skidding=0
-	bump(ITEMS/a, d)
-
-		if(d==DOWN && isPlayer)
-			if(istype(a, /ITEMS/CONTAINERS/Wheel_Crate))
-				if(dir==RIGHT) a.vel_x=1
-				else a.vel_x=-1
-		..()
+		if(istype(a, /ITEMS/CONTAINERS/Wheel_Crate))
+			var/ITEMS/I=a
+			if(dir==RIGHT) I.vel_x=1
+			else I.vel_x=-1
+		if(istype(a, /mob))
+			var/mob/M=a
+			if(d==DOWN && M.isPlayer)
+				if(M.hitIndex!="STOMP")
+					M.hitIndex="STOMP"
+					flick("hit",M)
+					//M.face(src)
+					HitStun(M,1)
+					spawn(1)
+						flick("hitend",M)
+						jump()
+						if(dir==RIGHT) vel_x=6
+						else vel_x=-6
+						canMove=1
+						canAttack=1
+						has_jumped=0
+						jumped=0
+						dbljumped=0
+					spawn(6)
+						M.hitIndex="null"
 
 
+		if(istype(a, /turf))
+			if(tumbled)
+				setLandingLag("HEAVY")
+				tumbled=0
+			if(d == DOWN)
+				var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
+				FX.plane=src.plane-1
+				FX.loc=src.loc
+				FX.dir=EAST
+				FX.step_x=src.step_x-32
+				FX.step_y-=2
+				flick("",FX)
+				spawn(6)
+					del FX
+				flick("squat",src)
 
-	bump(mob/M, d)
+				canMove=0
+				vel_y = 0
+				vel_x = 0
+				spawn(LAG)
+					del FX
+					if(canAttack)
+						flick("squatend",src)
+						canAct=1
 
-
-		if(d==DOWN && M.isPlayer)
-			if(M.hitIndex!="STOMP")
-				M.hitIndex="STOMP"
-				flick("hit",M)
-				//M.face(src)
-				HitStun(M,1)
-				spawn(1)
-					flick("hitend",M)
-					jump()
-					if(dir==RIGHT) vel_x=6
-					else vel_x=-6
 					canMove=1
-					canAttack=1
-					has_jumped=0
 					jumped=0
 					dbljumped=0
-				spawn(6)
-					M.hitIndex="null"
-		..()
+					reeled=0
+					tumbled=0
+					is_jumping=0
+					has_jumped=0
+					is_skidding=0
+
+//	bump(STAGEART/WhaleBoat)
+//		jumped=0
+//		dbljumped=0
+//		canMove=1
+//		reeled=0
+//		tumbled=0
+//		is_jumping=0
+//		has_jumped=0
+//		is_skidding=0
+
+
+
+
+
 
 	slow_down()
 
