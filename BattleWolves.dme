@@ -34,6 +34,7 @@
 
 // BEGIN_INCLUDE
 #include <forum_account\keyboard\keyboard.dme>
+#include <kaiochao\pixelpositions\PixelPositions.dme>
 #include "BattleWolves.dm"
 #include "Characters.dm"
 #include "Dev Log.dm"

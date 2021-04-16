@@ -60,17 +60,28 @@ mob
 
 	Login()
 
-		src.inTitle=1
+
 		for(var/GameCamera/GC in world)
 			if(GC.z==1)
 				src.client.eye=GC
-		var/UI/LOGO/L = new /UI/LOGO(client)
-		L.Appear()
-		spawn(5)
-			L.WaterEffect()
-		var/UI/LOGO/L2 = new /UI/LOGO(client)
-		L2.Appear()
-		fade.FadeIn(time=10)
+		spawn(10)
+			src.inTitle=1
+
+			var/UI/LOGO/L = new /UI/LOGO(client)
+			var/UI/LOGO/L2 = new /UI/LOGO(client)
+			L2.Appear()
+			fade.FadeIn(time=0)
+			animate(L, alpha=0, time=1)
+			spawn(1)
+				L.Appear()
+
+
+
+				spawn(10)
+					L.WaterEffect()
+					animate(L, alpha=170, time=10, flags=ANIMATION_PARALLEL)
+
+
 
 		src<<MENU
 		SongPlaying = MENU
@@ -78,8 +89,8 @@ mob
 		SongPlaying.status = SOUND_UPDATE
 		src<<SongPlaying
 
-	//	my_background = background('background.png', REPEAT_X + REPEAT_Y)
-	//	my_background.hide()
+		my_background = background('background.png', REPEAT_X + REPEAT_Y)
+		my_background.hide()
 	//	fade.FadeIn()
 
 	set_background()
@@ -321,6 +332,15 @@ mob
 	bump(atom/a, d)
 		..()
 		animate(src, transform = null, time = 0.5)
+		if(istype(a, /STAGEART/WhaleBoat))
+			jumped=0
+			dbljumped=0
+			canMove=1
+			reeled=0
+			tumbled=0
+			is_jumping=0
+			has_jumped=0
+			is_skidding=0
 		if(istype(a, /ITEMS/CONTAINERS/Wheel_Crate))
 			var/ITEMS/I=a
 			if(dir==RIGHT) I.vel_x=1

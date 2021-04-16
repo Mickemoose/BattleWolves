@@ -26,16 +26,17 @@ UI
 		icon='UI/Logo.dmi'
 		screen_loc="CENTER-6,CENTER"
 		New(client/c)
+			animate(src,alpha=0)
 			c.screen+=src
 			src.filters += WhiteOutline
-			src.filters+= Wave
+		//	src.filters+= Wave
 
 
 		proc
 			Appear()
-				animate(src,transform=matrix().Translate(200,0), time=1, easing=BOUNCE_EASING)
-				spawn(1)
-					animate(src,transform=matrix().Translate(0,), time=10, easing=BOUNCE_EASING)
+				animate(src,transform=matrix().Translate(-600,0), time=0, easing=SINE_EASING)
+				//spawn(1)
+				animate(transform=matrix().Translate(0,0), alpha=255,time=15, easing=BOUNCE_EASING)
 					//WaterEffect()
 			Disappear()
 				animate(src,transform=matrix().Translate(0,-600), time=20, alpha=0,easing=BOUNCE_EASING)
