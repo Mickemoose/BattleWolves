@@ -12,6 +12,7 @@ mob
 		character = null
 		respawned=0
 
+		burning=0
 		blitz=0
 		lives =6
 		percent = 0

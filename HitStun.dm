@@ -35,7 +35,8 @@ mob
 			Shake("LIGHT")
 			target.Shake("LIGHT")
 			flick("hit",target)
-			world<<HIT
+			if(target.burning) view()<<FIRE
+			else view()<<HIT
 			//src.vel_x=0
 			//src.vel_y=0
 			target.vel_x=0
@@ -60,7 +61,7 @@ mob
 				reeled=0
 			switch(power)
 				if("NONE")
-					magnitude = 0.3
+					magnitude = 0.6
 				if("LIGHT")
 					magnitude = 1
 					KBSMOKE()
@@ -116,7 +117,7 @@ mob
 				if("UP")
 					knockbacked=1
 					vel_x=2
-					vel_y=magnitude*2
+					vel_y=magnitude+2
 					spawn(3)
 						setTumbled()
 						canAct=1

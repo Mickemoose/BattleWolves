@@ -161,6 +161,15 @@ mob
 							loc=locate(47,37,2)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 2) itemspawns.Add(S)
+		setBurning()
+			if(burning)
+				src.HitStun(src,1)
+				spawn(hitstun)
+					flick("hitend",src)
+					setDamage(pick(0.01,0.02,0.03,0.04),"ADD")
+					Knockback(power = "NONE", where = pick("UP","UP RIGHT","UP LEFT"))
+				spawn(12)
+					setBurning()
 		setCharacter(name)
 			isPlayer=1
 			inTitle=0

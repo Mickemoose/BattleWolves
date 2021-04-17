@@ -33,6 +33,49 @@ KFK_Mobs
 				Current_KFK--
 				Items_ACTIVE.Remove(src)
 				del src
+	Steve
+		//icon='Items/KFK/Steve.dmi'
+		//icon_state="stand"
+		pixel_x=-24
+		pixel_y=-5
+		fall_speed=5
+		density=0
+		scaffold=0
+		hitstun=1
+
+		Active()
+			spawn(10)
+				for(var/mob/m in view())
+					if(m.client && owner!=m)
+						var/UI/KFK/SunBackground/C1 = new /UI/KFK/SunBackground(m.client)
+						//var/UI/KFK/SunForeground/C2 = new /UI/KFK/SunForeground(m.client)
+						var/UI/KFK/Steve/C3 = new /UI/KFK/Steve(m.client)
+
+						var/obj/overlay = new /obj/
+						overlay.icon=m.icon
+						overlay.layer=m.layer+1
+						overlay.blend_mode=BLEND_MULTIPLY
+
+						animate(overlay, color=rgb(204, 102, 0,255), time=2)
+						overlay.WaterEffect()
+						m.overlays+=overlay
+
+						spawn(7.5)
+							if(m.isPlayer)
+
+								m.burning=1
+								m.setBurning()
+						spawn(100)
+							if(m.isPlayer)
+								m.overlays-=overlay
+								del overlay
+								m.burning=0
+						//	icon_state="stand"
+							C1.deactive()
+							C3.deactive()
+							spawn(5)
+								Deactivate()
+		bump()
 	PhormPhather
 		icon='Items/KFK/Phorm.dmi'
 		icon_state="stand"

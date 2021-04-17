@@ -40,7 +40,11 @@ mob
 
 			num2-=52*Players
 
-			for(var/UI/U in src.client.screen)
+			for(var/UI/NAME/U in src.client.screen)
+				del U
+			for(var/UI/FACE/U in src.client.screen)
+				del U
+			for(var/UI/LIFE/U in src.client.screen)
 				del U
 
 			for(var/mob/M in Players_ALIVE)
@@ -129,7 +133,12 @@ mob
 							var num2 =0
 							num2-=52*Players
 
-							for(var/UI/U in src.client.screen)
+
+							for(var/UI/NAME/U in src.client.screen)
+								del U
+							for(var/UI/FACE/U in src.client.screen)
+								del U
+							for(var/UI/LIFE/U in src.client.screen)
 								del U
 
 							for(var/mob/M in Players_ALIVE)
@@ -168,7 +177,11 @@ mob
 
 			num2-=52*Players
 
-			for(var/UI/U in src.client.screen)
+			for(var/UI/NAME/U in src.client.screen)
+				del U
+			for(var/UI/FACE/U in src.client.screen)
+				del U
+			for(var/UI/LIFE/U in src.client.screen)
 				del U
 
 			for(var/mob/M in Players_ALIVE)

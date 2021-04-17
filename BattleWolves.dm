@@ -115,6 +115,8 @@ mob
 
 		..()
 		var/list/ridees = bottom(2)
+
+
 		while(!/STAGEART/WhaleBoat in ridees)
 			riding=0
 
@@ -224,7 +226,7 @@ mob
 				src.HitStun(src,4)
 				spawn(hitstun)
 					flick("hitend",src)
-					Knockback(power = "MEDIUM", where = "UP RIGHT")
+					Knockback(power = "NONE", where = "UP")
 			if(k == "9")
 
 				new /UI/StarKO(src.client,src.character)
