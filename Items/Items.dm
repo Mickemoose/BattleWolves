@@ -53,6 +53,7 @@ ITEMS
 			pixel_x=-24
 			pixel_y=-16
 			move_speed=2
+			plane=3
 			carried=0
 			var
 				list/chars = list("Doop","PhormPhather","Steve","Zeke")
@@ -306,6 +307,12 @@ ITEMS
 			flick("",FX)
 			spawn(6)
 				del FX
+
+		for(var/ITEMS/I in oview(1,src))
+			if(!thrown && !I.thrown && vel_x==0 && I.vel_x==0 &&!carried && !I.carried)
+				if(inside(I))
+					I.set_pos(I.px+8,I.py)
+					set_pos(px-8,py)
 
 
 
