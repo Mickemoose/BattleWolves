@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618682027
-DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Derek Items Items\KFK Sound System UI 
+LAST_COMPILE_TIME: 1618685273
+DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Derek Items Items\KFK 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: Items\Items.dm;BattleWolves.dm;Items\KFK\Cards.dm;Items\KFK\CardUI.dm;System\fade.dmi;Characters.dm;Items\KFK\Doop.dmi;Items\KFK\Steve.dmi;UI\Title.dm;Mob Vars.dm;HitStun.dm;Sound\Sound.dm;UI\PercentNumbers.dm;Game Vars.dm;Dev Log.dm;maps.dmm;Fullscreen.dm;Characters\Derek\NSpecial.dm
-FILE: Characters\Derek\NSpecial.dm
+WINDOW: Items\Items.dm;BattleWolves.dm;Items\KFK\Cards.dm;Items\KFK\CardUI.dm;System\fade.dmi;Characters.dm;Items\KFK\Doop.dmi;Items\KFK\Steve.dmi;UI\Title.dm;Mob Vars.dm;HitStun.dm;Sound\Sound.dm;UI\PercentNumbers.dm;Game Vars.dm;Dev Log.dm;maps.dmm;Fullscreen.dm;Characters\Derek\NSpecial.dm;Items\KFK\Zeke.dmi
+FILE: Items\KFK\Zeke.dmi
 */
 // END_INTERNALS
