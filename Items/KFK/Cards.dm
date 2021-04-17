@@ -33,6 +33,45 @@ KFK_Mobs
 				Current_KFK--
 				Items_ACTIVE.Remove(src)
 				del src
+	Zeke
+		icon='Items/KFK/Zeke.dmi'
+		pixel_x=-23
+		pixel_y=-1
+		pwidth=19
+		pheight=12
+		density=0
+		scaffold=0
+		var/shelled=0
+		Active()
+			spawn(10)
+				shelled=1
+				icon_state="shell"
+				vel_x=6
+				spawn(100)
+					Deactivate()
+		action()
+			if(at_edge())
+				turn_around()
+		bump()
+		movement()
+			..()
+			if(shelled)
+				for(var/mob/M in oview(1,src))
+					if(M.inside(src))
+						if(M.hitstun || M.hitIndex=="Zeke") return
+						M.hitIndex="Zeke"
+						world<<HIT
+						flick("hit",M)
+						HitStun(M,1)
+						M.setDamage(pick(0.02),"ADD")
+						spawn(1)
+							flick("hitend",M)
+							if(M.dir==RIGHT)
+								M.Knockback(power = "NONE", where = "UP RIGHT")
+							else
+								M.Knockback(power = "NONE", where = "UP LEFT")
+						spawn(6)
+							M.hitIndex="null"
 	Steve
 		//icon='Items/KFK/Steve.dmi'
 		//icon_state="stand"
