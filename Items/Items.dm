@@ -55,7 +55,7 @@ ITEMS
 			move_speed=2
 			carried=0
 			var
-				list/chars = list("Doop","PhormPhather")
+				list/chars = list("Doop","PhormPhather", "Steve")
 				list/sacs = list()
 				ctype = "character" //or sacrifice
 			Activate(var/mob/activator)
