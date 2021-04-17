@@ -85,7 +85,6 @@ ITEMS
 							del src
 			proc
 				Summon(ctype,var/mob/owner)
-					var/result= 0
 					var/F
 					switch(ctype)
 						if("character")
@@ -93,12 +92,11 @@ ITEMS
 						if("sacrifice")
 							F=pick(sacs)
 					var/KFK_Mobs/O = text2path("/KFK_Mobs/[F]")
-					new O(src.loc)
-					O.set_pos(src.px-8, src.py+16)
-					O.owner=owner
-					if(O) result=1
-					else result=0
-					return result
+					var/KFK_Mobs/O2 = new O(src.loc)
+					O2.loc=src.loc
+					O2.set_pos(src.px-8, src.py+16)
+					O2.owner=owner
+					return
 
 	CONTAINERS
 		Barrel

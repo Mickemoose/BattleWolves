@@ -71,8 +71,7 @@ Xbox Controller Mapping
 
 
 
-What I wanna do - 4/16/2021
-- Jump & DblJump smoke & sfx
+What I wanna do - 4/17/2021
 - Dereks Specials
-
+- moar kfk
 */

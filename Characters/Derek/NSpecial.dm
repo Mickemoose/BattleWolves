@@ -26,7 +26,7 @@ mob
 				hit.step_y=step_y+20
 				hit.dir=RIGHT
 
-				var/obj/hitbox/hit2=new/obj/hitbox(src,_bounds="-30,-60 to 30,60", px=60, py=120, frames=15, hitstun=4, knockback="MEDIUM", direction="UP RIGHT")
+				var/obj/hitbox/hit2=new/obj/hitbox(src,_bounds="-30,-60 to 30,60", px=60, py=120, frames=15, hitstun=4, knockback="MEDIUM", direction="UP LEFT")
 				hit2.step_x=step_x-20
 				hit2.step_y=step_y+20
 				hit2.dir=LEFT

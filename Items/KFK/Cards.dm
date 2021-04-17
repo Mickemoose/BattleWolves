@@ -46,27 +46,27 @@ KFK_Mobs
 		Active()
 			spawn(10)
 				for(var/mob/m in view())
-					if(m.client && owner!=m)
+					if(m.client)
 						var/UI/KFK/SunBackground/C1 = new /UI/KFK/SunBackground(m.client)
 						//var/UI/KFK/SunForeground/C2 = new /UI/KFK/SunForeground(m.client)
 						var/UI/KFK/Steve/C3 = new /UI/KFK/Steve(m.client)
 
 						var/obj/overlay = new /obj/
-						overlay.icon=m.icon
-						overlay.layer=m.layer+1
-						overlay.blend_mode=BLEND_MULTIPLY
-
-						animate(overlay, color=rgb(204, 102, 0,255), time=2)
-						overlay.WaterEffect()
-						m.overlays+=overlay
 
 						spawn(7.5)
-							if(m.isPlayer)
+							if(m.isPlayer && owner!=m)
 
+								overlay.icon=m.icon
+								overlay.layer=m.layer+1
+								overlay.blend_mode=BLEND_MULTIPLY
+
+								animate(overlay, color=rgb(204, 102, 0,255), time=2)
+								overlay.WaterEffect()
+								m.overlays+=overlay
 								m.burning=1
 								m.setBurning()
 						spawn(100)
-							if(m.isPlayer)
+							if(m.isPlayer  && owner!=m)
 								m.overlays-=overlay
 								del overlay
 								m.burning=0
@@ -91,12 +91,12 @@ KFK_Mobs
 				spawn(4)
 					icon_state="watch"
 					for(var/mob/m in view())
-						if(m.client && owner!=m)
+						if(m.client)
 							var/UI/KFK/Clock/C1 = new /UI/KFK/Clock(m.client)
 
 							var/UI/KFK/Hand/C2 = new /UI/KFK/Hand(m.client)
 							spawn(7.5)
-								if(m.isPlayer)
+								if(m.isPlayer && owner!=m)
 									animate(m, color=rgb(102, 0, 255,255))
 									m.gravity=0.1
 									m.jump_speed=1
@@ -106,7 +106,7 @@ KFK_Mobs
 									m.air_decel=0.1
 									m.carry_speed=1
 							spawn(100)
-								if(m.isPlayer)
+								if(m.isPlayer  && owner!=m)
 									animate(m, color=rgb(255, 255, 255,255))
 									m.setCharacter(m.character)
 								icon_state="stand"
