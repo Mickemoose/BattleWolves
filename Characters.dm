@@ -161,7 +161,6 @@ mob
 							loc=locate(47,37,2)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 2) itemspawns.Add(S)
-
 		setCharacter(name)
 			isPlayer=1
 			inTitle=0
@@ -186,7 +185,7 @@ mob
 					air_decel=0.14
 					gravity=1
 					carry_speed=2
-					setPlayerLives(3)
+				//	setPlayerLives(3)
 				if("Sandbag")
 					icon='Characters/Sandbag.dmi'
 					jump_speed = 12
@@ -198,4 +197,4 @@ mob
 					fall_speed=4
 					move_speed=4
 					carry_speed=3
-					setPlayerLives(1)
+				//	setPlayerLives(1)

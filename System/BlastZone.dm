@@ -17,6 +17,7 @@ area
 				Items_ACTIVE.Remove(M)
 				if(istype(M, /ITEMS/INSTANTS/KFK_Card))
 					Current_KFK--
+
 				world<<output("[M] DELETE now [Items_ACTIVE.len] items remain","window1.output1")
 				spawn(1)
 					del M
@@ -137,5 +138,7 @@ area
 
 
 				M.Death()
+				if(istype(M, /KFK_Mobs/))
+					Current_KFK--
 				world<<output("[M] DIED with [M.lives] lives left","window1.output1")
 				return

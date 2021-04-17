@@ -216,7 +216,8 @@ mob
 						setPlayerNumber()
 					spawn(15)
 						src.client.unlock_input()
-
+			if(k == "5")
+				new /KFK_Mobs/PhormPhather(src.loc)
 			if(k == "7")
 				setVolume("DOWN", "MUSIC")
 			if(k == "8")

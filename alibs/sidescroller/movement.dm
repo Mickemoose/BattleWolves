@@ -69,6 +69,8 @@ mob
 		gravity = 1
 		skidspeed = 0.8
 
+		slowed=0
+
 		move_speed = 5
 		air_move_speed = 3
 		carry_speed = 3

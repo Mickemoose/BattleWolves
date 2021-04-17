@@ -62,6 +62,7 @@
 #include "hitboxes\Hitbox.dm"
 #include "Items\Items.dm"
 #include "Items\KFK\Cards.dm"
+#include "Items\KFK\CardUI.dm"
 #include "Music\Music.dm"
 #include "Sound\Sound.dm"
 #include "Stages\Test\stage.dm"

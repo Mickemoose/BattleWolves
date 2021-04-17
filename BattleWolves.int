@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618615943
-DIR: alibs alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Derek Effects Effects\Derek hitboxes Stages Stages\Test System UI 
+LAST_COMPILE_TIME: 1618629078
+DIR: alibs alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters\Derek Effects Effects\Derek Items Items\KFK Stages\Test System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: Stages\Test\stage.dm;System\ScreenFade.dm;BattleWolves.dm;Characters\Derek\NSpecial.dm;hitboxes\Hitbox.dm;HitStun.dm
-FILE: Characters\Derek\NSpecial.dm
+WINDOW: Items\Items.dm;BattleWolves.dm;Items\KFK\Cards.dm;Items\KFK\CardUI.dm;alibs\sidescroller\movement.dm;System\ScreenFade.dm;System\fade.dmi;Characters.dm
+FILE: Items\Items.dm
 */
 // END_INTERNALS

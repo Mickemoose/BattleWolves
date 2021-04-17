@@ -43,6 +43,7 @@ ITEMS
 				spawn(1.5)
 					animate(activator,color=rgb(255,255,255),time=1)
 					spawn(1)
+						Items_ACTIVE.Remove(src)
 						del src
 		KFK_Card
 			icon='Items/KFK.dmi'
@@ -54,7 +55,7 @@ ITEMS
 			move_speed=2
 			carried=0
 			var
-				list/chars = list("Doop")
+				list/chars = list("Doop","PhormPhather")
 				list/sacs = list()
 				ctype = "character" //or sacrifice
 			Activate(var/mob/activator)
@@ -80,7 +81,7 @@ ITEMS
 						spawn(2)
 							Summon(ctype,activator)
 						spawn(8)
-
+							Items_ACTIVE.Remove(src)
 							del src
 			proc
 				Summon(ctype,var/mob/owner)

@@ -31,7 +31,48 @@ KFK_Mobs
 			animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
 			spawn(3)
 				Current_KFK--
+				Items_ACTIVE.Remove(src)
 				del src
+	PhormPhather
+		icon='Items/KFK/Phorm.dmi'
+		icon_state="stand"
+		pixel_x=-24
+		pixel_y=-5
+		fall_speed=5
+		density=0
+		scaffold=0
+
+		Active()
+			spawn(10)
+				flick("",src)
+				spawn(4)
+					icon_state="watch"
+					for(var/mob/m in view())
+						if(m.client && owner!=m)
+							var/UI/KFK/Clock/C1 = new /UI/KFK/Clock(m.client)
+
+							var/UI/KFK/Hand/C2 = new /UI/KFK/Hand(m.client)
+							spawn(7.5)
+								if(m.isPlayer)
+									animate(m, color=rgb(102, 0, 255,255))
+									m.gravity=0.1
+									m.jump_speed=1
+									m.fall_speed=0.2
+									m.move_speed=1
+									m.air_move_speed=1
+									m.air_decel=0.1
+									m.carry_speed=1
+							spawn(100)
+								if(m.isPlayer)
+									animate(m, color=rgb(255, 255, 255,255))
+									m.setCharacter(m.character)
+								icon_state="stand"
+								C1.deactive()
+								C2.deactive()
+								spawn(5)
+									Deactivate()
+		bump()
+		action()
 	Doop
 		icon='Items/KFK/Doop.dmi'
 		icon_state=""
@@ -47,37 +88,6 @@ KFK_Mobs
 			targeted=0
 			list/targetlist=list()
 
-
-		proc
-
-			Scan()
-				if(!targeted)
-					for(var/mob/m in view())
-						if(!m.dead && m.on_ground)
-							targetlist.Add(m)
-					target=pick(targetlist)
-					Target()
-
-
-			Target()
-				targeted=1
-				for(target in view())
-					if(!target.dead)
-						face(target)
-						flick("intent",src)
-						spawn(6)
-							icon_state="targeted"
-
-								//Attack()
-
-			Attack()
-				reeled=0
-				hitstun=0
-				icon_state="attack"
-			Spin()
-				animate(src, transform = turn(matrix(), 120), time = 0.5, loop = -1)
-				animate(transform = turn(matrix(), 240), time = 0.5, loop = -1)
-				animate(transform = null, time = 0.5, loop = -1)
 
 		bump(atom/a, d)
 			if(d==DOWN)
