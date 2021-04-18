@@ -148,9 +148,6 @@ ITEMS
 			carried=0
 			scaffold=1
 			canCarry=0
-
-			//mover=1
-
 			New()
 				..()
 				icon_state=pick("1","2","3")
@@ -164,12 +161,9 @@ ITEMS
 
 			pixel_move(dpx, dpy)
 				var/riders = top(1)
-
 				..()
-
 				for(var/mob/m in riders)
 					if(on_ground)
-
 						m.pixel_move(move_x, move_y)
 					else
 						m.jump()
@@ -242,7 +236,6 @@ ITEMS
 				//animate(transform = null, time = 1.5, loop = -1)
 				animate(src, transform = matrix().Translate(0,42), ,time = 5, loop = 0, easing = SINE_EASING)
 				if(Items_ACTIVE.len < Max_Items)
-
 					F=pick(contains)
 					O = text2path("/ITEMS/[F]")
 					O2 = new O(src.loc)

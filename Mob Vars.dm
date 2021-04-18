@@ -11,6 +11,7 @@ mob
 		lasthitby = null
 		character = null
 		respawned=0
+		webtrapped=0
 
 		burning=0
 		blitz=0
