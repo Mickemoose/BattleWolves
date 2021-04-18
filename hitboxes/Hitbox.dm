@@ -37,6 +37,8 @@ obj/hitbox
 					W.hitIndex=src
 					if(dir==RIGHT) W.vel_x=4
 					else W.vel_x=-4
+			for(var/ITEMS/CONTAINERS/C in obounds(0,src)-owner)
+				C.Destroy()
 
 
 

@@ -39,6 +39,9 @@ mob
 			trackers = list()
 			holdingItem = list()
 
+		holdingAttack = 0
+		chargingAttck = 0
+
 
 
 		//STATS

@@ -58,6 +58,7 @@
 #include "alibs\sidescroller\world.dm"
 #include "Characters\RespawnPlatform.dm"
 #include "Characters\Derek\NSpecial.dm"
+#include "Characters\Derek\SSpecial.dm"
 #include "Effects\Effects.dm"
 #include "hitboxes\Hitbox.dm"
 #include "Items\Items.dm"

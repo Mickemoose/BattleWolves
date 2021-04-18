@@ -28,11 +28,22 @@ proc
 				return rcolor
 mob
 	proc
+		SideSpecial()
+			animate(src, transform = null, time = 0.1)
+			switch(character)
+				if("Derek")
+					FlamePlume()
 		NeutralSpecial()
 			animate(src, transform = null, time = 0.1)
 			switch(character)
 				if("Derek")
 					SpiritBurst()
+		UpSpecial()
+			animate(src, transform = null, time = 0.1)
+
+		DownSpecial()
+			animate(src, transform = null, time = 0.1)
+
 		KBSMOKE()
 			if(reeled)
 				if(!kbsmoke)

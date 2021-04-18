@@ -23,6 +23,11 @@ ITEMS
 		flash = 0
 		list
 			contains = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food")
+	THROWABLES
+		WebTrap
+			icon='Items/Webtrap.dmi'
+			carried=0
+
 	INSTANTS
 		Food
 			icon='Items/Food.dmi'
@@ -163,9 +168,9 @@ ITEMS
 				var/riders = top(1)
 				..()
 				for(var/mob/m in riders)
-					if(on_ground)
+					if(on_ground && isPlayer)
 						m.pixel_move(move_x, move_y)
-					else
+					else if(isPlayer)
 						m.jump()
 						setSpinning()
 
@@ -229,7 +234,7 @@ ITEMS
 				vel_y=0
 				canMove=0
 				icon_state="break"
-				view()<<BREAK
+				world<<BREAK
 				animate(src, transform = matrix(), alpha = 0, time = 5)
 				animate(transform = turn(matrix(), 120), time = 1.5, loop = -1)
 				animate(transform = turn(matrix(), 240), time = 1.5, loop = -1)
@@ -290,7 +295,7 @@ ITEMS
 
 		if(!on_ground && !isDeleting && vel_y==0 && d==DOWN)
 			carried=0
-			view()<<FOOTSTEP
+			world<<FOOTSTEP
 			var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
 			FX.plane=src.plane-1
 			FX.loc=src.loc

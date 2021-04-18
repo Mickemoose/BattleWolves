@@ -163,7 +163,7 @@ mob
 								footstepsound=0
 				else
 					spawn(1.5)
-						if(!footstepsound)
+						if(!footstepsound && vel_x!=0)
 							footstepsound=1
 							src<<FOOTSTEP
 							spawn(3.3)

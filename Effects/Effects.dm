@@ -48,137 +48,30 @@ EFFECT
 			pheight=120
 			New()
 				flick("",src)
-				//world<<HIT
-				for(var/ITEMS/CONTAINERS/Wheel_Crate/W in oview(1,src))
-					if(W.inside(src))
-						if(dir==RIGHT) W.vel_x=4
-						else W.vel_x=-4
-				for(var/mob/M in oview(1,src))
-					if(M.inside(src))
-						if(M.hitIndex!="DerekNS" && M.isPlayer)
-							M.hitIndex="DerekNS"
-							flick("hit",M)
-							M.face(src)
-							M.HitStun(M,4)
-							M.setDamage(0.3,"ADD")
-							spawn(4)
-								flick("hitend",M)
-								// if you're to the left of a
-								if(M.px + M.pwidth / 2 < px + pwidth / 2)
-									M.Knockback(power = "HEAVY", where = "UP LEFT")
-								// otherwise you're to the right of a
-								else
-									M.Knockback(power = "HEAVY", where = "UP RIGHT")
 
+mob
+	EFFECT
+		set_state()
+		gravity()
+		//movement()
+		//action()
+		bump()
+		DEREK
+			SSPECIAL
+				icon='Effects/Derek/SSpecial.dmi'
+				pwidth=12
+				pheight=120
+				pixel_x=-10
+				density=0
+				scaffold=0
+				var/owner
+				New(mob/owner)
+					owner=owner
+					spawn(1)
+						flick("",src)
+						spawn(3)
+							flick("plume",src)
 							spawn(6)
-								M.hitIndex="null"
-				spawn(0.5)
-					for(var/mob/M in oview(1,src))
-						if(M.inside(src))
-							if(M.hitIndex!="DerekNS" && M.isPlayer)
-								M.hitIndex="DerekNS"
-								flick("hit",M)
-								M.face(src)
-								M.HitStun(M,4)
-								M.setDamage(0.3,"ADD")
-								spawn(4)
-									flick("hitend",M)
-									// if you're to the left of a
-									if(M.px + M.pwidth / 2 < px + pwidth / 2)
-										M.Knockback(power = "HEAVY", where = "UP LEFT")
-									// otherwise you're to the right of a
-									else
-										M.Knockback(power = "HEAVY", where = "UP RIGHT")
+								del src
 
-								spawn(6)
-									M.hitIndex="null"
-				spawn(1)
-					//world<<HIT
-					for(var/ITEMS/CONTAINERS/Wheel_Crate/W in oview(1,src))
-						if(W.inside(src))
-							if(dir==RIGHT) W.vel_x=4
-							else W.vel_x=-4
-					for(var/mob/M in oview(1,src))
-						if(M.inside(src))
-							if(M.hitIndex!="DerekNS1" && M.isPlayer)
-								M.hitIndex="DerekNS1"
-								flick("hit",M)
-								M.face(src)
-								M.HitStun(M,4)
-								M.setDamage(0.5,"ADD")
-								spawn(4)
-									flick("hitend",M)
-									// if you're to the left of a
-									if(M.px + M.pwidth / 2 < px + pwidth / 2)
-										M.Knockback(power = "HEAVY", where = "UP LEFT")
-									// otherwise you're to the right of a
-									else
-										M.Knockback(power = "HEAVY", where = "UP RIGHT")
 
-								spawn(6)
-									M.hitIndex="null"
-				spawn(1.5)
-					for(var/mob/M in oview(1,src))
-						if(M.inside(src))
-							if(M.hitIndex!="DerekNS1" && M.isPlayer)
-								M.hitIndex="DerekNS1"
-								flick("hit",M)
-								M.face(src)
-								M.HitStun(M,4)
-								M.setDamage(0.5,"ADD")
-								spawn(4)
-									flick("hitend",M)
-									// if you're to the left of a
-									if(M.px + M.pwidth / 2 < px + pwidth / 2)
-										M.Knockback(power = "HEAVY", where = "UP LEFT")
-									// otherwise you're to the right of a
-									else
-										M.Knockback(power = "HEAVY", where = "UP RIGHT")
-
-								spawn(6)
-									M.hitIndex="null"
-				spawn(2)
-				//	world<<HIT
-					for(var/ITEMS/CONTAINERS/Wheel_Crate/W in oview(1,src))
-						if(W.inside(src))
-							if(dir==RIGHT) W.vel_x=4
-							else W.vel_x=-4
-					for(var/mob/M in oview(1,src))
-						if(M.inside(src))
-							if(M.hitIndex!="DerekNS2" && M.isPlayer)
-								M.hitIndex="DerekNS2"
-								flick("hit",M)
-								M.face(src)
-								M.HitStun(M,4)
-								M.setDamage(0.3,"ADD")
-								spawn(4)
-									flick("hitend",M)
-									// if you're to the left of a
-									if(M.px + M.pwidth / 2 < px + pwidth / 2)
-										M.Knockback(power = "HEAVY", where = "UP LEFT")
-									// otherwise you're to the right of a
-									else
-										M.Knockback(power = "HEAVY", where = "UP RIGHT")
-
-								spawn(6)
-									M.hitIndex="null"
-				spawn(2.5)
-					for(var/mob/M in oview(1,src))
-						if(M.inside(src))
-							if(M.hitIndex!="DerekNS2" && M.isPlayer)
-								M.hitIndex="DerekNS2"
-								flick("hit",M)
-								M.face(src)
-								M.HitStun(M,4)
-								M.setDamage(0.3,"ADD")
-								spawn(4)
-									flick("hitend",M)
-									// if you're to the left of a
-									if(M.px + M.pwidth / 2 < px + pwidth / 2)
-										M.Knockback(power = "HEAVY", where = "UP LEFT")
-									// otherwise you're to the right of a
-									else
-										M.Knockback(power = "HEAVY", where = "UP RIGHT")
-
-								spawn(6)
-									M.hitIndex="null"

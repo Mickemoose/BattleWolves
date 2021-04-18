@@ -320,8 +320,18 @@ mob
 						canAttack=1
 						canAct=1
 
+
 			if(k == "d" && canAttack && canAct)
-				NeutralSpecial()
+				if(client.has_key(controls.left))
+					SideSpecial()
+				else if(client.has_key(controls.right))
+					SideSpecial()
+				else if(client.has_key(controls.down))
+					DownSpecial()
+				else if(client.has_key(controls.up))
+					UpSpecial()
+				else
+					NeutralSpecial()
 
 
 				/*
@@ -519,7 +529,7 @@ mob
 			holdingItem=new()
 			spawn(2) item.carrier = null
 			item.plane=1
-			item.thrown=1
+			spawn(1) item.thrown=1
 			if(item.mover) item.icon_state="moving"
 			else item.setSpinning()
 			if(dir == RIGHT)
