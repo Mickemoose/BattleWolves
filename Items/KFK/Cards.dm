@@ -57,7 +57,7 @@ KFK_Mobs
 			..()
 			if(shelled)
 				for(var/mob/M in oview(1,src))
-					if(M.inside(src))
+					if(M.isPlayer && M.inside(src))
 						if(M.hitstun || M.hitIndex=="Zeke" || owner==M) return
 						M.hitIndex="Zeke"
 						world<<HIT

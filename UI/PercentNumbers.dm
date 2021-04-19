@@ -10,6 +10,10 @@ UI
 		icon='UI/Faces.dmi'
 	LIFE
 		icon='UI/Life.dmi'
+	ITEM
+		icon='UI/HeldItem.dmi'
+		icon_state="frame"
+		plane=FLOAT_PLANE+9
 	New(client/c, tracking)
 		c.screen+=src
 		playernum=tracking
@@ -46,6 +50,8 @@ mob
 				del U
 			for(var/UI/LIFE/U in src.client.screen)
 				del U
+			for(var/UI/ITEM/U in src.client.screen)
+				del U
 
 			for(var/mob/M in Players_ALIVE)
 				//if(M.hud) continue
@@ -56,7 +62,10 @@ mob
 				var/UI/FACE/F= new (src.client, M.PLAYERNUMBER)
 				F.icon_state=M.character
 				F.screen_loc="CENTER-1:[num2],CENTER-7:-7"
+
 				animate(F, transform= matrix()*2, color=getPlayerColor(M), alpha=255, time=3)
+				var/UI/ITEM/I= new(src.client, M.PLAYERNUMBER)
+				I.screen_loc="CENTER-1:[num2],CENTER-6:-5"
 				var num=13
 				var num3=8
 				var percent2 = num2text(M.getDamage()*100) + "%"
@@ -76,6 +85,7 @@ mob
 					animate(L, transform = matrix(),color=getPlayerColor(M),  alpha= 255)
 
 					num3+=8
+
 
 				num2+=120
 				spawn(1)
@@ -140,6 +150,8 @@ mob
 								del U
 							for(var/UI/LIFE/U in src.client.screen)
 								del U
+							for(var/UI/ITEM/U in src.client.screen)
+								del U
 
 							for(var/mob/M in Players_ALIVE)
 								//if(M.hud) continue
@@ -151,6 +163,8 @@ mob
 								F.icon_state=M.character
 								F.screen_loc="CENTER-1:[num2],CENTER-7:-7"
 								animate(F, transform= matrix()*2, color=getPlayerColor(M), alpha=255)
+								var/UI/ITEM/I= new(src.client, M.PLAYERNUMBER)
+								I.screen_loc="CENTER-1:[num2],CENTER-6:-5"
 								var num=13
 								var num3=8
 								var percent2 = num2text(M.getDamage()*100) + "%"
@@ -183,6 +197,8 @@ mob
 				del U
 			for(var/UI/LIFE/U in src.client.screen)
 				del U
+			for(var/UI/ITEM/U in src.client.screen)
+				del U
 
 			for(var/mob/M in Players_ALIVE)
 				//if(M.hud) continue
@@ -194,6 +210,9 @@ mob
 				F.icon_state=M.character
 				F.screen_loc="CENTER-1:[num2],CENTER-7:-7"
 				animate(F, transform= matrix()*2,  color=getPlayerColor(M),  alpha=255)
+				var/UI/ITEM/I= new(src.client, M.PLAYERNUMBER)
+				I.screen_loc="CENTER-1:[num2],CENTER-6:-5"
+				I.icon_state=M.heldItem
 				var num=13
 				var num3=8
 				var percent2 = num2text(M.getDamage()*100) + "%"
@@ -223,11 +242,7 @@ mob
 							animate(N, transform= matrix()*2, alpha=255, color="red", time=0.1)
 						if(M.percent>=2.50)
 							animate(N, transform= matrix()*2, alpha=255, color="#611c1c", time=0.1)
-						animate(N, transform = turn(matrix()*2, rand(10,22)), time = 1, loop=1 ,easing=BOUNCE_EASING)
-						animate(N, transform = turn(matrix()*2, 0), time = 1,loop=1  ,easing=BOUNCE_EASING)
-						spawn(1.2)
-							animate(N, transform = turn(matrix()*2, rand(330,350)), time = 1,loop=1 ,easing=BOUNCE_EASING)
-							animate(N, transform = turn(matrix()*2, 0), time = 1, loop=1 ,easing=BOUNCE_EASING)
+
 			for(var/UI/NAME/N in src.client.screen)
 				if(N.playernum==player.PLAYERNUMBER)
 					if(player.percent>=0.5 && player.percent<=0.75)

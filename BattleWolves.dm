@@ -218,12 +218,12 @@ mob
 						setPlayerNumber()
 					spawn(15)
 						src.client.unlock_input()
-			if(k=="6")
-				new /KFK_Mobs/PhormPhather(src.loc)
-			if(k=="4")
-				new /KFK_Mobs/Steve(src.loc)
+		//	if(k=="6")
+		//		new /KFK_Mobs/PhormPhather(src.loc)
+		//	if(k=="4")
+		//		new /KFK_Mobs/Steve(src.loc)
 			if(k == "5")
-				new /KFK_Mobs/Zeke(src.loc)
+				new /ITEMS/THROWABLES/WebTrap(src.loc)
 			if(k == "7")
 				setVolume("DOWN", "MUSIC")
 			if(k == "8")
@@ -270,40 +270,74 @@ mob
 						setLandingLag("LIGHT")
 						boost = boostdefault
 						vel_y = jump_speed
+			if(k=="f" && !on_ground)
+				if(holdingItem.len == 0)
+					if(heldItem != "frame")
+						var/ITEMS/O = text2path("/ITEMS/THROWABLES/[heldItem]")
+						new O(src,thrown=1)
+
+						heldItem = "frame"
+						UpdateWorldUI(src)
+						return
 			if(k == "f" && on_ground)
 				if(holdingItem.len == 0)
-					var/ITEMS/cue
-					for(var/ITEMS/I in oview(1,src))
-						cue=pick(I)
-						//INSTANTS
-						if(istype(I, /ITEMS/INSTANTS))
+					if(heldItem != "frame")
+						var/ITEMS/O = text2path("/ITEMS/THROWABLES/[heldItem]")
+						new O(src,thrown=1)
 
-							vel_x=0
-							if(cue.inside(src) && !cue.isDeleting && !cue.carried && cue in oview(1,src))
-								//holdingItem.Add(cue)
-								canAttack=0
-								flick("squat",src)
-								view()<<PICKUP
+						heldItem = "frame"
+						UpdateWorldUI(src)
+						return
+					if(heldItem == "frame")
+						var/ITEMS/cue
+						for(var/ITEMS/I in oview(1,src))
+							cue=pick(I)
+							//THROWABLES
+							if(istype(I, /ITEMS/THROWABLES))
+
 								vel_x=0
-								spawn(2)
-									vel_x=0
-									canAttack=1
-									flick("carrying",src)
-									cue.Activate(src)
-							break
-						//CONTAINERS
-						if(istype(I, /ITEMS/CONTAINERS))
-							vel_x=0
-							if(I.canCarry)
-								if(cue.inside(src) && !cue.isDeleting && !cue.carried && cue in oview(1,src))
+								if(cue.inside(src) && !cue.isDeleting && !cue.thrown && cue in oview(1,src))
+									//holdingItem.Add(cue)
 									canAttack=0
 									flick("squat",src)
+									view()<<PICKUP
+									vel_x=0
+									spawn(1.5)
+										flick("squatend",src)
+										vel_x=0
+										canAttack=1
+										cue.PickUp(src)
+								break
+
+							//INSTANTS
+							if(istype(I, /ITEMS/INSTANTS))
+
+								vel_x=0
+								if(cue.inside(src) && !cue.isDeleting && !cue.carried && cue in oview(1,src))
+									//holdingItem.Add(cue)
+									canAttack=0
+									flick("squat",src)
+									view()<<PICKUP
 									vel_x=0
 									spawn(2)
 										vel_x=0
+										canAttack=1
 										flick("carrying",src)
-										Carry(cue)
+										cue.Activate(src)
 								break
+							//CONTAINERS
+							if(istype(I, /ITEMS/CONTAINERS))
+								vel_x=0
+								if(I.canCarry)
+									if(cue.inside(src) && !cue.isDeleting && !cue.carried && cue in oview(1,src))
+										canAttack=0
+										flick("squat",src)
+										vel_x=0
+										spawn(2)
+											vel_x=0
+											flick("carrying",src)
+											Carry(cue)
+									break
 				else
 					for(var/ITEMS/CONTAINERS/C in holdingItem)
 						Drop(C)

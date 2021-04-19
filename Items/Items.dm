@@ -1,6 +1,6 @@
 var
 	list
-		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate","CONTAINERS/Wheel_Crate","INSTANTS/Food")
+		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate","CONTAINERS/Wheel_Crate","INSTANTS/Food","THROWABLES/WebTrap")
 ITEMS
 	parent_type = /mob
 	appearance_flags = PIXEL_SCALE
@@ -22,11 +22,58 @@ ITEMS
 		isActuallyDeleting =0
 		flash = 0
 		list
-			contains = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food")
+			contains = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food", "THROWABLES/WebTrap")
 	THROWABLES
 		WebTrap
 			icon='Items/Webtrap.dmi'
 			carried=0
+			pixel_x=-20
+			pixel_y=-20
+			pwidth=22
+			pheight=22
+			PickUp(var/mob/pickuper)
+				pickuper.heldItem="WebTrap"
+				UpdateWorldUI(pickuper)
+				Items_ACTIVE.Remove(src)
+				del src
+			movement()
+				..()
+				for(var/mob/m in oview(1,src))
+					if(m.isPlayer && icon_state=="hidden" && m.inside(src))
+						spawn(1)
+							animate(src, transform = matrix().Scale(1, 0) ,alpha=0)
+							icon_state="trap"
+							animate(transform = matrix().Scale(1, 1) ,alpha=255,time=1, easing=BOUNCE_EASING)
+							animate(m, color=rgb(100,100,100))
+							flick("hit",m)
+							m.client.lock_input()
+							m.hitstun=1
+							m.vel_x=0
+							m.vel_y=0
+							spawn(75)
+								animate(src, alpha=0,time=3)
+								animate(m, color=rgb(255,255,255))
+								spawn(4)
+									del src
+								flick("hitend",m)
+								m.hitstun=0
+								m.client.unlock_input()
+
+			bump(atom/a)
+				if(istype(a, /turf))
+					if(thrown)
+						animate(src, transform = null)
+						carried=1
+						flick("plant",src)
+						spawn(3)
+							icon_state="hidden"
+
+							pwidth=32
+
+
+
+			//	..()
+
 
 	INSTANTS
 		Food
@@ -316,19 +363,31 @@ ITEMS
 
 
 
-	New()
-		carried=1
-		animate(src, alpha = 0, transform = matrix()*4, color = "black", time = 0.1)
-		spawn(0.1)
-			animate(src, alpha = 255, transform = matrix()/4, color = "white", time = 2)
-			spawn(2)
-				view()<<ITEMSPAWN
-				carried=0
-				spawn(1)
-					setSpinning()
-					spawn(4)
-						DeleteTimer()
+	New(var/mob/m,thrown=0)
+		if(!thrown)
+			carried=1
+			animate(src, alpha = 0, transform = matrix()*4, color = "black", time = 0.1)
+			spawn(0.1)
+				animate(src, alpha = 255, transform = matrix()/4, color = "white", time = 2)
+				spawn(2)
+					view()<<ITEMSPAWN
+					carried=0
+					spawn(1)
+						setSpinning()
+						spawn(4)
+							DeleteTimer()
+		else
+			src.thrown=1
+			carried=0
+			src.loc=m.loc
+			src.set_pos(m.px,m.py+6)
+			src.vel_y=5
+			switch(m.dir)
+				if(RIGHT) vel_x=8
+				if(LEFT) vel_x=-8
+			setSpinning()
 	proc
+		PickUp(var/mob/pickuper)
 		Activate(var/mob/activator)
 		setSpinning()
 			animate(src, transform = turn(matrix(), 120), time = 1.5, loop = -1)

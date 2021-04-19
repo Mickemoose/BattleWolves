@@ -34,10 +34,12 @@ mob
 		isPlayer = 0
 
 		hitIndex = "null"
+		heldItem= "frame"
 
 		list
 			trackers = list()
 			holdingItem = list()
+
 
 		holdingAttack = 0
 		chargingAttck = 0
