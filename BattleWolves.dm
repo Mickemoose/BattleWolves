@@ -200,193 +200,238 @@ mob
 		if(!canAct)
 			return
 		else
+			if(inCSS)
+				if(k == (controls.right) && character==null)
+					src<<CLICK
+					cssicon++
+					if(cssicon > cssicons.len)
+						cssicon=1
+					for(var/UI/CSS/Cursor/C in cursor)
+						C.screen_loc=cssicons[cssicon].screen_loc
+					return
+				if(k == (controls.left) && character==null)
+					src<<CLICK
+					cssicon--
+					if(cssicon <= 0)
+						cssicon=cssicons.len
+					for(var/UI/CSS/Cursor/C in cursor)
+						C.screen_loc=cssicons[cssicon].screen_loc
+					return
+				if(k == "enter" || k  == "return"  && character==null)
+					src<<CHOOSE
+
+					setCharacter(characters[cssicon])
+					for(var/UI/CSS/Cursor/C in cursor)
+						C.Choose(src)
+					Players_READY.Add(src)
+					if(Players_READY.len == Players_ALIVE.len)
+						for(var/mob/m in world)
+							if(m.client)
+								new/UI/CSS/Ready(src.client)
+				if(k == "back"  && character!=null)
+					for(var/UI/CSS/Cursor/C in cursor)
+						C.Deselect(src)
+					setCharacter("null")
+					Players_READY.Remove(src)
+					if(Players_READY.len != Players_ALIVE.len)
+						for(var/mob/m in world)
+							if(m.client)
+								for(var/UI/CSS/Ready/R in m.client.screen)
+									del R
+					return
+
 			..()
-			if(k == "return" || k == "space" || k == "enter")
-				if(inTitle)
-					inTitle=0
-					src.client.lock_input()
-					for(var/UI/LOGO/L in client.screen)
-						L.Disappear()
+			if(!inCSS)
+				if(k == "return" || k == "space" || k == "enter")
+					if(inTitle)
+						inTitle=0
+						src.client.lock_input()
+						src.setPlayerNumber()
+						for(var/UI/LOGO/L in client.screen)
+							L.Disappear()
 
 
 
-					spawn(11)
-						fade.FadeOut(time=1)
-						fade.FadeIn(time=15)
-						setCharacter("Derek")
-						setStage()
-						setPlayerNumber()
-					spawn(15)
-						src.client.unlock_input()
-		//	if(k=="6")
-		//		new /KFK_Mobs/PhormPhather(src.loc)
-		//	if(k=="4")
-		//		new /KFK_Mobs/Steve(src.loc)
-			if(k == "5")
-				new /ITEMS/INSTANTS/KFK_Card(src.loc)
-			if(k == "7")
-				setVolume("DOWN", "MUSIC")
-			if(k == "8")
-				src.HitStun(src,4)
-				spawn(hitstun)
-					flick("hitend",src)
-					Knockback(power = "NONE", where = "UP")
-			if(k == "9")
+						//spawn(11)
+						//	fade.FadeOut(time=1)
+						//	fade.FadeIn(time=15)
+						//	setCharacter("Derek")
+						//	setStage()
+						//	setPlayerNumber()
+						spawn(13)
+							CSS_Initialize()
+						spawn(15)
 
-				new /UI/StarKO(src.client,src.character)
+							src.client.unlock_input()
+			//	if(k=="6")
+			//		new /KFK_Mobs/PhormPhather(src.loc)
+			//	if(k=="4")
+			//		new /KFK_Mobs/Steve(src.loc)
+				if(k == "5")
+					new /ITEMS/INSTANTS/KFK_Card(src.loc)
+				if(k == "7")
+					setVolume("DOWN", "MUSIC")
+				if(k == "8")
+					src.HitStun(src,4)
+					spawn(hitstun)
+						flick("hitend",src)
+						Knockback(power = "NONE", where = "UP")
+				if(k == "9")
 
-			if(k == "0")
-				setStage("whale")
+					new /UI/StarKO(src.client,src.character)
+
+				if(k == "0")
+					setStage("whale")
 
 
-			if(k == "1" && Debug)
-				ItemSpawn("item", src.z)
-			if(k == "3" && Debug)
-				if(Players >=8) return
-				var/mob/p = new /mob(49,39,src.z)
-				p.loc=locate(49,39,src.z)
-				p.setCharacter("Sandbag")
-				p.setPlayerNumber()
-				UI_Update()
+				if(k == "1" && Debug)
+					ItemSpawn("item", src.z)
+				if(k == "3" && Debug)
+					if(Players >=8) return
+					var/mob/p = new /mob(49,39,src.z)
+					p.loc=locate(49,39,src.z)
+					p.setCharacter("Sandbag")
+					p.setPlayerNumber()
+					UI_Update()
 
-			if(k == "2")
-				for(var/ITEMS/I in world)
-					Items_ACTIVE.Remove(I)
-					if(istype(I,/ITEMS/INSTANTS/KFK_Card)) Current_KFK--
-					del I
-			if(k == "escape")
-				client.ToggleFullscreen()
-			if(k == controls.jump && !inTitle)
-				if(!dbljumped && !on_ground)
-					canAct=0
-					flick("squat",src)
-					hitstun=1
-					vel_y=0
-					spawn(1)
-						canAct=1
-						hitstun=0
-						flick("jumping",src)
-						dbljumped = 1
-						setLandingLag("LIGHT")
-						boost = boostdefault
-						vel_y = jump_speed
-			if(k=="f" && !on_ground)
-				if(holdingItem.len == 0)
-					if(heldItem != "frame")
-						var/ITEMS/O = text2path("/ITEMS/THROWABLES/[heldItem]")
-						new O(src,thrown=1)
+				if(k == "2")
+					for(var/ITEMS/I in world)
+						Items_ACTIVE.Remove(I)
+						if(istype(I,/ITEMS/INSTANTS/KFK_Card)) Current_KFK--
+						del I
+				if(k == "escape")
+					client.ToggleFullscreen()
+				if(k == controls.jump && !inTitle)
+					if(!dbljumped && !on_ground)
+						canAct=0
+						flick("squat",src)
+						hitstun=1
+						vel_y=0
+						spawn(1)
+							canAct=1
+							hitstun=0
+							flick("jumping",src)
+							dbljumped = 1
+							setLandingLag("LIGHT")
+							boost = boostdefault
+							vel_y = jump_speed
+				if(k=="f" && !on_ground)
+					if(holdingItem.len == 0)
+						if(heldItem != "frame")
+							var/ITEMS/O = text2path("/ITEMS/THROWABLES/[heldItem]")
+							new O(src,thrown=1)
 
-						heldItem = "frame"
-						UpdateWorldUI(src)
-						return
-			if(k == "f" && on_ground)
-				if(holdingItem.len == 0)
-					if(heldItem != "frame")
-						var/ITEMS/O = text2path("/ITEMS/THROWABLES/[heldItem]")
-						new O(src,thrown=1)
+							heldItem = "frame"
+							UpdateWorldUI(src)
+							return
+				if(k == "f" && on_ground)
+					if(holdingItem.len == 0)
+						if(heldItem != "frame")
+							var/ITEMS/O = text2path("/ITEMS/THROWABLES/[heldItem]")
+							new O(src,thrown=1)
 
-						heldItem = "frame"
-						UpdateWorldUI(src)
-						return
-					if(heldItem == "frame")
-						var/ITEMS/cue
-						for(var/ITEMS/I in oview(1,src))
-							cue=pick(I)
-							//THROWABLES
-							if(istype(I, /ITEMS/THROWABLES))
+							heldItem = "frame"
+							UpdateWorldUI(src)
+							return
+						if(heldItem == "frame")
+							var/ITEMS/cue
+							for(var/ITEMS/I in oview(1,src))
+								cue=pick(I)
+								//THROWABLES
+								if(istype(I, /ITEMS/THROWABLES))
 
-								vel_x=0
-								if(cue.inside(src) && !cue.isDeleting && !cue.thrown && cue in oview(1,src))
-									//holdingItem.Add(cue)
-									canAttack=0
-									flick("squat",src)
-									view()<<PICKUP
 									vel_x=0
-									spawn(1.5)
-										flick("squatend",src)
-										vel_x=0
-										canAttack=1
-										cue.PickUp(src)
-								break
-
-							//INSTANTS
-							if(istype(I, /ITEMS/INSTANTS))
-
-								vel_x=0
-								if(cue.inside(src) && !cue.isDeleting && !cue.carried && cue in oview(1,src))
-									//holdingItem.Add(cue)
-									canAttack=0
-									flick("squat",src)
-									view()<<PICKUP
-									vel_x=0
-									spawn(2)
-										vel_x=0
-										canAttack=1
-										flick("carrying",src)
-										cue.Activate(src)
-								break
-							//CONTAINERS
-							if(istype(I, /ITEMS/CONTAINERS))
-								vel_x=0
-								if(I.canCarry)
-									if(cue.inside(src) && !cue.isDeleting && !cue.carried && cue in oview(1,src))
+									if(cue.inside(src) && !cue.isDeleting && !cue.thrown && cue in oview(1,src))
+										//holdingItem.Add(cue)
 										canAttack=0
 										flick("squat",src)
+										view()<<PICKUP
+										vel_x=0
+										spawn(1.5)
+											flick("squatend",src)
+											vel_x=0
+											canAttack=1
+											cue.PickUp(src)
+									break
+
+								//INSTANTS
+								if(istype(I, /ITEMS/INSTANTS))
+
+									vel_x=0
+									if(cue.inside(src) && !cue.isDeleting && !cue.carried && cue in oview(1,src))
+										//holdingItem.Add(cue)
+										canAttack=0
+										flick("squat",src)
+										view()<<PICKUP
 										vel_x=0
 										spawn(2)
 											vel_x=0
+											canAttack=1
 											flick("carrying",src)
-											Carry(cue)
+											cue.Activate(src)
 									break
-				else
+								//CONTAINERS
+								if(istype(I, /ITEMS/CONTAINERS))
+									vel_x=0
+									if(I.canCarry)
+										if(cue.inside(src) && !cue.isDeleting && !cue.carried && cue in oview(1,src))
+											canAttack=0
+											flick("squat",src)
+											vel_x=0
+											spawn(2)
+												vel_x=0
+												flick("carrying",src)
+												Carry(cue)
+										break
+					else
+						for(var/ITEMS/CONTAINERS/C in holdingItem)
+							Drop(C)
+							canAttack=1
+							canAct=1
+				if(k == "d" && carrying)
 					for(var/ITEMS/CONTAINERS/C in holdingItem)
-						Drop(C)
-						canAttack=1
-						canAct=1
-			if(k == "d" && carrying)
-				for(var/ITEMS/CONTAINERS/C in holdingItem)
-					canMove=0
-					vel_x=0
-					flick("throw",src)
+						canMove=0
+						vel_x=0
+						flick("throw",src)
+						spawn(4)
+							Throw(C)
+							canMove=1
+							canAttack=1
+							canAct=1
+
+
+				if(k == "d" && canAttack && canAct)
+					if(client.has_key(controls.left))
+						SideSpecial()
+					else if(client.has_key(controls.right))
+						SideSpecial()
+					else if(client.has_key(controls.down))
+						DownSpecial()
+					else if(client.has_key(controls.up))
+						UpSpecial()
+					else
+						NeutralSpecial()
+
+
+					/*
+					for(var/ITEMS/CONTAINERS/Wheel_Crate/W in front(10,8,8))
+						if(dir==RIGHT) W.vel_x=4
+						else W.vel_x=-4
+
+					for(var/mob/M in front(10,8,8))
+						if(M.hitIndex!="D1" && M.isPlayer)
+							M.hitIndex="D1"
+							HitStun(M,1)
+							spawn(1)
+								flick("hitend",M)
+								M.Knockback(power = "HEAVY", where = "UP RIGHT")
+
+							spawn(6)
+								M.hitIndex="null"
 					spawn(4)
-						Throw(C)
+						flick("squatend",src)
 						canMove=1
-						canAttack=1
-						canAct=1
-
-
-			if(k == "d" && canAttack && canAct)
-				if(client.has_key(controls.left))
-					SideSpecial()
-				else if(client.has_key(controls.right))
-					SideSpecial()
-				else if(client.has_key(controls.down))
-					DownSpecial()
-				else if(client.has_key(controls.up))
-					UpSpecial()
-				else
-					NeutralSpecial()
-
-
-				/*
-				for(var/ITEMS/CONTAINERS/Wheel_Crate/W in front(10,8,8))
-					if(dir==RIGHT) W.vel_x=4
-					else W.vel_x=-4
-
-				for(var/mob/M in front(10,8,8))
-					if(M.hitIndex!="D1" && M.isPlayer)
-						M.hitIndex="D1"
-						HitStun(M,1)
-						spawn(1)
-							flick("hitend",M)
-							M.Knockback(power = "HEAVY", where = "UP RIGHT")
-
-						spawn(6)
-							M.hitIndex="null"
-				spawn(4)
-					flick("squatend",src)
-					canMove=1
-					canAttack=1 */
+						canAttack=1 */
 
 	bump(atom/a, d)
 		..()

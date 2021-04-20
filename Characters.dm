@@ -128,7 +128,7 @@ mob
 				PLAYERNUMBER = Players
 				//setPlayerLives(6)
 				Players_ALIVE.Add(src)
-				UI_Populate()
+
 				return
 		setTumbled()
 			on_ground=0
@@ -172,6 +172,7 @@ mob
 							loc=locate(47,37,2)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 2) itemspawns.Add(S)
+			UI_Populate()
 		setBurning()
 			if(burning)
 				src.HitStun(src,1)
@@ -183,14 +184,29 @@ mob
 					setBurning()
 		setCharacter(name)
 			isPlayer=1
-			inTitle=0
+			//inTitle=0
 			dead=0
-			character = "[name]"
+
 			dir=RIGHT
 			density=0
 			setLandingLag("LIGHT")
-			switch(name)
 
+			switch(name)
+				if("null")
+					character = null
+					icon=null
+					jump_speed = 0
+					boostdefault = 0
+					pixel_x=0
+					pixel_y=0
+					pwidth=0
+					pheight=0
+					fall_speed=0
+					move_speed=0
+					air_move_speed=0
+					air_decel=0
+					gravity=0
+					carry_speed=0
 				if("Derek")
 					icon='Characters/Derek.dmi'
 					jump_speed = 6
@@ -198,6 +214,7 @@ mob
 					pixel_x=-22
 					pixel_y=-16
 					pwidth=22
+					character = "[name]"
 					pheight=33
 					fall_speed=6
 					move_speed=5
@@ -205,6 +222,7 @@ mob
 					air_decel=0.14
 					gravity=1
 					carry_speed=2
+					if(inCSS) src<<Derek
 				//	setPlayerLives(3)
 				if("Sandbag")
 					icon='Characters/Sandbag.dmi'
@@ -215,6 +233,7 @@ mob
 					pwidth=16
 					pheight=33
 					fall_speed=4
+					character = "[name]"
 					move_speed=4
 					carry_speed=3
 				//	setPlayerLives(1)

@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618880267
-DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Derek Effects hitboxes Items Items\KFK Stages Stages\Test Stages\Whale System UI 
+LAST_COMPILE_TIME: 1618953003
+DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Items Items\KFK Sound System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: BattleWolves.dm;Items\Items.dm;UI\PercentNumbers.dm;Characters.dm;HitStun.dm;Mob Vars.dm;Sound\Sound.dm;Items\Webtrap.dmi;Characters\Derek.dmi;Items\KFK\Cards.dm;UI\TopBlastEffect.dm;System\GameCamera.dm;System\BlastZone.dm;Characters\RespawnPlatform.dm;Items\KFK\Hazorb.dmi;Items\KFK\Summon.dmi;Items\KFK\Clock.dmi;Items\KFK\Doop.dmi;Items\KFK\Steve.dmi;Items\KFK\Zeke.dmi;Stages\Test\stage.dm;Game Vars.dm
-FILE: HitStun.dm
+WINDOW: BattleWolves.dm;Items\Items.dm;UI\PercentNumbers.dm;UI\CharacterSelect.dm;UI\TopBlastEffect.dm;Characters.dm;Sound\Sound.dm;Game Vars.dm;UI\CSSIcon.dmi;UI\ReadyBar.dmi;System\Camera.dmi
+FILE: System\Camera.dmi
 */
 // END_INTERNALS

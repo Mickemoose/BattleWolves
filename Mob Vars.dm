@@ -5,6 +5,8 @@ mob
 		sound/SongPlaying = ""
 
 		inTitle=0
+		inCSS=0
+		inSSS=0
 		boostdefault = 8
 		boost = 8
 		dbljumped =0
@@ -36,9 +38,16 @@ mob
 		hitIndex = "null"
 		heldItem= "frame"
 
+		cssicon=1
+
 		list
 			trackers = list()
 			holdingItem = list()
+			characters = list("Derek","Brendan","Laundry","Smitty","Hunter","Matt","Becca","Frose","Hartshorne","Schnerch")
+			stages = list("Debug","Whale Boat")
+			cssicons = list()
+			sssicons = list()
+			cursor=list()
 
 
 		holdingAttack = 0

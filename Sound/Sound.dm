@@ -10,3 +10,18 @@ var/sound/DEREKNSPECIAL = sound('Sound/dereknspecial.WAV',channel=6,volume=1)
 var/sound/SHINE = sound('Sound/shine.WAV',channel=8,volume=2)
 var/sound/WILHELM = sound('Sound/wilhelm.ogg',channel=7,volume=4)
 var/sound/FIRE = sound('Sound/fire.wav',channel=7,volume=4)
+var/sound/CLICK = sound('Sound/click.ogg',volume=5)
+var/sound/CHOOSE = sound('Sound/choose2.wav',volume=5)
+
+
+//ANNOUNCER CALLS
+var/sound/Derek = sound('AnnouncerDerek.wav',channel=1,volume=5)
+var/sound/Brendan = sound('AnnouncerBrendan.wav',channel=1,volume=5)
+var/sound/Laundry = sound('AnnouncerLaundry.wav',channel=1,volume=5)
+var/sound/Smitty = sound('AnnouncerSmitty.wav',channel=1,volume=5)
+var/sound/Hunter = sound('AnnouncerHunter.wav',channel=1,volume=5)
+var/sound/Matt = sound('AnnouncerMatt.wav',channel=1,volume=5)
+var/sound/Becca = sound('AnnouncerBecca.wav',channel=1,volume=5)
+var/sound/Froese = sound('AnnouncerFroese.wav',channel=1,volume=5)
+var/sound/Hartshorne = sound('AnnouncerHartshorne.wav',channel=1,volume=5)
+var/sound/Schnerch = sound('AnnouncerSchnerch.wav',channel=1,volume=5)
