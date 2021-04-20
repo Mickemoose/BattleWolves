@@ -208,6 +208,7 @@ mob
 						cssicon=1
 					for(var/UI/CSS/Cursor/C in cursor)
 						C.screen_loc=cssicons[cssicon].screen_loc
+					setTempPortrait(characters[cssicon])
 					return
 				if(k == (controls.left) && character==null)
 					src<<CLICK
@@ -216,6 +217,7 @@ mob
 						cssicon=cssicons.len
 					for(var/UI/CSS/Cursor/C in cursor)
 						C.screen_loc=cssicons[cssicon].screen_loc
+					setTempPortrait(characters[cssicon])
 					return
 				if(k == "enter" || k  == "return"  && character==null)
 					src<<CHOOSE
@@ -238,6 +240,7 @@ mob
 							if(m.client)
 								for(var/UI/CSS/Ready/R in m.client.screen)
 									del R
+					setTempPortrait(characters[cssicon])
 					return
 
 			..()
