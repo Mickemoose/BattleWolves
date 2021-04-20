@@ -25,7 +25,7 @@ area
 				if(dir==SOUTHEAST)
 					for(var/mob/m in world)
 						if(m.client)
-							m.Shake()
+							m.Shake("LIGHT")
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
 					animate(FX, transform = turn(matrix()*1.5, 45), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
@@ -41,7 +41,7 @@ area
 				if(dir==SOUTHWEST)
 					for(var/mob/m in world)
 						if(m.client)
-							m.Shake()
+							m.Shake("LIGHT")
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
 					animate(FX, transform = turn(matrix()*1.5, 140), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
@@ -56,7 +56,7 @@ area
 				if(dir==NORTHEAST)
 					for(var/mob/m in world)
 						if(m.client)
-							m.Shake()
+							m.Shake("LIGHT")
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
 					animate(FX, transform = turn(matrix()*1.5, 140), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
@@ -72,7 +72,7 @@ area
 				if(dir==NORTHWEST)
 					for(var/mob/m in world)
 						if(m.client)
-							m.Shake()
+							m.Shake("LIGHT")
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
 					animate(FX, transform = turn(matrix()*1.5, 45), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
@@ -88,7 +88,7 @@ area
 				if(dir==WEST)
 					for(var/mob/m in world)
 						if(m.client)
-							m.Shake()
+							m.Shake("LIGHT")
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(src)
 					animate(FX, transform = turn(matrix()*1.5, 0), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
@@ -104,7 +104,7 @@ area
 				if(dir==EAST)
 					for(var/mob/m in world)
 						if(m.client)
-							m.Shake()
+							m.Shake("LIGHT")
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(src)
 					animate(FX, transform = turn(matrix()*1.5, 0), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
@@ -120,7 +120,7 @@ area
 				if(dir==SOUTH)
 					for(var/mob/m in world)
 						if(m.client)
-							m.Shake()
+							m.Shake("LIGHT")
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
 					animate(FX, transform = turn(matrix()*1.5, rand(80,105)), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)

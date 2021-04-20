@@ -38,6 +38,8 @@ mob
 			if(target.burning) view()<<FIRE
 			else view()<<HIT
 			//src.vel_x=0
+			for(var/ITEMS/CONTAINERS/C in target.holdingItem)
+				target.Drop(C)
 			//src.vel_y=0
 			target.vel_x=0
 			target.vel_y=0

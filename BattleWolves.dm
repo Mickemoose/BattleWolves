@@ -223,7 +223,7 @@ mob
 		//	if(k=="4")
 		//		new /KFK_Mobs/Steve(src.loc)
 			if(k == "5")
-				new /ITEMS/THROWABLES/WebTrap(src.loc)
+				new /ITEMS/INSTANTS/KFK_Card(src.loc)
 			if(k == "7")
 				setVolume("DOWN", "MUSIC")
 			if(k == "8")
