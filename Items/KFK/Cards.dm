@@ -61,11 +61,9 @@ KFK_Mobs
 						if(M.hitstun || M.hitIndex=="Zeke" || owner==M) return
 						M.hitIndex="Zeke"
 						world<<HIT
-						flick("hit",M)
 						HitStun(M,1)
 						M.setDamage(pick(0.02),"ADD")
 						spawn(1)
-							flick("hitend",M)
 							if(M.dir==RIGHT)
 								M.Knockback(power = "NONE", where = "UP RIGHT")
 							else
@@ -195,11 +193,9 @@ KFK_Mobs
 							spawn(3.5)
 								if(hitstun) return
 								M.hitIndex="Doop1"
-								flick("hit",M)
 								HitStun(M,1)
 								M.setDamage(pick(0.08),"ADD")
 								spawn(1)
-									flick("hitend",M)
 									M.Knockback(power = "MEDIUM", where = "UP RIGHT")
 								spawn(6)
 									M.hitIndex="null"

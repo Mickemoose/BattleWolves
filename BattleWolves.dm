@@ -166,7 +166,7 @@ mob
 
 
 	jump()
-		if(canAct && !inTitle)
+		if(canAct && !inTitle && !hitstun)
 			canAct=0
 			animate(src, transform = null, time = 1, loop = -1)
 			has_jumped=1
@@ -306,8 +306,9 @@ mob
 						flick("hitend",src)
 						Knockback(power = "NONE", where = "UP")
 				if(k == "9")
-
-					new /UI/StarKO(src.client,src.character)
+					vel_x=0
+					vel_y=0
+					hitstun=1
 
 				if(k == "0")
 					setStage("whale")
@@ -330,7 +331,7 @@ mob
 						del I
 				if(k == "escape")
 					client.ToggleFullscreen()
-				if(k == controls.jump && !inTitle)
+				if(k == controls.jump && !inTitle && !hitstun)
 					if(!dbljumped && !on_ground)
 						canAct=0
 						flick("squat",src)
@@ -344,7 +345,7 @@ mob
 							setLandingLag("LIGHT")
 							boost = boostdefault
 							vel_y = jump_speed
-				if(k=="f" && !on_ground)
+				if(k=="f" && !on_ground && !hitstun)
 					if(holdingItem.len == 0)
 						if(heldItem != "frame")
 							var/ITEMS/O = text2path("/ITEMS/THROWABLES/[heldItem]")
@@ -353,7 +354,7 @@ mob
 							heldItem = "frame"
 							UpdateWorldUI(src)
 							return
-				if(k == "f" && on_ground)
+				if(k == "f" && on_ground && !hitstun)
 					if(holdingItem.len == 0)
 						if(heldItem != "frame")
 							var/ITEMS/O = text2path("/ITEMS/THROWABLES/[heldItem]")
@@ -417,7 +418,7 @@ mob
 							Drop(C)
 							canAttack=1
 							canAct=1
-				if(k == "d" && carrying)
+				if(k == "d" && carrying && !hitstun)
 					for(var/ITEMS/CONTAINERS/C in holdingItem)
 						canMove=0
 						vel_x=0
@@ -429,7 +430,7 @@ mob
 							canAct=1
 
 
-				if(k == "d" && canAttack && canAct)
+				if(k == "d" && canAttack && canAct && !hitstun)
 					if(client.has_key(controls.left))
 						SideSpecial()
 					else if(client.has_key(controls.right))
@@ -487,7 +488,6 @@ mob
 					//M.face(src)
 					HitStun(M,1)
 					spawn(1)
-						flick("hitend",M)
 						jump()
 						if(dir==RIGHT) vel_x=6
 						else vel_x=-6

@@ -89,7 +89,7 @@ RESPAWN_PLATFORM
 					Timer()
 		Active()
 			riders = top(1)
-			if(riders.len==1)
+			if(riders.len==0)
 				Deactivate()
 			else
 				spawn(1)

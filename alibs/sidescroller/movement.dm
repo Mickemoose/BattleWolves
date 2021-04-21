@@ -25,6 +25,7 @@ var
 		REELING = "reeling"
 		CARRYING = "carrying"
 		CARRYMOVING = "carrymoving"
+		HITSTUN = "hitstun"
 
 		RIGHT = EAST
 		LEFT = WEST
@@ -132,44 +133,46 @@ mob
 		// otherwise you're moving (walking)
 		set_state()
 			var/base = base_state ? "[base_state]-" : ""
-
-			if(on_ladder)
-				icon_state = base + CLIMBING
-			else if(!on_ground && vel_y > 0 && !reeled)
-				icon_state = base + JUMPING
-			else if(!on_ground && vel_y < 0 && !on_wall && !tumbled && !riding)
-				icon_state = base + FALLING
-			else if(!on_ground && vel_y == 0 && !on_wall && !tumbled)
-				icon_state = base + MIDFALL
-			else if(!on_ground && tumbled && vel_y <= 0)
-				icon_state = base + TUMBLING
-			else if(!on_ground && reeled && vel_y > 0)
-				icon_state = base + REELING
-			else if(on_wall)
-				icon_state = base + SLIDING
-				animate(src, transform = null, time = 0.5, loop = -1)
-			else if(carrying && !moved)
-				icon_state = base + CARRYING
-			else if(carrying && moved)
-				icon_state = base + CARRYMOVING
-			else if(moved)
-				icon_state = base + MOVING
-				if(is_dashing)
-					spawn(0.5)
-						if(!footstepsound)
-							footstepsound=1
-							src<<FOOTSTEP
-							spawn(1.3)
-								footstepsound=0
-				else
-					spawn(1.5)
-						if(!footstepsound && vel_x!=0)
-							footstepsound=1
-							src<<FOOTSTEP
-							spawn(3.3)
-								footstepsound=0
-			else
-				icon_state = base + STANDING
+			if(hitstun)
+				icon_state = base + HITSTUN
+			else if(!hitstun)
+				if(on_ladder && !hitstun)
+					icon_state = base + CLIMBING
+				else if(!on_ground && vel_y > 0 && !reeled && !hitstun)
+					icon_state = base + JUMPING
+				else if(!on_ground && vel_y < 0 && !on_wall && !tumbled && !riding && !hitstun)
+					icon_state = base + FALLING
+				else if(!on_ground && vel_y == 0 && !on_wall && !tumbled && !hitstun)
+					icon_state = base + MIDFALL
+				else if(!on_ground && tumbled && vel_y <= 0 && !hitstun)
+					icon_state = base + TUMBLING
+				else if(!on_ground && reeled && vel_y > 0 && !hitstun)
+					icon_state = base + REELING
+				else if(on_wall && !hitstun)
+					icon_state = base + SLIDING
+					animate(src, transform = null, time = 0.5, loop = -1)
+				else if(carrying && !moved && !hitstun)
+					icon_state = base + CARRYING
+				else if(carrying && moved && !hitstun)
+					icon_state = base + CARRYMOVING
+				else if(moved && !hitstun)
+					icon_state = base + MOVING
+					if(is_dashing)
+						spawn(0.5)
+							if(!footstepsound)
+								footstepsound=1
+								src<<FOOTSTEP
+								spawn(1.3)
+									footstepsound=0
+					else
+						spawn(1.5)
+							if(!footstepsound && vel_x!=0)
+								footstepsound=1
+								src<<FOOTSTEP
+								spawn(3.3)
+									footstepsound=0
+				else if(!hitstun)
+					icon_state = base + STANDING
 
 
 		can_jump()

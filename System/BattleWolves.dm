@@ -227,11 +227,9 @@ mob
 				for(var/mob/M in front(10,8,8))
 					if(M.hitIndex!="D1" && M.isPlayer)
 						M.hitIndex="D1"
-						flick("hit",M)
 						M.face(src)
 						HitStun(M,1)
 						spawn(1)
-							flick("hitend",M)
 							M.Knockback(power = "HEAVY", where = "UP RIGHT")
 
 						spawn(6)
@@ -276,7 +274,6 @@ mob
 				//M.face(src)
 				HitStun(M,1)
 				spawn(1)
-					flick("hitend",M)
 					jump()
 					if(dir==RIGHT) vel_x=6
 					else vel_x=-6

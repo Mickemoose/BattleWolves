@@ -45,7 +45,6 @@ ITEMS
 							icon_state="trap"
 							animate(transform = matrix().Scale(1, 1) ,alpha=255,time=1, easing=BOUNCE_EASING)
 							animate(m, color=rgb(100,100,100))
-							flick("hit",m)
 							m.client.lock_input()
 							m.hitstun=1
 							m.vel_x=0
@@ -55,7 +54,6 @@ ITEMS
 								animate(m, color=rgb(255,255,255))
 								spawn(4)
 									del src
-								flick("hitend",m)
 								m.hitstun=0
 								m.client.unlock_input()
 
@@ -177,11 +175,9 @@ ITEMS
 									spawn(3.5)
 										if(hitstun) return
 										M.hitIndex="Barrel"
-										flick("hit",M)
 										HitStun(M,2)
 										M.setDamage(pick(0.06),"ADD")
 										spawn(1)
-											flick("hitend",M)
 											if(M.dir==RIGHT)
 												M.Knockback(power = "LIGHT", where = "UP RIGHT")
 											else
@@ -258,11 +254,9 @@ ITEMS
 									spawn(3.5)
 										if(hitstun) return
 										M.hitIndex="Barrel"
-										flick("hit",M)
 										HitStun(M,2)
 										M.setDamage(pick(0.06),"ADD")
 										spawn(1)
-											flick("hitend",M)
 											if(M.dir==RIGHT)
 												M.Knockback(power = "LIGHT", where = "UP RIGHT")
 											else

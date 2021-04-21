@@ -94,6 +94,7 @@ mob
 		Respawn()
 			respawning=1
 			dead=0
+			hitstun=0
 			new /RESPAWN_PLATFORM(src)
 			invisibility=0
 			spawn(12)
@@ -177,7 +178,6 @@ mob
 			if(burning)
 				src.HitStun(src,1)
 				spawn(hitstun)
-					flick("hitend",src)
 					setDamage(pick(0.01,0.02,0.03,0.04),"ADD")
 					Knockback(power = "NONE", where = pick("UP","UP RIGHT","UP LEFT"))
 				spawn(12)

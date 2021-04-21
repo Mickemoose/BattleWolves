@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1618984420
-DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Items Items\KFK System UI 
+LAST_COMPILE_TIME: 1619040034
+DIR: alibs alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Items Items\KFK System 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: BattleWolves.dm;Items\Items.dm;UI\PercentNumbers.dm;UI\CharacterSelect.dm;UI\TopBlastEffect.dm;Characters.dm;Sound\Sound.dm;Game Vars.dm;UI\CSSIcon.dmi;UI\ReadyBar.dmi;System\Camera.dmi;System\BattleWolves.dm;Items\KFK\Hazorb.dmi;UI\Plate.dmi;Characters\RespawnPlatform.dm;System\GameCamera.dm;maps.dmm
-FILE: Characters\RespawnPlatform.dm
+WINDOW: alibs\sidescroller\movement.dm;BattleWolves.dm;Characters\Derek.dmi;HitStun.dm;Items\Items.dm;Items\KFK\Cards.dm;System\BattleWolves.dm;Characters.dm;System\BlastZone.dm
+FILE: Characters.dm
 */
 // END_INTERNALS

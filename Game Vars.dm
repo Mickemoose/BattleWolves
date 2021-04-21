@@ -1,6 +1,6 @@
 var
 	Game_Mode = "Free For All"
-	Enabled_Items = 0
+	Enabled_Items = 1
 	Debug = 1 //Turn off to turn off Debug commands
 	Max_Items = 8
 	Current_KFK=0
