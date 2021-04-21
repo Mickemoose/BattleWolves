@@ -13,17 +13,21 @@ RESPAWN_PLATFORM
 		isTimer=0
 		start_py
 		end_py
+
 		list/spawns = list()
 		stopped=0
 		list/riders=list()
-		var/obj/selected
+		var/RespawnSpawn/selected
 	set_state()
 	gravity()
 	New(var/mob/m)
 		for(var/RespawnSpawn/S in world)
 			if(S.z==m.z)
+				if(S.taken) continue
 				spawns.Add(S)
+				break
 		selected=pick(spawns)
+		selected.taken=1
 		src.loc=selected.loc
 		dir=DOWN
 		m.y=selected.y+2
@@ -36,6 +40,7 @@ RESPAWN_PLATFORM
 	pixel_move(dpx, dpy)
 		riders = top(1)
 		if(stopped)
+			Active()
 			return
 		else
 			..()
@@ -49,8 +54,10 @@ RESPAWN_PLATFORM
 		if(stopped)
 			vel_y=0
 
+
 		else
 			..()
+
 			riders = top(1)
 			vel_y=-3
 			spawn(5)
@@ -61,6 +68,7 @@ RESPAWN_PLATFORM
 				spawn(1)
 
 					stopped=1
+					Active()
 
 
 
@@ -80,7 +88,15 @@ RESPAWN_PLATFORM
 				spawn(2)
 					Timer()
 		Active()
+			riders = top(1)
+			if(riders.len==1)
+				Deactivate()
+			else
+				spawn(1)
+					Active()
 		Deactivate()
 			animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
-			spawn(3)
+			spawn(2)
+				for(var/RespawnSpawn/S in world)
+					if(selected==S) S.taken=0
 				del src
