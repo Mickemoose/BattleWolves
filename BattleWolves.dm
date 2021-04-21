@@ -219,6 +219,31 @@ mob
 						C.screen_loc=cssicons[cssicon].screen_loc
 					setTempPortrait(characters[cssicon])
 					return
+				if(k == "enter" || k  == "return"  && PLAYERNUMBER==1 && Players_READY.len == Players_ALIVE.len)
+					for(var/mob/m in world)
+						if(m.client)
+							fade.FadeOut(time=6)
+							m.client.lock_input()
+							m<<CHOOSE
+							for(var/UI/CSS/Cursor/C in m.cursor)
+								cursor.Remove(C)
+								del C
+							m.CSS_Deinitialize()
+							for(var/UI/CSS/Plates/P in m.client.screen)
+								del P
+							for(var/UI/CSS/Ready/R in m.client.screen)
+								del R
+							for(var/UI/CSS/Portrait/P in m.client.screen)
+								del P
+							spawn(6)
+
+								m.setStage()
+								fade.FadeIn(time=10)
+								spawn(10)
+									m.inCSS=0
+									m.client.unlock_input()
+
+
 				if(k == "enter" || k  == "return"  && character==null)
 					src<<CHOOSE
 
@@ -230,6 +255,7 @@ mob
 						for(var/mob/m in world)
 							if(m.client)
 								new/UI/CSS/Ready(src.client)
+					return
 				if(k == "back"  && character!=null)
 					for(var/UI/CSS/Cursor/C in cursor)
 						C.Deselect(src)

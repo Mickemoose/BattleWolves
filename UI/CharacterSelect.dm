@@ -119,7 +119,7 @@ mob
 			setTempPortrait(characters[cssicon])
 		CSS_Deinitialize()
 			for(var/UI/CSS/Characters/C in src.client.screen)
-				animate(C, transform=matrix().Translate(0,200), time=4, easing=BOUNCE_EASING)
+				animate(C, transform=matrix().Translate(0,320), time=4, easing=BOUNCE_EASING)
 				spawn(5)
 					src.cssicons.Remove(C)
 					del C
