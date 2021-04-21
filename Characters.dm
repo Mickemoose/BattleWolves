@@ -152,7 +152,6 @@ mob
 					for(var/GameCamera/GC in world)
 						if(GC.z == 3)
 							client.eye = GC
-							my_background.show()
 							loc=locate(47,37,3)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 3) itemspawns.Add(S)

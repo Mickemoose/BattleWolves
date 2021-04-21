@@ -60,7 +60,7 @@ mob
 
 	Login()
 
-
+		src.client.lock_input()
 		for(var/GameCamera/GC in world)
 			if(GC.z==1)
 				src.client.eye=GC
@@ -82,7 +82,8 @@ mob
 					animate(L, alpha=170, time=10, flags=ANIMATION_PARALLEL)
 
 
-
+		spawn(30)
+			src.client.unlock_input()
 		src<<MENU
 		SongPlaying = MENU
 		SongPlaying.volume = MUSIC_VOLUME
@@ -237,7 +238,7 @@ mob
 								del P
 							spawn(6)
 
-								m.setStage()
+								m.setStage("whale")
 								fade.FadeIn(time=10)
 								spawn(10)
 									m.inCSS=0

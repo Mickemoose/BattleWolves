@@ -41,6 +41,10 @@ turf
 			density=0
 			plane=2
 		background
+			icon='Stages/Whale/background.dmi'
 			icon_state="background"
+			appearance_flags = PIXEL_SCALE
 			density=0
 			plane=-5
+			New()
+				animate(src, transform=matrix()*1.95)
