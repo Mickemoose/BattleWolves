@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1619042451
-DIR: alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Effects Items\KFK Stages Stages\Test Stages\Whale System UI 
+LAST_COMPILE_TIME: 1619045223
+DIR: alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Effects Items Items\KFK Stages Stages\Test Stages\Whale System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: alibs\sidescroller\movement.dm;BattleWolves.dm;Characters\Derek.dmi;HitStun.dm;Items\Items.dm;Items\KFK\Cards.dm;System\BattleWolves.dm;Characters.dm;System\BlastZone.dm;Items\BluJay.dmi;Items\RainyDayOrb.dmi;Effects\DashSmoke.dmi;Effects\Mash.dmi;UI\CSSIcon.dmi;Stages\Whale\turf.dmi;Stages\Whale\stage.dm;Stages\Whale\background.dmi;maps.dmm;Stages\Whale\Water.dmi
-FILE: Stages\Whale\turf.dmi
+WINDOW: alibs\sidescroller\movement.dm;BattleWolves.dm;Characters\Derek.dmi;HitStun.dm;Items\Items.dm;Items\KFK\Cards.dm;System\BattleWolves.dm;Characters.dm;System\BlastZone.dm;Items\RainyDayOrb.dmi;UI\HeldItem.dmi
+FILE: UI\HeldItem.dmi
 */
 // END_INTERNALS

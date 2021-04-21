@@ -24,6 +24,16 @@ ITEMS
 		list
 			contains = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food", "THROWABLES/WebTrap")
 	THROWABLES
+		BluJay
+			icon='Items/BluJay.dmi'
+			carried=0
+			pwidth=32
+			pheight=32
+			PickUp(var/mob/pickuper)
+				pickuper.heldItem="BluJay"
+				UpdateWorldUI(pickuper)
+				Items_ACTIVE.Remove(src)
+				del src
 		WebTrap
 			icon='Items/Webtrap.dmi'
 			carried=0
