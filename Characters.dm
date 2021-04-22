@@ -56,6 +56,8 @@ mob
 		setMashing(var/mob/m)
 			if(!isMashing)
 				grabbedBy=m
+				for(var/ITEMS/CONTAINERS/C in holdingItem)
+					Drop(C)
 				animate(src, transform = null)
 				vel_x=0
 				vel_y=0
