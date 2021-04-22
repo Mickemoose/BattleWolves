@@ -52,6 +52,7 @@ ITEMS
 					if(m.isPlayer && thrown && owner!=m && !grabbed && m.inside(src))
 						grabbed=1
 						spawn(0.75)
+							world<<BLUJAY
 							m.setMashing(src)
 							set_pos(px,py+14)
 							vel_y=3

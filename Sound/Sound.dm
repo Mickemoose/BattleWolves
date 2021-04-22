@@ -12,6 +12,7 @@ var/sound/WILHELM = sound('Sound/wilhelm.ogg',channel=7,volume=4)
 var/sound/FIRE = sound('Sound/fire.wav',channel=7,volume=4)
 var/sound/CLICK = sound('Sound/click.ogg',volume=5)
 var/sound/CHOOSE = sound('Sound/choose2.wav',volume=5)
+var/sound/BLUJAY = sound('Sound/blujay.wav',volume=5)
 
 
 //ANNOUNCER CALLS
