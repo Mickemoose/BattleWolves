@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1619107873
+LAST_COMPILE_TIME: 1619108246
 DIR: alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Effects Items Stages Stages\Test Stages\Whale UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: Characters\Derek.dmi;Items\JamJar.dmi;Stages\Test\stage.dm;Stages\Whale\stage.dm;Items\KFK.dmi;Items\RainyDayOrb.dmi;Game Vars.dm;maps.dmm;UI\CharacterSelect.dm;BattleWolves.dm;BattleWolves.dme;Characters.dm;UI\CSSIcon.dmi;Mob Vars.dm;Characters\Brendan.dmi
-FILE: Characters\Brendan.dmi
+WINDOW: Characters\Derek.dmi;Items\JamJar.dmi;Stages\Test\stage.dm;Stages\Whale\stage.dm;Items\KFK.dmi;Items\RainyDayOrb.dmi;Game Vars.dm;maps.dmm;UI\CharacterSelect.dm;BattleWolves.dm;BattleWolves.dme;Characters.dm;UI\CSSIcon.dmi;Mob Vars.dm;Characters\Brendan.dmi;UI\Faces.dmi
+FILE: UI\Faces.dmi
 */
 // END_INTERNALS
