@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1619056473
+LAST_COMPILE_TIME: 1619062125
 DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Effects Items Items\KFK Stages Stages\Test Stages\Whale System UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1552
-WINDOW: alibs\sidescroller\movement.dm;BattleWolves.dm;Items\Items.dm;Characters.dm;Effects\Effects.dm;Effects\Mash.dmi;UI\Title.dm;Sound\Sound.dm;Music\Music.dm;Mob Vars.dm;Items\KFK\Cards.dm;UI\CharacterSelect.dm;UI\PercentNumbers.dm;UI\Letters.dmi;Game Vars.dm;HitStun.dm;Items\KFK\Hazorb.dmi;Characters\Derek.dmi;Items\Containers.dmi;Items\JamJar.dmi
-FILE: Items\JamJar.dmi
+WINDOW: alibs\sidescroller\movement.dm;BattleWolves.dm;Items\Items.dm;Characters.dm;Effects\Effects.dm;Effects\Mash.dmi;UI\Title.dm;Sound\Sound.dm;Music\Music.dm;Mob Vars.dm;Items\KFK\Cards.dm;UI\CharacterSelect.dm;UI\PercentNumbers.dm;UI\Letters.dmi;Game Vars.dm;HitStun.dm;Items\KFK\Hazorb.dmi;Characters\Derek.dmi;Items\Containers.dmi;Items\JamJar.dmi;UI\HeldItem.dmi;System\Camera.dmi;System\GameCamera.dm;maps.dmm;UI\CSSIcon.dmi
+FILE: UI\CSSIcon.dmi
 */
 // END_INTERNALS

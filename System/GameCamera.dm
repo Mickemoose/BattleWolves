@@ -30,3 +30,11 @@ RespawnSpawn
 	var
 		taken=0
 		takenBy
+PlayerSpawn
+	icon='System/Camera.dmi'
+	icon_state="player"
+	invisibility=101
+	parent_type=/obj
+	var
+		taken=0
+		takenBy
