@@ -3,7 +3,8 @@ EFFECT
 	plane=FLOAT_PLANE+2
 	appearance_flags= PIXEL_SCALE
 	density=0
-
+	MASH_ALERT
+		icon='Effects/Mash.dmi'
 	DASH_SMOKE
 		icon='Effects/DashSmoke.dmi'
 		icon_state=""

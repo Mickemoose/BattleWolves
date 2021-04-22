@@ -40,6 +40,11 @@ mob
 	appearance_flags = PIXEL_SCALE
 	pixel_move(dpx, dpy)
 		..()
+		for(var/EFFECT/MASH_ALERT/FX in world)
+			if(mashFX==FX)
+				FX.loc=src.loc
+				FX.step_x=src.step_x-3
+				FX.step_y=src.step_y+22
 		for(var/ITEMS/I in holdingItem)
 			I.pixel_move(move_x, move_y)
 			I.dir=src.dir
@@ -198,6 +203,8 @@ mob
 			if(on_ground && vel_x != 0 && !knockbacked && !is_skidding && !carrying)
 				flick("squatend",src)
 	key_down(k)
+		if(isMashing)
+			Mash()
 		if(!canAct)
 			return
 		else
@@ -238,7 +245,7 @@ mob
 								del P
 							spawn(6)
 
-								m.setStage("whale")
+								m.setStage()
 								fade.FadeIn(time=10)
 								spawn(10)
 									m.inCSS=0
@@ -295,10 +302,10 @@ mob
 							src.client.unlock_input()
 			//	if(k=="6")
 			//		new /KFK_Mobs/PhormPhather(src.loc)
-			//	if(k=="4")
-			//		new /KFK_Mobs/Steve(src.loc)
+				if(k=="4")
+					setMashing()
 				if(k == "5")
-					new /ITEMS/INSTANTS/KFK_Card(src.loc)
+					new /ITEMS/THROWABLES/BluJay(src.loc)
 				if(k == "7")
 					setVolume("DOWN", "MUSIC")
 				if(k == "8")
@@ -465,75 +472,76 @@ mob
 						canAttack=1 */
 
 	bump(atom/a, d)
-		..()
-		animate(src, transform = null, time = 0.5)
-		if(istype(a, /STAGEART/WhaleBoat))
-			jumped=0
-			dbljumped=0
-			canMove=1
-			reeled=0
-			tumbled=0
-			is_jumping=0
-			has_jumped=0
-			is_skidding=0
-		if(istype(a, /ITEMS/CONTAINERS/Wheel_Crate))
-			var/ITEMS/I=a
-			if(dir==RIGHT) I.vel_x=1
-			else I.vel_x=-1
-		if(istype(a, /mob))
-			var/mob/M=a
-			if(d==DOWN && M.isPlayer)
-				if(M.hitIndex!="STOMP")
-					M.hitIndex="STOMP"
-					flick("hit",M)
-					//M.face(src)
-					HitStun(M,1)
-					spawn(1)
-						jump()
-						if(dir==RIGHT) vel_x=6
-						else vel_x=-6
+		if(isMashing)
+			return
+		else
+			..()
+			animate(src, transform = null, time = 0.5)
+			if(istype(a, /STAGEART/WhaleBoat))
+				jumped=0
+				dbljumped=0
+				canMove=1
+				reeled=0
+				tumbled=0
+				is_jumping=0
+				has_jumped=0
+				is_skidding=0
+			if(istype(a, /ITEMS/CONTAINERS/Wheel_Crate))
+				var/ITEMS/I=a
+				if(dir==RIGHT) I.vel_x=1
+				else I.vel_x=-1
+			if(istype(a, /mob))
+				var/mob/M=a
+				if(d==DOWN && M.isPlayer)
+					if(M.hitIndex!="STOMP")
+						M.hitIndex="STOMP"
+						HitStun(M,1)
+						spawn(1)
+							jump()
+							if(dir==RIGHT) vel_x=6
+							else vel_x=-6
+							canMove=1
+							canAttack=1
+							has_jumped=0
+							jumped=0
+							dbljumped=0
+						spawn(6)
+							M.hitIndex="null"
+
+
+			if(istype(a, /turf))
+				if(tumbled)
+					setLandingLag("HEAVY")
+					tumbled=0
+				if(d == DOWN)
+					var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
+					FX.plane=src.plane-1
+					FX.loc=src.loc
+					FX.dir=EAST
+					FX.step_x=src.step_x-32
+					FX.step_y-=2
+					flick("",FX)
+					spawn(6)
+						del FX
+					flick("squat",src)
+
+					canMove=0
+					vel_y = 0
+					vel_x = 0
+					spawn(LAG)
+						del FX
+						if(canAttack)
+							flick("squatend",src)
+							canAct=1
+
 						canMove=1
-						canAttack=1
-						has_jumped=0
 						jumped=0
 						dbljumped=0
-					spawn(6)
-						M.hitIndex="null"
-
-
-		if(istype(a, /turf))
-			if(tumbled)
-				setLandingLag("HEAVY")
-				tumbled=0
-			if(d == DOWN)
-				var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
-				FX.plane=src.plane-1
-				FX.loc=src.loc
-				FX.dir=EAST
-				FX.step_x=src.step_x-32
-				FX.step_y-=2
-				flick("",FX)
-				spawn(6)
-					del FX
-				flick("squat",src)
-
-				canMove=0
-				vel_y = 0
-				vel_x = 0
-				spawn(LAG)
-					del FX
-					if(canAttack)
-						flick("squatend",src)
-						canAct=1
-
-					canMove=1
-					jumped=0
-					dbljumped=0
-					reeled=0
-					tumbled=0
-					is_jumping=0
-					has_jumped=0
-					is_skidding=0
+						reeled=0
+						tumbled=0
+						is_jumping=0
+						has_jumped=0
+						is_skidding=0
 
 //	bump(STAGEART/WhaleBoat)
 //		jumped=0

@@ -11,7 +11,7 @@ ITEMS
 	scaffold=0
 	var
 		damage = 0
-
+		var/mob/owner
 		thrown = 0
 		mover=0
 		carrier
@@ -29,11 +29,35 @@ ITEMS
 			carried=0
 			pwidth=32
 			pheight=32
+			move_speed=8
+			var
+				grabbed=0
+			gravity()
+				if(!thrown) ..()
 			PickUp(var/mob/pickuper)
 				pickuper.heldItem="BluJay"
 				UpdateWorldUI(pickuper)
 				Items_ACTIVE.Remove(src)
 				del src
+			pixel_move(dpx, dpy)
+
+				..()
+
+				for(var/mob/m in world)
+					if(m.grabbedBy==src)
+						m.pixel_move(move_x, move_y)
+			movement()
+				..()
+				for(var/mob/m in oview(1,src))
+					if(m.isPlayer && thrown && owner!=m && !grabbed && m.inside(src))
+						grabbed=1
+						spawn(0.75)
+							m.setMashing(src)
+							set_pos(px,py+14)
+							vel_y=3
+							move_speed=4
+							m.grabbedBy = src
+
 		WebTrap
 			icon='Items/Webtrap.dmi'
 			carried=0
@@ -46,26 +70,45 @@ ITEMS
 				UpdateWorldUI(pickuper)
 				Items_ACTIVE.Remove(src)
 				del src
+			New(var/mob/m,thrown=0)
+				if(!thrown)
+					carried=1
+					animate(src, alpha = 0, transform = matrix()*4, color = "black", time = 0.1)
+					spawn(0.1)
+						animate(src, alpha = 255, transform = matrix()/4, color = "white", time = 2)
+						spawn(2)
+							view()<<ITEMSPAWN
+							carried=0
+							spawn(1)
+								setSpinning()
+								spawn(4)
+									DeleteTimer()
+				else
+					src.thrown=1
+					src.owner=m
+					carried=0
+					src.loc=m.loc
+					src.dir=m.dir
+					src.set_pos(m.px,m.py+6)
+					src.vel_y=5
+					switch(m.dir)
+						if(RIGHT) vel_x=8
+						if(LEFT) vel_x=-8
+					setSpinning()
 			movement()
 				..()
 				for(var/mob/m in oview(1,src))
 					if(m.isPlayer && icon_state=="hidden" && m.inside(src))
 						spawn(1)
+							m.setMashing(src)
 							animate(src, transform = matrix().Scale(1, 0) ,alpha=0)
 							icon_state="trap"
 							animate(transform = matrix().Scale(1, 1) ,alpha=255,time=1, easing=BOUNCE_EASING)
-							animate(m, color=rgb(100,100,100))
-							m.client.lock_input()
-							m.hitstun=1
-							m.vel_x=0
-							m.vel_y=0
 							spawn(75)
+								if(m.isMashing) m.freeMashing()
 								animate(src, alpha=0,time=3)
-								animate(m, color=rgb(255,255,255))
 								spawn(4)
 									del src
-								m.hitstun=0
-								m.client.unlock_input()
 
 			bump(atom/a)
 				if(istype(a, /turf))
@@ -382,14 +425,16 @@ ITEMS
 							DeleteTimer()
 		else
 			src.thrown=1
+			src.owner=m
 			carried=0
 			src.loc=m.loc
+			src.dir=m.dir
 			src.set_pos(m.px,m.py+6)
-			src.vel_y=5
+		//	src.vel_y=5
 			switch(m.dir)
 				if(RIGHT) vel_x=8
 				if(LEFT) vel_x=-8
-			setSpinning()
+		//	setSpinning()
 	proc
 		PickUp(var/mob/pickuper)
 		Activate(var/mob/activator)

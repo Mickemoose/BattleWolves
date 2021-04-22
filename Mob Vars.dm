@@ -32,11 +32,16 @@ mob
 		INVINCIBLE=0
 		SUPERARMOR=0
 		PLAYERNUMBER=0
+		isMashing=0
+		mashAmount=0
+		mashFX
 
 		isPlayer = 0
 
 		hitIndex = "null"
 		heldItem= "frame"
+
+		grabbedBy
 
 		cssicon=1
 

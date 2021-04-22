@@ -28,6 +28,47 @@ proc
 				return rcolor
 mob
 	proc
+		Mash()
+			animate(src, transform=matrix().Translate(pick(-1, 1),0), time=0.75)
+			animate(transform=matrix().Translate(0,0), time=0.75)
+			for(var/EFFECT/MASH_ALERT/FX in world)
+				if(mashFX==FX)
+					if(FX.icon_state=="press") FX.icon_state=""
+					else FX.icon_state="press"
+			mashAmount += rand(1,5)
+			if(mashAmount >=100)
+				freeMashing()
+
+			return
+		freeMashing()
+			if(isMashing)
+				jump()
+				hitstun=0
+				isMashing=0
+
+				for(var/EFFECT/MASH_ALERT/FX in world)
+					if(mashFX==FX)
+						del FX
+				for(var/mob/m in world)
+					if(grabbedBy==m)
+						del m
+				grabbedBy = null
+		setMashing(var/mob/m)
+			if(!isMashing)
+				grabbedBy=m
+				animate(src, transform = null)
+				vel_x=0
+				vel_y=0
+				mashAmount=0
+				hitstun=1
+				isMashing=1
+				var/EFFECT/MASH_ALERT/FX = new /EFFECT/MASH_ALERT(src)
+				mashFX=FX
+				FX.plane=src.plane+4
+				FX.loc=src.loc
+				FX.step_x=src.step_x-3
+				FX.step_y=src.step_y+22
+
 		SideSpecial()
 			animate(src, transform = null, time = 0.1)
 			switch(character)
@@ -68,12 +109,14 @@ mob
 
 		Death()
 			if(client) client.has_key(null)
+			freeMashing()
 			on_wall=0
 			setPlayerLives(1,"REMOVE")
 			canMove=0
 			canAct=0
 			reeled=0
 			dead=1
+			grabbedBy=null
 			vel_x=0
 			vel_y=0
 			invisibility=101
