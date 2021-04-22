@@ -41,6 +41,7 @@ KFK_Mobs
 		pheight=12
 		density=0
 		scaffold=0
+		isPlayer=0
 		var/shelled=0
 		Active()
 			spawn(10)
@@ -58,7 +59,7 @@ KFK_Mobs
 			if(shelled)
 				for(var/mob/M in oview(1,src))
 					if(M.isPlayer && M.inside(src))
-						if(M.hitstun || M.hitIndex=="Zeke" || owner==M) return
+						if(M.hitstun || M.hitIndex=="Zeke" || owner==M) continue
 						M.hitIndex="Zeke"
 						world<<HIT
 						HitStun(M,1)
@@ -79,7 +80,7 @@ KFK_Mobs
 		density=0
 		scaffold=0
 		hitstun=1
-
+		isPlayer=0
 		Active()
 			spawn(10)
 				for(var/mob/m in view())
@@ -121,7 +122,7 @@ KFK_Mobs
 		fall_speed=5
 		density=0
 		scaffold=0
-
+		isPlayer=0
 		Active()
 			spawn(10)
 				flick("",src)

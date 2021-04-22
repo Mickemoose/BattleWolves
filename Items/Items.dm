@@ -1,6 +1,6 @@
 var
 	list
-		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate","CONTAINERS/Wheel_Crate","INSTANTS/Food","THROWABLES/WebTrap")
+		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate","CONTAINERS/Wheel_Crate","INSTANTS/Food","THROWABLES/WebTrap", "THROWABLES/BluJay")
 ITEMS
 	parent_type = /mob
 	appearance_flags = PIXEL_SCALE
@@ -22,7 +22,7 @@ ITEMS
 		isActuallyDeleting =0
 		flash = 0
 		list
-			contains = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food", "THROWABLES/WebTrap")
+			contains = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food", "THROWABLES/WebTrap", "THROWABLES/BluJay")
 	THROWABLES
 		BluJay
 			icon='Items/BluJay.dmi'
@@ -189,7 +189,7 @@ ITEMS
 							Items_ACTIVE.Remove(src)
 							del src
 			proc
-				Summon(ctype,var/mob/owner)
+				Summon(ctype,var/mob/owner2)
 					var/F
 					switch(ctype)
 						if("character")
@@ -200,8 +200,8 @@ ITEMS
 					var/KFK_Mobs/O2 = new O(src.loc)
 					O2.loc=src.loc
 					O2.set_pos(src.px-8, src.py+16)
-					O2.owner=owner
-					return
+					O2.owner=owner2
+					//return
 
 	CONTAINERS
 		Barrel

@@ -192,6 +192,11 @@ mob
 
 			switch(name)
 				if("whale")
+					src<<WHALE
+					SongPlaying = WHALE
+					SongPlaying.volume = MUSIC_VOLUME
+					SongPlaying.status = SOUND_UPDATE
+					src<<SongPlaying
 					for(var/GameCamera/GC in world)
 						if(GC.z == 3)
 							client.eye = GC
@@ -201,6 +206,11 @@ mob
 
 
 				if("debug")
+					src<<GLITCH
+					SongPlaying = GLITCH
+					SongPlaying.volume = MUSIC_VOLUME
+					SongPlaying.status = SOUND_UPDATE
+					src<<SongPlaying
 					for(var/GameCamera/GC in world)
 						if(GC.z == 2)
 							client.eye = GC
@@ -209,6 +219,11 @@ mob
 								if(S.z == 2) itemspawns.Add(S)
 
 				else
+					src<<GLITCH
+					SongPlaying = GLITCH
+					SongPlaying.volume = MUSIC_VOLUME
+					SongPlaying.status = SOUND_UPDATE
+					src<<SongPlaying
 					for(var/GameCamera/GC in world)
 						if(GC.z == 2)
 							usr.client.eye = GC

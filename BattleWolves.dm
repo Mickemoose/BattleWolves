@@ -300,8 +300,8 @@ mob
 						spawn(15)
 
 							src.client.unlock_input()
-			//	if(k=="6")
-			//		new /KFK_Mobs/PhormPhather(src.loc)
+				if(k=="6")
+					new /KFK_Mobs/Zeke(src.loc)
 				if(k=="4")
 					setMashing()
 				if(k == "5")
