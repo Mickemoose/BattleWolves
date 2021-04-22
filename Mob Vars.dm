@@ -48,7 +48,7 @@ mob
 		list
 			trackers = list()
 			holdingItem = list()
-			characters = list("Derek","Brendan","Laundry","Smitty","Hunter","Matt","Becca","Frose","Hartshorne","Schnerch")
+			characters = list("Derek","Brendan","Laundry","Smitty","Hunter","Matt","Becca","Froese","Hartshorne","Schnerch")
 			stages = list("Debug","Whale Boat")
 			cssicons = list()
 			sssicons = list()

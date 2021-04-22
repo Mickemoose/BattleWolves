@@ -243,6 +243,8 @@ mob
 								del R
 							for(var/UI/CSS/Portrait/P in m.client.screen)
 								del P
+							for(var/UI/CSS/Name/P in m.client.screen)
+								del P
 							spawn(6)
 
 								m.setStage()

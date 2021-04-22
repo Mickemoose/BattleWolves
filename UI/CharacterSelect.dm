@@ -1,5 +1,7 @@
 UI
 	CSS
+		Name
+			icon='UI/Letters.dmi'
 		Portrait
 		Plates
 			icon='UI/Plate.dmi'
@@ -45,9 +47,12 @@ mob
 	proc
 		setTempPortrait(character)
 			var num=0
+			var num2=0
 			for(var/mob/m in world)
 				if(m.client)
 					for(var/UI/CSS/Portrait/P in m.client.screen)
+						del P
+					for(var/UI/CSS/Name/P in m.client.screen)
 						del P
 					var/UI/CSS/Portrait/P=new/UI/CSS/Portrait(m.client)
 					P.screen_loc="CENTER-11:[12+num],CENTER-6:-12"
@@ -60,6 +65,15 @@ mob
 					spawn(1)
 						animate(P, alpha=150, time=0.5,loop=-1)
 						animate(alpha=125, time=0.5)
+
+
+					for(var/i2=1, i2<=length(character),i2++)
+						var/UI/CSS/Name/N= new (src.client)
+						N.screen_loc="CENTER-10:[num2-16+num],CENTER-7:-6"
+						N.plane+=2
+						animate(N, transform = matrix())
+						N.icon_state="[copytext(uppertext(character),i2,i2+1)]"
+						num2+=6
 					num+=90
 		setPortait()
 			var num=0
@@ -97,6 +111,7 @@ mob
 		CSS_Initialize()
 
 			var num=0
+
 			for(var/i=1, i<=src.characters.len,i++)
 				var/UI/CSS/Characters/C = new /UI/CSS/Characters(src.client)
 				C.screen_loc="CENTER-5:[num],CENTER"
@@ -105,6 +120,7 @@ mob
 				src.cssicons.Add(C)
 				animate(C, transform=matrix().Translate(0,200))
 				animate(transform=matrix().Translate(0,0), time=4, easing=BOUNCE_EASING)
+
 				num+=34
 				sleep(1)
 
