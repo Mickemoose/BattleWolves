@@ -71,7 +71,10 @@ Xbox Controller Mapping
 
 
 
-What I wanna do - 4/17/2021
+What I wanna do - 4/22/2021
 - Dereks Specials
-- moar kfk
+- Stage Select
+- Item Select
+-Game Start
+-Game End
 */

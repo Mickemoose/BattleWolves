@@ -72,9 +72,9 @@ mob
 				for(var/i=1, i<=length(percent2),i++)
 					var/UI/NAME/N= new (src.client, M.PLAYERNUMBER)
 					N.screen_loc="CENTER:[num + num2],CENTER-7"
-					animate(N, transform = matrix()*2, alpha= 0,time = 0)
+					animate(N, transform = matrix()*2.05, alpha= 0,time = 0)
 					spawn(1)
-						animate(N, transform= matrix()*2, alpha=255, time=3)
+						animate(N, alpha=255, time=3)
 					N.icon_state="[copytext(percent2,i,i+1)]"
 					num+=13
 
@@ -173,7 +173,7 @@ mob
 									N.screen_loc="CENTER:[num + num2],CENTER-7"
 									N.icon_state="[copytext(percent2,i,i+1)]"
 									num+=13
-									animate(N, transform= matrix()*2, alpha=255, time=3)
+									animate(N, transform= matrix()*2.05, alpha=255, time=3)
 								for(var/i2=1, i2<=M.lives,i2++)
 									var/UI/LIFE/L= new (src.client, M.PLAYERNUMBER)
 									L.screen_loc="CENTER:[num3 + num2],CENTER-6:-16"
@@ -221,7 +221,7 @@ mob
 					N.screen_loc="CENTER:[num + num2],CENTER-7"
 					N.icon_state="[copytext(percent2,i,i+1)]"
 					num+=13
-					animate(N, transform= matrix()*2, alpha=255, time=0.1)
+					animate(N, transform= matrix()*2.05, alpha=255, time=0.1)
 				for(var/i2=1, i2<=M.lives,i2++)
 					var/UI/LIFE/L= new (src.client, M.PLAYERNUMBER)
 					L.screen_loc="CENTER:[num3 + num2],CENTER-6:-16"
@@ -233,30 +233,30 @@ mob
 				for(var/UI/NAME/N in src.client.screen)
 					if(N.playernum==M.PLAYERNUMBER)
 						if(M.percent>=0.5 && M.percent<=0.75)
-							animate(N, transform= matrix()*2, alpha=255, color="yellow", time=0.1)
+							animate(N, transform= matrix()*2.05, alpha=255, color="yellow", time=0.1)
 						if(M.percent>=0.75 && M.percent<=1.0)
-							animate(N, transform= matrix()*2, alpha=255, color="#ff8f1f", time=0.1)
+							animate(N, transform= matrix()*2.05, alpha=255, color="#ff8f1f", time=0.1)
 						if(M.percent>=1.0 && M.percent<=1.50)
-							animate(N, transform= matrix()*2, alpha=255, color="#ff6b98", time=0.1)
+							animate(N, transform= matrix()*2.05, alpha=255, color="#ff6b98", time=0.1)
 						if(M.percent>=1.50)
-							animate(N, transform= matrix()*2, alpha=255, color="red", time=0.1)
+							animate(N, transform= matrix()*2.05, alpha=255, color="red", time=0.1)
 						if(M.percent>=2.50)
-							animate(N, transform= matrix()*2, alpha=255, color="#611c1c", time=0.1)
+							animate(N, transform= matrix()*2.05, alpha=255, color="#611c1c", time=0.1)
 
 			for(var/UI/NAME/N in src.client.screen)
 				if(N.playernum==player.PLAYERNUMBER)
 					if(player.percent>=0.5 && player.percent<=0.75)
-						animate(N, transform= matrix()*2, alpha=255, color="yellow", time=0.1)
+						animate(N, transform= matrix()*2.05, alpha=255, color="yellow", time=0.1)
 					if(player.percent>=0.75 && player.percent<=1.0)
-						animate(N, transform= matrix()*2, alpha=255, color="#ff8f1f", time=0.1)
+						animate(N, transform= matrix()*2.05, alpha=255, color="#ff8f1f", time=0.1)
 					if(player.percent>=1.0 && player.percent<=1.50)
-						animate(N, transform= matrix()*2, alpha=255, color="#ff6b98", time=0.1)
+						animate(N, transform= matrix()*2.05, alpha=255, color="#ff6b98", time=0.1)
 					if(player.percent>=1.50)
-						animate(N, transform= matrix()*2, alpha=255, color="red", time=0.1)
+						animate(N, transform= matrix()*2.05, alpha=255, color="red", time=0.1)
 					if(player.percent>=2.50)
-						animate(N, transform= matrix()*2, alpha=255, color="#611c1c", time=0.1)
-					animate(N, transform = turn(matrix()*2, rand(10,22)), time = 1, loop=1 )
-					animate(N, transform = turn(matrix()*2, 0), time = 1,loop=1  )
+						animate(N, transform= matrix()*2.05, alpha=255, color="#611c1c", time=0.1)
+					animate(N, transform = turn(matrix()*2.05, rand(10,22)), time = 1, loop=1 )
+					animate(N, transform = turn(matrix()*2.05, 0), time = 1,loop=1  )
 					spawn(1.2)
-						animate(N, transform = turn(matrix()*2, rand(330,350)), time = 1,loop=1 )
-						animate(N, transform = turn(matrix()*2, 0), time = 1, loop=1 )
+						animate(N, transform = turn(matrix()*2.05, rand(330,350)), time = 1,loop=1 )
+						animate(N, transform = turn(matrix()*2.05, 0), time = 1, loop=1 )

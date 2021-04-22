@@ -1,5 +1,6 @@
 atom/movable
-	var global/ActiveOutline = filter(type = "outline", color = "red", size = 2)
+	var global/RedOutline = filter(type = "outline", color = "red", size = 2)
+	var global/BlueOutline = filter(type = "outline", color = "blue", size = 2)
 	var global/WhiteOutline = filter(type = "outline", color = "white", size = 1)
 	var/global/Wave = filter(type="wave")
 	var/global/Blur = filter(type="radial_blur",x=16,y=16,size=2)
