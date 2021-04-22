@@ -193,7 +193,7 @@ mob
 			itemspawns=new()
 
 			switch(name)
-				if("whale")
+				if("Whale Boat")
 					src<<WHALE
 					SongPlaying = WHALE
 					SongPlaying.volume = MUSIC_VOLUME
@@ -207,7 +207,7 @@ mob
 								if(S.z == 3) itemspawns.Add(S)
 
 
-				if("debug")
+				if("Debug")
 					src<<GLITCH
 					SongPlaying = GLITCH
 					SongPlaying.volume = MUSIC_VOLUME

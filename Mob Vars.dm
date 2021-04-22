@@ -44,6 +44,7 @@ mob
 		grabbedBy
 
 		cssicon=1
+		sssicon=1
 
 		list
 			trackers = list()

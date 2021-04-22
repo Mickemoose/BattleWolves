@@ -208,6 +208,63 @@ mob
 		if(!canAct)
 			return
 		else
+			if(inSSS)
+				if(k == (controls.right) && Stage_Selected==null)
+					src<<CLICK
+					sssicon++
+					if(sssicon > sssicons.len)
+						sssicon=1
+					for(var/UI/CSS/Cursor/C in cursor)
+						C.screen_loc=sssicons[sssicon].screen_loc
+					//setTempPortrait(stages[sssicon])
+					return
+				if(k == (controls.left) && Stage_Selected==null)
+					src<<CLICK
+					sssicon--
+					if(sssicon <= 0)
+						sssicon=sssicons.len
+					for(var/UI/CSS/Cursor/C in cursor)
+						C.screen_loc=sssicons[sssicon].screen_loc
+					//setTempPortrait(stages[sssicon])
+					return
+				if(k == "back" && Stage_Selected==null)
+					for(var/UI/CSS/Cursor/C in cursor)
+						C.screen_loc=cssicons[cssicon].screen_loc
+					inSSS=0
+					inCSS=1
+					//return
+				if(k == "enter" || k  == "return" && Stage_Selected==null)
+					src<<CHOOSE
+					Stage_Selected="[sssicons[sssicon]]"
+
+				if(k == "enter" || k  == "return" && Stage_Selected!=null && Players_READY.len == Players_ALIVE.len)
+					for(var/mob/m in world)
+						if(m.client)
+							fade.FadeOut(time=6)
+							m.client.lock_input()
+							m<<CHOOSE
+							for(var/UI/SSS/Stages/C in m.client.screen)
+								del C
+							for(var/UI/CSS/Cursor/C in m.cursor)
+								cursor.Remove(C)
+								del C
+							m.CSS_Deinitialize()
+							for(var/UI/CSS/Plates/P in m.client.screen)
+								del P
+							for(var/UI/CSS/Ready/R in m.client.screen)
+								del R
+							for(var/UI/CSS/Portrait/P in m.client.screen)
+								del P
+							for(var/UI/CSS/Name/P in m.client.screen)
+								del P
+							spawn(6)
+
+								m.setStage(Stage_Selected)
+								fade.FadeIn(time=10)
+								spawn(10)
+									m.inCSS=0
+									m.inSSS=0
+									m.client.unlock_input()
 			if(inCSS)
 				if(k == (controls.right) && character==null)
 					src<<CLICK
@@ -227,31 +284,7 @@ mob
 						C.screen_loc=cssicons[cssicon].screen_loc
 					setTempPortrait(characters[cssicon])
 					return
-				if(k == "enter" || k  == "return"  && PLAYERNUMBER==1 && Players_READY.len == Players_ALIVE.len)
-					for(var/mob/m in world)
-						if(m.client)
-							fade.FadeOut(time=6)
-							m.client.lock_input()
-							m<<CHOOSE
-							for(var/UI/CSS/Cursor/C in m.cursor)
-								cursor.Remove(C)
-								del C
-							m.CSS_Deinitialize()
-							for(var/UI/CSS/Plates/P in m.client.screen)
-								del P
-							for(var/UI/CSS/Ready/R in m.client.screen)
-								del R
-							for(var/UI/CSS/Portrait/P in m.client.screen)
-								del P
-							for(var/UI/CSS/Name/P in m.client.screen)
-								del P
-							spawn(6)
 
-								m.setStage()
-								fade.FadeIn(time=10)
-								spawn(10)
-									m.inCSS=0
-									m.client.unlock_input()
 
 
 				if(k == "enter" || k  == "return"  && character==null)
@@ -261,6 +294,12 @@ mob
 					for(var/UI/CSS/Cursor/C in cursor)
 						C.Choose(src)
 					Players_READY.Add(src)
+					if(PLAYERNUMBER==1)
+						inCSS=0
+						inSSS=1
+						for(var/UI/CSS/Cursor/C in cursor)
+							C.screen_loc=sssicons[sssicon].screen_loc
+
 					if(Players_READY.len == Players_ALIVE.len)
 						for(var/mob/m in world)
 							if(m.client)
@@ -280,7 +319,7 @@ mob
 					return
 
 			..()
-			if(!inCSS)
+			if(!inCSS || !inSSS)
 				if(k == "return" || k == "space" || k == "enter")
 					if(inTitle)
 						inTitle=0
@@ -298,6 +337,8 @@ mob
 						//	setStage()
 						//	setPlayerNumber()
 						spawn(13)
+							if(PLAYERNUMBER==1)
+								SSS_Initialize()
 							CSS_Initialize()
 						spawn(15)
 

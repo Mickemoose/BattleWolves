@@ -1,4 +1,9 @@
 UI
+	SSS
+		Stages
+			icon='UI/CSSIcon.dmi'
+			icon_state=""
+			var stagename
 	CSS
 		Name
 			icon='UI/Letters.dmi'
@@ -108,6 +113,21 @@ mob
 				//	P2.icon_state=""
 					animate(P2, transform= matrix()*2)
 					num+=90
+		SSS_Initialize()
+
+			var num=0
+
+			for(var/i=1, i<=src.stages.len,i++)
+				var/UI/SSS/Stages/C = new /UI/SSS/Stages(src.client)
+				C.screen_loc="CENTER-[src.stages.len]:[num],CENTER+2"
+				C.icon_state=src.stages[i]
+				C.name=src.stages[i]
+				src.sssicons.Add(C)
+				animate(C, transform=matrix().Translate(0,200))
+				animate(transform=matrix().Translate(0,0), time=4, easing=BOUNCE_EASING)
+
+				num+=34
+				sleep(1)
 		CSS_Initialize()
 
 			var num=0
