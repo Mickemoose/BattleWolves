@@ -225,19 +225,18 @@ ITEMS
 						if(M.isPlayer && carrier!=M)
 							if(M.inside(src))
 								if(M.hitIndex!="Barrel" && M.isPlayer && !reeled && !hitstun)
-									if(hitstun) return
-									spawn(3.5)
-										if(hitstun) return
-										M.hitIndex="Barrel"
-										HitStun(M,2)
-										M.setDamage(pick(0.06),"ADD")
-										spawn(1)
-											if(M.dir==RIGHT)
-												M.Knockback(power = "LIGHT", where = "UP RIGHT")
-											else
-												M.Knockback(power = "LIGHT", where = "UP LEFT")
-										spawn(6)
-											M.hitIndex="null"
+									if(hitstun)
+										return
+									M.hitIndex="Barrel"
+									HitStun(M,2)
+									M.setDamage(0.06,"ADD")
+									spawn(1)
+										if(M.dir==RIGHT)
+											M.Knockback(power = "LIGHT", where = "UP RIGHT")
+										else
+											M.Knockback(power = "LIGHT", where = "UP LEFT")
+									spawn(6)
+										M.hitIndex="null"
 								Destroy()
 		Wheel_Crate
 			icon='Items/WheelCrate.dmi'
@@ -304,19 +303,19 @@ ITEMS
 						if(M.inside(src))
 							if(M.isPlayer && carrier!=M)
 								if(M.hitIndex!="Barrel" && M.isPlayer && !reeled && !hitstun)
-									if(hitstun) return
-									spawn(3.5)
-										if(hitstun) return
-										M.hitIndex="Barrel"
-										HitStun(M,2)
-										M.setDamage(pick(0.06),"ADD")
-										spawn(1)
-											if(M.dir==RIGHT)
-												M.Knockback(power = "LIGHT", where = "UP RIGHT")
-											else
-												M.Knockback(power = "LIGHT", where = "UP LEFT")
-										spawn(6)
-											M.hitIndex="null"
+
+									if(hitstun)
+										return
+									M.hitIndex="Barrel"
+									HitStun(M,2)
+									M.setDamage(0.06,"ADD")
+									spawn(1)
+										if(M.dir==RIGHT)
+											M.Knockback(power = "LIGHT", where = "UP RIGHT")
+										else
+											M.Knockback(power = "LIGHT", where = "UP LEFT")
+									spawn(6)
+										M.hitIndex="null"
 								Destroy()
 	proc
 		Destroy()
