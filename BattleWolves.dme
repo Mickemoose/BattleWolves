@@ -59,6 +59,7 @@
 #include "Characters\RespawnPlatform.dm"
 #include "Characters\Derek\NSpecial.dm"
 #include "Characters\Derek\SSpecial.dm"
+#include "Characters\Derek\USpecial.dm"
 #include "Effects\Effects.dm"
 #include "hitboxes\Hitbox.dm"
 #include "Items\Items.dm"

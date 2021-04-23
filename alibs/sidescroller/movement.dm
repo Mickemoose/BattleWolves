@@ -209,10 +209,10 @@ mob
 				on_wall =0
 				if(dir == RIGHT)
 					vel_y = jump_speed
-					vel_x = 8
+					vel_x = move_speed
 				else
 					vel_y = jump_speed
-					vel_x = -8
+					vel_x = -move_speed
 			has_jumped =1
 			vel_y = jump_speed
 
@@ -512,7 +512,7 @@ mob
 								animate(src, transform = turn(matrix(), 344), time = 2)
 							move(LEFT)
 					if(client.has_key(controls.up))
-						move(UP)
+						return
 					if(client.has_key(controls.down))
 						if(!on_ground)
 							vel_y-=fall_speed+2

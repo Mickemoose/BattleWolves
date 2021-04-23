@@ -14,6 +14,7 @@ mob
 		character = null
 		respawned=0
 		webtrapped=0
+		doingSpecial=null
 
 		burning=0
 		blitz=0
@@ -24,6 +25,7 @@ mob
 		canAct = 1
 		kbsmoke=0
 		kblevel=0
+		VULNERABLE=0
 		hud=0
 		target_arrows[]
 		target_circles[]
@@ -42,6 +44,7 @@ mob
 		heldItem= "frame"
 
 		grabbedBy
+		hasGrabbed=0
 
 		cssicon=1
 		sssicon=1

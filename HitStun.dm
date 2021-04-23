@@ -32,6 +32,7 @@ mob
 			return src.percent
 		HitStun(var/mob/target, time=2)
 			if(target.INVINCIBLE||target.SUPERARMOR) return
+			freeMashing()
 			Shake("LIGHT")
 			target.Shake("LIGHT")
 			flick("hit",target)
@@ -40,6 +41,7 @@ mob
 			//src.vel_x=0
 			for(var/ITEMS/CONTAINERS/C in target.holdingItem)
 				target.Drop(C)
+
 			//src.vel_y=0
 			target.vel_x=0
 			target.vel_y=0

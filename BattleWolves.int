@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1619132210
-DIR: alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Effects Items Stages Stages\Test Stages\Whale 
+LAST_COMPILE_TIME: 1619143388
+DIR: alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Derek Effects Effects\Derek Items Stages Stages\Test Stages\Whale 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1554
-WINDOW: Characters\Derek.dmi;Items\JamJar.dmi;Stages\Test\stage.dm;Stages\Whale\stage.dm;Items\KFK.dmi;Items\RainyDayOrb.dmi;Game Vars.dm;maps.dmm;BattleWolves.dm;Characters\Brendan.dmi;Items\Containers.dmi;Items\Crate.dmi
-FILE: Items\Crate.dmi
+WINDOW: Characters\Derek.dmi;Characters\Derek\NSpecial.dm;Characters\Derek\USpecial.dm;BattleWolves.dm;Characters.dm;Mob Vars.dm;HitStun.dm;Effects\Derek\NSpecial.dmi;Effects\Effects.dm;Sound\Sound.dm
+FILE: Characters\Derek\USpecial.dm
 */
 // END_INTERNALS

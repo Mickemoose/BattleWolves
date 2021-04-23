@@ -28,6 +28,15 @@ proc
 				return rcolor
 mob
 	proc
+		setVulnerable()
+			VULNERABLE=1
+			canAttack=0
+			dbljumped=1
+			jumped=1
+			has_jumped=1
+			animate(src, color=rgb(100,100,100,255), time=0.8, loop=-1)
+			animate(color=rgb(150,150,150,255), time=0.8)
+
 		Mash()
 			animate(src, transform=matrix().Translate(pick(-1, 1),0), time=0.75)
 			animate(transform=matrix().Translate(0,0), time=0.75)
@@ -83,6 +92,9 @@ mob
 					SpiritBurst()
 		UpSpecial()
 			animate(src, transform = null, time = 0.1)
+			switch(character)
+				if("Derek")
+					BurstGrab()
 
 		DownSpecial()
 			animate(src, transform = null, time = 0.1)
@@ -112,7 +124,14 @@ mob
 		Death()
 			if(client) client.has_key(null)
 			freeMashing()
+			animate(src, color=rgb(255,255,255,255))
+			VULNERABLE=0
+			setLandingLag("LIGHT")
 			on_wall=0
+			canAttack=1
+			dbljumped=0
+			jumped=0
+			has_jumped=0
 			setPlayerLives(1,"REMOVE")
 			canMove=0
 			canAct=0

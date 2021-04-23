@@ -3,6 +3,7 @@ EFFECT
 	plane=FLOAT_PLANE+2
 	appearance_flags= PIXEL_SCALE
 	density=0
+
 	MASH_ALERT
 		icon='Effects/Mash.dmi'
 	DASH_SMOKE
@@ -43,6 +44,13 @@ EFFECT
 				animate(transform = matrix()*2.5, color="#524e4e", alpha=100, time=2)
 				animate(transform = matrix()*3, alpha=0,time = 3)
 	DEREK
+		USPECIAL
+			icon='Effects/Derek/BlueSplode.dmi'
+			New()
+				animate(src, transform=matrix()*2)
+				flick("",src)
+				spawn(8)
+					del src
 		NSPECIAL
 			icon='Effects/Derek/NSpecial.dmi'
 			pwidth=120

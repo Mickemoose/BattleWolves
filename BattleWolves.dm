@@ -232,6 +232,7 @@ mob
 						C.screen_loc=cssicons[cssicon].screen_loc
 					inSSS=0
 					inCSS=1
+					src<<CANCEL
 					//return
 				if(k == "enter" || k  == "return" && Stage_Selected==null)
 					src<<CHOOSE
@@ -297,8 +298,9 @@ mob
 					if(PLAYERNUMBER==1)
 						inCSS=0
 						inSSS=1
-						for(var/UI/CSS/Cursor/C in cursor)
-							C.screen_loc=sssicons[sssicon].screen_loc
+						spawn(1)
+							for(var/UI/CSS/Cursor/C in cursor)
+								C.screen_loc=sssicons[sssicon].screen_loc
 
 					if(Players_READY.len == Players_ALIVE.len)
 						for(var/mob/m in world)
@@ -308,6 +310,7 @@ mob
 				if(k == "back"  && character!=null)
 					for(var/UI/CSS/Cursor/C in cursor)
 						C.Deselect(src)
+					src<<CANCEL
 					setCharacter("null")
 					Players_READY.Remove(src)
 					if(Players_READY.len != Players_ALIVE.len)
@@ -519,6 +522,13 @@ mob
 			return
 		else
 			..()
+			if(VULNERABLE)
+				animate(src, color=rgb(255,255,255,255))
+				VULNERABLE=0
+				canAttack=1
+				dbljumped=0
+				jumped=0
+				has_jumped=0
 			animate(src, transform = null, time = 0.5)
 			if(istype(a, /STAGEART/WhaleBoat))
 				jumped=0
@@ -573,8 +583,9 @@ mob
 					vel_x = 0
 					spawn(LAG)
 						del FX
+						flick("squatend",src)
 						if(canAttack)
-							flick("squatend",src)
+
 							canAct=1
 
 						canMove=1

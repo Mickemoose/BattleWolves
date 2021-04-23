@@ -14,6 +14,8 @@ var/sound/CLICK = sound('Sound/click.ogg',volume=5)
 var/sound/CHOOSE = sound('Sound/choose2.wav',volume=5)
 var/sound/BLUJAY = sound('Sound/blujay.wav',volume=5)
 
+var/sound/CANCEL = sound('Sound/cancel.wav',volume=5)
+var/sound/FIRESPLODE = sound('Sound/firesplode.wav',volume=5)
 
 //ANNOUNCER CALLS
 var/sound/Derek = sound('AnnouncerDerek.wav',channel=1,volume=5)
