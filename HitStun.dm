@@ -35,9 +35,8 @@ mob
 			freeMashing()
 			Shake("LIGHT")
 			target.Shake("LIGHT")
-			flick("hit",target)
-			if(target.burning) view()<<FIRE
-			else view()<<HIT
+			if(target.burning) view(target)<<FIRE
+			else view(target)<<HIT
 			//src.vel_x=0
 			for(var/ITEMS/CONTAINERS/C in target.holdingItem)
 				target.Drop(C)

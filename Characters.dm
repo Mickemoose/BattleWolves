@@ -288,6 +288,46 @@ mob
 					air_decel=0
 					gravity=0
 					carry_speed=0
+				if("Matt")
+					character = "[name]"
+					if(inCSS) src<<Matt
+				if("Schnerch")
+					character = "[name]"
+					if(inCSS) src<<Schnerch
+				if("Hartshorne")
+					character = "[name]"
+					if(inCSS) src<<Hartshorne
+				if("Froese")
+					character = "[name]"
+					if(inCSS) src<<Froese
+				if("Hunter")
+					character = "[name]"
+					if(inCSS) src<<Hunter
+				if("Laundry")
+					character = "[name]"
+					if(inCSS) src<<Laundry
+				if("Smitty")
+					character = "[name]"
+					if(inCSS) src<<Smitty
+				if("Becca")
+					character = "[name]"
+					if(inCSS) src<<Becca
+				if("Brendan")
+					icon='Characters/Brendan.dmi'
+					jump_speed = 5
+					boostdefault = 2
+					pixel_x=-22
+					pixel_y=-16
+					pwidth=22
+					character = "[name]"
+					pheight=33
+					fall_speed=7
+					move_speed=4.5
+					air_move_speed=3
+					air_decel=0.14
+					gravity=1
+					carry_speed=1.5
+					if(inCSS) src<<Brendan
 				if("Derek")
 					icon='Characters/Derek.dmi'
 					jump_speed = 6
