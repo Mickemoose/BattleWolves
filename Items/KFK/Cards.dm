@@ -33,6 +33,60 @@ KFK_Mobs
 				Current_KFK--
 				Items_ACTIVE.Remove(src)
 				del src
+	Hazorb
+		icon='Items/KFK/Hazorb.dmi'
+		pixel_x=-25
+		pixel_y=-17
+		pwidth=17
+		pheight=26
+		density=0
+		scaffold=0
+		isPlayer=0
+		var/list/players=list()
+		var/list/target=list()
+		var/grabbed=0
+		can_bump(turf/t)
+			return 0
+		gravity()
+		bump()
+		pixel_move(dpx, dpy)
+			..()
+			for(var/mob/m in world)
+				if(m.grabbedBy==src)
+					m.pixel_move(move_x, move_y)
+		movement()
+			..()
+			for(var/mob/m in oview(1,src))
+				if(m.inside(src) && !grabbed)
+					vel_x=0
+					vel_y=0
+					grabbed=1
+					spawn(0.75)
+						m.setMashing(src)
+						set_pos(px,py+14)
+						vel_y=4.3
+						move_speed=4
+						m.grabbedBy = src
+		action()
+			if(!grabbed)
+				if(path || destination )
+					follow_path()
+
+				for(var/mob/M in target)
+					if(!grabbed)
+						move_towards(M)
+						if(src.py < M.py+10)
+							src.py+=2
+						if(src.py > M.py+10)
+							src.py-=2
+						face(M)
+			slow_down()
+		Active()
+			for(var/mob/M in Players_ALIVE)
+				if(owner!=M)
+					players.Add(M)
+			target.Add(pick(players))
+
 	Zeke
 		icon='Items/KFK/Zeke.dmi'
 		pixel_x=-23

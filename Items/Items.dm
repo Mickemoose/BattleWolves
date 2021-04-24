@@ -160,7 +160,7 @@ ITEMS
 			plane=3
 			carried=0
 			var
-				list/chars = list("Doop","PhormPhather","Steve","Zeke")
+				list/chars = list("Doop","PhormPhather","Steve","Zeke","Hazorb")
 				list/sacs = list()
 				ctype = "character" //or sacrifice
 			Activate(var/mob/activator)
