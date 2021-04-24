@@ -98,6 +98,9 @@ mob
 
 		DownSpecial()
 			animate(src, transform = null, time = 0.1)
+			switch(character)
+				if("Derek")
+					MooseKicker()
 
 		KBSMOKE()
 			if(reeled)

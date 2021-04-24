@@ -347,7 +347,8 @@ mob
 
 							src.client.unlock_input()
 				if(k=="6")
-					new /KFK_Mobs/Zeke(src.loc)
+					new /mob/Spirits/Alkaline(src)
+					new /mob/Spirits/Pyrex(src)
 				if(k=="4")
 					setMashing()
 				if(k == "5")
