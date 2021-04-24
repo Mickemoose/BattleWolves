@@ -38,7 +38,7 @@ RESPAWN_PLATFORM
 		spawn(2)
 			Timer()
 	pixel_move(dpx, dpy)
-		riders = top(1)
+		riders = top(2)
 		if(stopped)
 			Active()
 			return

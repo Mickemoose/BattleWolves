@@ -264,9 +264,9 @@ ITEMS
 				var/riders = top(1)
 				..()
 				for(var/mob/m in riders)
-					if(on_ground && isPlayer)
+					if(on_ground && m.isPlayer)
 						m.pixel_move(move_x, move_y)
-					else if(isPlayer)
+					else if(m.isPlayer)
 						m.jump()
 						setSpinning()
 

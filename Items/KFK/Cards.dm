@@ -3,7 +3,7 @@ KFK_Mobs
 	isPlayer=1
 	lives=0
 	var
-		owner
+		mob/owner
 		timer=100
 	set_state()
 	//bump()
@@ -53,13 +53,13 @@ KFK_Mobs
 		action()
 			if(at_edge())
 				turn_around()
+			//..()
 		bump()
 		movement()
 			..()
 			if(shelled)
 				for(var/mob/M in oview(1,src))
-					if(M.isPlayer && M.inside(src))
-						if(M.hitstun || M.hitIndex=="Zeke" || owner==M) continue
+					if(M.isPlayer && M.hitIndex!="Zeke" && M.inside(src))
 						M.hitIndex="Zeke"
 						world<<HIT
 						HitStun(M,1)
@@ -83,31 +83,30 @@ KFK_Mobs
 		isPlayer=0
 		Active()
 			spawn(10)
-				for(var/mob/m in view())
-					if(m.client)
-						var/UI/KFK/SunBackground/C1 = new /UI/KFK/SunBackground(m.client)
-						//var/UI/KFK/SunForeground/C2 = new /UI/KFK/SunForeground(m.client)
-						var/UI/KFK/Steve/C3 = new /UI/KFK/Steve(m.client)
+				for(var/mob/m in view(src))
+					var/UI/KFK/SunBackground/C1 = new /UI/KFK/SunBackground(m.client)
+					//var/UI/KFK/SunForeground/C2 = new /UI/KFK/SunForeground(m.client)
+					var/UI/KFK/Steve/C3 = new /UI/KFK/Steve(m.client)
 
-						var/obj/overlay = new /obj/
+					var/obj/overlay = new /obj/
 
-						spawn(7.5)
-							if(m.isPlayer && owner!=m)
+					spawn(7.5)
+						if(m.isPlayer && owner!=m)
 
-								overlay.icon=m.icon
-								overlay.layer=m.layer+1
-								overlay.blend_mode=BLEND_MULTIPLY
+							overlay.icon=m.icon
+							overlay.layer=m.layer+1
+							overlay.blend_mode=BLEND_MULTIPLY
 
-								animate(overlay, color=rgb(204, 102, 0,255), time=2)
-								overlay.WaterEffect()
-								m.overlays+=overlay
-								m.burning=1
-								m.setBurning()
-						spawn(100)
-							if(m.isPlayer  && owner!=m)
-								m.overlays-=overlay
-								del overlay
-								m.burning=0
+							animate(overlay, color=rgb(204, 102, 0,255), time=2)
+							overlay.WaterEffect()
+							m.overlays+=overlay
+							m.burning=1
+							m.setBurning()
+					spawn(100)
+						if(m.isPlayer)
+							m.overlays-=overlay
+							del overlay
+							m.burning=0
 						//	icon_state="stand"
 							C1.deactive()
 							C3.deactive()
@@ -128,30 +127,29 @@ KFK_Mobs
 				flick("",src)
 				spawn(4)
 					icon_state="watch"
-					for(var/mob/m in view())
-						if(m.client)
-							var/UI/KFK/Clock/C1 = new /UI/KFK/Clock(m.client)
+					for(var/mob/m in view(src))
+						var/UI/KFK/Clock/C1 = new /UI/KFK/Clock(m.client)
 
-							var/UI/KFK/Hand/C2 = new /UI/KFK/Hand(m.client)
-							spawn(7.5)
-								if(m.isPlayer && owner!=m)
-									animate(m, color=rgb(102, 0, 255,255))
-									m.gravity=0.1
-									m.jump_speed=1
-									m.fall_speed=0.2
-									m.move_speed=1
-									m.air_move_speed=1
-									m.air_decel=0.1
-									m.carry_speed=1
-							spawn(100)
-								if(m.isPlayer  && owner!=m)
-									animate(m, color=rgb(255, 255, 255,255))
-									m.setCharacter(m.character)
-								icon_state="stand"
-								C1.deactive()
-								C2.deactive()
-								spawn(5)
-									Deactivate()
+						var/UI/KFK/Hand/C2 = new /UI/KFK/Hand(m.client)
+						spawn(7.5)
+							if(m.isPlayer && owner!=m)
+								animate(m, color=rgb(102, 0, 255,255))
+								m.gravity=0.1
+								m.jump_speed=1
+								m.fall_speed=0.2
+								m.move_speed=1
+								m.air_move_speed=1
+								m.air_decel=0.1
+								m.carry_speed=1
+						spawn(100)
+							if(m.isPlayer  && owner!=m)
+								animate(m, color=rgb(255, 255, 255,255))
+								m.setCharacter(m.character)
+							icon_state="stand"
+							C1.deactive()
+							C2.deactive()
+							spawn(5)
+								Deactivate()
 		bump()
 		action()
 	Doop

@@ -32,8 +32,8 @@ UI
 			proc
 				Choose(var/mob/user)
 					//icon_state="cursor-choose"
-					animate(src, transform=matrix().Translate(0,-6), time=1)
-					animate(transform=matrix().Translate(0,0), time=1)
+					//animate(src, transform=matrix().Translate(0,-6), time=1)
+					//animate(transform=matrix().Translate(0,0), time=1)
 					for(var/UI/CSS/Characters/C in user.client.screen)
 						if(C.name==user.character)
 							animate(C, transform=matrix().Translate(0,-6), color=rgb(90,90,90,255), time=1)

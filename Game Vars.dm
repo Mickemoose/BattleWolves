@@ -17,3 +17,5 @@ var
 		Items_ACTIVE = list()
 	MATCH_WINNER
 
+	list/kfks = list("/KFK_Mobs/Doop","/KFK_Mobs/PhormPhather","/KFK_Mobs/Steve","/KFK_Mobs/Zeke")
+

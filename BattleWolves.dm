@@ -120,11 +120,6 @@ mob
 	action()
 
 		..()
-		var/list/ridees = bottom(2)
-
-
-		while(!/STAGEART/WhaleBoat in ridees)
-			riding=0
 
 		while(paused)
 			vel_x=0
@@ -350,7 +345,9 @@ mob
 					new /mob/Spirits/Alkaline(src)
 					new /mob/Spirits/Pyrex(src)
 				if(k=="4")
-					setMashing()
+					var/KFK_Mobs/variable=input("Spawn KFK") in kfks
+					var/KFK_Mobs/kfk=new variable(src.loc)
+					kfk.owner=src
 				if(k == "5")
 					new /ITEMS/THROWABLES/BluJay(src.loc)
 				if(k == "7")
