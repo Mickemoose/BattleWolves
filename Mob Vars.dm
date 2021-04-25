@@ -57,6 +57,7 @@ mob
 			cssicons = list()
 			sssicons = list()
 			cursor=list()
+			items = list("Containers","Food","KFK","BluJay","WebTrap")
 
 
 		holdingAttack = 0

@@ -33,6 +33,34 @@ KFK_Mobs
 				Current_KFK--
 				Items_ACTIVE.Remove(src)
 				del src
+	Beefalo
+		icon='Items/KFK/Beefalo.dmi'
+		density=0
+		scaffold=0
+		isPlayer=0
+		bump()
+		Active()
+			spawn(2)
+				for(var/i=1, i<=10,i++)
+					flick("stomp",src)
+					spawn(3)
+
+						for(var/mob/m in view(src))
+							m<<STOMP
+							m.Shake("LIGHT")
+						RockSpawn()
+					sleep(4)
+					if(i ==10)
+						Deactivate()
+
+
+
+		proc
+			RockSpawn()
+				new /mob/BOULDER(src.loc)
+				for(var/i=1, i<=10,i++)
+
+					sleep(2)
 	Hazorb
 		icon='Items/KFK/Hazorb.dmi'
 		pixel_x=-25

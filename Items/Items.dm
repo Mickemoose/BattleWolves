@@ -161,7 +161,7 @@ ITEMS
 			carried=0
 			var
 				list/chars = list("Doop","PhormPhather","Steve","Zeke","Hazorb")
-				list/sacs = list()
+				list/sacs = list("Beefalo")
 				ctype = "character" //or sacrifice
 			Activate(var/mob/activator)
 				carried=1
