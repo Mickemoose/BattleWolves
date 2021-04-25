@@ -57,7 +57,8 @@ KFK_Mobs
 
 		proc
 			RockSpawn()
-				new /mob/BOULDER(src.loc)
+				var/mob/BOULDER/B=new /mob/BOULDER(src.loc)
+				B.spawner=src.owner
 				for(var/i=1, i<=10,i++)
 
 					sleep(2)

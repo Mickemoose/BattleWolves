@@ -3,12 +3,13 @@ mob
 		icon='Items/KFK/Beefalo.dmi'
 		icon_state="rock"
 		isPlayer=0
+		var/mob/spawner
 		fall_speed=6
 		set_state()
 		movement()
 			..()
 			for(var/mob/m in oview(1,src))
-				if(m.hitIndex!="Boulder" && m.inside(src))
+				if(m.hitIndex!="Boulder" && spawner!=m && m.inside(src))
 					m.hitIndex="Boulder"
 					view(m)<<HIT
 					HitStun(m,1)
