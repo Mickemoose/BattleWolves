@@ -32,6 +32,6 @@ mob
 							return
 
 
-var/sound/MENU = sound('Music/SPCchip.wav',1, channel=2, volume=20)
+var/sound/MENU = sound('Music/SPC-Menu.ogg',1, channel=2, volume=20)
 var/sound/GLITCH = sound('Music/glitch.mp3',1, channel=2, volume=5)
 var/sound/WHALE = sound('Music/whale.mp3',1, channel=2, volume=5)

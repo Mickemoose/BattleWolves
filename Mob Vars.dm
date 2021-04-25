@@ -53,7 +53,7 @@ mob
 			trackers = list()
 			holdingItem = list()
 			characters = list("Derek","Brendan","Laundry","Smitty","Hunter","Matt","Becca","Froese","Hartshorne","Schnerch")
-			stages = list("Debug","Whale Boat")
+			stages = list("Debug","Whale Boat", "Glitch Realm")
 			cssicons = list()
 			sssicons = list()
 			cursor=list()

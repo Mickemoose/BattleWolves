@@ -24,9 +24,13 @@ turf
 			density = 1
 			wall =1
 		background
+			icon='Stages/Glitch/background.dmi'
 			icon_state="background"
 			density=0
 			plane=-5
+			appearance_flags = PIXEL_SCALE
+			New()
+				animate(src, transform=matrix()*1.95)
 
 		effect
 			icon_state="effect"
