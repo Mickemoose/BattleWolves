@@ -1,6 +1,6 @@
 var
 	list
-		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate","CONTAINERS/Wheel_Crate","INSTANTS/Food","THROWABLES/WebTrap", "THROWABLES/BluJay","THROWABLES/JamJar")
+		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate","CONTAINERS/Wheel_Crate","INSTANTS/Food","THROWABLES/WebTrap", "THROWABLES/BluJay","THROWABLES/JamJar","THROWABLES/ProxMine")
 ITEMS
 	parent_type = /mob
 	appearance_flags = PIXEL_SCALE
@@ -22,8 +22,82 @@ ITEMS
 		isActuallyDeleting =0
 		flash = 0
 		list
-			contains = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food", "THROWABLES/WebTrap", "THROWABLES/BluJay","THROWABLES/JamJar")
+			contains = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food", "THROWABLES/WebTrap", "THROWABLES/BluJay","THROWABLES/JamJar","THROWABLES/ProxMine")
 	THROWABLES
+		ProxMine
+			icon='Items/ProxMine.dmi'
+			carried=0
+			pixel_x=-11
+			pixel_y=-10
+			pwidth=22
+			pheight=22
+			var/sploding=0
+			PickUp(var/mob/pickuper)
+				pickuper.heldItem="ProxMine"
+				UpdateWorldUI(pickuper)
+				Items_ACTIVE.Remove(src)
+				del src
+			New(var/mob/m,thrown=0)
+				if(!thrown)
+					carried=1
+					animate(src, alpha = 0, transform = matrix()*4, color = "black", time = 0.1)
+					spawn(0.1)
+						animate(src, alpha = 255, transform = matrix()/4, color = "white", time = 2)
+						spawn(2)
+							view()<<ITEMSPAWN
+							carried=0
+							spawn(1)
+								setSpinning()
+								spawn(4)
+									DeleteTimer()
+				else
+					src.thrown=1
+					src.owner=m
+					carried=0
+					src.loc=m.loc
+					src.dir=m.dir
+					src.set_pos(m.px,m.py+6)
+					src.vel_y=5
+					switch(m.dir)
+						if(RIGHT) vel_x=8
+						if(LEFT) vel_x=-8
+					setSpinning()
+			movement()
+				..()
+				for(var/mob/m in oview(1,src))
+					if(m.isPlayer && icon_state=="mine" && !sploding && m.inside(src))
+						sploding=1
+						spawn(1)
+							if(m.hitIndex!="Mine")
+								m.hitIndex="Mine"
+								HitStun(m,1)
+								spawn(1)
+									if(m.dir==LEFT)
+										m.Knockback("HEAVY", "UP LEFT")
+
+									else
+										m.Knockback("HEAVY", "UP RIGHT")
+
+								m.setDamage(0.16, "ADD")
+								spawn(2)
+									if(m.hitIndex=="Mine")
+										m.hitIndex=null
+
+							flick("boom",src)
+							view(src)<<FIRESPLODE
+							spawn(5)
+								Items_ACTIVE.Remove(src)
+								del src
+
+			bump(atom/a)
+				if(istype(a, /turf))
+					if(thrown)
+						animate(src, transform = null)
+						carried=1
+						view(src)<<CLICK
+						icon_state="mine"
+
+						pwidth=4
 		JamJar
 			icon='Items/JamJar.dmi'
 			carried=0
@@ -71,6 +145,7 @@ ITEMS
 								if(m.isMashing) m.freeMashing()
 								animate(src, alpha=0,time=3)
 								spawn(4)
+									Items_ACTIVE.Remove(src)
 									del src
 
 			bump(atom/a)
@@ -171,6 +246,7 @@ ITEMS
 								if(m.isMashing) m.freeMashing()
 								animate(src, alpha=0,time=3)
 								spawn(4)
+									Items_ACTIVE.Remove(src)
 									del src
 
 			bump(atom/a)

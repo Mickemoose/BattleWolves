@@ -60,6 +60,7 @@ mob
 						del FX
 				for(var/mob/m in world)
 					if(grabbedBy==m)
+						Items_ACTIVE.Remove(m)
 						del m
 				grabbedBy = null
 		setMashing(var/mob/m)

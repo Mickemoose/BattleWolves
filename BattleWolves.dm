@@ -349,7 +349,7 @@ mob
 					var/KFK_Mobs/kfk=new variable(src.loc)
 					kfk.owner=src
 				if(k == "5")
-					new /ITEMS/THROWABLES/JamJar(src.loc)
+					new /ITEMS/THROWABLES/ProxMine(src.loc)
 				if(k == "7")
 					setVolume("DOWN", "MUSIC")
 				if(k == "8")
