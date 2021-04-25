@@ -9,7 +9,7 @@ mob
 		movement()
 			..()
 			for(var/mob/m in oview(1,src))
-				if(m.hitIndex!="Boulder" && spawner!=m && m.inside(src))
+				if(m.hitIndex!="Boulder" && m.isPlayer && spawner!=m && m.inside(src))
 					m.hitIndex="Boulder"
 					view(m)<<HIT
 					HitStun(m,1)

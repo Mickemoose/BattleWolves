@@ -18,6 +18,7 @@ var/sound/CANCEL = sound('Sound/cancel.wav',volume=5)
 var/sound/FIRESPLODE = sound('Sound/firesplode.wav',volume=5)
 var/sound/BOULDER = sound('Sound/bouldercrash.wav',volume=5)
 var/sound/STOMP = sound('Sound/stomp.wav',volume=5)
+var/sound/GBREAK = sound('Sound/break.ogg',volume=5)
 
 //ANNOUNCER CALLS
 var/sound/Derek = sound('AnnouncerDerek.wav',channel=1,volume=5)
