@@ -58,6 +58,7 @@ mob
 			sssicons = list()
 			cursor=list()
 			items = list("Containers","Food","KFK","BluJay","WebTrap")
+			spirits = list()
 
 
 		holdingAttack = 0

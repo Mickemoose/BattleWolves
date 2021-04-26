@@ -5,6 +5,8 @@ mob
 		isPlayer=0
 		var/mob/spawner
 		fall_speed=6
+		pwidth=64
+		pheight=64
 		set_state()
 		movement()
 			..()

@@ -342,8 +342,29 @@ mob
 
 							src.client.unlock_input()
 				if(k=="6")
-					new /mob/Spirits/Alkaline(src)
-					new /mob/Spirits/Pyrex(src)
+				//	var/p = list2params(list("command" = ".host"))
+				//	winset(src, null, p)
+					var/mob/Spirits/Pyrex/P = new /mob/Spirits/Pyrex(src)
+					var/mob/Spirits/Alkaline/A = new /mob/Spirits/Alkaline(src)
+					spirits.Add(P)
+					spirits.Add(A)
+				if(k=="i")
+					for(var/mob/Spirits/Alkaline/P in spirits)
+						if(P.summoned)
+							P.Revert()
+							return
+						else
+							P.Summon()
+							return
+				if(k=="u")
+					for(var/mob/Spirits/Pyrex/P in spirits)
+						if(P.summoned)
+							P.Revert()
+							return
+						else
+							P.Summon()
+							return
+
 				if(k=="4")
 					var/KFK_Mobs/variable=input("Spawn KFK") in kfks
 					var/KFK_Mobs/kfk=new variable(src.loc)
