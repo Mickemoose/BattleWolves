@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1619562071
-DIR: alibs alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Derek Characters\Smitty Effects Items Items\KFK System System\Gamepad UI Lib 
+LAST_COMPILE_TIME: 1619562160
+DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Derek Characters\Smitty Effects Items Items\KFK System System\Gamepad UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1554
-WINDOW: BattleWolves.dm;Players.dm;System\Gamepad\Online.dm;alibs\sidescroller\movement.dm;alibs\sidescroller\keyboard.dm;alibs\sidescroller\procs.dm;alibs\sidescroller\game-demo\mob.dm;alibs\sidescroller\_readme.dm;alibs\sidescroller\collision.dm;alibs\sidescroller\game-demo-2\mob-movement.dm;Characters\Derek\DSpecial.dm;UI\CSSIcon.dmi;UI\Background.dmi;UI\Title.dm;UI\CharacterSelect.dm;UI\ItemOptions.dm
-FILE: UI\CharacterSelect.dm
+WINDOW: BattleWolves.dm;Players.dm;System\Gamepad\Online.dm;alibs\sidescroller\movement.dm;alibs\sidescroller\keyboard.dm;alibs\sidescroller\procs.dm;alibs\sidescroller\game-demo\mob.dm;alibs\sidescroller\_readme.dm;alibs\sidescroller\collision.dm;alibs\sidescroller\game-demo-2\mob-movement.dm;Characters\Derek\DSpecial.dm;UI\CSSIcon.dmi;UI\Background.dmi;UI\Title.dm;UI\CharacterSelect.dm;UI\ItemOptions.dm;Characters\Derek.dmi;Characters\Laundry.dmi
+FILE: Characters\Laundry.dmi
 */
 // END_INTERNALS
