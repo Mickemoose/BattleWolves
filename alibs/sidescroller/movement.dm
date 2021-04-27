@@ -515,9 +515,10 @@ mob
 						return
 					if(client.has_key(controls.down))
 						if(!on_ground)
-							vel_y-=fall_speed+2
-							spawn(2)
-								vel_y=-fall_speed
+							spawn(1)
+								vel_y-=fall_speed+2
+								spawn(2)
+									vel_y=-fall_speed
 							//slow_down()
 						//move(DOWN)
 

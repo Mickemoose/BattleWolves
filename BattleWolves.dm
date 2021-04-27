@@ -12,6 +12,9 @@
 client
 	perspective = EYE_PERSPECTIVE
 	preload_rsc = 2
+	New()
+		macros = new/button_tracker/echo
+		return ..()
 	key_down(k)
 		..()
 

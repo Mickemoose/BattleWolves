@@ -53,66 +53,66 @@ mob
 		setTempPortrait(character)
 			var num=0
 			var num2=0
-			for(var/mob/m in world)
-				if(m.client)
-					for(var/UI/CSS/Portrait/P in m.client.screen)
-						del P
-					for(var/UI/CSS/Name/P in m.client.screen)
-						del P
-					var/UI/CSS/Portrait/P=new/UI/CSS/Portrait(m.client)
-					P.screen_loc="CENTER-11:[12+num],CENTER-6:-12"
-					P.plane+=1
-					switch(character)
-						if("Derek") P.icon='Characters/Derek.dmi'
-						if("Brendan") P.icon='Characters/Brendan.dmi'
-					P.icon_state=""
-					animate(P, alpha=150, transform= matrix()*2)
-					spawn(1)
-						animate(P, alpha=150, time=0.5,loop=-1)
-						animate(alpha=125, time=0.5)
+			for(var/mob/m in Players_ALIVE)
+				//if(m.client)
+				for(var/UI/CSS/Portrait/P in m.client.screen)
+					del P
+				for(var/UI/CSS/Name/P in m.client.screen)
+					del P
+				var/UI/CSS/Portrait/P=new/UI/CSS/Portrait(m.client)
+				P.screen_loc="CENTER-11:[12+num],CENTER-6:-12"
+				P.plane+=1
+				switch(character)
+					if("Derek") P.icon='Characters/Derek.dmi'
+					if("Brendan") P.icon='Characters/Brendan.dmi'
+				P.icon_state=""
+				animate(P, alpha=150, transform= matrix()*2)
+				spawn(1)
+					animate(P, alpha=150, time=0.5,loop=-1)
+					animate(alpha=125, time=0.5)
 
 
-					for(var/i2=1, i2<=length(character),i2++)
-						var/UI/CSS/Name/N= new (src.client)
-						N.screen_loc="CENTER-10:[num2-16+num],CENTER-7:-6"
-						N.plane+=2
-						animate(N, transform = matrix())
-						N.icon_state="[copytext(uppertext(character),i2,i2+1)]"
-						num2+=6
-					num+=90
+				for(var/i2=1, i2<=length(character),i2++)
+					var/UI/CSS/Name/N= new (src.client)
+					N.screen_loc="CENTER-10:[num2-16+num],CENTER-7:-6"
+					N.plane+=2
+					animate(N, transform = matrix())
+					N.icon_state="[copytext(uppertext(character),i2,i2+1)]"
+					num2+=6
+				num+=90
 		setPortait()
 			var num=0
-			for(var/mob/m in world)
-				if(m.client)
-					for(var/UI/CSS/Portrait/P in m.client.screen)
-						del P
-					var/UI/CSS/Portrait/P=new/UI/CSS/Portrait(m.client)
-					P.screen_loc="CENTER-11:[12+num],CENTER-6:-12"
-					P.plane+=1
-					P.icon=m.icon
-					P.icon_state=""
-					animate(P, transform= matrix()*2)
-					num+=90
+			for(var/mob/m in Players_ALIVE)
+				//if(m.client)
+				for(var/UI/CSS/Portrait/P in m.client.screen)
+					del P
+				var/UI/CSS/Portrait/P=new/UI/CSS/Portrait(m.client)
+				P.screen_loc="CENTER-11:[12+num],CENTER-6:-12"
+				P.plane+=1
+				P.icon=m.icon
+				P.icon_state=""
+				animate(P, transform= matrix()*2)
+				num+=90
 		Portraits()
 			for(var/UI/CSS/Plates/P in src.client.screen)
 				del P
 			for(var/UI/CSS/Portrait/P in src.client.screen)
 				del P
 			var num=0
-			for(var/mob/m in world)
-				if(m.client)
-					var/UI/CSS/Plates/P = new/UI/CSS/Plates(src.client)
-					P.screen_loc="CENTER-10:[num],CENTER-6:-6"
-					P.icon_state="[m.PLAYERNUMBER]"
-					animate(P, color=getPlayerColor(m), transform=matrix()*2)
+			for(var/mob/m in Players_ALIVE)
+			//	if(m.client)
+				var/UI/CSS/Plates/P = new/UI/CSS/Plates(src.client)
+				P.screen_loc="CENTER-10:[num],CENTER-6:-6"
+				P.icon_state="[m.PLAYERNUMBER]"
+				animate(P, color=getPlayerColor(m), transform=matrix()*2)
 
-					var/UI/CSS/Portrait/P2=new/UI/CSS/Portrait(src.client)
-					P2.screen_loc="CENTER-11:[12+num],CENTER-6:-12"
-					P2.plane+=1
-				//	P2.icon=m.icon
-				//	P2.icon_state=""
-					animate(P2, transform= matrix()*2)
-					num+=90
+				var/UI/CSS/Portrait/P2=new/UI/CSS/Portrait(src.client)
+				P2.screen_loc="CENTER-11:[12+num],CENTER-6:-12"
+				P2.plane+=1
+			//	P2.icon=m.icon
+			//	P2.icon_state=""
+				animate(P2, transform= matrix()*2)
+				num+=90
 		SSS_Initialize()
 
 			var num=0
@@ -128,6 +128,24 @@ mob
 
 				num+=34
 				sleep(1)
+		CSS_InitializeLOCAL()
+
+
+
+
+			for(var/mob/m in world)
+				if(m.client)
+					for(var/UI/CSS/Characters/C in m.client.screen)
+						src.cssicons.Add(C)
+					var/UI/CSS/Cursor/CU=new/UI/CSS/Cursor(m.client)
+					cursor.Add(CU)
+					CU.screen_loc=cssicons[1].screen_loc
+					CU.plane+=1
+					animate(CU, color=getPlayerColor(src))
+					inCSS=1
+
+					m.Portraits()
+					setTempPortrait(characters[cssicon])
 		CSS_Initialize()
 
 			var num=0
