@@ -365,6 +365,14 @@ mob
 						else
 							P.Summon("CHASE")
 							return
+				if(k=="t")
+					for(var/mob/Spirits/Pyrex/P in spirits)
+						if(!P.summoned)
+							P.Totem()
+					for(var/mob/Spirits/Alkaline/P in spirits)
+						if(!P.summoned)
+							P.Summon("TOTEM")
+
 
 				if(k=="4")
 					var/KFK_Mobs/variable=input("Spawn KFK") in kfks
