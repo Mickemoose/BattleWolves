@@ -59,9 +59,13 @@ mob
 					if(mashFX==FX)
 						del FX
 				for(var/mob/m in world)
+					if(istype(m,/mob/Spirits/Alkaline))
+						var/mob/Spirits/M=m
+						M.Revert()
 					if(grabbedBy==m)
-						Items_ACTIVE.Remove(m)
-						del m
+						if(istype(m,/ITEMS))
+							Items_ACTIVE.Remove(m)
+							del m
 				grabbedBy = null
 		setMashing(var/mob/m)
 			if(!isMashing)

@@ -18,7 +18,35 @@ mob
 			pixel_y=-17
 			pwidth=15
 			pheight=12
-			Summon()
+			var
+				chasing=0
+				biting=0
+			proc
+				Chase(dir=LEFT)
+					if(summoned)
+						set_pos(px,py-12)
+						view(src)<<SQUAWK
+						chasing=1
+						icon_state="flying"
+						switch(dir)
+							if(LEFT)
+								vel_x=-5
+							else
+								vel_x=5
+						spawn(10)
+							if(chasing)
+								Revert()
+			Revert()
+				summoned=0
+				biting=0
+				chasing=0
+				vel_y=0
+				vel_x=0
+				move_towards(owner)
+				flick("revert",src)
+				spawn(2.5)
+					icon_state="spirit"
+			Summon(command)
 				path=null
 				destination=null
 				summoned=1
@@ -27,30 +55,54 @@ mob
 				flick("trans",src)
 				spawn(2.5)
 					icon_state="wolf"
+					switch(command)
+						if("CHASE")
+							Chase(src.dir)
 			gravity()
+			pixel_move(dpx, dpy)
+				..()
+				for(var/mob/m in world)
+					if(m.grabbedBy==src)
+						m.pixel_move(move_x, move_y)
 			action()
-				if(summoned)
-					..()
-				else
-					if(path || destination )
-						follow_path()
-					for(var/mob/M in world)
-						if(src.owner==M)
-							move_towards(M)
 
+
+				if(path || destination )
+					if(!chasing && !biting)
+						follow_path()
+				for(var/mob/M in world)
+					if(src.owner==M && !chasing && !biting)
+						move_towards(M)
+
+						if(src.py < M.py+32)
+							src.py+=2
+						if(src.py > M.py+32)
+							src.py-=2
+						if(M.inside(src))
+							vel_x=0
 							if(src.py < M.py+32)
 								src.py+=2
 							if(src.py > M.py+32)
 								src.py-=2
-							if(M.inside(src))
-								vel_x=0
-								if(src.py < M.py+32)
-									src.py+=2
-								if(src.py > M.py+32)
-									src.py-=2
-							face(M)
+						face(M)
 
-				slow_down()
+						slow_down()
+					else
+						if(chasing && M.isPlayer && src.owner!=M && M.inside(src))
+							chasing=0
+							biting=1
+							vel_y=1
+							spawn(0.5)
+								M.setMashing(src)
+								M.grabbedBy = src
+								M.setDamage(pick(0.03),"ADD")
+								spawn(10)
+									biting=0
+									M.freeMashing()
+									spawn(1.5)
+										vel_y=0
+										vel_x=0
+										Revert()
 		Pyrex
 			icon='Characters/Smitty/Pyrex.dmi'
 			icon_state="spirit"
@@ -170,13 +222,7 @@ mob
 
 
 			Revert()
-				summoned=0
-				vel_y=0
-				vel_x=0
-				move_towards(owner)
-				flick("revert",src)
-				spawn(2.5)
-					icon_state="spirit"
+
 		set_state()
 		bump()
 		can_bump(mob/m)

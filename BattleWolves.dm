@@ -355,7 +355,7 @@ mob
 							P.Revert()
 							return
 						else
-							P.Summon()
+							P.Summon("CHASE")
 							return
 				if(k=="u")
 					for(var/mob/Spirits/Pyrex/P in spirits)

@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1619538098
-DIR: alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Smitty Effects Items Items\KFK Sound 
+LAST_COMPILE_TIME: 1619539758
+DIR: alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo alibs\sidescroller\ramps-demo Characters Characters\Smitty Effects Items Items\KFK Sound UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1554
-WINDOW: BattleWolves.dm;Items\Items.dm;Items\KFK\Cards.dm;Items\KFK\CardsMisc.dm;UI\CharacterSelect.dm;Mob Vars.dm;Game Vars.dm;Items\KFK\Beefalo.dmi;Sound\Sound.dm;UI\HeldItem.dmi;Items\JamJar.dmi;Items\Webtrap.dmi;Items\RainyDayOrb.dmi;Music\Music.dm;Characters\Smitty\Pyrex.dmi;UI\Title.dm;Characters\Smitty\Spirits.dm;Characters\Smitty\Alkaline.dmi;Characters\Smitty\Spirits.dmi
-FILE: Characters\Smitty\Alkaline.dmi
+WINDOW: BattleWolves.dm;Sound\Sound.dm;Characters\Smitty\Pyrex.dmi;Characters\Smitty\Spirits.dm;Characters\Smitty\Alkaline.dmi;Characters.dm;Items\KFK\Cards.dm
+FILE: Characters\Smitty\Spirits.dm
 */
 // END_INTERNALS
