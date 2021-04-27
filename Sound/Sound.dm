@@ -19,6 +19,9 @@ var/sound/FIRESPLODE = sound('Sound/firesplode.wav',volume=5)
 var/sound/BOULDER = sound('Sound/bouldercrash.wav',volume=5)
 var/sound/STOMP = sound('Sound/stomp.wav',volume=5)
 var/sound/GBREAK = sound('Sound/break.ogg',volume=5)
+var/sound/CHOMP = sound('Sound/chomp.wav',volume=5)
+var/sound/BORK = sound('Sound/bork.wav',volume=5)
+var/sound/SQUAWK = sound('Sound/squawk.wav',volume=5)
 
 //ANNOUNCER CALLS
 var/sound/Derek = sound('AnnouncerDerek.wav',channel=1,volume=5)

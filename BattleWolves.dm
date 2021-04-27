@@ -348,6 +348,7 @@ mob
 					var/mob/Spirits/Alkaline/A = new /mob/Spirits/Alkaline(src)
 					spirits.Add(P)
 					spirits.Add(A)
+
 				if(k=="i")
 					for(var/mob/Spirits/Alkaline/P in spirits)
 						if(P.summoned)
@@ -362,7 +363,7 @@ mob
 							P.Revert()
 							return
 						else
-							P.Summon()
+							P.Summon("CHASE")
 							return
 
 				if(k=="4")
