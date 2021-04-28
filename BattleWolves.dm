@@ -32,7 +32,7 @@ client
 
 
 world
-	fps = 45
+	fps = 50
 	icon_size = 32
 	view = "40x21"
 
@@ -687,6 +687,7 @@ mob
 								target_arrows = new
 								var/OOV_Arrow/A = new /OOV_Arrow
 								A.icon_state=M.character
+								animate(A, color=getPlayerColor(M))
 								target_arrows[M] = A
 
 								client.screen += target_arrows[M]

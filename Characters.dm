@@ -41,9 +41,13 @@ mob
 			animate(src, transform=matrix().Translate(pick(-1, 1),0), time=0.75)
 			animate(transform=matrix().Translate(0,0), time=0.75)
 			for(var/EFFECT/MASH_ALERT/FX in effects)
-				if(mashFX==FX)
-					if(FX.icon_state=="press") FX.icon_state=""
-					else FX.icon_state="press"
+
+				if(FX.icon_state=="press")
+					FX.icon_state=""
+					break
+				else
+					FX.icon_state="press"
+					break
 			mashAmount += rand(1,5)
 			if(mashAmount >=100)
 				freeMashing()
@@ -56,8 +60,7 @@ mob
 				isMashing=0
 
 				for(var/EFFECT/MASH_ALERT/FX in effects)
-					if(mashFX==FX)
-						del FX
+					del FX
 				for(var/mob/m in world)
 					if(istype(m,/mob/Spirits/Alkaline))
 						var/mob/Spirits/M=m
@@ -78,9 +81,8 @@ mob
 				mashAmount=0
 				hitstun=1
 				isMashing=1
-				var/EFFECT/MASH_ALERT/FX = new /EFFECT/MASH_ALERT(src)
+				var/EFFECT/MASH_ALERT/FX = new /EFFECT/MASH_ALERT(src.effects)
 				effects.Add(FX)
-				mashFX=FX
 				FX.plane=src.plane+4
 				FX.loc=src.loc
 				FX.step_x=src.step_x-3

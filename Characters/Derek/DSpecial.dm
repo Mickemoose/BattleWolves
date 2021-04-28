@@ -1,7 +1,8 @@
 mob
 	movement()
 		..()
-		for(var/mob/m in front(20))
+		//	for(var/mob/m in obounds(0,src)-owner)
+		for(var/mob/m in front(20)-src)
 			if(m.isPlayer && !m.INVINCIBLE && character=="Derek" && doingSpecial == "DOWN" && m.hitIndex!="Derek-Down")
 				m.hitIndex="Derek-Down"
 				world<<FIRESPLODE
