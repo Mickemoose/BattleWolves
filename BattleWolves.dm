@@ -12,6 +12,7 @@
 client
 	perspective = EYE_PERSPECTIVE
 	preload_rsc = 2
+	fps = 60
 	New()
 		macros = new/button_tracker/echo
 		return ..()
@@ -31,7 +32,7 @@ client
 
 
 world
-	fps = 60
+	fps = 45
 	icon_size = 32
 	view = "40x21"
 
@@ -43,7 +44,7 @@ mob
 	appearance_flags = PIXEL_SCALE
 	pixel_move(dpx, dpy)
 		..()
-		for(var/EFFECT/MASH_ALERT/FX in world)
+		for(var/EFFECT/MASH_ALERT/FX in effects)
 			if(mashFX==FX)
 				FX.loc=src.loc
 				FX.step_x=src.step_x-3
@@ -237,7 +238,7 @@ mob
 					Stage_Selected="[sssicons[sssicon]]"
 
 				if(k == "enter" || k  == "return" && Stage_Selected!=null && Players_READY.len == Players_ALIVE.len)
-					for(var/mob/m in world)
+					for(var/mob/m in Players_ALIVE)
 						if(m.client)
 							fade.FadeOut(time=6)
 							m.client.lock_input()
@@ -301,7 +302,7 @@ mob
 								C.screen_loc=sssicons[sssicon].screen_loc
 
 					if(Players_READY.len == Players_ALIVE.len)
-						for(var/mob/m in world)
+						for(var/mob/m in Players_ALIVE)
 							if(m.client)
 								new/UI/CSS/Ready(src.client)
 					return
@@ -312,7 +313,7 @@ mob
 					setCharacter("null")
 					Players_READY.Remove(src)
 					if(Players_READY.len != Players_ALIVE.len)
-						for(var/mob/m in world)
+						for(var/mob/m in Players_ALIVE)
 							if(m.client)
 								for(var/UI/CSS/Ready/R in m.client.screen)
 									del R
@@ -410,7 +411,7 @@ mob
 					UI_Update()
 
 				if(k == "2")
-					for(var/ITEMS/I in world)
+					for(var/ITEMS/I in Items_ACTIVE)
 						Items_ACTIVE.Remove(I)
 						if(istype(I,/ITEMS/INSTANTS/KFK_Card)) Current_KFK--
 						del I
@@ -661,8 +662,8 @@ mob
 		..()
 
 
-		for(var/mob/M in world)
-			for(var/GameCamera/GC in Players_ALIVE)
+		for(var/mob/M in Players_ALIVE)
+			for(var/GameCamera/GC in world)
 				if(GC.z == src.z && M.isPlayer)
 
 					if(get_dist(GC,M)<=14)

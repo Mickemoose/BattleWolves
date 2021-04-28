@@ -80,7 +80,7 @@ KFK_Mobs
 		bump()
 		pixel_move(dpx, dpy)
 			..()
-			for(var/mob/m in world)
+			for(var/mob/m in Players_ALIVE)
 				if(m.grabbedBy==src)
 					m.pixel_move(move_x, move_y)
 		movement()

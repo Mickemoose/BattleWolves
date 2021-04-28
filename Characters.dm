@@ -40,7 +40,7 @@ mob
 		Mash()
 			animate(src, transform=matrix().Translate(pick(-1, 1),0), time=0.75)
 			animate(transform=matrix().Translate(0,0), time=0.75)
-			for(var/EFFECT/MASH_ALERT/FX in world)
+			for(var/EFFECT/MASH_ALERT/FX in effects)
 				if(mashFX==FX)
 					if(FX.icon_state=="press") FX.icon_state=""
 					else FX.icon_state="press"
@@ -55,7 +55,7 @@ mob
 				hitstun=0
 				isMashing=0
 
-				for(var/EFFECT/MASH_ALERT/FX in world)
+				for(var/EFFECT/MASH_ALERT/FX in effects)
 					if(mashFX==FX)
 						del FX
 				for(var/mob/m in world)
@@ -79,6 +79,7 @@ mob
 				hitstun=1
 				isMashing=1
 				var/EFFECT/MASH_ALERT/FX = new /EFFECT/MASH_ALERT(src)
+				effects.Add(FX)
 				mashFX=FX
 				FX.plane=src.plane+4
 				FX.loc=src.loc

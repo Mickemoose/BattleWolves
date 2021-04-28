@@ -23,7 +23,7 @@ area
 					del M
 			if(M.isPlayer && !M.dead)
 				if(dir==SOUTHEAST)
-					for(var/mob/m in world)
+					for(var/mob/m in Players_ALIVE)
 						if(m.client)
 							m.Shake("LIGHT")
 							m<<PLAYERDEATH
@@ -39,7 +39,7 @@ area
 						del FX
 
 				if(dir==SOUTHWEST)
-					for(var/mob/m in world)
+					for(var/mob/m in Players_ALIVE)
 						if(m.client)
 							m.Shake("LIGHT")
 							m<<PLAYERDEATH
@@ -54,7 +54,7 @@ area
 						del FX
 
 				if(dir==NORTHEAST)
-					for(var/mob/m in world)
+					for(var/mob/m in Players_ALIVE)
 						if(m.client)
 							m.Shake("LIGHT")
 							m<<PLAYERDEATH
@@ -70,7 +70,7 @@ area
 						del FX
 
 				if(dir==NORTHWEST)
-					for(var/mob/m in world)
+					for(var/mob/m in Players_ALIVE)
 						if(m.client)
 							m.Shake("LIGHT")
 							m<<PLAYERDEATH
@@ -86,7 +86,7 @@ area
 						del FX
 
 				if(dir==WEST)
-					for(var/mob/m in world)
+					for(var/mob/m in Players_ALIVE)
 						if(m.client)
 							m.Shake("LIGHT")
 							m<<PLAYERDEATH
@@ -102,7 +102,7 @@ area
 						del FX
 
 				if(dir==EAST)
-					for(var/mob/m in world)
+					for(var/mob/m in Players_ALIVE)
 						if(m.client)
 							m.Shake("LIGHT")
 							m<<PLAYERDEATH
@@ -118,7 +118,7 @@ area
 						del FX
 
 				if(dir==SOUTH)
-					for(var/mob/m in world)
+					for(var/mob/m in Players_ALIVE)
 						if(m.client)
 							m.Shake("LIGHT")
 							m<<PLAYERDEATH
@@ -132,7 +132,7 @@ area
 					spawn(5)
 						del FX
 				if(dir==NORTH)
-					for(var/mob/m in world)
+					for(var/mob/m in Players_ALIVE)
 						if(m.client)
 							new /UI/StarKO(m.client,M.character)
 

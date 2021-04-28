@@ -50,6 +50,7 @@ mob
 		sssicon=1
 
 		list
+			effects = list()
 			trackers = list()
 			holdingItem = list()
 			characters = list("Derek","Brendan","Laundry","Smitty","Hunter","Matt","Becca","Froese","Hartshorne","Schnerch")

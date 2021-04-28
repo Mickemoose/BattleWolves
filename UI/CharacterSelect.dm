@@ -154,8 +154,8 @@ mob
 					m.Portraits()
 					setTempPortrait(characters[cssicon])
 		CSS_Initialize()
-			var/UI/Background/B = new/UI/Background(src.client)
-			B.screen_loc="CENTER-8,CENTER-4"
+		//	var/UI/Background/B = new/UI/Background(src.client)
+		//	B.screen_loc="CENTER-8,CENTER-4"
 			var num=0
 
 			for(var/i=1, i<=src.characters.len,i++)

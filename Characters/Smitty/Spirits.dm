@@ -85,7 +85,7 @@ mob
 				if(path || destination )
 					if(!chasing && !biting)
 						follow_path()
-				for(var/mob/M in world)
+				for(var/mob/M in Players_ALIVE)
 					if(src.owner==M && !chasing && !biting)
 						move_towards(M)
 
@@ -198,7 +198,7 @@ mob
 				if(path || destination )
 					if(!chasing && !biting)
 						follow_path()
-				for(var/mob/M in world)
+				for(var/mob/M in Players_ALIVE)
 					if(src.owner==M && !chasing && !biting)
 						if(!summoned)
 							move_towards(M)
