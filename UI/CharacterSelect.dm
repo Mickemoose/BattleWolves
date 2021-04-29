@@ -45,9 +45,7 @@ UI
 						if(C.name==user.character)
 							animate(C, transform=matrix().Translate(0,-6), color=rgb(90,90,90,255), time=1)
 							animate(transform=matrix().Translate(0,0), color=rgb(90,90,90,255), time=1)
-					for(var/mob/m in world)
-						if(m.client)
-							m.setPortait()
+
 
 				Deselect(var/mob/user)
 					for(var/UI/CSS/Characters/C in user.cssicons)
@@ -177,8 +175,10 @@ mob
 			CU.plane+=1
 			animate(CU, color=getPlayerColor(src))
 			inCSS=1
-			Portraits()
-			setTempPortrait(characters[cssicon])
+			for(var/obj/CSS/Portrait/p in world)
+				p.SetPortait(src, characters[cssicon], temp=1)
+		//	Portraits()
+		//	setTempPortrait(characters[cssicon])
 		CSS_Deinitialize()
 			for(var/UI/CSS/Characters/C in src.client.screen)
 				animate(C, transform=matrix().Translate(0,320), time=4, easing=BOUNCE_EASING)
@@ -187,3 +187,111 @@ mob
 					del C
 				sleep(1)
 
+obj
+	CSS
+		appearance_flags = PIXEL_SCALE
+		var
+			number
+		Name
+			icon='UI/Names.dmi'
+			P1
+				icon_state="1"
+			P2
+				icon_state="2"
+			P3
+				icon_state="3"
+			P4
+				icon_state="4"
+			P5
+				icon_state="5"
+			P6
+				icon_state="6"
+			P7
+				icon_state="7"
+			P8
+				icon_state="8"
+			New()
+				number=text2num(icon_state)
+				step_x=-16
+			proc
+				SetName(var/mob/m, name)
+					if(m.PLAYERNUMBER==number)
+						if(name==null)
+							icon_state="[number]"
+						icon_state=name
+
+		Portrait
+			icon='UI/Portraits.dmi'
+			P1
+				icon_state="1"
+			P2
+				icon_state="2"
+			P3
+				icon_state="3"
+			P4
+				icon_state="4"
+			P5
+				icon_state="5"
+			P6
+				icon_state="6"
+			P7
+				icon_state="7"
+			P8
+				icon_state="8"
+			New()
+				animate(src, transform= matrix()*2)
+				step_x=-18
+				number=text2num(icon_state)
+			proc
+				SetPortait(var/mob/m, character, temp=0)
+					if(m.PLAYERNUMBER==number)
+						if(!temp)
+							animate(src, alpha=255)
+						else
+							animate(src, alpha=150)
+							spawn(1)
+								animate(src, alpha=150, time=0.5,loop=-1)
+								animate(alpha=125, time=0.5)
+						switch(character)
+							if("Derek") icon='Characters/Derek.dmi'
+							if("Brendan") icon='Characters/Brendan.dmi'
+							else
+								icon='UI/Portraits.dmi'
+								icon_state="[m.PLAYERNUMBER]"
+						icon_state=""
+						for(var/obj/CSS/Name/N in world)
+							N.SetName(m, character)
+
+
+
+
+		Plates
+			icon='UI/Plate.dmi'
+			P1
+				icon_state="1"
+			P2
+				icon_state="2"
+			P3
+				icon_state="3"
+			P4
+				icon_state="4"
+			P5
+				icon_state="5"
+			P6
+				icon_state="6"
+			P7
+				icon_state="7"
+			P8
+				icon_state="8"
+			New()
+				animate(src, transform=matrix()*2)
+				number=text2num(icon_state)
+
+			proc
+				CheckPlayers()
+					for(var/mob/m in Players_ALIVE)
+
+						if(m.PLAYERNUMBER==number)
+							animate(src, color=getPlayerColor(m))
+						else
+							icon_state=""

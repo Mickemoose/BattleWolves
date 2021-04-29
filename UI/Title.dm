@@ -4,6 +4,25 @@ atom/movable
 	var global/WhiteOutline = filter(type = "outline", color = "white", size = 1)
 	var/global/Wave = filter(type="wave")
 	var/global/Blur = filter(type="radial_blur",x=16,y=16,size=2)
+atom/proc/WaterEffect2()
+    var/start = filters.len
+    var/X,Y,rsq,i,f
+    for(i=1, i<=10, ++i)
+        // choose a wave with a random direction and a period between 10 and 30 pixels
+        do
+            X = 60*rand() - 30
+            Y = 1200*rand() - 30
+            rsq = X*X + Y*Y
+        while(rsq<100 || rsq>900)   // keep trying if we don't like the numbers
+        // keep distortion (size) small, from 0.5 to 3 pixels
+        // choose a random phase (offset)
+        filters += filter(type="wave", x=X, y=Y, size=rand()*8.6+4,8, offset=rand())
+    for(i=1, i<=10, ++i)
+        // animate phase of each wave from its original phase to phase-1 and then reset;
+        // this moves the wave forward in the X,Y direction
+        f = filters[start+i]
+        animate(f, offset=f:offset, time=0, loop=-1, flags=ANIMATION_PARALLEL)
+        animate(offset=f:offset-1, time=rand()*20+10)
 atom/proc/WaterEffect()
     var/start = filters.len
     var/X,Y,rsq,i,f
@@ -73,7 +92,7 @@ UI
 			c.screen+=src
 			animate(src, transform=matrix()*2)
 			animate(src, alpha=255, time=5)
-			src.WaterEffect()
+			src.WaterEffect2()
 	BACK
 		icon='UI/Background.dmi'
 		icon_state=""
@@ -93,6 +112,8 @@ UI
 			c.screen+=src
 			src.filters += WhiteOutline
 		//	src.filters+= Wave
+
+
 
 
 		proc

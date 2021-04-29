@@ -278,7 +278,9 @@ mob
 						cssicon=1
 					for(var/UI/CSS/Cursor/C in cursor)
 						C.screen_loc=cssicons[cssicon].screen_loc
-					setTempPortrait(characters[cssicon])
+					//setTempPortrait(characters[cssicon])
+					for(var/obj/CSS/Portrait/p in world)
+						p.SetPortait(src, characters[cssicon], temp=1)
 					return
 				if(k == (controls.left) && character==null)
 					src<<CLICK
@@ -287,7 +289,9 @@ mob
 						cssicon=cssicons.len
 					for(var/UI/CSS/Cursor/C in cursor)
 						C.screen_loc=cssicons[cssicon].screen_loc
-					setTempPortrait(characters[cssicon])
+					//setTempPortrait(characters[cssicon])
+					for(var/obj/CSS/Portrait/p in world)
+						p.SetPortait(src, characters[cssicon], temp=1)
 					return
 
 
@@ -310,6 +314,8 @@ mob
 						for(var/mob/m in Players_ALIVE)
 							if(m.client)
 								new/UI/CSS/Ready(src.client)
+					for(var/obj/CSS/Portrait/p in world)
+						p.SetPortait(src, src.character, temp=0)
 					return
 				if(k == "back"  && character!=null)
 					for(var/UI/CSS/Cursor/C in cursor)
@@ -322,7 +328,9 @@ mob
 							if(m.client)
 								for(var/UI/CSS/Ready/R in m.client.screen)
 									del R
-					setTempPortrait(characters[cssicon])
+					//setTempPortrait(characters[cssicon])
+					for(var/obj/CSS/Portrait/p in world)
+						p.SetPortait(src, characters[cssicon], temp=1)
 					return
 
 			..()
@@ -338,11 +346,11 @@ mob
 							spawn(3)
 								del F2
 						for(var/UI/FIRE2/F2 in client.screen)
-							animate(F2, alpha=0, time=3)
+							animate(F2, alpha=0, time=3, flags=ANIMATION_PARALLEL)
 							spawn(3)
 								del F2
 						for(var/UI/FIRE/F in client.screen)
-							animate(F, alpha=0, time=3)
+							animate(F, alpha=0, time=3, flags=ANIMATION_PARALLEL)
 							spawn(3)
 								del F
 						for(var/UI/FRAME/R in client.screen)
@@ -360,10 +368,13 @@ mob
 						//	setCharacter("Derek")
 						//	setStage()
 						//	setPlayerNumber()
+						for(var/obj/CSS/Plates/p in world)
+							p.CheckPlayers()
 						spawn(13)
 							if(PLAYERNUMBER==1)
 								SSS_Initialize()
 							CSS_Initialize()
+
 						spawn(15)
 
 							src.client.unlock_input()
@@ -434,7 +445,7 @@ mob
 					hitstun=1
 
 				if(k == "0")
-					setStage("whale")
+					Ripple()
 
 
 				if(k == "1" && Debug)
@@ -599,6 +610,8 @@ mob
 				jumped=0
 				has_jumped=0
 			animate(src, transform = null, time = 0.5)
+
+
 			if(istype(a, /STAGEART/WhaleBoat))
 				jumped=0
 				dbljumped=0

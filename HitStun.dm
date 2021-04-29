@@ -45,6 +45,7 @@ mob
 			target.vel_x=0
 			target.vel_y=0
 			target.hitstun=1
+		//	target.Ripple()
 			//src.hitstun=1
 			animate(target,color=rgb(255,0,0),time=1)
 		//	sleep(1)

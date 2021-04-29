@@ -62,9 +62,8 @@ Character Select
 
 
 
-What I wanna do - 4/22/2021
-- Stage Select
-- Item Select
--Game Start
--Game End
+Current Issues
+--
+CSS Portraits dont work properly, need to be remade for online multiplayer
+Items need to be removed on death
 */

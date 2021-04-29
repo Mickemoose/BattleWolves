@@ -274,6 +274,12 @@ mob
 							for(var/ItemSpawn/S in world)
 								if(S.z == 2) itemspawns.Add(S)
 			UI_Populate()
+		Ripple()
+			filters += filter(type="ripple", size = 10, radius = 5, falloff = 4, repeat=5, flags = 0 )
+			var f = filters[filters.len]
+			animate(f, time = 10, easing = LINEAR_EASING, radius = 50, size=0, flags =ANIMATION_PARALLEL)
+			spawn(10)
+				filters-=f
 		setBurning()
 			if(burning)
 				src.HitStun(src,1)
