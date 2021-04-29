@@ -7,16 +7,16 @@ Down Special
 Lives / Respawn
 Game End & Start
 
-
-Make all characters,
-then make some stages
-Battle Wolves
-Wolf Pack Battalions successor
-
+WOLF PACK BATTALION 2
+ELECTRIC BOOGALOO
 
 
 
 Possible future features
+
+Raddish Rumble:
+You have raddishes growing on your half of the stage, you want to grab the other teams raddishes and bring
+them to your base to get points. (Plunder Gnome)
 
 Base Attack & Defend:
 Defend your base and attack the opponennt teams base to make their Core visible.
@@ -36,7 +36,6 @@ TO BE FEATURE COMPLETE:
 Volume (settable)
 Lives (settable)
 4 Stages
-- Whale Boat
 - Glitch Realm
 - Canadark
 - Fifth Dimension
@@ -45,15 +44,10 @@ Stage Select
 Items (settable[rate of spawn, each one enabled])
 - 8 Character KFKs
 - 4 Sacrifice KFKs
-- Food for healing
-- Crate Container
 - Random chance for bomb in containers
 - Bomb
-- Mine
-- Web Trap
 
 Character Select
-- Derek
 - Brendan
 - Laundry
 - Smitty
@@ -64,15 +58,11 @@ Character Select
 - Froese
 - Schnerch
 
-General VFX & SFX
-Xbox Controller Mapping
-
 
 
 
 
 What I wanna do - 4/22/2021
-- Dereks Specials
 - Stage Select
 - Item Select
 -Game Start

@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1619652058
-DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo Characters Characters\Derek Effects hitboxes System System\Gamepad 
+LAST_COMPILE_TIME: 1619670412
+DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo Characters Characters\Derek Effects hitboxes Items Items\KFK System System\Gamepad 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1554
-WINDOW: BattleWolves.dm;Players.dm;System\Gamepad\Online.dm;alibs\sidescroller\movement.dm;alibs\sidescroller\keyboard.dm;alibs\sidescroller\procs.dm;alibs\sidescroller\game-demo\mob.dm;alibs\sidescroller\_readme.dm;alibs\sidescroller\collision.dm;Characters.dm;Effects\Mash.dmi;Effects\Effects.dm;System\BlastZone.dm;Characters\Derek\DSpecial.dm;hitboxes\Hitbox.dm;HitStun.dm
-FILE: Characters\Derek\DSpecial.dm
+WINDOW: Players.dm;Items\Items.dm;confetti.dmi;Items\KFK\Cards.dm;Items\KFK\CardUI.dm;BattleWolves.dm;BattleWolves.dme
+FILE: BattleWolves.dm
 */
 // END_INTERNALS

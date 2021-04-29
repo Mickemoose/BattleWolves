@@ -383,9 +383,24 @@ mob
 					var/KFK_Mobs/kfk=new variable(src.loc)
 					kfk.owner=src
 				if(k == "5")
-					new /ITEMS/THROWABLES/ProxMine(src.loc)
+					CreateSnow()
+					var/UI/KFK/SunBackground/C1 = new /UI/KFK/SunBackground(src.client)
+					animate(C1, color="white", alpha=0,time=0, easing=SINE_EASING)
+					animate( alpha=24,time=2, easing=SINE_EASING)
+					animate( alpha=0,time=2, easing=SINE_EASING)
+					animate( alpha=24,time=2, easing=SINE_EASING)
+					animate( alpha=0,time=2, easing=SINE_EASING)
+					animate( alpha=24,time=2, easing=SINE_EASING)
+					animate( alpha=0,time=2, easing=SINE_EASING)
+					animate( alpha=50,time=2, easing=SINE_EASING)
+					animate( alpha=0,time=2, easing=SINE_EASING)
+					spawn(18)
+						del C1
+
 				if(k == "7")
-					setVolume("DOWN", "MUSIC")
+					//setVolume("DOWN", "MUSIC")
+
+					StopSnow()
 				if(k == "8")
 					src.HitStun(src,4)
 					spawn(hitstun)
