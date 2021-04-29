@@ -25,11 +25,11 @@ particles/snow
 	lifespan = 600  // live for 60s max
 	fade = 50       // fade out over the last 5s if still on screen
 	// spawn within a certain x,y,z space
-	position = generator("box", list(-500,300,0), list(500,300,50))
+	position = generator("box", list(-500,300,0), list(500,300,25))
 	// control how the snow falls
 	gravity = list(0, -8)
 	friction = 0.3  // shed 30% of velocity and drift every 0.1s
-	drift = generator("sphere", -8, 10)
+	drift = generator("circle", -8, 10)
 	scale=generator(list(-1,1),list(-1,1))
 
 	New()
