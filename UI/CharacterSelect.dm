@@ -121,7 +121,7 @@ mob
 		SSS_Initialize()
 
 			var num=0
-
+			sssicons=new()
 			for(var/i=1, i<=src.stages.len,i++)
 				var/UI/SSS/Stages/C = new /UI/SSS/Stages(src.client)
 				C.screen_loc="CENTER-[src.stages.len]:[num],CENTER+2"
@@ -155,7 +155,7 @@ mob
 		//	var/UI/Background/B = new/UI/Background(src.client)
 		//	B.screen_loc="CENTER-8,CENTER-4"
 			var num=0
-
+			cssicons=new()
 			for(var/i=1, i<=src.characters.len,i++)
 				var/UI/CSS/Characters/C = new /UI/CSS/Characters(src.client)
 				C.screen_loc="CENTER-5:[num],CENTER"
@@ -170,6 +170,7 @@ mob
 
 
 			var/UI/CSS/Cursor/CU=new/UI/CSS/Cursor(src.client)
+			cursor=new()
 			cursor.Add(CU)
 			CU.screen_loc=cssicons[1].screen_loc
 			CU.plane+=1
@@ -177,6 +178,7 @@ mob
 			inCSS=1
 			for(var/obj/CSS/Portrait/p in world)
 				p.SetPortait(src, characters[cssicon], temp=1)
+			see_invisible=100
 		//	Portraits()
 		//	setTempPortrait(characters[cssicon])
 		CSS_Deinitialize()
@@ -189,6 +191,7 @@ mob
 
 obj
 	CSS
+		invisibility=100
 		appearance_flags = PIXEL_SCALE
 		var
 			number
@@ -255,6 +258,7 @@ obj
 						switch(character)
 							if("Derek") icon='Characters/Derek.dmi'
 							if("Brendan") icon='Characters/Brendan.dmi'
+							if("Laundry") icon='Characters/Laundry.dmi'
 							else
 								icon='UI/Portraits.dmi'
 								icon_state="[m.PLAYERNUMBER]"
@@ -295,3 +299,5 @@ obj
 							animate(src, color=getPlayerColor(m))
 						else
 							icon_state=""
+
+

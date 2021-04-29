@@ -82,8 +82,10 @@
 #include "System\ScreenFade.dm"
 #include "System\Gamepad\Online.dm"
 #include "UI\CharacterSelect.dm"
+#include "UI\Countdown.dm"
 #include "UI\ItemOptions.dm"
 #include "UI\PercentNumbers.dm"
+#include "UI\Results.dm"
 #include "UI\Title.dm"
 #include "UI\TopBlastEffect.dm"
 // END_INCLUDE

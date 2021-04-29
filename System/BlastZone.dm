@@ -138,6 +138,7 @@ area
 
 
 				M.Death()
+				//CheckMatch()
 				if(istype(M, /KFK_Mobs/))
 					Current_KFK--
 				world<<output("[M] DIED with [M.lives] lives left","window1.output1")

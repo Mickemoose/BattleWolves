@@ -134,6 +134,7 @@ mob
 
 		Death()
 			if(client) client.has_key(null)
+
 			freeMashing()
 			animate(src, color=rgb(255,255,255,255))
 			VULNERABLE=0
@@ -141,6 +142,7 @@ mob
 			on_wall=0
 			canAttack=1
 			dbljumped=0
+			heldItem = "frame"
 			jumped=0
 			has_jumped=0
 			setPlayerLives(1,"REMOVE")
@@ -154,6 +156,7 @@ mob
 			invisibility=101
 			setDamage(0)
 			world<<output("[src] DIED with [src.lives] lives","window1.output1")
+
 			spawn(10)
 				if(lives>0)
 					Respawn()
@@ -163,6 +166,8 @@ mob
 						Players--
 						PopulateWorldUI(src)
 						UpdateWorldUI(src)
+						if(Players <= 1)
+							EndMatch()
 					if(!client) del src
 			return
 
@@ -232,7 +237,7 @@ mob
 					for(var/GameCamera/GC in world)
 						if(GC.z == 3)
 							client.eye = GC
-							loc=locate(47,37,3)
+							Spawn(3)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 3) itemspawns.Add(S)
 
@@ -245,7 +250,7 @@ mob
 					for(var/GameCamera/GC in world)
 						if(GC.z == 4)
 							client.eye = GC
-							loc=locate(43,37,4)
+							Spawn(4)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 4) itemspawns.Add(S)
 				if("Debug")
@@ -257,7 +262,7 @@ mob
 					for(var/GameCamera/GC in world)
 						if(GC.z == 2)
 							client.eye = GC
-							loc=locate(47,37,2)
+							Spawn(2)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 2) itemspawns.Add(S)
 
@@ -270,7 +275,7 @@ mob
 					for(var/GameCamera/GC in world)
 						if(GC.z == 2)
 							usr.client.eye = GC
-							loc=locate(47,37,2)
+							Spawn(2)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 2) itemspawns.Add(S)
 			UI_Populate()
@@ -313,6 +318,7 @@ mob
 					air_decel=0
 					gravity=0
 					carry_speed=0
+					invisibility=0
 				if("Matt")
 					character = "[name]"
 					if(inCSS) src<<Matt

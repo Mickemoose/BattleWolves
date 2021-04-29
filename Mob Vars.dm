@@ -7,6 +7,7 @@ mob
 		inTitle=0
 		inCSS=0
 		inSSS=0
+		inResults=0
 		boostdefault = 8
 		boost = 8
 		dbljumped =0
@@ -18,7 +19,7 @@ mob
 
 		burning=0
 		blitz=0
-		lives =6
+		lives =1
 		percent = 0
 		canMove = 1
 		canAttack = 1

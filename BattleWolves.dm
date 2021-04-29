@@ -66,10 +66,12 @@ mob
 				else
 					I.px=src.px-4
 					I.py=src.py+24
-
+	Logout()
+		Players_INSERVER.Remove(src)
 	Login()
-
+		see_invisible=0
 		src.client.lock_input()
+		Players_INSERVER.Add(src)
 		for(var/GameCamera/GC in world)
 			if(GC.z==1)
 				src.client.eye=GC
@@ -212,6 +214,12 @@ mob
 		if(!canAct)
 			return
 		else
+			if(inResults)
+				if(k=="return" || k=="enter")
+					if(PLAYERNUMBER==1)
+						for(var/mob/m in Players_INSERVER)
+							m<<CHOOSE
+							m.ResultsEnd()
 			if(inSSS)
 				if(k == (controls.right) && Stage_Selected==null)
 					src<<CLICK
@@ -269,7 +277,9 @@ mob
 								spawn(10)
 									m.inCSS=0
 									m.inSSS=0
-									m.client.unlock_input()
+									m.Countdown()
+									Players_READY.Remove(m)
+								//	m.client.unlock_input()
 			if(inCSS)
 				if(k == (controls.right) && character==null)
 					src<<CLICK
@@ -334,7 +344,7 @@ mob
 					return
 
 			..()
-			if(!inCSS || !inSSS)
+			if(!inCSS || !inSSS || !inResults)
 				if(k == "return" || k == "space" || k == "enter")
 					if(inTitle)
 						inTitle=0
@@ -440,9 +450,7 @@ mob
 						flick("hitend",src)
 						Knockback(power = "NONE", where = "UP")
 				if(k == "9")
-					vel_x=0
-					vel_y=0
-					hitstun=1
+					EndMatch()
 
 				if(k == "0")
 					Ripple()
@@ -710,8 +718,8 @@ mob
 			..()
 	movement()
 		..()
-
-
+		//OLD OOV Circle kinda shit so disabled
+		/*
 		for(var/mob/M in Players_ALIVE)
 			for(var/GameCamera/GC in world)
 				if(GC.z == src.z && M.isPlayer)
@@ -753,7 +761,7 @@ mob
 			if(GC.z == src.z)
 				PointArrow(src.target_arrows[O], O)
 
-		//..()
+		..() */
 
 	proc
 		Drop(var/ITEMS/CONTAINERS/item)

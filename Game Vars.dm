@@ -8,7 +8,9 @@ var
 	Max_Players = 8
 	Players = 0
 	paused=0
+	itemsStarted=0
 	Stage_Selected = null
+	Winner
 	list
 		Players_INSERVER = list()
 		Players_INLOBBY = list()
