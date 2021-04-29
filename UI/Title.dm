@@ -47,6 +47,7 @@ UI
 		icon='UI/Background.dmi'
 		icon_state="frame"
 		screen_loc="CENTER-8:+6,CENTER-4"
+		plane=4
 		New(client/c)
 			c.screen+=src
 			animate(src, transform=matrix()*2)
@@ -55,6 +56,7 @@ UI
 		icon='UI/Background.dmi'
 		icon_state="fire3"
 		screen_loc="CENTER-8,CENTER-4"
+		plane=3
 		New(client/c)
 		//	animate(src, alpha=0)
 			c.screen+=src
@@ -64,16 +66,28 @@ UI
 	FIRE
 		icon='UI/Background.dmi'
 		icon_state="fire2"
-		screen_loc="CENTER-8,CENTER-4"
+		screen_loc="CENTER-7,CENTER-4"
+		plane=3
 		New(client/c)
 		//	animate(src, alpha=0)
 			c.screen+=src
 			animate(src, transform=matrix()*2)
 			animate(src, alpha=255, time=5)
 			src.WaterEffect()
+	BACK
+		icon='UI/Background.dmi'
+		icon_state=""
+		screen_loc="CENTER-8,CENTER-4"
+		plane=1
+		New(client/c)
+		//	animate(src, alpha=0)
+			c.screen+=src
+			animate(src, transform=matrix()*2)
+			animate(src, alpha=255, time=5)
 	LOGO
 		icon='UI/Logo.dmi'
 		screen_loc="CENTER-7,CENTER"
+		plane=5
 		New(client/c)
 			animate(src,alpha=0)
 			c.screen+=src
@@ -83,9 +97,9 @@ UI
 
 		proc
 			Appear()
-				animate(src,transform=matrix().Translate(-600,0), time=0, easing=SINE_EASING)
+				animate(src,transform=matrix(0.1,0,0,0,0.1,16), time=0, easing=SINE_EASING)
 				//spawn(1)
-				animate(transform=matrix().Translate(0,0), alpha=255,time=15, easing=BOUNCE_EASING)
+				animate(transform=matrix()*1, alpha=255,time=15, easing=BOUNCE_EASING)
 					//WaterEffect()
 			Disappear()
 				animate(src,transform=matrix().Translate(0,-600), time=20, alpha=0,easing=BOUNCE_EASING)

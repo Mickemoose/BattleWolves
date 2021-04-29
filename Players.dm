@@ -12,7 +12,30 @@ mob
 	Player4
 		isPlayer = 1
 		character=null
+particles/ember
+	icon='confetti.dmi'
+	icon_state="ember"
+	width = 1000     // 500 x 500 image to cover a moderately sized map
+	height = 700
+	count = 350    // 2500 particles
+	spawning = 1    // 12 new particles per 0.1s
+	bound1 = list(-1000, -400, -1000)   // end particles at Y=-300
+	lifespan = 45  // live for 60s max
+	fade = 35       // fade out over the last 5s if still on screen
+	// spawn within a certain x,y,z space
+	position = generator("box", list(-500,-300,0), list(500,-300,25))
+	// control how the snow falls
+	gravity = list(0, 4)
+	friction = 0.3  // shed 30% of velocity and drift every 0.1s
+	drift = generator("circle", -14, 15)
+	scale=generator(list(-1,1),list(-1,1))
 
+	New()
+		..()
+		spin = rand(10,18)
+	//	animate(src, alpha=100)
+		//animate(src, transform = matrix().Scale(-1, 1)  , time = 5, easing = SINE_EASING)
+		//animate(transform = matrix().Scale(1, 1), time=5)
 
 particles/snow
 	icon='confetti.dmi'
@@ -42,9 +65,21 @@ obj/snow
 	screen_loc = "CENTER"
 	appearance_flags = PIXEL_SCALE
 	particles = new/particles/snow
-
+	plane=2
+obj/ember
+	screen_loc = "CENTER"
+	appearance_flags = PIXEL_SCALE
+	particles = new/particles/ember
+	plane=2
 
 mob
+	proc/CreateEmber()
+		client?.screen += new/obj/ember
+	proc/StopEmber()
+		for(var/obj/ember/S in client?.screen)
+			animate(S, alpha=0, time=5)
+			spawn(5)
+				del S
 	proc/CreateSnow()
 		client?.screen += new/obj/snow
 	proc/StopSnow()

@@ -1,6 +1,6 @@
 mob
 	var
-		MUSIC_VOLUME = 0
+		MUSIC_VOLUME = 1
 		SFX_VOLUME = 30
 		sound/SongPlaying = ""
 
