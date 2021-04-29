@@ -75,7 +75,9 @@ mob
 				src.client.eye=GC
 		spawn(10)
 			src.inTitle=1
-
+			new /UI/FIRE2(client)
+			new /UI/FIRE(client)
+			new /UI/FRAME(client)
 			var/UI/LOGO/L = new /UI/LOGO(client)
 			var/UI/LOGO/L2 = new /UI/LOGO(client)
 			L2.Appear()
@@ -327,6 +329,18 @@ mob
 						inTitle=0
 						src.client.lock_input()
 						src.setPlayerNumber()
+						for(var/UI/FIRE2/F2 in client.screen)
+							animate(F2, alpha=0, time=3)
+							spawn(3)
+								del F2
+						for(var/UI/FIRE/F in client.screen)
+							animate(F, alpha=0, time=3)
+							spawn(3)
+								del F
+						for(var/UI/FRAME/R in client.screen)
+
+							spawn(8)
+								del R
 						for(var/UI/LOGO/L in client.screen)
 							L.Disappear()
 

@@ -43,9 +43,37 @@ atom/proc/WaterEffectTransparent()
         animate(f, offset=f:offset, time=0, loop=-1, flags=ANIMATION_PARALLEL)
         animate(offset=f:offset-1, time=rand()*20+10)
 UI
+	FRAME
+		icon='UI/Background.dmi'
+		icon_state="frame"
+		screen_loc="CENTER-8:+6,CENTER-4"
+		New(client/c)
+			c.screen+=src
+			animate(src, transform=matrix()*2)
+		//	src.WaterEffect()
+	FIRE2
+		icon='UI/Background.dmi'
+		icon_state="fire3"
+		screen_loc="CENTER-8,CENTER-4"
+		New(client/c)
+		//	animate(src, alpha=0)
+			c.screen+=src
+			animate(src, transform=matrix()*2)
+			animate(src, alpha=255, time=5)
+			src.WaterEffect()
+	FIRE
+		icon='UI/Background.dmi'
+		icon_state="fire2"
+		screen_loc="CENTER-8,CENTER-4"
+		New(client/c)
+		//	animate(src, alpha=0)
+			c.screen+=src
+			animate(src, transform=matrix()*2)
+			animate(src, alpha=255, time=5)
+			src.WaterEffect()
 	LOGO
 		icon='UI/Logo.dmi'
-		screen_loc="CENTER-6,CENTER"
+		screen_loc="CENTER-7,CENTER"
 		New(client/c)
 			animate(src,alpha=0)
 			c.screen+=src
