@@ -200,6 +200,7 @@ mob
 				if(reeled)
 					reeled=0
 				vel_y = jump_speed
+				riding=0
 
 
 			..()

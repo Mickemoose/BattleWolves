@@ -47,6 +47,7 @@ RESPAWN_PLATFORM
 
 			for(var/mob/m in riders)
 				//m.fall_speed=20
+				m.riding=1
 				m.pixel_move(move_x, move_y)
 	movement()
 		// move right
