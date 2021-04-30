@@ -64,7 +64,11 @@ proc
 			for(var/mob/m in Players_ALIVE)
 				Winner=m.character
 			for(var/mob/m in Players_INSERVER)
-				m<<sound(null)
+				m<<MENU
+				m.SongPlaying = MENU
+				m.SongPlaying.volume = 0
+				m.SongPlaying.status = SOUND_UPDATE
+				m<<m.SongPlaying
 				Players--
 				Players_ALIVE.Remove(m)
 				PopulateWorldUI(m)

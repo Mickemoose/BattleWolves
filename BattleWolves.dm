@@ -81,6 +81,7 @@ mob
 			new /UI/FIRE2(client)
 			new /UI/FIRE(client)
 			new /UI/FRAME(client)
+			src<<FLAMES
 			var/UI/LOGO/L = new /UI/LOGO(client)
 			var/UI/LOGO/L2 = new /UI/LOGO(client)
 			L2.Appear()
@@ -100,11 +101,7 @@ mob
 
 		spawn(30)
 			src.client.unlock_input()
-		src<<MENU
-		SongPlaying = MENU
-		SongPlaying.volume = MUSIC_VOLUME
-		SongPlaying.status = SOUND_UPDATE
-		src<<SongPlaying
+
 
 		my_background = background('background.png', REPEAT_X + REPEAT_Y)
 		my_background.hide()

@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1619751275
+LAST_COMPILE_TIME: 1619756170
 DIR: alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo Characters Items System\Gamepad UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1554
-WINDOW: UI\Plate.dmi;UI\CharacterSelect.dm;maps.dmm;BattleWolves.dm;UI\Results.dm;Game Vars.dm;UI\Countdown.dm;System\BlastZone.dm;Characters.dm;Mob Vars.dm;Items\Items.dm;UI\Names.dmi;UI\OOV.dmi;UI\Faces.dmi;Items\Items.dmi;Items\RainyDayOrb.dmi;alibs\sidescroller\background.dm;alibs\sidescroller\movement.dm;Characters\RespawnPlatform.dm;Dev Log.dm;Items\KFK.dmi;UI\ReadyBar.dmi;UI\Results.dmi;HitStun.dm
-FILE: HitStun.dm
+WINDOW: UI\Plate.dmi;UI\CharacterSelect.dm;maps.dmm;BattleWolves.dm;UI\Results.dm;Game Vars.dm;UI\Countdown.dm;System\BlastZone.dm;Characters.dm;Mob Vars.dm;Items\Items.dm;UI\Names.dmi;UI\OOV.dmi;UI\Faces.dmi;Items\Items.dmi;Items\RainyDayOrb.dmi;alibs\sidescroller\background.dm;alibs\sidescroller\movement.dm;Characters\RespawnPlatform.dm;Dev Log.dm;Items\KFK.dmi;UI\ReadyBar.dmi;UI\Results.dmi;HitStun.dm;Characters\Brendan.dmi;Sound\Sound.dm;UI\Title.dm
+FILE: UI\Countdown.dm
 */
 // END_INTERNALS

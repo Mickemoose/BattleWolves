@@ -154,6 +154,14 @@ mob
 		CSS_Initialize()
 		//	var/UI/Background/B = new/UI/Background(src.client)
 		//	B.screen_loc="CENTER-8,CENTER-4"
+			src<<sound(null)
+			src<<MENU
+			SongPlaying = MENU
+			SongPlaying.volume = MUSIC_VOLUME
+			SongPlaying.status = SOUND_UPDATE
+			src<<SongPlaying
+
+
 			var num=0
 			cssicons=new()
 			for(var/i=1, i<=src.characters.len,i++)

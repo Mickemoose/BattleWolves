@@ -26,6 +26,7 @@ var/sound/SQUAWK = sound('Sound/squawk.wav',volume=5)
 var/sound/CLAP = sound('Sound/clap.wav',channel=3,volume=5)
 var/sound/CROWD = sound('Sound/crowd.wav',channel=1,volume=5)
 var/sound/FANFARE = sound('Sound/fanfare.wav',channel = 2,volume=5)
+var/sound/FLAMES = sound('Sound/flames.wav', volume=2)
 
 //ANNOUNCER CALLS
 var/sound/Derek = sound('AnnouncerDerek.wav',channel=1,volume=5)
