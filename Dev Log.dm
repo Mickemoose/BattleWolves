@@ -64,6 +64,5 @@ Character Select
 
 Current Issues
 --
-Items need to be removed on death
 Controller need to be updated to work with new css stuff and title stuff
 */

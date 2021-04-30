@@ -465,6 +465,7 @@ mob
 					p.loc=locate(49,39,src.z)
 					p.setCharacter("Sandbag")
 					p.setPlayerNumber()
+					Players_INSERVER.Add(p)
 					UI_Update()
 
 				if(k == "2")

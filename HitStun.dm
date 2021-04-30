@@ -84,7 +84,7 @@ mob
 				if("RIGHT")
 					knockbacked=1
 					vel_x=magnitude
-					vel_y=1
+					vel_y=rand(1,3)
 					spawn(3)
 						setTumbled()
 						canAct=1
@@ -94,14 +94,14 @@ mob
 				if("LEFT")
 					knockbacked=1
 					vel_x=-magnitude
-					vel_y=1
+					vel_y=rand(1,3)
 					spawn(3)
 						canAct=1
 						knockbacked=0
 
 				if("UP LEFT")
 					knockbacked=1
-					vel_x=-magnitude
+					vel_x=-rand(magnitude-2,magnitude+4)
 					vel_y=magnitude+4
 					spawn(3)
 						canAct=1
@@ -109,7 +109,7 @@ mob
 
 				if("UP RIGHT")
 					knockbacked=1
-					vel_x=magnitude
+					vel_x=rand(magnitude-2,magnitude+4)
 					vel_y=magnitude+4
 					spawn(3)
 						setTumbled()
@@ -120,7 +120,7 @@ mob
 
 				if("UP")
 					knockbacked=1
-					vel_x=2
+					vel_x=rand(-3,3)
 					vel_y=magnitude+2
 					spawn(3)
 						setTumbled()

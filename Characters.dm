@@ -163,12 +163,15 @@ mob
 				else
 					if(src in Players_ALIVE)
 						Players_ALIVE.Remove(src)
+
 						Players--
 						PopulateWorldUI(src)
 						UpdateWorldUI(src)
 						if(Players <= 1)
 							EndMatch()
-					if(!client) del src
+					if(!client)
+						Players_INSERVER.Remove(src)
+						del src
 			return
 
 		Respawn()
