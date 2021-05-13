@@ -160,15 +160,21 @@ mob
 					path=null
 					destination=null
 					summoned=1
-					vel_x=0
+					for(var/mob/m in world)
+						if(src.owner==m)
+							if(m.dir==RIGHT)
+								vel_x=4
+							else
+								vel_x=-4
 					vel_y=8
 				//	set_pos(px,py+64)
 					flick("trans",src)
 					spawn(1.5)
+						vel_x=0
 						icon_state="totem"
 						pheight=64
 						pixel_y=0
-						fall_speed=6
+						fall_speed=9
 					//	vel_y=0
 					spawn(25)
 						if(summoned)
@@ -265,10 +271,29 @@ mob
 			Revert()
 
 		set_state()
+		movement()
+			..()
+			for(var/mob/m in oview(1,src))
+				if(m.inside(src))
+					if(m.isPlayer && !m.INVINCIBLE && m.hitIndex!="SmittyTotem" && totem==1 && src.owner!=m)
+						m.hitIndex="SmittyTotem"
+						HitStun(m,1)
+						spawn(1)
+							if(m.px + m.pwidth / 2 < px + pwidth / 2)
+								m.Knockback("HEAVY", "UP LEFT")
+							// otherwise you're to the right of a
+							else
+								m.Knockback("HEAVY", "UP RIGHT")
+						m.setDamage(0.08, "ADD")
+						spawn(10)
+							if(m.hitIndex=="SmittyTotem")
+								m.hitIndex=null
 		bump()
 			if(totem==1)
 				totem=0
 				view(src)<<STOMP
+				new /mob/EFFECT/SMITTY/STARGREEN(src)
+				new /mob/EFFECT/SMITTY/STARBLUE(src)
 		can_bump(mob/m)
 			if(summoned && owner!=m)
 				return m.density

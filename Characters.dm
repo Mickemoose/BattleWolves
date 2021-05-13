@@ -110,7 +110,7 @@ mob
 				if("Derek")
 					MooseKicker()
 
-		KBSMOKE()
+		KBSMOKE(kblevel=2)
 			if(reeled)
 				if(!kbsmoke)
 					kbsmoke=1
@@ -122,9 +122,9 @@ mob
 					FX.step_y-=2
 					spawn(0.8)
 						kbsmoke=0
-						KBSMOKE()
+						KBSMOKE(kblevel)
 				else()
-					KBSMOKE()
+					KBSMOKE(kblevel)
 			else
 				return
 		setPlayerColor(num)

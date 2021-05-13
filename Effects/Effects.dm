@@ -60,11 +60,100 @@ EFFECT
 
 mob
 	EFFECT
+		appearance_flags = PIXEL_SCALE
 		set_state()
 		gravity()
 		//movement()
 		//action()
 		bump()
+		proc
+			setSpinning()
+				animate(src, transform = turn(matrix(), 120), time = 3, loop = -1)
+				animate(transform = turn(matrix(), 240), time = 3, loop = -1)
+				animate(transform = null, time = 3, loop = -1)
+		SMITTY
+			var/owner
+			density=0
+			scaffold=0
+			STARGREEN
+				icon='Effects/Smitty/Star.dmi'
+				icon_state="green"
+				pixel_x=-17
+				pixel_y=-17
+				pwidth=30
+				pheight=30
+				New(mob/owner)
+					owner=owner
+					loc=owner.loc
+					set_pos(owner.px-4, owner.py)
+
+					animate(src,transform=matrix(0.1,0,0,0,0.1,16),alpha=255, flags=ANIMATION_PARALLEL)
+					spawn(0.1)
+						vel_x=5
+						setSpinning()
+
+						animate(src,transform=matrix()*1, time=3, flags=ANIMATION_PARALLEL)
+						spawn(6)
+							animate(src,alpha=0, time=2, flags=ANIMATION_PARALLEL)
+							spawn(2)
+								del src
+				action()
+					..()
+					for(var/mob/m in oview(1,src))
+						if(m.inside(src))
+							if(m.isPlayer && !m.INVINCIBLE && m.hitIndex!="SmittyStar")
+								m.hitIndex="SmittyStar"
+								HitStun(m,1)
+								spawn(1)
+									if(m.px + m.pwidth / 2 < px + pwidth / 2)
+										m.Knockback("LIGHT", "LEFT")
+									// otherwise you're to the right of a
+									else
+										m.Knockback("LIGHT", "RIGHT")
+								m.setDamage(0.02, "ADD")
+								spawn(10)
+									if(m.hitIndex=="SmittyStar")
+										m.hitIndex=null
+
+			STARBLUE
+				icon='Effects/Smitty/Star.dmi'
+				icon_state="blue"
+				pixel_x=-17
+				pixel_y=-17
+				pwidth=30
+				pheight=30
+				New(mob/owner)
+					owner=owner
+					loc=owner.loc
+					set_pos(owner.px-8, owner.py)
+
+					animate(src,transform=matrix(0.1,0,0,0,0.1,16),alpha=255, flags=ANIMATION_PARALLEL)
+					spawn(0.1)
+						vel_x=-5
+						setSpinning()
+
+						animate(src,transform=matrix()*1, time=3, flags=ANIMATION_PARALLEL)
+						spawn(6)
+							animate(src,alpha=0, time=2, flags=ANIMATION_PARALLEL)
+							spawn(2)
+								del src
+				action()
+					..()
+					for(var/mob/m in oview(1,src))
+						if(m.inside(src))
+							if(m.isPlayer && !m.INVINCIBLE && m.hitIndex!="SmittyStar")
+								m.hitIndex="SmittyStar"
+								HitStun(m,1)
+								spawn(1)
+									if(m.px + m.pwidth / 2 < px + pwidth / 2)
+										m.Knockback("LIGHT", "LEFT")
+									// otherwise you're to the right of a
+									else
+										m.Knockback("LIGHT", "RIGHT")
+								m.setDamage(0.02, "ADD")
+								spawn(10)
+									if(m.hitIndex=="SmittyStar")
+										m.hitIndex=null
 		DEREK
 			SSPECIAL
 				icon='Effects/Derek/SSpecial.dmi'

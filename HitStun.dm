@@ -72,14 +72,15 @@ mob
 				if("MEDIUM")
 					magnitude = 4
 					kblevel=1
-					KBSMOKE()
+					KBSMOKE(kblevel)
 				if("HEAVY")
 					magnitude = 6
 					kblevel=2
-					KBSMOKE()
+					KBSMOKE(kblevel)
 				if("EXTREME")
 					magnitude = 12
-					KBSMOKE()
+					kblevel=2
+					KBSMOKE(kblevel)
 			switch(where)
 				if("RIGHT")
 					knockbacked=1
