@@ -267,6 +267,7 @@ obj
 							if("Derek") icon='Characters/Derek.dmi'
 							if("Brendan") icon='Characters/Brendan.dmi'
 							if("Laundry") icon='Characters/Laundry.dmi'
+							if("Smitty") icon='Characters/Smitty.dmi'
 							else
 								icon='UI/Portraits.dmi'
 								icon_state="[m.PLAYERNUMBER]"
