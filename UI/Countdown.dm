@@ -40,6 +40,12 @@ mob
 			var/PlayerSpawn/selected = pick(spawns)
 			selected.taken=1
 			src.loc=selected.loc
+			spawn(1)
+				if(src.character=="Smitty")
+					var/mob/Spirits/Pyrex/P = new /mob/Spirits/Pyrex(src)
+					var/mob/Spirits/Alkaline/A = new /mob/Spirits/Alkaline(src)
+					spirits.Add(P)
+					spirits.Add(A)
 			spawn(4)
 				selected.taken=0
 
@@ -64,8 +70,6 @@ proc
 			for(var/mob/m in Players_ALIVE)
 				Winner=m.character
 			for(var/mob/m in Players_INSERVER)
-				m<<MENU
-				m.SongPlaying = MENU
 				m.SongPlaying.volume = 0
 				m.SongPlaying.status = SOUND_UPDATE
 				m<<m.SongPlaying
@@ -81,6 +85,9 @@ proc
 				m.canMove=1
 				m.canAct=1
 				m.loc=locate(1,1,1)
+				for(var/mob/q in m.spirits)
+					m.spirits.Remove(q)
+					del q
 				fade.FadeIn(time=0)
 				for(var/GameCamera/GC in world)
 					if(GC.z==1)

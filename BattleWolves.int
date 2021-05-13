@@ -1,12 +1,12 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1620934904
-DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo Characters Characters\Derek Characters\Smitty Effects Effects\Smitty Music Sound UI 
+LAST_COMPILE_TIME: 1620950239
+DIR: alibs\sidescroller alibs\sidescroller\v2.5 alibs\sidescroller\background-demo alibs\sidescroller\game-demo alibs\sidescroller\game-demo-2 alibs\sidescroller\mario-demo alibs\sidescroller\movement-demo alibs\sidescroller\pathing-demo Characters Characters\Derek Characters\Smitty Effects Effects\Smitty Music UI 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 514.1554
-WINDOW: UI\Plate.dmi;UI\CharacterSelect.dm;maps.dmm;Characters\Derek.dmi;Characters\Smitty.dmi;Characters\Laundry.dmi;BattleWolves.dm;Characters\Smitty\Spirits.dm;Effects\Effects.dm;Effects\Smitty\Star.dmi;System\BlastZone.dm;UI\TopBlastEffect.dm;Items\KFK\CardsMisc.dm;Sound\Sound.dm;Music\Music.dm;Characters\Derek\SSpecial.dm;Characters\Derek\DSpecial.dm;Characters.dm;Mob Vars.dm;alibs\sidescroller\_readme.dm;Effects\Mash.dmi
-FILE: BattleWolves.dm
+WINDOW: UI\CharacterSelect.dm;maps.dmm;Characters\Derek.dmi;Characters\Smitty.dmi;Characters\Laundry.dmi;BattleWolves.dm;Characters\Smitty\Spirits.dm;Effects\Effects.dm;Effects\Smitty\Star.dmi;System\BlastZone.dm;UI\TopBlastEffect.dm;Items\KFK\CardsMisc.dm;Sound\Sound.dm;Music\Music.dm;Characters\Derek\SSpecial.dm;Characters\Derek\DSpecial.dm;Characters.dm;Mob Vars.dm;alibs\sidescroller\_readme.dm;Effects\Mash.dmi;Characters\Sandbag.dmi;UI\Countdown.dm;UI\Results.dm;System\ScreenFade.dm;System\ItemDeleteArea.dm;System\GameCamera.dm;Characters\Smitty\SSpecial.dm;UI\Title.dm;Game Vars.dm;Characters\Smitty\DSPECIAL.dm
+FILE: Characters\Smitty\DSPECIAL.dm
 */
 // END_INTERNALS

@@ -155,13 +155,12 @@ mob
 		//	var/UI/Background/B = new/UI/Background(src.client)
 		//	B.screen_loc="CENTER-8,CENTER-4"
 			src<<sound(null)
-			src<<MENU
-			SongPlaying = MENU
-			SongPlaying.volume = MUSIC_VOLUME
-			SongPlaying.status = SOUND_UPDATE
-			src<<SongPlaying
+			spawn(1)
+				src<<MENU
 
 
+			cssicon=1
+			sssicon=1
 			var num=0
 			cssicons=new()
 			for(var/i=1, i<=src.characters.len,i++)

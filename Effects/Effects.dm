@@ -72,7 +72,7 @@ mob
 				animate(transform = turn(matrix(), 240), time = 3, loop = -1)
 				animate(transform = null, time = 3, loop = -1)
 		SMITTY
-			var/owner
+			var/mob/Spirits/owner
 			density=0
 			scaffold=0
 			STARGREEN
@@ -101,7 +101,7 @@ mob
 					..()
 					for(var/mob/m in oview(1,src))
 						if(m.inside(src))
-							if(m.isPlayer && !m.INVINCIBLE && m.hitIndex!="SmittyStar")
+							if(m.isPlayer && !m.INVINCIBLE && m.hitIndex!="SmittyStar" && src.owner!=src.owner.owner)
 								m.hitIndex="SmittyStar"
 								HitStun(m,1)
 								spawn(1)
@@ -111,7 +111,7 @@ mob
 									else
 										m.Knockback("LIGHT", "RIGHT")
 								m.setDamage(0.02, "ADD")
-								spawn(10)
+								spawn(8)
 									if(m.hitIndex=="SmittyStar")
 										m.hitIndex=null
 
@@ -141,7 +141,7 @@ mob
 					..()
 					for(var/mob/m in oview(1,src))
 						if(m.inside(src))
-							if(m.isPlayer && !m.INVINCIBLE && m.hitIndex!="SmittyStar")
+							if(m.isPlayer && !m.INVINCIBLE && m.hitIndex!="SmittyStar"  && src.owner!=src.owner.owner)
 								m.hitIndex="SmittyStar"
 								HitStun(m,1)
 								spawn(1)
@@ -151,7 +151,7 @@ mob
 									else
 										m.Knockback("LIGHT", "RIGHT")
 								m.setDamage(0.02, "ADD")
-								spawn(10)
+								spawn(8)
 									if(m.hitIndex=="SmittyStar")
 										m.hitIndex=null
 		DEREK

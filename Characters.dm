@@ -95,6 +95,8 @@ mob
 			switch(character)
 				if("Derek")
 					FlamePlume()
+				if("Smitty")
+					SpiritGrab()
 		NeutralSpecial()
 			animate(src, transform = null, time = 0.1)
 			switch(character)
@@ -111,6 +113,8 @@ mob
 			switch(character)
 				if("Derek")
 					MooseKicker()
+				if("Smitty")
+					SpiritTotem()
 
 		KBSMOKE(kblevel=2)
 			if(reeled)
@@ -343,7 +347,20 @@ mob
 					character = "[name]"
 					if(inCSS) src<<Laundry
 				if("Smitty")
+					icon='Characters/Smitty.dmi'
+					jump_speed = 5
+					boostdefault = 3
+					pixel_x=-22
+					pixel_y=-16
+					pwidth=22
 					character = "[name]"
+					pheight=36
+					fall_speed=5.5
+					move_speed=4.5
+					air_move_speed=3
+					air_decel=0.14
+					gravity=1
+					carry_speed=2.4
 					if(inCSS) src<<Smitty
 				if("Becca")
 					character = "[name]"
