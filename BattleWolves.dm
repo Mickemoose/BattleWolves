@@ -44,7 +44,7 @@ mob
 	appearance_flags = PIXEL_SCALE
 	pixel_move(dpx, dpy)
 		..()
-		for(var/EFFECT/MASH_ALERT/FX in effects)
+		for(var/EFFECT/MASH_ALERT/FX in world)
 			if(mashFX==FX)
 				FX.loc=src.loc
 				FX.step_x=src.step_x-3
@@ -208,6 +208,13 @@ mob
 				flick("squatend",src)
 	key_down(k)
 		if(isMashing)
+			for(var/EFFECT/MASH_ALERT/FX in world)
+				if(mashFX==FX)
+					if(FX.icon_state=="press")
+						FX.icon_state=""
+
+					else
+						FX.icon_state="press"
 			Mash()
 		if(!canAct)
 			return
