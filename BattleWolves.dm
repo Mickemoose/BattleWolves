@@ -355,6 +355,7 @@ mob
 						inTitle=0
 						src.client.lock_input()
 						src.setPlayerNumber()
+						/*
 						src.StopEmber()
 						for(var/UI/BACK/F2 in client.screen)
 							animate(F2, alpha=0, time=3)
@@ -372,6 +373,7 @@ mob
 
 							spawn(8)
 								del R
+						*/
 						for(var/UI/LOGO/L in client.screen)
 							L.Disappear()
 
@@ -386,8 +388,8 @@ mob
 						for(var/obj/CSS/Plates/p in world)
 							p.CheckPlayers()
 						spawn(13)
-							if(PLAYERNUMBER==1)
-								SSS_Initialize()
+							//if(PLAYERNUMBER==1)
+							//	SSS_Initialize()
 							CSS_Initialize()
 
 						spawn(15)

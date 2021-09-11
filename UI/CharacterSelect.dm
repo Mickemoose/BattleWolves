@@ -159,29 +159,29 @@ mob
 				src<<MENU
 
 
-			cssicon=1
-			sssicon=1
-			var num=0
-			cssicons=new()
-			for(var/i=1, i<=src.characters.len,i++)
-				var/UI/CSS/Characters/C = new /UI/CSS/Characters(src.client)
-				C.screen_loc="CENTER-5:[num],CENTER"
-				C.icon_state=src.characters[i]
-				C.name=src.characters[i]
-				src.cssicons.Add(C)
-				animate(C, transform=matrix().Translate(0,200))
-				animate(transform=matrix().Translate(0,0), time=4, easing=BOUNCE_EASING)
+			//cssicon=1
+			//sssicon=1
+			//var num=0
+			//cssicons=new()
+			//for(var/i=1, i<=src.characters.len,i++)
+			//	var/UI/CSS/Characters/C = new /UI/CSS/Characters(src.client)
+			//	C.screen_loc="CENTER-5:[num],CENTER"
+			//	C.icon_state=src.characters[i]
+			//	C.name=src.characters[i]
+			//	src.cssicons.Add(C)
+			//	animate(C, transform=matrix().Translate(0,200))
+			//	animate(transform=matrix().Translate(0,0), time=4, easing=BOUNCE_EASING)
+//
+			//	num+=34
+			//	sleep(1)
 
-				num+=34
-				sleep(1)
 
-
-			var/UI/CSS/Cursor/CU=new/UI/CSS/Cursor(src.client)
-			cursor=new()
-			cursor.Add(CU)
-			CU.screen_loc=cssicons[1].screen_loc
-			CU.plane+=1
-			animate(CU, color=getPlayerColor(src))
+			//var/UI/CSS/Cursor/CU=new/UI/CSS/Cursor(src.client)
+			//cursor=new()
+			//cursor.Add(CU)
+			//CU.screen_loc=cssicons[1].screen_loc
+			//CU.plane+=1
+			//animate(CU, color=getPlayerColor(src))
 			inCSS=1
 			for(var/obj/CSS/Portrait/p in world)
 				p.SetPortait(src, characters[cssicon], temp=1)
@@ -204,6 +204,7 @@ obj
 			number
 		Name
 			icon='UI/Names.dmi'
+			plane=5
 			P1
 				icon_state="1"
 			P2
@@ -232,6 +233,7 @@ obj
 
 		Portrait
 			icon='UI/Portraits.dmi'
+			plane=5
 			P1
 				icon_state="1"
 			P2
@@ -275,10 +277,31 @@ obj
 							N.SetName(m, character)
 
 
+		Icons
+			icon='UI/CSSIcon.dmi'
+			plane=5
+			var
+				character="null"
+			Derek
+				character="Derek"
+				icon_state="Derek"
+			Brendan
+				character="Brendan"
+				icon_state="Brendan"
+			Smitty
+				character="Smitty"
+				icon_state="Smitty"
+			Laundry
+				character="Laundry"
+				icon_state="Laundry"
+			Hunter
+				character="Hunter"
+				icon_state="Hunter"
 
 
 		Plates
 			icon='UI/Plate.dmi'
+			plane=5
 			P1
 				icon_state="1"
 			P2
