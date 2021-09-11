@@ -7,29 +7,6 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
-#define FILE_DIR "alibs"
-#define FILE_DIR "alibs/sidescroller"
-#define FILE_DIR "alibs/sidescroller/background-demo"
-#define FILE_DIR "alibs/sidescroller/common"
-#define FILE_DIR "alibs/sidescroller/game-demo-2"
-#define FILE_DIR "alibs/sidescroller/mario-demo"
-#define FILE_DIR "Characters"
-#define FILE_DIR "Characters/Smitty"
-#define FILE_DIR "Effects"
-#define FILE_DIR "Effects/Derek"
-#define FILE_DIR "Effects/Smitty"
-#define FILE_DIR "hitboxes"
-#define FILE_DIR "Items"
-#define FILE_DIR "Items/KFK"
-#define FILE_DIR "Music"
-#define FILE_DIR "Sound"
-#define FILE_DIR "Stages"
-#define FILE_DIR "Stages/Glitch"
-#define FILE_DIR "Stages/LavaTek"
-#define FILE_DIR "Stages/Test"
-#define FILE_DIR "Stages/Whale"
-#define FILE_DIR "System"
-#define FILE_DIR "UI"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
