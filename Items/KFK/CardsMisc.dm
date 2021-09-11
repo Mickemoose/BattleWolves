@@ -29,11 +29,17 @@ mob
 			src.x=rand(38,62)
 			src.y=48
 			setSpinning()
+		can_bump(mob/m)
+			return 0
+		can_bump(turf/t)
+			return t.density
+
 		bump(turf/t)
 			for(var/mob/m in view(src))
 				m.Shake("LIGHT")
 				m<<BOULDER
 			vel_y=6
+			density=0
 			animate(src, alpha=0, time=5)
 			spawn(5)
 				del src
