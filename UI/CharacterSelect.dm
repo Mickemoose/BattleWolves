@@ -279,12 +279,14 @@ obj
 
 		Icons
 			icon='UI/CSSIcon.dmi'
-			plane=5
+			plane=10000
 			var
 				character="null"
+
 			Derek
 				character="Derek"
 				icon_state="Derek"
+
 			Brendan
 				character="Brendan"
 				icon_state="Brendan"
@@ -297,6 +299,27 @@ obj
 			Hunter
 				character="Hunter"
 				icon_state="Hunter"
+			MouseEntered()
+				usr<<CLICK
+				if(usr.character == null)
+					usr<<CLICK
+					for(var/obj/CSS/Portrait/p in world)
+						p.SetPortait(usr, src.character, temp=1)
+			Click()
+
+				if(usr.character == null)
+					usr<<CHOOSE
+					usr.setCharacter(src.character)
+					for(var/obj/CSS/Portrait/p in world)
+						p.SetPortait(usr, src.character, temp=0)
+					Players_READY.Add(usr)
+					if(usr.PLAYERNUMBER==1)
+						usr.inCSS=0
+						usr.inSSS=1
+					if(Players_READY.len == Players_ALIVE.len)
+						for(var/mob/m in Players_ALIVE)
+							if(m.client)
+								new/UI/CSS/Ready(usr.client)
 
 
 		Plates

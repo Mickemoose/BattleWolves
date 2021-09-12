@@ -74,19 +74,19 @@
 "bv" = (/obj/CSS/Portrait/P7{step_y = 24},/obj/CSS/Plates/P7{step_y = 24},/turf,/area)
 "bw" = (/obj/CSS/Plates/P8,/obj/CSS/Portrait/P8,/turf,/area)
 "bx" = (/obj/CSS/Name/P1,/turf,/area)
-"by" = (/obj/CSS/Name/P2,/turf,/area)
-"bz" = (/obj/CSS/Name/P3,/turf,/area)
-"bA" = (/obj/CSS/Name/P4,/turf,/area)
-"bB" = (/obj/CSS/Name/P5,/turf,/area)
-"bC" = (/obj/CSS/Name/P6,/turf,/area)
-"bD" = (/obj/CSS/Name/P7,/turf,/area)
+"by" = (/obj/CSS/Name/P4{step_y = 0},/turf,/area)
+"bz" = (/obj/CSS/Name/P5{step_y = 0},/turf,/area)
+"bA" = (/obj/CSS/Name/P2{step_y = 24},/turf,/area)
+"bB" = (/obj/CSS/Name/P3{step_y = 28},/turf,/area)
+"bC" = (/obj/CSS/Name/P6{step_y = 28},/turf,/area)
+"bD" = (/obj/CSS/Name/P7{step_y = 24},/turf,/area)
 "bE" = (/obj/CSS/Name/P8,/turf,/area)
 "bF" = (/obj/CSS/Icons,/turf,/area)
-"bG" = (/obj/CSS/Icons,/obj/CSS/Icons/Derek,/turf,/area)
-"bH" = (/obj/CSS/Icons,/obj/CSS/Icons/Brendan,/turf,/area)
-"bI" = (/obj/CSS/Icons,/obj/CSS/Icons/Laundry,/turf,/area)
-"bJ" = (/obj/CSS/Icons,/obj/CSS/Icons/Smitty,/turf,/area)
-"bK" = (/obj/CSS/Icons,/obj/CSS/Icons/Hunter,/turf,/area)
+"bG" = (/obj/CSS/Icons/Derek,/turf,/area)
+"bH" = (/obj/CSS/Icons/Brendan,/turf,/area)
+"bI" = (/obj/CSS/Icons/Laundry,/turf,/area)
+"bJ" = (/obj/CSS/Icons/Smitty,/turf,/area)
+"bK" = (/obj/CSS/Icons/Hunter,/turf,/area)
 "bL" = (/obj/CSS/Icons,/GameCamera,/turf,/area)
 
 (1,1,1) = {"
@@ -135,8 +135,8 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsaaaabtaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabpaaaabqaaaabraaaaaaaaaaaaaaaabuaaaabvaaaabwaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabxaaaabyaaaabzaaaabAaaaabBaaaabCaaaabDaaaabEaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabpaaaabqaaaabraaaabyaaaabzaaaabuaaaabvaaaabwaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabxaaaabAaaaabBaaaaaaaaaaaaaaaabCaaaabDaaaabEaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

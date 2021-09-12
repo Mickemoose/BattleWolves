@@ -30,7 +30,6 @@ client
 
 
 
-
 world
 	fps = 50
 	icon_size = 32
