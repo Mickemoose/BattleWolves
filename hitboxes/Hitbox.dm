@@ -17,7 +17,7 @@ obj/hitbox
 		var/matrix/M = matrix()
 		M.Scale(px,py)
 		animate(src,transform = M,alpha=100,time=0)
-		color=rgb(255,0,0,100)
+		color=rgb(255,0,0,0)
 		plane=8
 		loc=owner.loc
 		spawn()//ter will hate me for it but spawn is used here because there is a looping while() in the active() proc and i don't want to stall any code

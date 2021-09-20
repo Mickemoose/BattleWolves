@@ -38,15 +38,6 @@ Future Characters
 
 
 
-What I want to work on:
-- New Menus not using Screen Objects because im lazy.
-- Finish Brendan Smitty Laundry and Hunter characters
-- More KFK summons (Jellypot, Staryxia, Wobbles, Wingling)
-- 2 regular items (Speed Orb + RDC Orb)
-- Finish Whale Boat and Glitch realm
-- Work on Lava Tek Facility
-
-
 Item Ideas:
 ----------------
 Infinity Feather - Heals to 0%
@@ -63,13 +54,13 @@ Wingling - Beedrill clone
 Ninja Octo Squad - Octos jump up like octorocks from bottom of screen, throw ninja stars (Arch Animate rotate)
 
 
+Version 0 - Golfstack Aladdin
+0.5 first major playable version
 
-
-Current Issues
---
-Controller need to be updated to work with new css stuff and title stuff
-
-
+- Derek Brendan Smitty Laundry Hunter playable
+- Whale Boat, Glitch Realm and Lava Tech Facility stages
+- 4 of the current KFK ideas implemented
+- Speed Orb, RDC Orb and Infinity Feather implemented
 
 
 
