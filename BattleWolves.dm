@@ -274,28 +274,6 @@ mob
 									Players_READY.Remove(m)
 
 			if(inCSS)
-
-				if(k == "enter" || k  == "return"  && character==null)
-					src<<CHOOSE
-
-					setCharacter(characters[cssicon])
-					for(var/UI/CSS/Cursor/C in cursor)
-						C.Choose(src)
-					Players_READY.Add(src)
-					if(PLAYERNUMBER==1)
-						inCSS=0
-						inSSS=1
-						spawn(1)
-							for(var/UI/CSS/Cursor/C in cursor)
-								C.screen_loc=sssicons[sssicon].screen_loc
-
-					if(Players_READY.len == Players_ALIVE.len)
-						for(var/mob/m in Players_ALIVE)
-							if(m.client)
-								new/UI/CSS/Ready(src.client)
-					for(var/obj/CSS/Portrait/p in world)
-						p.SetPortait(src, src.character, temp=0)
-					return
 				if(k == "back"  && character!=null)
 					for(var/UI/CSS/Cursor/C in cursor)
 						C.Deselect(src)

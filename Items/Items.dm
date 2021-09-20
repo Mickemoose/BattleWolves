@@ -98,6 +98,62 @@ ITEMS
 						icon_state="mine"
 
 						pwidth=4
+		NinjaStar
+			icon='Items/KFK/NinjaSquid.dmi'
+			icon_state="star"
+			carried=0
+			pwidth=8
+			pixel_x=-29
+			pixel_y=-29
+			move_speed=18
+			pheight=8
+			gravity()
+			PickUp(var/mob/pickuper)
+				pickuper.heldItem="NinjaStar"
+				UpdateWorldUI(pickuper)
+				Items_ACTIVE.Remove(src)
+				del src
+			New(var/mob/m,thrown=0)
+				if(!thrown)
+					carried=1
+					animate(src, alpha = 0, transform = matrix()*4, color = "black", time = 0.1)
+					spawn(0.1)
+						animate(src, alpha = 255, transform = matrix()/4, color = "white", time = 2)
+						spawn(2)
+							view()<<ITEMSPAWN
+							carried=0
+							spawn(1)
+								setSpinning()
+								spawn(4)
+									DeleteTimer()
+				else
+					src.thrown=1
+					src.owner=m
+					carried=0
+					src.loc=m.loc
+					src.dir=m.dir
+					src.set_pos(m.px,m.py)
+					switch(m.dir)
+						if(RIGHT)
+							vel_x=18
+						if(LEFT)
+							vel_x=-18
+					setSpinning()
+					spawn(30)
+						del src
+			movement()
+				..()
+				for(var/mob/m in oview(1,src))
+					if(m.isPlayer && thrown && m.inside(src))
+						HitStun(m,1)
+						m.setDamage(0.02, "ADD")
+						spawn(30)
+							src.vel_x=0
+							src.icon=null
+							src.loc=locate(1,1,1)
+							del src
+
+			//	..()
 		JamJar
 			VARIANTS
 				Jelly
@@ -312,7 +368,7 @@ ITEMS
 			plane=3
 			carried=0
 			var
-				list/chars = list("Doop","PhormPhather","Steve","Zeke","Hazorb")
+				list/chars = list("Doop","PhormPhather","Steve","Zeke","Hazorb","Jellypot","NinjaSquidSquad")
 				list/sacs = list("Beefalo")
 				ctype = "character" //or sacrifice
 			Activate(var/mob/activator)

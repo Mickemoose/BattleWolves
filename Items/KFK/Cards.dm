@@ -95,6 +95,42 @@ KFK_Mobs
 																			Deactivate()
 
 
+	NinjaSquidSquad
+		icon='Items/KFK/NinjaSquid.dmi'
+		icon_state="stay"
+		density=0
+		scaffold=0
+		isPlayer=0
+		bump()
+		gravity()
+		can_bump()
+			return 0
+		Active()
+			spawn(1)
+				icon_state="rise"
+				src.vel_y=8
+				spawn(2)
+					icon_state="fall"
+					src.vel_y=-12
+					spawn(10)
+						src.vel_y=0
+						spawn(2)
+							for(var/i=1, i<=10,i++)
+								spawn(3)
+									SquidSpawn()
+								sleep(4)
+								if(i ==20)
+									Deactivate()
+
+
+
+		proc
+			SquidSpawn()
+				var/mob/SQUID/B=new /mob/SQUID(src.loc)
+				B.spawner=src.owner
+				for(var/i=1, i<=20,i++)
+
+					sleep(1)
 
 	Beefalo
 		icon='Items/KFK/Beefalo.dmi'
@@ -149,7 +185,7 @@ KFK_Mobs
 		movement()
 			..()
 			for(var/mob/m in oview(1,src))
-				if(m.inside(src) && !grabbed)
+				if(m.inside(src) && !grabbed && src.owner!=m)
 					vel_x=0
 					vel_y=0
 					grabbed=1

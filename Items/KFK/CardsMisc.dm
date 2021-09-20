@@ -1,4 +1,42 @@
 mob
+	SQUID
+		icon='Items/KFK/NinjaSquid.dmi'
+		icon_state="rise"
+		isPlayer=0
+		var/mob/spawner
+		fall_speed=6
+		set_state()
+		gravity()
+		can_bump()
+			return 0
+		New()
+			..()
+			src.x=rand(38,62)
+			if(src.x > 44)
+				src.dir=LEFT
+			else
+				src.dir=RIGHT
+			src.y=26
+			//setSpinning()
+			src.vel_y=11
+			spawn(pick(6,6.5,7,7.5,8))
+				src.vel_y=4
+				src.icon_state="stay"
+				spawn(2)
+					src.vel_y=0
+					var/ITEMS/O = text2path("/ITEMS/THROWABLES/NinjaStar")
+					new O(src,thrown=1)
+					spawn(5)
+						src.icon_state="rise"
+						src.vel_y=4
+						spawn(2)
+							src.icon_state="fall"
+							src.vel_y=-5
+							spawn(2)
+								src.vel_y=-10
+								spawn(10)
+									del src
+
 	BOULDER
 		icon='Items/KFK/Beefalo.dmi'
 		icon_state="rock"
