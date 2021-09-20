@@ -60,6 +60,7 @@ Wobbles Da Fox Final Form - Shoots a giant laser from one of either side of the 
 Staryxia - Encases a random person in a diamond prison
 Gary - Opens his shop and throws out random 4 items
 Wingling - Beedrill clone
+Ninja Octo Squad - Octos jump up like octorocks from bottom of screen, throw ninja stars (Arch Animate rotate)
 
 
 

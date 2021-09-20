@@ -24,6 +24,11 @@ mob
 		ResultsEnd()
 			fade.FadeOut(time=3)
 			StopSnow()
+			spawn(4)
+				new /UI/BACK(src.client)
+				new /UI/FIRE2(src.client)
+				new /UI/FIRE(src.client)
+				new /UI/FRAME(src.client)
 			for(var/UI/Results/Background/B in src.client.screen)
 				animate(B, transform=matrix().Translate(0,600), easing=BOUNCE_EASING, time=5)
 				spawn(5)
@@ -38,8 +43,6 @@ mob
 				for(var/obj/CSS/Plates/p in world)
 					p.CheckPlayers()
 				spawn(13)
-					if(PLAYERNUMBER==1)
-						SSS_Initialize()
 					CSS_Initialize()
 				spawn(15)
 					src.client.unlock_input()
@@ -58,15 +61,15 @@ mob
 					src<<CLAP
 
 				animate( alpha=0,time=2, easing=SINE_EASING)
-				animate( alpha=24,time=2, easing=SINE_EASING)
+				animate( alpha=15,time=2, easing=SINE_EASING)
 				spawn(6)
 					src<<CLAP
 				animate( alpha=0,time=2, easing=SINE_EASING)
-				animate( alpha=24,time=2, easing=SINE_EASING)
+				animate( alpha=15,time=2, easing=SINE_EASING)
 				spawn(10)
 					src<<CLAP
 				animate( alpha=0,time=2, easing=SINE_EASING)
-				animate( alpha=50,time=2, easing=SINE_EASING)
+				animate( alpha=75,time=2, easing=SINE_EASING)
 				spawn(14)
 					src<<CLAP
 					spawn(1)

@@ -153,42 +153,14 @@ mob
 					m.Portraits()
 					setTempPortrait(characters[cssicon])
 		CSS_Initialize()
-		//	var/UI/Background/B = new/UI/Background(src.client)
-		//	B.screen_loc="CENTER-8,CENTER-4"
+
 			src<<sound(null)
 			spawn(1)
 				src<<MENU
-
-
-			//cssicon=1
-			//sssicon=1
-			//var num=0
-			//cssicons=new()
-			//for(var/i=1, i<=src.characters.len,i++)
-			//	var/UI/CSS/Characters/C = new /UI/CSS/Characters(src.client)
-			//	C.screen_loc="CENTER-5:[num],CENTER"
-			//	C.icon_state=src.characters[i]
-			//	C.name=src.characters[i]
-			//	src.cssicons.Add(C)
-			//	animate(C, transform=matrix().Translate(0,200))
-			//	animate(transform=matrix().Translate(0,0), time=4, easing=BOUNCE_EASING)
-//
-			//	num+=34
-			//	sleep(1)
-
-
-			//var/UI/CSS/Cursor/CU=new/UI/CSS/Cursor(src.client)
-			//cursor=new()
-			//cursor.Add(CU)
-			//CU.screen_loc=cssicons[1].screen_loc
-			//CU.plane+=1
-			//animate(CU, color=getPlayerColor(src))
 			inCSS=1
 			for(var/obj/CSS/Portrait/p in world)
 				p.SetPortait(src, characters[cssicon], temp=1)
 			see_invisible=100
-		//	Portraits()
-		//	setTempPortrait(characters[cssicon])
 		CSS_Deinitialize()
 			for(var/UI/CSS/Characters/C in src.client.screen)
 				animate(C, transform=matrix().Translate(0,320), time=4, easing=BOUNCE_EASING)

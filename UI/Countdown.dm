@@ -20,7 +20,7 @@ UI
 				Enabled_Items=1
 				for(var/mob/m in Players_ALIVE)
 					m.client.unlock_input()
-					m.see_invisible=0
+
 					if(!itemsStarted)
 						itemsStarted=1
 						StartItems(m.z)
