@@ -603,11 +603,11 @@ ITEMS
 		DeleteTimer()
 			if(!carried || !thrown || isDeleting || isReallyDeleting)
 				timer-=1
-				if(timer <= 10 && flash==1 )
-					flash=2
-				if(timer <= 20 && flash ==0)
+				spawn(125)
 					DeleteFlash()
-				if(timer <= 0)
+				spawn(175)
+					flash=2
+				spawn(250)
 					timer = 0
 					isDeleting=1
 					animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
@@ -616,8 +616,7 @@ ITEMS
 						Items_ACTIVE.Remove(src)
 
 						del src
-				spawn(10)
-					DeleteTimer()
+
 
 
 

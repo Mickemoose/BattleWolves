@@ -47,6 +47,7 @@ UI
 							animate(transform=matrix().Translate(0,0), color=rgb(90,90,90,255), time=1)
 
 
+
 				Deselect(var/mob/user)
 					for(var/UI/CSS/Characters/C in user.cssicons)
 						if(user.character==C.name)
@@ -286,7 +287,6 @@ obj
 			Derek
 				character="Derek"
 				icon_state="Derek"
-
 			Brendan
 				character="Brendan"
 				icon_state="Brendan"
@@ -299,6 +299,36 @@ obj
 			Hunter
 				character="Hunter"
 				icon_state="Hunter"
+			Matt
+				character="Matt"
+				icon_state="Matt"
+			Schnerch
+				character="Schnerch"
+				icon_state="Schnerch"
+			Hartshorne
+				character="Hartshorne"
+				icon_state="Hartshorne"
+			Froese
+				character="Froese"
+				icon_state="Froese"
+			Marylou
+				character="Marylou"
+				icon_state="Marylou"
+			Becca
+				character="Becca"
+				icon_state="Becca"
+			Satia
+				character="Satia"
+				icon_state="Satia"
+			Kathy
+				character="Kathy"
+				icon_state="Kathy"
+			Bek
+				character="Bek"
+				icon_state="Bek"
+			Annie
+				character="Annie"
+				icon_state="Annie"
 			MouseEntered()
 				usr<<CLICK
 				if(usr.character == null)
@@ -320,6 +350,9 @@ obj
 						for(var/mob/m in Players_ALIVE)
 							if(m.client)
 								new/UI/CSS/Ready(usr.client)
+					Stage_Selected="Whale Boat"
+					usr.inSSS=1
+					usr.inCSS=0
 
 
 		Plates

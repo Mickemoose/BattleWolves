@@ -49,19 +49,20 @@ turf
 			New()
 				animate(src, transform=matrix()*1.95)
 
-
+		WhaleBoat
+			density=0
+			plane=-1
+			icon='Stages/Whale/Boat.dmi'
+		Density
+			density=1
+			scaffold=1
 STAGEART
-	parent_type=/mob
+	parent_type=/obj
 	appearance_flags = PIXEL_SCALE
 	scaffold=1
 	plane=-1
 	var
 		loop=0
-	set_state()
-	gravity()
-
-	action()
-		..()
 	proc
 		loop()
 			var/matrix=matrix()
@@ -88,8 +89,9 @@ STAGEART
 		pwidth=614
 		pleft=210
 		pright=210
+		density=0
 
 
-		New()
-			..()
-			loop()
+		//New()
+		//	..()
+		//	loop()

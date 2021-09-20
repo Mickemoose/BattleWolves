@@ -257,6 +257,23 @@ mob
 				if(k == "enter" || k  == "return" && Stage_Selected!=null && Players_READY.len == Players_ALIVE.len)
 					for(var/mob/m in Players_ALIVE)
 						if(m.client)
+							m.StopEmber()
+							for(var/UI/BACK/F2 in m.client.screen)
+								animate(F2, alpha=0, time=3)
+								spawn(3)
+									del F2
+							for(var/UI/FIRE2/F2 in m.client.screen)
+								animate(F2, alpha=0, time=3, flags=ANIMATION_PARALLEL)
+								spawn(3)
+									del F2
+							for(var/UI/FIRE/F in m.client.screen)
+								animate(F, alpha=0, time=3, flags=ANIMATION_PARALLEL)
+								spawn(3)
+									del F
+							for(var/UI/FRAME/R in m.client.screen)
+
+								spawn(8)
+									del R
 							fade.FadeOut(time=6)
 							m.client.lock_input()
 							m<<CHOOSE
