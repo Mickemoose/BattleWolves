@@ -12,7 +12,7 @@ mob
 		New()
 			..()
 			src.x=rand(38,62)
-			if(src.x > 44)
+			if(src.x > 50)
 				src.dir=LEFT
 			else
 				src.dir=RIGHT
