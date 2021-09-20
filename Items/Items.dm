@@ -99,6 +99,9 @@ ITEMS
 
 						pwidth=4
 		JamJar
+			VARIANTS
+				Jelly
+					icon='Items/PurpleJamJar.dmi'
 			icon='Items/JamJar.dmi'
 			carried=0
 			pixel_x=-11
