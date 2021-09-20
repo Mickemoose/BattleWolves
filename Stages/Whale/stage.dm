@@ -59,30 +59,7 @@ turf
 STAGEART
 	parent_type=/obj
 	appearance_flags = PIXEL_SCALE
-	scaffold=1
 	plane=-1
-	var
-		loop=0
-	proc
-		loop()
-			var/matrix=matrix()
-
-			if(!loop)
-				loop=1
-				animate(src, transform = turn(matrix, 1), time = 20)
-				animate(transform = turn(matrix, 0), time = 20)
-				spawn(40)
-					loop()
-			else
-				loop=0
-				animate(src,transform = turn(matrix, 359), time = 20 )
-				animate(transform = turn(matrix, 0), time = 20)
-
-				spawn(40)
-					loop()
-
-
-
 	WhaleBoat
 		icon='Stages/Whale/Boat.dmi'
 		pheight=210
@@ -91,7 +68,3 @@ STAGEART
 		pright=210
 		density=0
 
-
-		//New()
-		//	..()
-		//	loop()

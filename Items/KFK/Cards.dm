@@ -33,6 +33,69 @@ KFK_Mobs
 				Current_KFK--
 				Items_ACTIVE.Remove(src)
 				del src
+	Jellypot
+		icon='Items/KFK/Jellypot.dmi'
+		density=0
+		scaffold=0
+		isPlayer=0
+		dir=RIGHT
+		bump()
+		gravity()
+		Active()
+			spawn(3)
+				flick("closed",src)
+				spawn(4)
+					icon_state=""
+					src.dir=RIGHT
+					var/ITEMS/O = text2path("/ITEMS/THROWABLES/JamJar/VARIANTS/Jelly")
+					new O(src,thrown=1)
+					spawn(4)
+						flick("closed",src)
+						spawn(4)
+							icon_state=""
+							src.dir=LEFT
+							new O(src,thrown=1)
+							spawn(4)
+								flick("closed",src)
+								spawn(4)
+									icon_state=""
+									src.dir=RIGHT
+									new O(src,thrown=1)
+									spawn(4)
+										flick("closed",src)
+										spawn(4)
+											icon_state=""
+											src.dir=LEFT
+											new O(src,thrown=1)
+											spawn(4)
+												flick("closed",src)
+												spawn(4)
+													icon_state=""
+													src.dir=RIGHT
+													new O(src,thrown=1)
+													flick("closed",src)
+													spawn(4)
+														icon_state=""
+														src.dir=LEFT
+														new O(src,thrown=1)
+														spawn(4)
+															flick("closed",src)
+															spawn(4)
+																icon_state=""
+																src.dir=RIGHT
+																new O(src,thrown=1)
+																flick("closed",src)
+																spawn(4)
+																	flick("closed",src)
+																	spawn(4)
+																		icon_state=""
+																		src.dir=LEFT
+																		new O(src,thrown=1)
+																		spawn(4)
+																			Deactivate()
+
+
+
 	Beefalo
 		icon='Items/KFK/Beefalo.dmi'
 		density=0

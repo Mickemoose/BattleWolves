@@ -133,10 +133,21 @@ ITEMS
 					src.loc=m.loc
 					src.dir=m.dir
 					src.set_pos(m.px,m.py+6)
-					src.vel_y=5
+					if(src.icon=='Items/PurpleJamJar.dmi')
+						src.vel_y=pick(5,6,7,8,9,10)
+					else
+						src.vel_y=5
 					switch(m.dir)
-						if(RIGHT) vel_x=8
-						if(LEFT) vel_x=-8
+						if(RIGHT)
+							if(src.icon=='Items/PurpleJamJar.dmi')
+								vel_x=pick(6,7,8,9,10,11)
+							else
+								vel_x=8
+						if(LEFT)
+							if(src.icon=='Items/PurpleJamJar.dmi')
+								vel_x=pick(-6,-7,-8,-9,-10,-11)
+							else
+								vel_x=-8
 					setSpinning()
 			movement()
 				..()
