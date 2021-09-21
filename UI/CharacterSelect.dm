@@ -253,6 +253,10 @@ obj
 			icon='UI/SSSIcon.dmi'
 			icon_state="select"
 			plane=10001
+		StagePreviews
+			icon='UI/SSSPreview.dmi'
+			plane=10000
+
 		StageIcons
 			icon='UI/SSSIcon.dmi'
 			plane=10000
@@ -279,6 +283,8 @@ obj
 					Stage_Selected=src.stage
 					for(var/obj/CSS/StageIcons/S in world)
 						S.overlays-=S.overlays
+					for(var/obj/CSS/StagePreviews/P in world)
+						P.icon_state=src.stage
 					src.overlays+=/obj/CSS/STAGE_SELECTED
 		Icons
 			icon='UI/CSSIcon.dmi'
@@ -338,7 +344,7 @@ obj
 					for(var/obj/CSS/Portrait/p in world)
 						p.SetPortait(usr, src.character, temp=1)
 			Click()
-
+				Players_READY.Remove(usr)
 				usr<<CHOOSE
 				usr.setCharacter(src.character)
 				for(var/obj/CSS/Portrait/p in world)

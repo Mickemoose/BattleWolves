@@ -225,6 +225,36 @@ mob
 							m<<CHOOSE
 							m.ResultsEnd()
 			if(inSSS)
+			/*	if(k == "1")
+					src.StopEmber()
+					for(var/UI/BACK/F2 in src.client.screen)
+						animate(F2, alpha=0, time=3)
+						spawn(3)
+							del F2
+					for(var/UI/FIRE2/F2 in src.client.screen)
+						animate(F2, alpha=0, time=3, flags=ANIMATION_PARALLEL)
+						spawn(3)
+							del F2
+					for(var/UI/FIRE/F in src.client.screen)
+						animate(F, alpha=0, time=3, flags=ANIMATION_PARALLEL)
+						spawn(3)
+							del F
+					for(var/UI/FRAME/R in src.client.screen)
+
+						spawn(3)
+							del R
+					src.see_invisible=0
+					for(var/UI/CSS/Plates/P in src.client.screen)
+						del P
+					for(var/UI/CSS/Ready/R in src.client.screen)
+						del R
+					for(var/UI/CSS/Portrait/P in src.client.screen)
+						del P
+					for(var/UI/CSS/Name/P in src.client.screen)
+						del P
+					for(var/GameCamera/GC in world)
+						if(GC.z == 2)
+							client.eye = GC */
 				if(k == "enter" || k  == "return" && Stage_Selected!=null && Players_READY.len == Players_ALIVE.len)
 					for(var/mob/m in Players_ALIVE)
 						if(m.client)
