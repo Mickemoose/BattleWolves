@@ -57,11 +57,11 @@ Wingling - Beedrill clone
 Version 0 - Golfstack Aladdin
 0.5 first major playable version
 
-- Derek Brendan Smitty Laundry Hunter playable
-- Whale Boat, Glitch Realm and Lava Tech Facility stages
+- Brendan Smitty Laundry Hunter playable
+- Lava Tech Facility stages
 - 4 of the current KFK ideas implemented
 - Speed Orb, RDC Orb and Infinity Feather implemented
-- Stage Selection
+
 - Stock Setting
 - Item Setting
 

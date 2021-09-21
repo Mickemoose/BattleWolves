@@ -8,6 +8,7 @@ var
 	Max_Players = 8
 	Players = 0
 	paused=0
+	Set_Lives = 3
 	itemsStarted=0
 	Stage_Selected = null
 	Winner

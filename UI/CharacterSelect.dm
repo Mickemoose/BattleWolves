@@ -175,6 +175,37 @@ obj
 		appearance_flags = PIXEL_SCALE
 		var
 			number
+		StockCount
+			icon='UI/Letters.dmi'
+			icon_state="0"
+			plane=10001
+			New()
+				animate(src, transform=matrix()*2)
+				icon_state="[Set_Lives]"
+		Plus
+			icon='UI/CSSIcon.dmi'
+			icon_state="plus"
+			plane=10001
+			Click()
+				usr<<CLICK
+				Set_Lives++
+				if(Set_Lives > 6) Set_Lives = 6
+				for(var/obj/CSS/StockCount/S in world)
+					S.icon_state="[Set_Lives]"
+		Minus
+			icon='UI/CSSIcon.dmi'
+			icon_state="minus"
+			plane=10001
+			Click()
+				usr<<CLICK
+				Set_Lives--
+				if(Set_Lives < 1) Set_Lives = 1
+				for(var/obj/CSS/StockCount/S in world)
+					S.icon_state="[Set_Lives]"
+		LivesLabel
+			icon='UI/CSSIcon.dmi'
+			icon_state="LIVES"
+			plane=10001
 		Name
 			icon='UI/Names.dmi'
 			plane=5

@@ -21,6 +21,7 @@ UI
 				for(var/mob/m in Players_ALIVE)
 					m.client.unlock_input()
 
+
 					if(!itemsStarted)
 						itemsStarted=1
 						StartItems(m.z)
@@ -40,6 +41,7 @@ mob
 			var/PlayerSpawn/selected = pick(spawns)
 			selected.taken=1
 			src.loc=selected.loc
+			src.setPlayerLives(Set_Lives)
 			spawn(1)
 				if(src.character=="Smitty")
 					var/mob/Spirits/Pyrex/P = new /mob/Spirits/Pyrex(src)
