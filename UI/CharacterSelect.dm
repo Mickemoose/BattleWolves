@@ -368,6 +368,13 @@ obj
 			Annie
 				character="Annie"
 				icon_state="Annie"
+			Unknown
+				character="?"
+				icon_state="?"
+				Click()
+					return
+				MouseEntered()
+					return
 			MouseEntered()
 				usr<<CLICK
 				if(usr.character == null)

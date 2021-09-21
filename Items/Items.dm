@@ -464,6 +464,7 @@ ITEMS
 				//..()
 				if(vel_x!=0 && on_ground)
 					switch(icon_state)
+						if("glitch") icon_state="glitch-moving"
 						if("1") icon_state="1-moving"
 						if("2") icon_state="2-moving"
 						if("3") icon_state="3-moving"
@@ -490,7 +491,10 @@ ITEMS
 			carried=0
 			New()
 				..()
-				icon_state=pick("1","2","3")
+				if(Stage_Selected == "Glitch Realm")
+					icon_state=pick("glitch")
+				else
+					icon_state=pick("1","2","3")
 			bump(atom/a, d)
 				..()
 				if(d==DOWN&&thrown)

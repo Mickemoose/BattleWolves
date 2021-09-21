@@ -81,23 +81,23 @@
 "bC" = (/obj/CSS/Name/P6{step_y = 28},/turf,/area)
 "bD" = (/obj/CSS/Name/P7{step_y = 24},/turf,/area)
 "bE" = (/obj/CSS/Name/P8,/turf,/area)
-"bF" = (/obj/CSS/Icons,/turf,/area)
+"bF" = (/obj/CSS/Icons,/obj/CSS/Icons/Marylou,/obj/CSS/Icons/Unknown,/turf,/area)
 "bG" = (/obj/CSS/Icons/Derek,/turf,/area)
 "bH" = (/obj/CSS/Icons/Brendan,/turf,/area)
 "bI" = (/obj/CSS/Icons/Laundry,/turf,/area)
 "bJ" = (/obj/CSS/Icons/Smitty,/turf,/area)
 "bK" = (/obj/CSS/Icons/Hunter,/turf,/area)
-"bL" = (/obj/CSS/Icons,/GameCamera,/turf,/area)
-"bM" = (/obj/CSS/Icons,/obj/CSS/Icons/Marylou,/turf,/area)
-"bN" = (/obj/CSS/Icons,/obj/CSS/Icons/Bek,/turf,/area)
-"bO" = (/obj/CSS/Icons,/obj/CSS/Icons/Kathy,/turf,/area)
-"bP" = (/obj/CSS/Icons,/obj/CSS/Icons/Becca,/turf,/area)
-"bQ" = (/obj/CSS/Icons,/obj/CSS/Icons/Matt,/turf,/area)
-"bR" = (/obj/CSS/Icons,/obj/CSS/Icons/Froese,/turf,/area)
-"bS" = (/obj/CSS/Icons,/obj/CSS/Icons/Hartshorne,/turf,/area)
-"bT" = (/obj/CSS/Icons,/obj/CSS/Icons/Schnerch,/turf,/area)
-"bU" = (/obj/CSS/Icons,/obj/CSS/Icons/Satia,/turf,/area)
-"bV" = (/obj/CSS/Icons,/obj/CSS/Icons/Annie,/turf,/area)
+"bL" = (/obj/CSS/Icons,/obj/CSS/Icons/Bek,/obj/CSS/Icons/Unknown,/turf,/area)
+"bM" = (/obj/CSS/Icons,/obj/CSS/Icons/Kathy,/obj/CSS/Icons/Unknown,/turf,/area)
+"bN" = (/obj/CSS/Icons,/obj/CSS/Icons/Becca,/obj/CSS/Icons/Unknown,/turf,/area)
+"bO" = (/obj/CSS/Icons,/obj/CSS/Icons/Unknown,/turf,/area)
+"bP" = (/obj/CSS/Icons,/obj/CSS/Icons/Matt,/obj/CSS/Icons/Unknown,/turf,/area)
+"bQ" = (/obj/CSS/Icons,/obj/CSS/Icons/Froese,/obj/CSS/Icons/Unknown,/turf,/area)
+"bR" = (/obj/CSS/Icons,/obj/CSS/Icons/Hartshorne,/obj/CSS/Icons/Unknown,/turf,/area)
+"bS" = (/obj/CSS/Icons,/obj/CSS/Icons/Annie,/obj/CSS/Icons/Unknown,/turf,/area)
+"bT" = (/obj/CSS/Icons,/obj/CSS/Icons/Schnerch,/obj/CSS/Icons/Unknown,/turf,/area)
+"bU" = (/obj/CSS/Icons,/obj/CSS/Icons/Satia,/obj/CSS/Icons/Unknown,/turf,/area)
+"bV" = (/obj/CSS/Icons,/GameCamera,/obj/CSS/Icons/Unknown,/turf,/area)
 "bW" = (/STAGEART/WhaleBoat{step_y = 11},/turf/Whale_Boat/Water,/area)
 "bX" = (/obj/CSS/StageIcons/Debug,/turf,/area)
 "bY" = (/obj/CSS/StageIcons/WhaleBoat,/turf,/area)
@@ -145,10 +145,10 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaaaaaaaaaaaaaaaaaaacbcccdceaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabXaabYaabZaaaaaabGbMbHbNbIbJbObKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabPbFbQbRbFbSbVbTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabFbUbFbFbFbFbFbFaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabFbFbFbFbLbFbFbFaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabXaabYaabZaaaaaabGbFbHbLbIbJbMbKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabNbObPbQbObRbSbTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabObUbObObObObObOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabObObObObVbObObOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

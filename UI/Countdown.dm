@@ -69,6 +69,9 @@ proc
 				Items_ACTIVE.Remove(I)
 				if(istype(I,/ITEMS/INSTANTS/KFK_Card)) Current_KFK--
 				del I
+			for(var/KFK_Mobs/K in world)
+				Current_KFK--
+				del K
 			for(var/mob/m in Players_ALIVE)
 				Winner=m.character
 			for(var/mob/m in Players_INSERVER)
