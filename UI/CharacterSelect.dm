@@ -302,6 +302,9 @@ obj
 			GlitchRealm
 				stage="Glitch Realm"
 				icon_state="Glitch Realm"
+			Dreadfield
+				stage="Dreadfield"
+				icon_state="Dreadfield"
 			//MouseEntered()
 			//	usr<<CLICK
 			//	if(usr.character == null)

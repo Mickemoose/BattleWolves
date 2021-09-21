@@ -7,7 +7,7 @@ obj
 			New()
 				..()
 				animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 0)
-				animate(alpha = 130, transform = matrix()*1, color = "white", time = 2)
+				animate(alpha = 170, transform = matrix()*1, color = "white", time = 2)
 
 mob
 	SQUID

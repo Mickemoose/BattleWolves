@@ -225,7 +225,7 @@ mob
 							m<<CHOOSE
 							m.ResultsEnd()
 			if(inSSS)
-			/*	if(k == "1")
+				if(k == "1")
 					src.StopEmber()
 					for(var/UI/BACK/F2 in src.client.screen)
 						animate(F2, alpha=0, time=3)
@@ -253,8 +253,8 @@ mob
 					for(var/UI/CSS/Name/P in src.client.screen)
 						del P
 					for(var/GameCamera/GC in world)
-						if(GC.z == 2)
-							client.eye = GC */
+						if(GC.z == 5)
+							client.eye = GC
 				if(k == "enter" || k  == "return" && Stage_Selected!=null && Players_READY.len == Players_ALIVE.len)
 					for(var/mob/m in Players_ALIVE)
 						if(m.client)

@@ -55,6 +55,7 @@
 #include "Music\Music.dm"
 #include "Sound\Sound.dm"
 #include "Stages\Glitch\stage.dm"
+#include "Stages\Graveyard\stage.dm"
 #include "Stages\Test\stage.dm"
 #include "Stages\Whale\stage.dm"
 #include "System\BlastZone.dm"

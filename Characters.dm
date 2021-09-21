@@ -260,6 +260,18 @@ mob
 							Spawn(4)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 4) itemspawns.Add(S)
+				if("Dreadfield")
+					src<<DREAD
+					SongPlaying = DREAD
+					SongPlaying.volume = MUSIC_VOLUME
+					SongPlaying.status = SOUND_UPDATE
+					src<<SongPlaying
+					for(var/GameCamera/GC in world)
+						if(GC.z == 5)
+							client.eye = GC
+							Spawn(5)
+							for(var/ItemSpawn/S in world)
+								if(S.z == 5) itemspawns.Add(S)
 				if("Debug")
 					src<<GLITCH
 					SongPlaying = GLITCH

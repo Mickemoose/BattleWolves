@@ -49,10 +49,16 @@ KFK Ideas:
 ---------------
 Pass That Pete - Blows purple haze around which reverses movement of people hit by it
 Wobbles Da Fox Final Form - Shoots a giant laser from one of either side of the stage
-Staryxia - Encases a random person in a diamond prison
 Gary - Opens his shop and throws out random 4 items
 Wingling - Beedrill clone
-**DONE**Ninja Octo Squad - Octos jump up like octorocks from bottom of screen, throw ninja stars (Arch Animate rotate)
+Spiffy Starcrash - Attacks everyone with her leaf blade (Doop style)
+Balobo Dung Beetle - Counters real hard if attacked
+Tigre & Cheetix - One shoots wave of water to left, one freezes right side
+Dizmantle - Spawns, strikes a fighting pose, teleports to someone, fucks them up, does it to each person alive
+Daxter (As DAX) - Becomes DAX and creates a black hole that sucks everyone in and damages them constantly
+The Rabbit Suit - Camera zooms in on Rabbit Suit and New UI appears, talks with random headlines appearing
+SPOOP - Spawns with a lab, mixes two vials and BOOM (Explode, Poison Smoke, Petrifying Smoke, Healing Smoke,)
+Tenishura - Spawns, puts his hand on his sword anime style, fade out, suddenly fade in to Tenishura striking a random person and then leaving.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -60,7 +66,7 @@ Wingling - Beedrill clone
 
 - Brendan Smitty Laundry Hunter playable
 - Lava Tech Facility stages
-- 3 of the current KFK ideas implemented
+- 2 of the current KFK ideas implemented
 - Speed Orb, RDC Orb implemented
 
 
