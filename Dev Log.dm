@@ -44,6 +44,7 @@ Infinity Feather - Heals to 0%
 Turnt Turnip - Strong Turnip throwable
 
 
+
 KFK Ideas:
 ---------------
 Pass That Pete - Blows purple haze around which reverses movement of people hit by it
@@ -54,17 +55,17 @@ Wingling - Beedrill clone
 **DONE**Ninja Octo Squad - Octos jump up like octorocks from bottom of screen, throw ninja stars (Arch Animate rotate)
 
 
-Version 0 - Golfstack Aladdin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 0.5 first major playable version
 
 - Brendan Smitty Laundry Hunter playable
 - Lava Tech Facility stages
-- 4 of the current KFK ideas implemented
-- Speed Orb, RDC Orb and Infinity Feather implemented
+- 3 of the current KFK ideas implemented
+- Speed Orb, RDC Orb implemented
 
-- Stock Setting
+
 - Item Setting
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Possible future features
 
