@@ -459,7 +459,10 @@ ITEMS
 			canCarry=0
 			New()
 				..()
-				icon_state=pick("1","2","3")
+				if(Stage_Selected == "Glitch Realm")
+					icon_state=pick("glitch")
+				else
+					icon_state=pick("1","2","3")
 			action()
 				//..()
 				if(vel_x!=0 && on_ground)
