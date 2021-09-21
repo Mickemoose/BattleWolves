@@ -30,11 +30,11 @@ mob
 					return
 		getDamage()
 			return src.percent
-		HitStun(var/mob/target, time=2)
+		HitStun(var/mob/target, time=2, color="red")
 			if(target.INVINCIBLE||target.SUPERARMOR) return
 			freeMashing()
-			Shake("LIGHT")
-			target.Shake("LIGHT")
+			if(client) Shake("LIGHT")
+			if(target.client) target.Shake("LIGHT")
 			if(target.burning) view(target)<<FIRE
 			else view(target)<<HIT
 			//src.vel_x=0
@@ -47,7 +47,11 @@ mob
 			target.hitstun=1
 		//	target.Ripple()
 			//src.hitstun=1
-			animate(target,color=rgb(255,0,0),time=1)
+			switch(color)
+				if("red") animate(target,color=rgb(255,0,0),time=1)
+				if("blue") animate(target,color=rgb(35,106,255),time=1)
+				else animate(target,color=rgb(255,0,0),time=1)
+
 		//	sleep(1)
 			spawn(time)
 				animate(target,color=rgb(255,255,255),time=3)

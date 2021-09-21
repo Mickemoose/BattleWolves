@@ -1,3 +1,14 @@
+obj
+	KFK_EFFECT
+		plane=5
+		DiamondPrison
+			icon='Items/KFK/Staryxia.dmi'
+			icon_state="diamond"
+			New()
+				..()
+				animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 0)
+				animate(alpha = 130, transform = matrix()*1, color = "white", time = 2)
+
 mob
 	SQUID
 		icon='Items/KFK/NinjaSquid.dmi'

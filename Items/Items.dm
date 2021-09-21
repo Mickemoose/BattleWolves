@@ -368,7 +368,7 @@ ITEMS
 			plane=3
 			carried=0
 			var
-				list/chars = list("Doop","PhormPhather","Steve","Zeke","Hazorb","Jellypot","NinjaSquidSquad")
+				list/chars = list("Doop","PhormPhather","Steve","Zeke","Hazorb","Jellypot","NinjaSquidSquad","Staryxia")
 				list/sacs = list("Beefalo")
 				ctype = "character" //or sacrifice
 			Activate(var/mob/activator)

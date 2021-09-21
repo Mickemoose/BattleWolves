@@ -21,5 +21,6 @@ var
 		localplayers= list()
 	MATCH_WINNER
 
-	list/kfks = list("/KFK_Mobs/Doop","/KFK_Mobs/PhormPhather","/KFK_Mobs/Steve","/KFK_Mobs/Zeke","/KFK_Mobs/Hazorb","/KFK_Mobs/Beefalo","/KFK_Mobs/Jellypot","/KFK_Mobs/NinjaSquidSquad")
+	list/kfks = list("/KFK_Mobs/Doop","/KFK_Mobs/PhormPhather","/KFK_Mobs/Steve","/KFK_Mobs/Zeke","/KFK_Mobs/Hazorb","/KFK_Mobs/Beefalo","/KFK_Mobs/Jellypot","/KFK_Mobs/NinjaSquidSquad",
+	"/KFK_Mobs/Staryxia")
 

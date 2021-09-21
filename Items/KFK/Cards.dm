@@ -33,6 +33,88 @@ KFK_Mobs
 				Current_KFK--
 				Items_ACTIVE.Remove(src)
 				del src
+	Staryxia
+		icon='Items/KFK/Staryxia.dmi'
+		density=0
+		scaffold=0
+		isPlayer=0
+		var/list/players=list()
+		var/list/target=list()
+		var/grabbed=0
+		var/attacked=0
+		var/list/diamond=list()
+		can_bump(turf/t)
+			return 0
+		gravity()
+		bump()
+		movement()
+			..()
+		action()
+			if(!grabbed)
+				if(path || destination )
+					follow_path()
+
+				for(var/mob/M in target)
+
+					if(!grabbed)
+						move_towards(M)
+						if(src.py < M.py+20)
+							src.py+=2
+						if(src.py > M.py+20)
+							src.py-=2
+						face(M)
+						spawn(8)
+							grabbed=1
+							vel_x=0
+							vel_y=0
+							Magic()
+
+
+
+
+			slow_down()
+		proc
+			Magic()
+				if(!attacked)
+					attacked=1
+					icon_state="magic"
+					var/mob/M=pick(target)
+					M.hitstun=1
+					M.overlays+=/obj/KFK_EFFECT/DiamondPrison
+					spawn(15)
+						M.vel_y=2
+						spawn(5)
+							M.vel_y=4
+							spawn(5)
+								M.vel_y=0
+								spawn(5)
+									M.overlays-=M.overlays
+									world<<FIRESPLODE
+									var/EFFECT/DEREK/USPECIAL/FX = new /EFFECT/DEREK/USPECIAL(M.loc)
+									FX.step_x=M.step_x+16
+									FX.step_y=M.step_y
+									M.hitstun=0
+									M.setDamage(0.11,"ADD")
+									HitStun(M,1,"blue")
+									spawn(1)
+										M.Knockback(power = "MEDIUM", where = "UP RIGHT")
+									spawn(5)
+										icon_state=""
+										vel_y=2
+									spawn(7)
+										vel_y=3.5
+									spawn(10)
+										vel_y=5
+									spawn(15)
+										Deactivate()
+
+		Active()
+			for(var/mob/M in Players_ALIVE)
+				if(owner!=M && target.len<=0)
+					players.Add(M)
+
+			target.Add(pick(players))
+
 	Jellypot
 		icon='Items/KFK/Jellypot.dmi'
 		density=0

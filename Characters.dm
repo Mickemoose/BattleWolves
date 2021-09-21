@@ -129,8 +129,6 @@ mob
 					spawn(0.8)
 						kbsmoke=0
 						KBSMOKE(kblevel)
-				else()
-					KBSMOKE(kblevel)
 			else
 				return
 		setPlayerColor(num)
