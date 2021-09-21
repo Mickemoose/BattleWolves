@@ -249,7 +249,37 @@ obj
 						for(var/obj/CSS/Name/N in world)
 							N.SetName(m, character)
 
-
+		STAGE_SELECTED
+			icon='UI/SSSIcon.dmi'
+			icon_state="select"
+			plane=10001
+		StageIcons
+			icon='UI/SSSIcon.dmi'
+			plane=10000
+			var
+				stage="null"
+			Debug
+				stage="Debug"
+				icon_state="Debug"
+			WhaleBoat
+				stage="Whale Boat"
+				icon_state="Whale Boat"
+			GlitchRealm
+				stage="Glitch Realm"
+				icon_state="Glitch Realm"
+			//MouseEntered()
+			//	usr<<CLICK
+			//	if(usr.character == null)
+			//		usr<<CLICK
+			//		for(var/obj/CSS/Portrait/p in world)
+			//			p.SetPortait(usr, src.character, temp=1)
+			Click()
+				if(usr.PLAYERNUMBER == 1)
+					usr<<CHOOSE
+					Stage_Selected=src.stage
+					for(var/obj/CSS/StageIcons/S in world)
+						S.overlays-=S.overlays
+					src.overlays+=/obj/CSS/STAGE_SELECTED
 		Icons
 			icon='UI/CSSIcon.dmi'
 			plane=10000
@@ -309,22 +339,18 @@ obj
 						p.SetPortait(usr, src.character, temp=1)
 			Click()
 
-				if(usr.character == null)
-					usr<<CHOOSE
-					usr.setCharacter(src.character)
-					for(var/obj/CSS/Portrait/p in world)
-						p.SetPortait(usr, src.character, temp=0)
-					Players_READY.Add(usr)
-					if(usr.PLAYERNUMBER==1)
-						usr.inCSS=0
-						usr.inSSS=1
-					if(Players_READY.len == Players_ALIVE.len)
-						for(var/mob/m in Players_ALIVE)
-							if(m.client)
-								new/UI/CSS/Ready(usr.client)
-					Stage_Selected="Whale Boat"
+				usr<<CHOOSE
+				usr.setCharacter(src.character)
+				for(var/obj/CSS/Portrait/p in world)
+					p.SetPortait(usr, src.character, temp=0)
+				Players_READY.Add(usr)
+				if(Players_READY.len == Players_ALIVE.len)
+					for(var/mob/m in Players_ALIVE)
+						if(m.client)
+							new/UI/CSS/Ready(usr.client)
+				//Stage_Selected="Whale Boat"
+				if(usr.PLAYERNUMBER ==1)
 					usr.inSSS=1
-					usr.inCSS=0
 
 
 		Plates

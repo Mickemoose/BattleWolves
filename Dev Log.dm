@@ -51,7 +51,7 @@ Wobbles Da Fox Final Form - Shoots a giant laser from one of either side of the 
 Staryxia - Encases a random person in a diamond prison
 Gary - Opens his shop and throws out random 4 items
 Wingling - Beedrill clone
-Ninja Octo Squad - Octos jump up like octorocks from bottom of screen, throw ninja stars (Arch Animate rotate)
+**DONE**Ninja Octo Squad - Octos jump up like octorocks from bottom of screen, throw ninja stars (Arch Animate rotate)
 
 
 Version 0 - Golfstack Aladdin
@@ -61,7 +61,9 @@ Version 0 - Golfstack Aladdin
 - Whale Boat, Glitch Realm and Lava Tech Facility stages
 - 4 of the current KFK ideas implemented
 - Speed Orb, RDC Orb and Infinity Feather implemented
-
+- Stage Selection
+- Stock Setting
+- Item Setting
 
 
 Possible future features
