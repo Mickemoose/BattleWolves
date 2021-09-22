@@ -9,9 +9,6 @@ mob
 			canAct=0
 			vel_x=0
 			vel_y=0
-			for(var/mob/Spirits/Pyrex/P in spirits)
-				if(!P.summoned)
-					P.Summon("HIDE")
 			for(var/mob/Spirits/Alkaline/P in spirits)
 				if(!P.summoned)
 					P.Summon("HIDE")
@@ -24,9 +21,6 @@ mob
 				vel_y=14
 				spawn(6)
 					for(var/mob/Spirits/Alkaline/P in spirits)
-						if(!P.summoned)
-							P.Revert()
-					for(var/mob/Spirits/Pyrex/P in spirits)
 						if(!P.summoned)
 							P.Revert()
 					client.unlock_input()
