@@ -44,6 +44,7 @@
 #include "Characters\Derek\SSpecial.dm"
 #include "Characters\Derek\USpecial.dm"
 #include "Characters\Smitty\DSPECIAL.dm"
+#include "Characters\Smitty\NSpecial.dm"
 #include "Characters\Smitty\Spirits.dm"
 #include "Characters\Smitty\SSpecial.dm"
 #include "Characters\Smitty\USpecial.dm"

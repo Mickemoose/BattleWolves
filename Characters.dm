@@ -102,6 +102,8 @@ mob
 			switch(character)
 				if("Derek")
 					SpiritBurst()
+				if("Smitty")
+					SpiritProtect()
 		UpSpecial()
 			animate(src, transform = null, time = 0.1)
 			switch(character)
