@@ -1,6 +1,7 @@
 var
 	list
 		itemlist=list("INSTANTS/KFK_Card","CONTAINERS/Barrel","CONTAINERS/Crate","CONTAINERS/Wheel_Crate","INSTANTS/Food","THROWABLES/WebTrap", "THROWABLES/BluJay","THROWABLES/JamJar","THROWABLES/ProxMine")
+		containerlist = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food", "THROWABLES/WebTrap", "THROWABLES/BluJay","THROWABLES/JamJar","THROWABLES/ProxMine")
 ITEMS
 	parent_type = /mob
 	appearance_flags = PIXEL_SCALE
@@ -21,8 +22,6 @@ ITEMS
 		isReallyDeleting = 0
 		isActuallyDeleting =0
 		flash = 0
-		list
-			contains = list("INSTANTS/Food","INSTANTS/Food","INSTANTS/Food", "THROWABLES/WebTrap", "THROWABLES/BluJay","THROWABLES/JamJar","THROWABLES/ProxMine")
 	THROWABLES
 		ProxMine
 			icon='Items/ProxMine.dmi'
@@ -553,7 +552,7 @@ ITEMS
 				//animate(transform = null, time = 1.5, loop = -1)
 				animate(src, transform = matrix().Translate(0,42), ,time = 5, loop = 0, easing = SINE_EASING)
 				if(Items_ACTIVE.len < Max_Items)
-					F=pick(contains)
+					F=pick(containerlist)
 					O = text2path("/ITEMS/[F]")
 					O2 = new O(src.loc)
 					O2.set_pos(src.px-8, src.py+16)
@@ -561,7 +560,7 @@ ITEMS
 					O2.vel_x=rand(-2,2)
 					Items_ACTIVE.Add(O2)
 					if(Items_ACTIVE.len < Max_Items)
-						F=pick(contains)
+						F=pick(containerlist)
 						O = text2path("/ITEMS/[F]")
 						O2 = new O(src.loc)
 						O2.set_pos(src.px-8, src.py+16)
@@ -569,7 +568,7 @@ ITEMS
 						O2.vel_x=rand(-2,2)
 						Items_ACTIVE.Add(O2)
 						if(Items_ACTIVE.len < Max_Items)
-							F=pick(contains)
+							F=pick(containerlist)
 							O = text2path("/ITEMS/[F]")
 							O2 = new O(src.loc)
 							O2.set_pos(src.px-8, src.py+16)
