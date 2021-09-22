@@ -28,6 +28,10 @@ var/sound/CROWD = sound('Sound/crowd.wav',channel=1,volume=5)
 var/sound/FANFARE = sound('Sound/fanfare.wav',channel = 2,volume=5)
 var/sound/FLAMES = sound('Sound/flames.wav', volume=2, repeat=1)
 
+var/sound/NEWS = sound('Sound/news.mp3', volume=3)
+var/sound/NEWSCAST = sound('Sound/newscast.wav',volume=50)
+var/sound/NEWSCLEAR = sound('Sound/clearthroat.wav',volume=50)
+
 //ANNOUNCER CALLS
 var/sound/Derek = sound('AnnouncerDerek.wav',channel=1,volume=5)
 var/sound/Brendan = sound('AnnouncerBrendan.wav',channel=1,volume=5)

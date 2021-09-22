@@ -1,5 +1,112 @@
 UI
 	KFK
+		RabbitSuit
+			icon = 'Items/KFK/RabbitSuit/RabbitSuit.dmi'
+			icon_state=""
+			plane=10000
+			screen_loc="CENTER+1,CENTER+2:-14"
+			appearance_flags = PIXEL_SCALE
+			var/mob/owner
+			New(client/c)
+				c.screen+=src
+				owner=c
+				animate(src,transform=matrix()*4, time=0)
+				animate(src,transform=matrix().Translate(0,400)*4, time=0, easing=SINE_EASING)
+				spawn(1)
+					active()
+			proc
+				active()
+
+					animate(src,transform=matrix().Translate(0,0)*4, time=10, easing=QUAD_EASING)
+
+					spawn(11)
+						flick("cough",src)
+						owner<<NEWSCLEAR
+					spawn(20)
+						icon_state="talking"
+						owner<<NEWSCAST
+					spawn(25)
+						icon_state=""
+					spawn(30)
+						icon_state="talking"
+					spawn(44)
+						icon_state=""
+					spawn(50)
+						flick("cough",src)
+						owner<<NEWSCLEAR
+					spawn(55)
+						icon_state=""
+					spawn(60)
+						icon_state="talking"
+						owner<<NEWSCAST
+					spawn(70)
+						icon_state="talking"
+					spawn(100)
+						icon_state=""
+				deactive()
+					animate(src,transform=matrix().Translate(0,400)*4, time=6, easing=QUAD_EASING)
+					spawn(4)
+						del src
+		RabbitLogo
+			icon = 'Items/KFK/RabbitSuit/NewsLogo.dmi'
+			icon_state=""
+			plane=10000
+			screen_loc="CENTER-11,CENTER+6"
+			appearance_flags = PIXEL_SCALE
+			New(client/c)
+				c.screen+=src
+				animate(src,transform=matrix()*2, time=0)
+				animate(src,transform=matrix().Translate(400,0)*2, time=0, easing=SINE_EASING)
+				spawn(1)
+					active()
+			proc
+				active()
+					animate(src,transform=matrix().Translate(0,0)*2, time=10, easing=QUAD_EASING)
+				deactive()
+					animate(src,transform=matrix().Translate(400,0)*2, time=6, easing=QUAD_EASING)
+					spawn(4)
+						del src
+		RabbitLive
+			icon = 'Items/KFK/RabbitSuit/Live.dmi'
+			icon_state=""
+			plane=10000
+			screen_loc="CENTER+10,CENTER+5"
+			appearance_flags = PIXEL_SCALE
+			New(client/c)
+				c.screen+=src
+				icon_state="[Stage_Selected]"
+				animate(src,transform=matrix()*2, time=0)
+				animate(src,transform=matrix().Translate(-400,0)*2, time=0, easing=SINE_EASING)
+				spawn(1)
+					active()
+			proc
+				active()
+					animate(src,transform=matrix().Translate(0,0)*2, time=10, easing=QUAD_EASING)
+				deactive()
+					animate(src,transform=matrix().Translate(-400,0)*2, time=6, easing=QUAD_EASING)
+					spawn(4)
+						del src
+		RabbitHeadline
+			icon = 'Items/KFK/RabbitSuit/Headline.dmi'
+
+			plane=10000
+			screen_loc="CENTER-7,CENTER-6"
+			appearance_flags = PIXEL_SCALE
+			New(client/c)
+				c.screen+=src
+				icon_state=pick("1","2","3","4")
+				animate(src,transform=matrix()*2, time=0)
+				animate(src,transform=matrix().Translate(0,-400)*2, time=0, easing=SINE_EASING)
+				spawn(1)
+					active()
+			proc
+				active()
+					animate(src,transform=matrix().Translate(0,0)*2, time=10, easing=QUAD_EASING)
+				deactive()
+					animate(src,transform=matrix().Translate(0,-400)*2, time=6, easing=QUAD_EASING)
+					spawn(4)
+						del src
+
 		SunBackground
 			icon = 'System/fade.dmi'
 			icon_state="white"
@@ -32,7 +139,7 @@ UI
 			icon='Items/KFK/Steve.dmi'
 			plane=-3
 			screen_loc="CENTER-5,CENTER-2"
-			New(client./c)
+			New(client/c)
 				c.screen+=src
 				animate(src,transform=matrix().Translate(0,400), time=0, easing=SINE_EASING)
 				spawn(1)
@@ -49,7 +156,7 @@ UI
 			icon_state="base"
 			screen_loc="CENTER-3,CENTER-2"
 
-			New(client./c)
+			New(client/c)
 				c.screen+=src
 
 				active()
@@ -71,7 +178,7 @@ UI
 			icon_state="hand"
 			screen_loc="CENTER-3,CENTER-2"
 
-			New(client./c)
+			New(client/c)
 				c.screen+=src
 
 				active()

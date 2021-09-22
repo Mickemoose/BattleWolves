@@ -335,6 +335,46 @@ KFK_Mobs
 								M.Knockback(power = "NONE", where = "UP LEFT")
 						spawn(6)
 							M.hitIndex="null"
+	RabbitSuit
+		icon='Items/KFK/RabbitSuit/RabbitSuit.dmi'
+		icon_state=""
+		pixel_x=-24
+		pixel_y=-5
+		fall_speed=5
+		density=0
+		scaffold=0
+		hitstun=1
+		isPlayer=0
+		can_bump(turf/t)
+			return 0
+		gravity()
+		bump()
+		movement()
+			..()
+		Active()
+			vel_y=4
+			spawn(2)
+				vel_y=20
+			spawn(4)
+				animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
+				vel_y=0
+				for(var/mob/m in view(src))
+					m<<NEWS
+					var/UI/KFK/RabbitSuit/C3 = new /UI/KFK/RabbitSuit(m.client)
+					var/UI/KFK/RabbitLive/C4 = new /UI/KFK/RabbitLive(m.client)
+					var/UI/KFK/RabbitLogo/C5 = new /UI/KFK/RabbitLogo(m.client)
+					var/UI/KFK/RabbitHeadline/C6 = new /UI/KFK/RabbitHeadline(m.client)
+
+					spawn(130)
+						if(m.isPlayer)
+
+							C3.deactive()
+							C4.deactive()
+							C5.deactive()
+							C6.deactive()
+							spawn(5)
+								Deactivate()
+		bump()
 	Steve
 		//icon='Items/KFK/Steve.dmi'
 		//icon_state="stand"

@@ -56,7 +56,6 @@ Balobo Dung Beetle - Counters real hard if attacked
 Tigre & Cheetix - One shoots wave of water to left, one freezes right side
 Dizmantle - Spawns, strikes a fighting pose, teleports to someone, fucks them up, does it to each person alive
 Daxter (As DAX) - Becomes DAX and creates a black hole that sucks everyone in and damages them constantly
-The Rabbit Suit - Camera zooms in on Rabbit Suit and New UI appears, talks with random headlines appearing
 SPOOP - Spawns with a lab, mixes two vials and BOOM (Explode, Poison Smoke, Petrifying Smoke, Healing Smoke,)
 Tenishura - Spawns, puts his hand on his sword anime style, fade out, suddenly fade in to Tenishura striking a random person and then leaving.
 
@@ -66,7 +65,7 @@ Tenishura - Spawns, puts his hand on his sword anime style, fade out, suddenly f
 
 - Brendan Smitty Laundry Hunter playable
 - Lava Tech Facility stages
-- 2 of the current KFK ideas implemented
+- 1 of the current KFK ideas implemented
 - Speed Orb, RDC Orb implemented
 
 
