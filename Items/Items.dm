@@ -152,6 +152,9 @@ ITEMS
 							src.icon=null
 							src.loc=locate(1,1,1)
 							del src
+			bump(turf/t)
+				if(thrown)
+					del src
 
 			//	..()
 		JamJar

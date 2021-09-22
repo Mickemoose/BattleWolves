@@ -29,10 +29,10 @@ turf
 			density=0
 			plane=-5
 			appearance_flags = PIXEL_SCALE
-			pixel_y=-224
-			pixel_x=-160
+			pixel_y=-256
+			pixel_x=-256
 			New()
-				animate(src, transform=matrix()*1.3)
+				animate(src, transform=matrix()*1)
 
 		effect
 			icon_state="effect"
