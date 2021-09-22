@@ -23,6 +23,15 @@ mob
 				chasing=0
 				biting=0
 			proc
+				Hide()
+					if(summoned)
+						set_pos(px,py+64)
+						flick("trans",src)
+						spawn(1.5)
+							animate(src,alpha=0)
+						spawn(25)
+							if(summoned)
+								Revert()
 				Totem()
 					if(summoned)
 						set_pos(px,py+64)
@@ -72,6 +81,8 @@ mob
 							Chase(src.dir)
 						if("TOTEM")
 							Totem()
+						if("HIDE")
+							Hide()
 
 			gravity()
 			pixel_move(dpx, dpy)
@@ -131,6 +142,7 @@ mob
 				biting=0
 			Revert()
 				summoned=0
+				animate(src,alpha=255)
 				biting=0
 				chasing=0
 				vel_y=0
@@ -154,7 +166,18 @@ mob
 							Chase(src.dir)
 						if("TOTEM")
 							Totem()
+						if("HIDE")
+							Hide()
 			proc
+				Hide()
+					if(summoned)
+						set_pos(px,py+64)
+						flick("trans",src)
+						spawn(1.5)
+							animate(src,alpha=0)
+						spawn(25)
+							if(summoned)
+								Revert()
 				Totem()
 					totem=1
 					path=null

@@ -107,6 +107,8 @@ mob
 			switch(character)
 				if("Derek")
 					BurstGrab()
+				if("Smitty")
+					SpiritFlight()
 
 		DownSpecial()
 			animate(src, transform = null, time = 0.1)

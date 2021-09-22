@@ -46,6 +46,7 @@
 #include "Characters\Smitty\DSPECIAL.dm"
 #include "Characters\Smitty\Spirits.dm"
 #include "Characters\Smitty\SSpecial.dm"
+#include "Characters\Smitty\USpecial.dm"
 #include "Effects\Effects.dm"
 #include "hitboxes\Hitbox.dm"
 #include "Items\Items.dm"
