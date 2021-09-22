@@ -61,7 +61,7 @@ Tenishura - Spawns, puts his hand on his sword anime style, fade out, suddenly f
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 0.5 first major playable version
 
-- Brendan Smitty Laundry Hunter playable
+- Brendan Laundry Hunter playable
 - Lava Tech Facility stage
 - 1 of the current KFK ideas implemented
 - Speed Orb implemented
