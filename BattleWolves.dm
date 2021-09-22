@@ -253,7 +253,7 @@ mob
 					for(var/UI/CSS/Name/P in src.client.screen)
 						del P
 					for(var/GameCamera/GC in world)
-						if(GC.z == 5)
+						if(GC.z == 6)
 							client.eye = GC
 				if(k == "enter" || k  == "return" && Stage_Selected!=null && Players_READY.len == Players_ALIVE.len)
 					for(var/mob/m in Players_ALIVE)

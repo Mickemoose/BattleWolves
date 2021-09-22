@@ -305,6 +305,9 @@ obj
 			Dreadfield
 				stage="Dreadfield"
 				icon_state="Dreadfield"
+			CastleLaundo
+				stage="Castle Laundo"
+				icon_state="Castle Laundo"
 			//MouseEntered()
 			//	usr<<CLICK
 			//	if(usr.character == null)

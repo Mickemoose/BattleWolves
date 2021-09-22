@@ -272,6 +272,18 @@ mob
 							Spawn(5)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 5) itemspawns.Add(S)
+				if("Castle Laundo")
+					src<<LAUNDO
+					SongPlaying = LAUNDO
+					SongPlaying.volume = MUSIC_VOLUME
+					SongPlaying.status = SOUND_UPDATE
+					src<<SongPlaying
+					for(var/GameCamera/GC in world)
+						if(GC.z == 6)
+							client.eye = GC
+							Spawn(6)
+							for(var/ItemSpawn/S in world)
+								if(S.z == 6) itemspawns.Add(S)
 				if("Debug")
 					src<<GLITCH
 					SongPlaying = GLITCH

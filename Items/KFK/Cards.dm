@@ -353,10 +353,8 @@ KFK_Mobs
 			..()
 		Active()
 			vel_y=4
-			spawn(2)
-				vel_y=20
-			spawn(4)
-				animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
+			animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
+			spawn(5)
 				vel_y=0
 				for(var/mob/m in view(src))
 					m<<NEWS
