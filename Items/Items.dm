@@ -476,6 +476,7 @@ ITEMS
 						if("glitch") icon_state="glitch-moving"
 						if("dread") icon_state="dread-moving"
 						if("laundo") icon_state="laundo-moving"
+						if("whale") icon_state="whale-moving"
 						if("1") icon_state="1-moving"
 						if("2") icon_state="2-moving"
 						if("3") icon_state="3-moving"
@@ -508,6 +509,8 @@ ITEMS
 					icon_state=pick("dread")
 				if(Stage_Selected == "Castle Laundo")
 					icon_state=pick("laundo")
+				if(Stage_Selected == "Whale Boat")
+					icon_state=pick("whale")
 				else
 					icon_state=pick("1","2","3")
 			bump(atom/a, d)
@@ -701,6 +704,7 @@ ITEMS
 					isDeleting=1
 					animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
 					spawn(3)
+						if(carried || thrown) return
 						if(istype(src, /ITEMS/INSTANTS/KFK_Card)) Current_KFK--
 						Items_ACTIVE.Remove(src)
 
