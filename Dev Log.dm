@@ -66,6 +66,13 @@ Tenishura - Spawns, puts his hand on his sword anime style, fade out, suddenly f
 - 1 of the current KFK ideas implemented
 - Speed Orb implemented
 - Item Setting
+
+0.6
+
+- Becca Satia Matt Hartshorne Dylan
+- Fifth Dimension Stage
+- 4 new KFK cards
+- 4 new items
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Possible future features

@@ -49,3 +49,4 @@ client
 				winset(src, "default", "is-minimized=true;can-resize=true;titlebar=true;menu=menu") //Set window to normal size.
 				winset(src, "default", "is-minimized=false")
 				winset(src, "map1", "is-visible=true")
+				winset(src, "default.map1", "zoom=1")

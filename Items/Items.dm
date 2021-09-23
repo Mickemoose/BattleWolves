@@ -465,6 +465,8 @@ ITEMS
 					icon_state=pick("glitch")
 				if(Stage_Selected == "Dreadfield")
 					icon_state=pick("dread")
+				if(Stage_Selected == "Castle Laundo")
+					icon_state=pick("laundo")
 				else
 					icon_state=pick("1","2","3")
 			action()
@@ -473,6 +475,7 @@ ITEMS
 					switch(icon_state)
 						if("glitch") icon_state="glitch-moving"
 						if("dread") icon_state="dread-moving"
+						if("laundo") icon_state="laundo-moving"
 						if("1") icon_state="1-moving"
 						if("2") icon_state="2-moving"
 						if("3") icon_state="3-moving"
@@ -503,6 +506,8 @@ ITEMS
 					icon_state=pick("glitch")
 				if(Stage_Selected == "Dreadfield")
 					icon_state=pick("dread")
+				if(Stage_Selected == "Castle Laundo")
+					icon_state=pick("laundo")
 				else
 					icon_state=pick("1","2","3")
 			bump(atom/a, d)
