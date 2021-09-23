@@ -371,6 +371,19 @@ mob
 					if(inCSS) src<<Hunter
 				if("Laundry")
 					character = "[name]"
+					icon='Characters/Laundry.dmi'
+					jump_speed = 5
+					boostdefault = 2
+					pixel_x=-22
+					pixel_y=-16
+					pwidth=22
+					pheight=33
+					fall_speed=7
+					move_speed=4.5
+					air_move_speed=3
+					air_decel=0.14
+					gravity=1
+					carry_speed=1.5
 					if(inCSS) src<<Laundry
 				if("Smitty")
 					icon='Characters/Smitty.dmi'

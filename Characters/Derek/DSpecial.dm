@@ -3,12 +3,14 @@ mob
 		..()
 		//	for(var/mob/m in obounds(0,src)-owner)
 		for(var/ITEMS/CONTAINERS/Wheel_Crate/W in front(20)-src)
-			if(W.hitIndex!=src)
-				W.hitIndex=src
-				if(dir==RIGHT) W.vel_x=4
-				else W.vel_x=-4
+			if(character=="Derek" && doingSpecial == "DOWN")
+				if(W.hitIndex!=src)
+					W.hitIndex=src
+					if(dir==RIGHT) W.vel_x=4
+					else W.vel_x=-4
 		for(var/ITEMS/CONTAINERS/C in front(20)-src)
-			C.Destroy()
+			if(character=="Derek" && doingSpecial == "DOWN")
+				C.Destroy()
 		for(var/mob/m in front(20)-src)
 			if(m.isPlayer && !m.INVINCIBLE && character=="Derek" && doingSpecial == "DOWN" && m.hitIndex!="Derek-Down")
 				m.hitIndex="Derek-Down"
