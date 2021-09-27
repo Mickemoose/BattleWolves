@@ -308,6 +308,9 @@ obj
 			CastleLaundo
 				stage="Castle Laundo"
 				icon_state="Castle Laundo"
+			LavaTek
+				stage="Lava Tek"
+				icon_state="Debug"
 			//MouseEntered()
 			//	usr<<CLICK
 			//	if(usr.character == null)

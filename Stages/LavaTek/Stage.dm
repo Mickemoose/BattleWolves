@@ -40,6 +40,9 @@ turf
 		floor
 			icon_state="floor"
 			density = 1
+			pwidth=64
+			pheight=64
+
 		wall
 			density = 1
 			wall =1

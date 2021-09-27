@@ -288,6 +288,18 @@ mob
 							Spawn(6)
 							for(var/ItemSpawn/S in world)
 								if(S.z == 6) itemspawns.Add(S)
+				if("Lava Tek")
+					src<<GLITCH
+					SongPlaying = GLITCH
+					SongPlaying.volume = MUSIC_VOLUME
+					SongPlaying.status = SOUND_UPDATE
+					src<<SongPlaying
+					for(var/GameCamera/GC in world)
+						if(GC.z == 7)
+							client.eye = GC
+							Spawn(7)
+							for(var/ItemSpawn/S in world)
+								if(S.z == 7) itemspawns.Add(S)
 				if("Debug")
 					src<<GLITCH
 					SongPlaying = GLITCH
