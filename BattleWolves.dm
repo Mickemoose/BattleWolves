@@ -73,6 +73,7 @@ mob
 		see_invisible=0
 		src.client.lock_input()
 		Players_INSERVER.Add(src)
+		src.client.screen += new/obj/lighting_plane
 		for(var/GameCamera/GC in world)
 			if(GC.z==1)
 				src.client.eye=GC
@@ -257,7 +258,7 @@ mob
 						del P
 					for(var/UI/CSS/Name/P in src.client.screen)
 						del P
-					src.client.screen += new/obj/lighting_plane
+
 					for(var/GameCamera/GC in world)
 						if(GC.z == 7)
 							client.eye = GC
@@ -541,27 +542,6 @@ mob
 					else
 						NeutralSpecial()
 
-
-					/*
-					for(var/ITEMS/CONTAINERS/Wheel_Crate/W in front(10,8,8))
-						if(dir==RIGHT) W.vel_x=4
-						else W.vel_x=-4
-
-					for(var/mob/M in front(10,8,8))
-						if(M.hitIndex!="D1" && M.isPlayer)
-							M.hitIndex="D1"
-							HitStun(M,1)
-							spawn(1)
-								flick("hitend",M)
-								M.Knockback(power = "HEAVY", where = "UP RIGHT")
-
-							spawn(6)
-								M.hitIndex="null"
-					spawn(4)
-						flick("squatend",src)
-						canMove=1
-						canAttack=1 */
-
 	bump(atom/a, d)
 		if(isPlayer)
 			if(isMashing)
@@ -644,21 +624,6 @@ mob
 							is_jumping=0
 							has_jumped=0
 							is_skidding=0
-
-//	bump(STAGEART/WhaleBoat)
-//		jumped=0
-//		dbljumped=0
-//		canMove=1
-//		reeled=0
-//		tumbled=0
-//		is_jumping=0
-//		has_jumped=0
-//		is_skidding=0
-
-
-
-
-
 
 	slow_down()
 

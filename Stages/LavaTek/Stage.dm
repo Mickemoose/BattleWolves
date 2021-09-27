@@ -61,6 +61,7 @@ turf
 		LavaTop
 			icon_state="lava"
 			plane=3
+			layer=4
 			//appearance_flags = PLANE_MASTER
 			New()
 				..()
@@ -90,6 +91,7 @@ turf
 		Lava
 			icon_state="lava2"
 			plane=3
+			layer=4
 			pwidth=64
 			pheight=64
 			Entered(mob/M)
