@@ -208,7 +208,7 @@ obj
 			plane=10001
 		Name
 			icon='UI/Names.dmi'
-			plane=5
+			plane=7
 			P1
 				icon_state="1"
 			P2
@@ -237,7 +237,7 @@ obj
 
 		Portrait
 			icon='UI/Portraits.dmi'
-			plane=5
+			plane=7
 			P1
 				icon_state="1"
 			P2
@@ -405,7 +405,7 @@ obj
 
 		Plates
 			icon='UI/Plate.dmi'
-			plane=5
+			plane=6
 			P1
 				icon_state="1"
 			P2

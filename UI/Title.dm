@@ -23,6 +23,25 @@ atom/proc/WaterEffect2()
         f = filters[start+i]
         animate(f, offset=f:offset, time=0, loop=-1, flags=ANIMATION_PARALLEL)
         animate(offset=f:offset-1, time=rand()*20+10)
+atom/proc/WaterEffect3()
+    var/start = filters.len
+    var/X,Y,rsq,i,f
+    for(i=1, i<=10, ++i)
+        // choose a wave with a random direction and a period between 10 and 30 pixels
+        do
+            X = 20*rand() - 30
+            Y = 40*rand() - 30
+            rsq = X*X + Y*Y
+        while(rsq<100 || rsq>900)   // keep trying if we don't like the numbers
+        // keep distortion (size) small, from 0.5 to 3 pixels
+        // choose a random phase (offset)
+        filters += filter(type="wave", x=X, y=Y, size=rand()*2.5+0.5, offset=rand())
+    for(i=1, i<=10, ++i)
+        // animate phase of each wave from its original phase to phase-1 and then reset;
+        // this moves the wave forward in the X,Y direction
+        f = filters[start+i]
+        animate(f, offset=f:offset, time=0, loop=-1, flags=ANIMATION_PARALLEL)
+        animate(offset=f:offset-1, time=rand()*20+10)
 atom/proc/WaterEffect()
     var/start = filters.len
     var/X,Y,rsq,i,f
@@ -66,7 +85,7 @@ UI
 		icon='UI/Background.dmi'
 		icon_state="frame"
 		screen_loc="CENTER-8:+6,CENTER-4"
-		plane=4
+		plane=5
 		New(client/c)
 			c.screen+=src
 			animate(src, transform=matrix()*2)
@@ -75,7 +94,7 @@ UI
 		icon='UI/Background.dmi'
 		icon_state="fire3"
 		screen_loc="CENTER-8,CENTER-4"
-		plane=3
+		plane=4
 		New(client/c)
 		//	animate(src, alpha=0)
 			c.screen+=src
@@ -86,7 +105,7 @@ UI
 		icon='UI/Background.dmi'
 		icon_state="fire2"
 		screen_loc="CENTER-7,CENTER-4"
-		plane=3
+		plane=4
 		New(client/c)
 		//	animate(src, alpha=0)
 			c.screen+=src

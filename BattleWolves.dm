@@ -252,8 +252,9 @@ mob
 						del P
 					for(var/UI/CSS/Name/P in src.client.screen)
 						del P
+					src.client.screen += new/obj/lighting_plane
 					for(var/GameCamera/GC in world)
-						if(GC.z == 6)
+						if(GC.z == 7)
 							client.eye = GC
 				if(k == "enter" || k  == "return" && Stage_Selected!=null && Players_READY.len == Players_ALIVE.len)
 					for(var/mob/m in Players_ALIVE)

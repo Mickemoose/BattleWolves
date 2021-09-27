@@ -349,6 +349,7 @@ KFK_Mobs
 			return 0
 		gravity()
 		bump()
+		action()
 		movement()
 			..()
 		Active()
@@ -357,21 +358,22 @@ KFK_Mobs
 			spawn(5)
 				vel_y=0
 				for(var/mob/m in view(src))
-					m<<NEWS
-					var/UI/KFK/RabbitSuit/C3 = new /UI/KFK/RabbitSuit(m.client)
-					var/UI/KFK/RabbitLive/C4 = new /UI/KFK/RabbitLive(m.client)
-					var/UI/KFK/RabbitLogo/C5 = new /UI/KFK/RabbitLogo(m.client)
-					var/UI/KFK/RabbitHeadline/C6 = new /UI/KFK/RabbitHeadline(m.client)
+					if(m.client)
+						m<<NEWS
+						var/UI/KFK/RabbitSuit/C3 = new /UI/KFK/RabbitSuit(m.client)
+						var/UI/KFK/RabbitLive/C4 = new /UI/KFK/RabbitLive(m.client)
+						var/UI/KFK/RabbitLogo/C5 = new /UI/KFK/RabbitLogo(m.client)
+						var/UI/KFK/RabbitHeadline/C6 = new /UI/KFK/RabbitHeadline(m.client)
 
-					spawn(130)
-						if(m.isPlayer)
+						spawn(130)
+							if(m.isPlayer)
 
-							C3.deactive()
-							C4.deactive()
-							C5.deactive()
-							C6.deactive()
-							spawn(5)
-								Deactivate()
+								C3.deactive()
+								C4.deactive()
+								C5.deactive()
+								C6.deactive()
+								spawn(5)
+									Deactivate()
 		bump()
 	Steve
 		//icon='Items/KFK/Steve.dmi'

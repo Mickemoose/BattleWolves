@@ -188,7 +188,7 @@ mob
 		UI_Update(var/mob/player)
 			var num2 =0
 
-
+			world<<"USR:[usr] SRC:[src] PLAYER:[player]"
 			num2-=52*Players
 
 			for(var/UI/NAME/U in src.client.screen)
@@ -257,6 +257,6 @@ mob
 						animate(N, transform= matrix()*2.05, alpha=255, color="#611c1c", time=0.1)
 					animate(N, transform = turn(matrix()*2.05, rand(10,22)), time = 1, loop=1 )
 					animate(N, transform = turn(matrix()*2.05, 0), time = 1,loop=1  )
-					spawn(1.2)
+					spawn(1)
 						animate(N, transform = turn(matrix()*2.05, rand(330,350)), time = 1,loop=1 )
 						animate(N, transform = turn(matrix()*2.05, 0), time = 1, loop=1 )

@@ -424,6 +424,7 @@ ITEMS
 			move_speed=2
 			mover=1
 			carried=0
+			action()
 			movement()
 				..()
 				if(icon_state=="moving")
@@ -501,6 +502,7 @@ ITEMS
 			pixel_y=-16
 			move_speed=2
 			carried=0
+			action()
 			New()
 				..()
 				if(Stage_Selected == "Glitch Realm")
@@ -700,6 +702,7 @@ ITEMS
 				spawn(175)
 					flash=2
 				spawn(250)
+					if(carried || thrown) return
 					timer = 0
 					isDeleting=1
 					animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)

@@ -206,7 +206,7 @@ mob
 					return
 				else
 					lives=num
-					UpdateWorldUI(src)
+					//UpdateWorldUI(src)
 					return
 			if(lives>6)
 				lives=6

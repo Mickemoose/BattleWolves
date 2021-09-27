@@ -42,6 +42,7 @@ mob
 			selected.taken=1
 			src.loc=selected.loc
 			src.setPlayerLives(Set_Lives)
+			UpdateWorldUI(src)
 			spawn(1)
 				if(src.character=="Smitty")
 					var/mob/Spirits/Pyrex/P = new /mob/Spirits/Pyrex(src)

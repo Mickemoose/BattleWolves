@@ -4,7 +4,8 @@ WOLF PACK BATTALION 2
 ELECTRIC BOOGALOO
 
 
-
+BUGS
+- Slowdown build up might be related to items?
 
 
 
@@ -21,15 +22,15 @@ Future Characters
 - Dylans Rebeckah [Similar Monk type]
 - Amanda [Galactic Owl Powers]
 
-- Jams [Orange Super Hero like Spooderman]
-- Brody [Blue Jay]
-- Spencer [Green Dinosaur powers]
+- Jams [Orange Super Hero like Spooderman/Iron Man]
+- Brody [Blue jay hero outfit?]
+- Spencer [Cowboy hat, rides green dino]
 
-- Devon [Red Phoenix Powers]
+- Devon [Red Phoenix Powers Streets of rage inspired outfit]
 - Frost [His stand Malicious Pit]
 - Aaron [A Bot Maximus, if Matt is Megaman, then Aaron is Zero]
 - Darcy [Hacker/Pure Pwnage inspo]
-- Rotht [Blue Dragon powers]
+- Rotht [Blue Dragon powers streets of rage inspired outfit]
 - Shaun [Magic Keytar]
 - Sergio
 - Marc
@@ -62,7 +63,6 @@ Tenishura - Spawns, puts his hand on his sword anime style, fade out, suddenly f
 0.5 first major playable version
 
 - Brendan Laundry Hunter playable
-- Lava Tech Facility stage
 - 1 of the current KFK ideas implemented
 - Speed Orb implemented
 - Item Setting
@@ -73,6 +73,8 @@ Tenishura - Spawns, puts his hand on his sword anime style, fade out, suddenly f
 - Fifth Dimension Stage
 - 4 new KFK cards
 - 4 new items
+- Whale Boat Storm Phase
+- Lava Tech Facility stage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Possible future features

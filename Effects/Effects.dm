@@ -3,7 +3,19 @@ EFFECT
 	plane=FLOAT_PLANE+2
 	appearance_flags= PIXEL_SCALE
 	density=0
-
+	BIG_HIT
+		icon='Effects/Hit.dmi'
+		New()
+			..()
+			Ripple()
+			spawn(9)
+				del src
+		proc/Ripple()
+			filters += filter(type="ripple", size = 10, radius = 10, falloff = 4, repeat=5, flags = 0 )
+			var f = filters[filters.len]
+			animate(f, time = 5, easing = LINEAR_EASING, radius = 90, size=0, flags =ANIMATION_PARALLEL)
+			spawn(10)
+				filters-=f
 	MASH_ALERT
 		icon='Effects/Mash.dmi'
 	DASH_SMOKE
