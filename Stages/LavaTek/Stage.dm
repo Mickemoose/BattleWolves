@@ -66,10 +66,52 @@ turf
 				..()
 				//filters+=LavaBloom
 				WaterEffect3()
+			Entered(mob/M)
+				if(M.isPlayer)
+					if(M.hitIndex!="Lava")
+						M.hitIndex="Lava"
+						world<<FIRE
+						//M.HitStun(M,1,"orange")
+						animate(M,color=rgb(255,118,0),time=1)
+						spawn(4)
+							animate(M,color=rgb(255,255,255),time=3)
+						spawn(1)
+							if(dir==LEFT)
+								M.Knockback("EXTREME", "UP")
+
+							else
+								M.Knockback("EXTREME", "UP")
+
+						M.setDamage(0.06, "ADD")
+						spawn(4)
+							if(M.hitIndex=="Lava")
+								M.hitIndex=null
 
 		Lava
 			icon_state="lava2"
 			plane=3
+			pwidth=64
+			pheight=64
+			Entered(mob/M)
+				if(M.isPlayer)
+					if(M.hitIndex!="Lava")
+						M.hitIndex="Lava"
+						world<<FIRE
+						//M.HitStun(M,1,"orange")
+
+						spawn(1)
+							if(dir==LEFT)
+								M.Knockback("EXTREME", "UP")
+
+							else
+								M.Knockback("EXTREME", "UP")
+
+						M.setDamage(0.06, "ADD")
+						spawn(4)
+							if(M.hitIndex=="Lava")
+								M.hitIndex=null
+
+
 
 
 
