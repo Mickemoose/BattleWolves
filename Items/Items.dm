@@ -31,6 +31,7 @@ ITEMS
 			pwidth=22
 			pheight=22
 			var/sploding=0
+			action()
 			PickUp(var/mob/pickuper)
 				pickuper.heldItem="ProxMine"
 				UpdateWorldUI(pickuper)
@@ -107,6 +108,7 @@ ITEMS
 			move_speed=18
 			pheight=8
 			gravity()
+			action()
 			PickUp(var/mob/pickuper)
 				pickuper.heldItem="NinjaStar"
 				UpdateWorldUI(pickuper)
@@ -166,6 +168,7 @@ ITEMS
 			pixel_y=-8
 			pwidth=22
 			pheight=22
+			action()
 			PickUp(var/mob/pickuper)
 				pickuper.heldItem="JamJar"
 				UpdateWorldUI(pickuper)
@@ -241,6 +244,7 @@ ITEMS
 			move_speed=8
 			var
 				grabbed=0
+			action()
 			gravity()
 				if(!thrown) ..()
 			PickUp(var/mob/pickuper)
@@ -275,6 +279,7 @@ ITEMS
 			pixel_y=-20
 			pwidth=22
 			pheight=22
+			action()
 			PickUp(var/mob/pickuper)
 				pickuper.heldItem="WebTrap"
 				UpdateWorldUI(pickuper)
@@ -344,6 +349,7 @@ ITEMS
 			move_speed=2
 			pwidth=20
 			pheight=20
+			action()
 			New()
 				..()
 				icon_state=pick("pizza","icecream","shrimp","sushi","donut")
@@ -369,6 +375,8 @@ ITEMS
 			move_speed=2
 			plane=3
 			carried=0
+			action()
+
 			var
 				list/chars = list("Doop","PhormPhather","Steve","Zeke","Hazorb","Jellypot","NinjaSquidSquad","Staryxia","RabbitSuit")
 				list/sacs = list("Beefalo")

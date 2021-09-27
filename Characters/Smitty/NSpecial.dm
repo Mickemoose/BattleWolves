@@ -1,66 +1,67 @@
 mob
 	movement()
 		..()
-		for(var/ITEMS/CONTAINERS/Wheel_Crate/W in right(20)-src)
-			if(character=="Smitty" && doingSpecial == "NEUTRAL")
-				if(W.hitIndex!=src)
-					W.hitIndex=src
-					if(dir==RIGHT) W.vel_x=4
-					else W.vel_x=-4
-		for(var/ITEMS/CONTAINERS/C in right(20)-src)
-			if(character=="Smitty" && doingSpecial == "NEUTRAL")
-				C.Destroy()
-		for(var/ITEMS/CONTAINERS/Wheel_Crate/W in left(20)-src)
-			if(character=="Smitty" && doingSpecial == "NEUTRAL")
-				if(W.hitIndex!=src)
-					W.hitIndex=src
-					if(dir==RIGHT) W.vel_x=4
-					else W.vel_x=-4
-		for(var/ITEMS/CONTAINERS/C in left(20)-src)
-			if(character=="Smitty" && doingSpecial == "NEUTRAL")
-				C.Destroy()
-		for(var/ITEMS/CONTAINERS/Wheel_Crate/W in top(20)-src)
-			if(character=="Smitty" && doingSpecial == "NEUTRAL")
-				if(W.hitIndex!=src)
-					W.hitIndex=src
-					if(dir==RIGHT) W.vel_x=4
-					else W.vel_x=-4
-		for(var/ITEMS/CONTAINERS/C in top(20)-src)
-			if(character=="Smitty" && doingSpecial == "NEUTRAL")
-				C.Destroy()
-		for(var/mob/m in right(20)-src)
-			if(m.isPlayer && !m.INVINCIBLE && character=="Smitty" && doingSpecial == "NEUTRAL" && m.hitIndex!="Smitty-Neutral")
-				m.hitIndex="Smitty-Neutral"
-				HitStun(m,1)
-				spawn(1)
-					m.Knockback("LIGHT", "UP RIGHT")
+		if(character=="Smitty" && doingSpecial == "NEUTRAL")
+			for(var/ITEMS/CONTAINERS/Wheel_Crate/W in right(20)-src)
+				if(character=="Smitty" && doingSpecial == "NEUTRAL")
+					if(W.hitIndex!=src)
+						W.hitIndex=src
+						if(dir==RIGHT) W.vel_x=4
+						else W.vel_x=-4
+			for(var/ITEMS/CONTAINERS/C in right(20)-src)
+				if(character=="Smitty" && doingSpecial == "NEUTRAL")
+					C.Destroy()
+			for(var/ITEMS/CONTAINERS/Wheel_Crate/W in left(20)-src)
+				if(character=="Smitty" && doingSpecial == "NEUTRAL")
+					if(W.hitIndex!=src)
+						W.hitIndex=src
+						if(dir==RIGHT) W.vel_x=4
+						else W.vel_x=-4
+			for(var/ITEMS/CONTAINERS/C in left(20)-src)
+				if(character=="Smitty" && doingSpecial == "NEUTRAL")
+					C.Destroy()
+			for(var/ITEMS/CONTAINERS/Wheel_Crate/W in top(20)-src)
+				if(character=="Smitty" && doingSpecial == "NEUTRAL")
+					if(W.hitIndex!=src)
+						W.hitIndex=src
+						if(dir==RIGHT) W.vel_x=4
+						else W.vel_x=-4
+			for(var/ITEMS/CONTAINERS/C in top(20)-src)
+				if(character=="Smitty" && doingSpecial == "NEUTRAL")
+					C.Destroy()
+			for(var/mob/m in right(20)-src)
+				if(m.isPlayer && !m.INVINCIBLE && character=="Smitty" && doingSpecial == "NEUTRAL" && m.hitIndex!="Smitty-Neutral")
+					m.hitIndex="Smitty-Neutral"
+					HitStun(m,1)
+					spawn(1)
+						m.Knockback("LIGHT", "UP RIGHT")
 
-				m.setDamage(pick(0.05,0.06,0.07), "ADD")
-				spawn(3)
-					if(m.hitIndex=="Smitty-Neutral")
-						m.hitIndex=null
-		for(var/mob/m in left(20)-src)
-			if(m.isPlayer && !m.INVINCIBLE && character=="Smitty" && doingSpecial == "NEUTRAL" && m.hitIndex!="Smitty-Neutral")
-				m.hitIndex="Smitty-Neutral"
-				HitStun(m,1)
-				spawn(1)
-					m.Knockback("LIGHT", "UP LEFT")
+					m.setDamage(pick(0.05,0.06,0.07), "ADD")
+					spawn(3)
+						if(m.hitIndex=="Smitty-Neutral")
+							m.hitIndex=null
+			for(var/mob/m in left(20)-src)
+				if(m.isPlayer && !m.INVINCIBLE && character=="Smitty" && doingSpecial == "NEUTRAL" && m.hitIndex!="Smitty-Neutral")
+					m.hitIndex="Smitty-Neutral"
+					HitStun(m,1)
+					spawn(1)
+						m.Knockback("LIGHT", "UP LEFT")
 
-				m.setDamage(pick(0.05,0.06,0.07), "ADD")
-				spawn(3)
-					if(m.hitIndex=="Smitty-Neutral")
-						m.hitIndex=null
-		for(var/mob/m in top(20)-src)
-			if(m.isPlayer && !m.INVINCIBLE && character=="Smitty" && doingSpecial == "NEUTRAL" && m.hitIndex!="Smitty-Neutral")
-				m.hitIndex="Smitty-Neutral"
-				HitStun(m,1)
-				spawn(1)
-					m.Knockback("LIGHT", "UP")
+					m.setDamage(pick(0.05,0.06,0.07), "ADD")
+					spawn(3)
+						if(m.hitIndex=="Smitty-Neutral")
+							m.hitIndex=null
+			for(var/mob/m in top(20)-src)
+				if(m.isPlayer && !m.INVINCIBLE && character=="Smitty" && doingSpecial == "NEUTRAL" && m.hitIndex!="Smitty-Neutral")
+					m.hitIndex="Smitty-Neutral"
+					HitStun(m,1)
+					spawn(1)
+						m.Knockback("LIGHT", "UP")
 
-				m.setDamage(pick(0.05,0.06,0.07), "ADD")
-				spawn(3)
-					if(m.hitIndex=="Smitty-Neutral")
-						m.hitIndex=null
+					m.setDamage(pick(0.05,0.06,0.07), "ADD")
+					spawn(3)
+						if(m.hitIndex=="Smitty-Neutral")
+							m.hitIndex=null
 
 	proc
 		SpiritProtect()

@@ -1,35 +1,36 @@
 mob
 	movement()
 		..()
-		//	for(var/mob/m in obounds(0,src)-owner)
-		for(var/ITEMS/CONTAINERS/Wheel_Crate/W in front(20)-src)
-			if(character=="Derek" && doingSpecial == "DOWN")
-				if(W.hitIndex!=src)
-					W.hitIndex=src
-					if(dir==RIGHT) W.vel_x=4
-					else W.vel_x=-4
-		for(var/ITEMS/CONTAINERS/C in front(20)-src)
-			if(character=="Derek" && doingSpecial == "DOWN")
-				C.Destroy()
-		for(var/mob/m in front(20)-src)
-			if(m.isPlayer && !m.INVINCIBLE && character=="Derek" && doingSpecial == "DOWN" && m.hitIndex!="Derek-Down")
-				m.hitIndex="Derek-Down"
-				world<<FIRESPLODE
-				var/EFFECT/DEREK/USPECIAL/FX = new /EFFECT/DEREK/USPECIAL(m.loc)
-				FX.step_x=m.step_x+16
-				FX.step_y=m.step_y
-				HitStun(m,1)
-				spawn(1)
-					if(dir==LEFT)
-						m.Knockback("MEDIUM", "UP LEFT")
+		if(character=="Derek" && doingSpecial == "DOWN")
+			//	for(var/mob/m in obounds(0,src)-owner)
+			for(var/ITEMS/CONTAINERS/Wheel_Crate/W in front(20)-src)
+				if(character=="Derek" && doingSpecial == "DOWN")
+					if(W.hitIndex!=src)
+						W.hitIndex=src
+						if(dir==RIGHT) W.vel_x=4
+						else W.vel_x=-4
+			for(var/ITEMS/CONTAINERS/C in front(20)-src)
+				if(character=="Derek" && doingSpecial == "DOWN")
+					C.Destroy()
+			for(var/mob/m in front(20)-src)
+				if(m.isPlayer && !m.INVINCIBLE && character=="Derek" && doingSpecial == "DOWN" && m.hitIndex!="Derek-Down")
+					m.hitIndex="Derek-Down"
+					world<<FIRESPLODE
+					var/EFFECT/DEREK/USPECIAL/FX = new /EFFECT/DEREK/USPECIAL(m.loc)
+					FX.step_x=m.step_x+16
+					FX.step_y=m.step_y
+					HitStun(m,1)
+					spawn(1)
+						if(dir==LEFT)
+							m.Knockback("MEDIUM", "UP LEFT")
 
-					else
-						m.Knockback("MEDIUM", "UP RIGHT")
+						else
+							m.Knockback("MEDIUM", "UP RIGHT")
 
-				m.setDamage(0.06, "ADD")
-				spawn(6)
-					if(m.hitIndex=="Derek-Down")
-						m.hitIndex=null
+					m.setDamage(0.06, "ADD")
+					spawn(6)
+						if(m.hitIndex=="Derek-Down")
+							m.hitIndex=null
 
 	proc
 		MooseKicker()

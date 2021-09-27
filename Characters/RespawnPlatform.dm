@@ -20,6 +20,7 @@ RESPAWN_PLATFORM
 		var/RespawnSpawn/selected
 	set_state()
 	gravity()
+	action()
 	New(var/mob/m)
 		for(var/RespawnSpawn/S in world)
 			if(S.z==m.z)
@@ -45,12 +46,12 @@ RESPAWN_PLATFORM
 		else
 			..()
 
-			for(var/mob/m in riders)
+			for(var/mob/m in riders-src)
 				//m.fall_speed=20
-				m.riding=1
-				m.pixel_move(move_x, move_y)
+				if(m.isPlayer)
+					m.riding=1
+					m.pixel_move(move_x, move_y)
 	movement()
-		// move right
 
 		if(stopped)
 			vel_y=0
