@@ -66,6 +66,7 @@
 #include "System\GameCamera.dm"
 #include "System\ItemDeleteArea.dm"
 #include "System\ScreenFade.dm"
+#include "System\Gamepad\Local.dm"
 #include "System\Gamepad\Online.dm"
 #include "UI\CharacterSelect.dm"
 #include "UI\Countdown.dm"

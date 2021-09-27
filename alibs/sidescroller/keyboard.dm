@@ -26,6 +26,8 @@ Controls
 		right = K_RIGHT
 		jump = K_SPACE
 
+
+
 client
 	New()
 		..()

@@ -34,6 +34,7 @@ mob
 	icon_state = "mob"
 
 	var
+		list/Controlled=list()
 		on_left = 0
 		on_right = 0
 		on_ceiling = 0
@@ -354,7 +355,6 @@ mob
 		// If you want to change how keyboard input is handled or you want to change the
 		// mob's AI, you can override action() but leave movement() alone.
 		action(ticks)
-
 			#ifdef LIBRARY_DEBUG
 			if(trace) trace.event("[world.time]: start action:")
 			#endif

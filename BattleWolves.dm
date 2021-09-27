@@ -39,6 +39,8 @@ world
 mob
 	var
 		Background/my_background
+		list/
+			PlayerController = list()
 
 	appearance_flags = PIXEL_SCALE
 	pixel_move(dpx, dpy)
@@ -205,7 +207,10 @@ mob
 		if(k == controls.left || k == controls.right)
 			if(on_ground && vel_x != 0 && !knockbacked && !is_skidding && !carrying)
 				flick("squatend",src)
+
+
 	key_down(k)
+		..()
 		if(isMashing)
 			for(var/EFFECT/MASH_ALERT/FX in world)
 				if(mashFX==FX)
@@ -413,6 +418,7 @@ mob
 					if(Players >=8) return
 					var/mob/p = new /mob(49,39,src.z)
 					p.loc=locate(49,39,src.z)
+					PlayerController.Add(p)
 					p.setCharacter("Sandbag")
 					p.setPlayerNumber()
 					Players_INSERVER.Add(p)
@@ -522,7 +528,6 @@ mob
 							canMove=1
 							canAttack=1
 							canAct=1
-
 
 				if(k == "d" && canAttack && canAct && !hitstun)
 					if(client.has_key(controls.left))

@@ -5,7 +5,7 @@ ELECTRIC BOOGALOO
 
 
 BUGS
-- Slowdown build up might be related to items?
+- Slowdown build up might be related to items? happens on Dreadfield more
 
 
 
@@ -75,6 +75,8 @@ Tenishura - Spawns, puts his hand on his sword anime style, fade out, suddenly f
 - 4 new items
 - Whale Boat Storm Phase
 - Lava Tech Facility stage
+- Dreadfield Spikey Tree sudden growth and revert
+- Glitch Realm bridge between that glitches out
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Possible future features
