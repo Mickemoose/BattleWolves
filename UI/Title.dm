@@ -29,8 +29,8 @@ atom/proc/WaterEffect3()
     for(i=1, i<=10, ++i)
         // choose a wave with a random direction and a period between 10 and 30 pixels
         do
-            X = 20*rand() - 30
-            Y = 40*rand() - 30
+            X = 6*rand() - 30
+            Y = pick(10,20,30,40,100,1200)*rand() - 30
             rsq = X*X + Y*Y
         while(rsq<100 || rsq>900)   // keep trying if we don't like the numbers
         // keep distortion (size) small, from 0.5 to 3 pixels

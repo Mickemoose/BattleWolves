@@ -294,6 +294,7 @@ mob
 					SongPlaying.volume = MUSIC_VOLUME
 					SongPlaying.status = SOUND_UPDATE
 					src<<SongPlaying
+					CreateEmber2()
 					for(var/GameCamera/GC in world)
 						if(GC.z == 7)
 							client.eye = GC

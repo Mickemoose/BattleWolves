@@ -61,6 +61,7 @@ proc
 		Enabled_Items=0
 		itemsStarted=0
 	EndMatch()
+
 		Stage_Selected=null
 		Enabled_Items=0
 		itemsStarted=0
@@ -76,6 +77,7 @@ proc
 			for(var/mob/m in Players_ALIVE)
 				Winner=m.character
 			for(var/mob/m in Players_INSERVER)
+				m.StopEmber()
 				m.SongPlaying.volume = 0
 				m.SongPlaying.status = SOUND_UPDATE
 				m<<m.SongPlaying
