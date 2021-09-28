@@ -1,6 +1,6 @@
 EFFECT
 	parent_type=/obj
-	plane=FLOAT_PLANE+2
+	plane=3
 	appearance_flags= PIXEL_SCALE
 	density=0
 	BIG_HIT
@@ -30,6 +30,7 @@ EFFECT
 	BLAST
 		icon='Effects/Blast.dmi'
 		icon_state=""
+		plane=3
 	KBSMOKE
 		icon='Effects/KBSmoke.dmi'
 		icon_state=""
@@ -72,6 +73,7 @@ EFFECT
 
 mob
 	EFFECT
+		plane=3
 		appearance_flags = PIXEL_SCALE
 		set_state()
 		gravity()

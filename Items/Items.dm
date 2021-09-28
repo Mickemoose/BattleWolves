@@ -378,7 +378,7 @@ ITEMS
 			pixel_x=-24
 			pixel_y=-16
 			move_speed=2
-			plane=3
+			plane=2
 			carried=0
 			//action()
 

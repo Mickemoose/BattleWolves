@@ -23,7 +23,7 @@ mob
 			var/mob/EFFECT/DEREK/SSPECIAL/FX = new /mob/EFFECT/DEREK/SSPECIAL(src)
 
 		//	animate(FX,alpha=200)
-			FX.plane=src.plane+1
+		//	FX.plane=src.plane+1
 			FX.loc=src.loc
 		//	FX.dir=EAST
 			if(dir==RIGHT)
