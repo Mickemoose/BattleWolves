@@ -29,7 +29,8 @@ area
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
 					animate(FX, transform = turn(matrix()*1.5, 45), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
-					FX.plane=M.plane+5
+					FX.plane=3
+					FX.layer=10000
 					FX.loc=M.loc
 					FX.y=38
 					FX.x=32
@@ -45,7 +46,8 @@ area
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
 					animate(FX, transform = turn(matrix()*1.5, 140), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
-					FX.plane=M.plane+5
+					FX.plane=3
+					FX.layer=10000
 					FX.loc=M.loc
 					FX.y=38
 					FX.x=50
@@ -60,7 +62,8 @@ area
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
 					animate(FX, transform = turn(matrix()*1.5, 140), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
-					FX.plane=M.plane+5
+					FX.plane=3
+					FX.layer=10000
 					FX.loc=M.loc
 					FX.y=33
 					FX.x=36
@@ -76,7 +79,8 @@ area
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
 					animate(FX, transform = turn(matrix()*1.5, 45), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
-					FX.plane=M.plane+5
+					FX.plane=3
+					FX.layer=10000
 					FX.loc=M.loc
 					FX.y=33
 					FX.x=50
@@ -92,7 +96,8 @@ area
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(src)
 					animate(FX, transform = turn(matrix()*1.5, 0), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
-					FX.plane=M.plane+5
+					FX.plane=3
+					FX.layer=10000
 					FX.loc=M.loc
 					FX.step_y=M.step_y
 					FX.x=40
@@ -108,7 +113,8 @@ area
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(src)
 					animate(FX, transform = turn(matrix()*1.5, 0), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
-					FX.plane=M.plane+5
+					FX.plane=3
+					FX.layer=10000
 					FX.loc=M.loc
 					FX.step_y=M.step_y
 					FX.x=45
@@ -124,7 +130,8 @@ area
 							m<<PLAYERDEATH
 					var/EFFECT/BLAST/FX = new /EFFECT/BLAST(M)
 					animate(FX, transform = turn(matrix()*1.5, rand(80,105)), color=getPlayerColor(M), loop=1 ,easing=BOUNCE_EASING)
-					FX.plane=M.plane+5
+					FX.plane=3
+					FX.layer=10000
 					FX.loc=M.loc
 					FX.step_x=M.step_x-264
 					FX.y=36
@@ -134,7 +141,8 @@ area
 				if(dir==NORTH)
 					for(var/mob/m in Players_ALIVE)
 						if(m.client)
-							new /UI/StarKO(m.client,M.character)
+							pick(new /UI/StarKO(m.client,M.character), new /UI/ScreenKO(m.client,M.character))
+							//new /UI/StarKO(m.client,M.character)
 
 
 				M.Death()

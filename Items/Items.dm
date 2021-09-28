@@ -31,7 +31,7 @@ ITEMS
 			pwidth=22
 			pheight=22
 			var/sploding=0
-			action()
+			//action()
 			PickUp(var/mob/pickuper)
 				pickuper.heldItem="ProxMine"
 				UpdateWorldUI(pickuper)
@@ -108,7 +108,7 @@ ITEMS
 			move_speed=18
 			pheight=8
 			gravity()
-			action()
+			//action()
 			PickUp(var/mob/pickuper)
 				pickuper.heldItem="NinjaStar"
 				UpdateWorldUI(pickuper)
@@ -166,9 +166,9 @@ ITEMS
 			carried=0
 			pixel_x=-11
 			pixel_y=-8
-			pwidth=22
-			pheight=22
-			action()
+			pwidth=8
+			pheight=12
+			//action()
 			PickUp(var/mob/pickuper)
 				pickuper.heldItem="JamJar"
 				UpdateWorldUI(pickuper)
@@ -195,18 +195,18 @@ ITEMS
 					src.dir=m.dir
 					src.set_pos(m.px,m.py+6)
 					if(src.icon=='Items/PurpleJamJar.dmi')
-						src.vel_y=pick(5,6,7,8,9,10)
+						src.vel_y=pick(5,6,7)
 					else
 						src.vel_y=5
 					switch(m.dir)
 						if(RIGHT)
 							if(src.icon=='Items/PurpleJamJar.dmi')
-								vel_x=pick(6,7,8,9,10,11)
+								vel_x=pick(3,4,5,6,7,8)
 							else
 								vel_x=8
 						if(LEFT)
 							if(src.icon=='Items/PurpleJamJar.dmi')
-								vel_x=pick(-6,-7,-8,-9,-10,-11)
+								vel_x=pick(-3,-4,-5,-6,-7,-8)
 							else
 								vel_x=-8
 					setSpinning()
@@ -244,7 +244,7 @@ ITEMS
 			move_speed=8
 			var
 				grabbed=0
-			action()
+			//action()
 			gravity()
 				if(!thrown) ..()
 			PickUp(var/mob/pickuper)
@@ -279,7 +279,7 @@ ITEMS
 			pixel_y=-20
 			pwidth=22
 			pheight=22
-			action()
+			//action()
 			PickUp(var/mob/pickuper)
 				pickuper.heldItem="WebTrap"
 				UpdateWorldUI(pickuper)
@@ -349,7 +349,7 @@ ITEMS
 			move_speed=2
 			pwidth=20
 			pheight=20
-			action()
+			//action()
 			New()
 				..()
 				icon_state=pick("pizza","icecream","shrimp","sushi","donut")
@@ -375,7 +375,7 @@ ITEMS
 			move_speed=2
 			plane=3
 			carried=0
-			action()
+			//action()
 
 			var
 				list/chars = list("Doop","PhormPhather","Steve","Zeke","Hazorb","Jellypot","NinjaSquidSquad","Staryxia","RabbitSuit")
@@ -432,7 +432,7 @@ ITEMS
 			move_speed=2
 			mover=1
 			carried=0
-			action()
+			//action()
 			movement()
 				..()
 				if(icon_state=="moving")
@@ -510,7 +510,7 @@ ITEMS
 			pixel_y=-16
 			move_speed=2
 			carried=0
-			action()
+			//action()
 			New()
 				..()
 				if(Stage_Selected == "Glitch Realm")

@@ -2,9 +2,9 @@ var
 	Game_Mode = "Free For All"
 	Enabled_Items = 1
 	Debug = 1 //Turn off to turn off Debug commands
-	Max_Items = 10 //best currently is 8
+	Max_Items = 15 //best currently is 8
 	Current_KFK=0
-	Max_KFK = 5 //best currently is 4
+	Max_KFK = 6 //best currently is 4
 	Max_Players = 8
 	Players = 0
 	paused=0

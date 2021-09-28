@@ -32,6 +32,7 @@ var/sound/NEWS = sound('Sound/news.mp3', volume=3)
 var/sound/NEWSCAST = sound('Sound/newscast.wav',volume=50)
 var/sound/NEWSCLEAR = sound('Sound/clearthroat.wav',volume=50)
 
+var/sound/SCREENHIT = sound('Sound/screenhit.wav',volume=30)
 //ANNOUNCER CALLS
 var/sound/Derek = sound('AnnouncerDerek.wav',channel=1,volume=5)
 var/sound/Brendan = sound('AnnouncerBrendan.wav',channel=1,volume=5)

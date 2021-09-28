@@ -345,37 +345,9 @@ mob
 
 						spawn(15)
 							src.client.unlock_input()
-				if(k=="6")
-				//	var/p = list2params(list("command" = ".host"))
-				//	winset(src, null, p)
-					var/mob/Spirits/Pyrex/P = new /mob/Spirits/Pyrex(src)
-					var/mob/Spirits/Alkaline/A = new /mob/Spirits/Alkaline(src)
-					spirits.Add(P)
-					spirits.Add(A)
+				//if(k=="6")
 
-				if(k=="i")
-					for(var/mob/Spirits/Alkaline/P in spirits)
-						if(P.summoned)
-							P.Revert()
-							return
-						else
-							P.Summon("CHASE")
-							return
-				if(k=="u")
-					for(var/mob/Spirits/Pyrex/P in spirits)
-						if(P.summoned)
-							P.Revert()
-							return
-						else
-							P.Summon("CHASE")
-							return
-				if(k=="t")
-					for(var/mob/Spirits/Pyrex/P in spirits)
-						if(!P.summoned)
-							P.Totem()
-					for(var/mob/Spirits/Alkaline/P in spirits)
-						if(!P.summoned)
-							P.Summon("TOTEM")
+
 
 
 				if(k=="4")
@@ -383,31 +355,13 @@ mob
 					var/KFK_Mobs/kfk=new variable(src.loc)
 					kfk.owner=src
 				if(k == "5")
-					CreateSnow()
-					var/UI/KFK/SunBackground/C1 = new /UI/KFK/SunBackground(src.client)
-					animate(C1, color="white", alpha=0,time=0, easing=SINE_EASING)
-					animate( alpha=24,time=2, easing=SINE_EASING)
-					animate( alpha=0,time=2, easing=SINE_EASING)
-					animate( alpha=24,time=2, easing=SINE_EASING)
-					animate( alpha=0,time=2, easing=SINE_EASING)
-					animate( alpha=24,time=2, easing=SINE_EASING)
-					animate( alpha=0,time=2, easing=SINE_EASING)
-					animate( alpha=50,time=2, easing=SINE_EASING)
-					animate( alpha=0,time=2, easing=SINE_EASING)
-					spawn(18)
-						del C1
+					new /UI/ScreenKO(client,character)
 
-				if(k == "7")
-					//setVolume("DOWN", "MUSIC")
-
-					StopSnow()
 				if(k == "8")
 					src.HitStun(src,4)
 					spawn(hitstun)
 						flick("hitend",src)
 						Knockback(power = "NONE", where = "UP")
-				if(k == "9")
-					EndMatch()
 
 				if(k == "0")
 					Ripple()
@@ -543,87 +497,87 @@ mob
 						NeutralSpecial()
 
 	bump(atom/a, d)
-		if(isPlayer)
-			if(isMashing)
-				return
-			else
-				..()
-				if(VULNERABLE)
-					animate(src, color=rgb(255,255,255,255))
-					VULNERABLE=0
-					canAttack=1
-					dbljumped=0
-					jumped=0
-					has_jumped=0
-				animate(src, transform = null, time = 0.5)
+
+		if(isMashing)
+			return
+		else
+			..()
+			if(VULNERABLE)
+				animate(src, color=rgb(255,255,255,255))
+				VULNERABLE=0
+				canAttack=1
+				dbljumped=0
+				jumped=0
+				has_jumped=0
+			animate(src, transform = null, time = 0.5)
 
 
-				if(istype(a, /STAGEART/WhaleBoat))
-					jumped=0
-					dbljumped=0
-					canMove=1
-					reeled=0
-					tumbled=0
-					is_jumping=0
-					has_jumped=0
-					is_skidding=0
-				if(istype(a, /ITEMS/CONTAINERS/Wheel_Crate))
-					var/ITEMS/I=a
-					if(dir==RIGHT) I.vel_x=1
-					else I.vel_x=-1
-				if(istype(a, /mob))
-					var/mob/M=a
-					if(d==DOWN && M.isPlayer)
-						if(M.hitIndex!="STOMP")
-							M.hitIndex="STOMP"
-							HitStun(M,1)
-							spawn(1)
-								jump()
-								if(dir==RIGHT) vel_x=6
-								else vel_x=-6
-								canMove=1
-								canAttack=1
-								has_jumped=0
-								jumped=0
-								dbljumped=0
-							spawn(6)
-								M.hitIndex="null"
-
-
-				if(istype(a, /turf))
-					if(tumbled)
-						setLandingLag("HEAVY")
-						tumbled=0
-					if(d == DOWN)
-						var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
-						FX.plane=src.plane-1
-						FX.loc=src.loc
-						FX.dir=EAST
-						FX.step_x=src.step_x-32
-						FX.step_y-=2
-						flick("",FX)
-						spawn(6)
-							del FX
-						flick("squat",src)
-
-						canMove=0
-						vel_y = 0
-						vel_x = 0
-						spawn(LAG)
-							del FX
-							flick("squatend",src)
-							if(canAttack)
-
-								canAct=1
-
+			if(istype(a, /STAGEART/WhaleBoat))
+				jumped=0
+				dbljumped=0
+				canMove=1
+				reeled=0
+				tumbled=0
+				is_jumping=0
+				has_jumped=0
+				is_skidding=0
+			if(istype(a, /ITEMS/CONTAINERS/Wheel_Crate))
+				var/ITEMS/I=a
+				if(dir==RIGHT) I.vel_x=1
+				else I.vel_x=-1
+			if(istype(a, /mob))
+				var/mob/M=a
+				if(d==DOWN && M.isPlayer)
+					if(M.hitIndex!="STOMP")
+						M.hitIndex="STOMP"
+						HitStun(M,1)
+						spawn(1)
+							jump()
+							if(dir==RIGHT) vel_x=6
+							else vel_x=-6
 							canMove=1
+							canAttack=1
+							has_jumped=0
 							jumped=0
 							dbljumped=0
-							reeled=0
-							tumbled=0
-							is_jumping=0
-							has_jumped=0
-							is_skidding=0
+						spawn(6)
+							M.hitIndex="null"
+
+
+			if(istype(a, /turf))
+				if(tumbled)
+					setLandingLag("HEAVY")
+					tumbled=0
+				if(d == DOWN)
+					var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
+					FX.plane=src.plane-1
+					FX.loc=src.loc
+					FX.dir=EAST
+					FX.step_x=src.step_x-32
+					FX.step_y-=2
+					flick("",FX)
+					spawn(6)
+						del FX
+					flick("squat",src)
+
+					canMove=0
+					vel_y = 0
+					vel_x = 0
+					spawn(LAG)
+						del FX
+						flick("squatend",src)
+						if(canAttack)
+
+							canAct=1
+
+						canMove=1
+						jumped=0
+						dbljumped=0
+						reeled=0
+						tumbled=0
+						is_jumping=0
+						has_jumped=0
+						is_skidding=0
 
 	slow_down()
 
