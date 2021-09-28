@@ -6,8 +6,6 @@ ELECTRIC BOOGALOO
 
 BUGS
 - Slowdown build up might be related to items? happens on Dreadfield more
-- Zeke, Wheel Crates and Barrels need to handle bumping into walls
-
 
 
 EVERYONE IS HERE

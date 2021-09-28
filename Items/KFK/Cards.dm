@@ -322,6 +322,9 @@ KFK_Mobs
 		movement()
 			..()
 			if(shelled)
+				for(var/turf/t in front(1))
+					if(t.density)
+						turn_around()
 				for(var/mob/M in oview(1,src))
 					if(M.isPlayer && M.hitIndex!="Zeke" && M.inside(src))
 						M.hitIndex="Zeke"

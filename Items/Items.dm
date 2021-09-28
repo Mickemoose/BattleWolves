@@ -245,6 +245,11 @@ ITEMS
 			var
 				grabbed=0
 			//action()
+			bump(turf/t)
+				thrown=0
+				vel_y=0
+				grabbed=0
+				vel_x=0
 			gravity()
 				if(!thrown) ..()
 			PickUp(var/mob/pickuper)
@@ -436,6 +441,9 @@ ITEMS
 			movement()
 				..()
 				if(icon_state=="moving")
+					for(var/turf/t in front(1))
+						if(t.density)
+							Destroy()
 					for(var/ITEMS/CONTAINERS/C in oview(1,src))
 						if(C.inside(src))
 							C.Destroy()
@@ -481,6 +489,7 @@ ITEMS
 			action()
 				//..()
 				if(vel_x!=0 && on_ground)
+
 					switch(icon_state)
 						if("glitch") icon_state="glitch-moving"
 						if("dread") icon_state="dread-moving"
