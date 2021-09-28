@@ -345,9 +345,18 @@ mob
 
 						spawn(15)
 							src.client.unlock_input()
-				//if(k=="6")
-
-
+				if(k=="6")
+					var/vector/start = new (pick(src.x-pick(0,1,2,3,4,5),src.x+pick(0,1,2,3,4,5)) * world.icon_size, 50 * world.icon_size)
+					var/vector/dest  = new (src.x * world.icon_size, src.y * world.icon_size)
+					var/bolt/b = new(start, dest, 25)
+					b.Draw(usr.z, color = "#a5daff")
+					world<<LIGHTNING
+					src.setDamage(0.05, "ADD")
+					src.HitStun(src,1,"black")
+					spawn(1)
+						src.HitStun(src,1,"yellow")
+						spawn(1)
+							src.Knockback("MEDIUM", pick("UP LEFT","UP RIGHT"))
 
 
 				if(k=="4")

@@ -1,3 +1,4 @@
+var/global/SmokeBlur = filter(type="blur",size=4)
 EFFECT
 	parent_type=/obj
 	plane=3
@@ -37,18 +38,19 @@ EFFECT
 		var
 			level=0
 		New()
+			filters+=SmokeBlur
 			flick("",src)
 			if(!level)
-				animate(src, transform = matrix(), time=2)
-				animate(transform = matrix()*1.2, time=2)
-				animate(transform = matrix()*1.5, time=2)
-				animate(transform = matrix()*1.8, alpha=100, time=2)
-				animate(transform = matrix()*2, alpha=0,time = 3)
+				animate(src, transform = matrix(), color="#663300", time=0)
+				animate(transform = matrix()*1.8,color="#cc6600", time=2)
+				animate(transform = matrix()*2, color="#ff9933", time=2)
+				animate(transform = matrix()*2.4, color="#ffcc66",alpha=100, time=2)
+				animate(transform = matrix()*2.6, color="#fff", alpha=0,time = 3)
 			if(level==1)
-				animate(src, transform = matrix(), color="#ffcc66", time=2)
-				animate(transform = matrix()*1.8,color="#ff9933", time=2)
-				animate(transform = matrix()*2, color="#cc6600", time=2)
-				animate(transform = matrix()*2.4, color="#663300",alpha=100, time=2)
+				animate(src, transform = matrix(), color="#663300", time=2)
+				animate(transform = matrix()*1.8,color="#cc6600", time=2)
+				animate(transform = matrix()*2, color="#ff9933", time=2)
+				animate(transform = matrix()*2.4, color="#ffcc66",alpha=100, time=2)
 				animate(transform = matrix()*2.6, alpha=0,time = 3)
 			if(level==2)
 				animate(src, transform = matrix(), color="#ff6e00", time=2)

@@ -51,6 +51,8 @@ mob
 				if("red") animate(target,color=rgb(255,0,0),time=1)
 				if("blue") animate(target,color=rgb(35,106,255),time=1)
 				if("orange") animate(target,color=rgb(255,118,0),time=1)
+				if("yellow") animate(target,color=rgb(255,255,0),time=1)
+				if("black") animate(target,color=rgb(0,0,0),time=1)
 				else animate(target,color=rgb(255,0,0),time=1)
 
 		//	sleep(1)

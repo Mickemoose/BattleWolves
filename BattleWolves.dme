@@ -16,6 +16,7 @@
 // BEGIN_INCLUDE
 #include <forum_account\keyboard\keyboard.dme>
 #include <kaiochao\anymacro\AnyMacro.dme>
+#include <rotem12\lightning\Lightning.dme>
 #include "BattleWolves.dm"
 #include "Characters.dm"
 #include "Dev Log.dm"
