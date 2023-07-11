@@ -6,7 +6,10 @@ GameCamera
 
 
 mob
+
 	proc
+
+
 		Shake(level="MEDIUM")
 			//var/matrix/m = matrix()
 			switch(level)

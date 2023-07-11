@@ -5,36 +5,59 @@ ELECTRIC BOOGALOO
 
 
 BUGS
-- Slowdown build up might be related to items? happens on Dreadfield more
+- none currently
 
 
-EVERYONE IS HERE
-Future Characters
-- Bek [Can transform into fox, samurai]
-- Marylou [Alternate fighting style to Derek with blue fired hands]
-- Kathy [Orange Spirit Hawk]
-- Annie [Morph like Kyle but different objects]
-- Roderick [Inuyasha]
-- Satia [Starcrash Tome]
-- Derian [Skateboard? Lone Ranger?]
-- Hoeppner [Beast Soul]
-- Dylans Rebeckah [Similar Monk type]
-- Amanda [Galactic Owl Powers]
+Plans 2023-2024
+- Core WPB2 Cast
+	- Brendan
+	- Laundry
+	- Hunter
+	- Hartshorne
+	- Matt
+	- Froese
+	- Hoeppner
+	- Becca
+	- Schnerch
+- Lava Tek Facility
+	- UI
+	- Logo for Lava Tek
+	- Stage Hazards
+- Glitch Realm
+	- Stage Hazards
+- Touch up the States like Mashable to break upon enough damage
+- Rainy Day Airship
+- Juicy Squirts Stage
+- Rainy Day Orb item
+- Infinity feather item
+- Shell Shield item
+- Turnt Turnip item
 
-- Jams [Orange Super Hero like Spooderman/Iron Man]
-- Brody [Blue jay hero outfit?]
-- Spencer [Cowboy hat, rides green dino]
 
-- Devon [Red Phoenix Powers Streets of rage inspired outfit]
-- Frost [His stand Malicious Pit]
-- Aaron [A Bot Maximus, if Matt is Megaman, then Aaron is Zero]
-- Darcy [Hacker/Pure Pwnage inspo]
-- Rotht [Blue Dragon powers streets of rage inspired outfit]
-- Shaun [Magic Keytar]
-- Sergio
-- Marc
-- Stephan [Smoke based character]
-- Trevor
+
+Wolf Assist Trophy?
+- Cal [Plants C4]
+- Josh Vandenakker [Uses big sword to fire off sword wave]
+- Trevor [Starcraft inspo?]
+- Jake [Magic Bass Guitar]
+- Steph [Smoke based powers]
+- Selina [ Flies a bush plane and drops shit]
+- Joel [ Drives a BMW and hits shit]
+- Bernard
+- Dalton
+- Phillipe
+- Max
+- Jesse
+- Raven
+- Josh Loades
+- Teagan [Train]
+- Elise [Nurse powers giant needle?]
+- Justin Jacobs
+- Warren
+- Roman
+- Saint/Ethan
+
+
 
 
 
@@ -42,6 +65,8 @@ Item Ideas:
 ----------------
 Infinity Feather - Heals to 0%
 Turnt Turnip - Strong Turnip throwable
+Muffy - returning from WPB1 active enemy that walks around
+Shell Shield - Bubble shield that protects from projectiles
 
 
 
