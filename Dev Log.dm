@@ -32,26 +32,32 @@ Plans 2023-2024
 - Infinity feather item
 - Shell Shield item
 - Turnt Turnip item
+- Speed Orb item
+- Item options screen
+- Game options screen (SFX Volume, Music Volume)
+- 4 new Sacrifice KFK summons
+- 4 new Character KFK summons
+- touch up Small res UI
+
+
+
+
+//POSSIBLE FUTURE\\
+
+Full WPB2 Board game cast? or just assists?
 
 
 
 Wolf Assist Trophy?
-- Cal [Plants C4]
-- Josh Vandenakker [Uses big sword to fire off sword wave]
-- Trevor [Starcraft inspo?]
 - Jake [Magic Bass Guitar]
 - Steph [Smoke based powers]
 - Selina [ Flies a bush plane and drops shit]
 - Joel [ Drives a BMW and hits shit]
-- Bernard
-- Dalton
 - Phillipe
 - Max
 - Jesse
 - Raven
 - Josh Loades
-- Teagan [Train]
-- Elise [Nurse powers giant needle?]
 - Justin Jacobs
 - Warren
 - Roman
