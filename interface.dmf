@@ -42,19 +42,22 @@ menu "menu"
 window "default"
 	elem "default"
 		type = MAIN
-		pos = 281,0
-		size = 640x480
+		pos = 0,0
+		size = 960x540
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
 		macro = "macro"
 		menu = "menu"
+		outer-size = 976x599
+		inner-size = 960x540
 	elem "map1"
 		type = MAP
 		pos = 0,0
-		size = 640x480
+		size = 960x540
 		anchor1 = 0,0
 		anchor2 = 100,100
 		saved-params = "zoom;letterbox;zoom-mode"

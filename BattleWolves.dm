@@ -559,7 +559,7 @@ mob
 					tumbled=0
 				if(d == DOWN)
 					var/EFFECT/LANDING_SMOKE/FX = new /EFFECT/LANDING_SMOKE(src)
-					FX.plane=src.plane-1
+					FX.layer=src.layer-1
 					FX.loc=src.loc
 					FX.dir=EAST
 					FX.step_x=src.step_x-32
@@ -665,7 +665,7 @@ mob
 					if("3-carried")
 						item.icon_state="3"
 			else item.icon_state=""
-			item.plane=1
+			item.layer=1
 			if(dir == RIGHT)
 				item.set_pos(px+8, py+12)
 			else
@@ -676,7 +676,7 @@ mob
 			holdingItem.Remove(item)
 			holdingItem=new()
 			spawn(2) item.carrier = null
-			item.plane=1
+			item.layer=1
 			spawn(1) item.thrown=1
 			if(item.mover) item.icon_state="moving"
 			else item.setSpinning()
@@ -711,7 +711,7 @@ mob
 					if("3")
 						item.icon_state="3-carried"
 			else item.icon_state="carried"
-			item.plane=plane-1
+			item.layer=layer-1
 			item.set_pos(px, py+24)
 			item.vel_x=0
 			item.vel_y=0
