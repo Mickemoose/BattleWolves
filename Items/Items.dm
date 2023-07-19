@@ -712,23 +712,23 @@ ITEMS
 
 
 		DeleteTimer()
-			if(!carried || !thrown || isDeleting || isReallyDeleting)
-				timer-=1
-				spawn(125)
+			do
+				sleep(10)
+				timer--
+				if(timer <= 50)
 					DeleteFlash()
-				spawn(175)
+				if(timer <= 25)
 					flash=2
-				spawn(250)
-					if(carried || thrown) return
+				if(timer <= 0)
 					timer = 0
 					isDeleting=1
 					animate(src, alpha = 0, transform = matrix()/4, color = "black", time = 3)
 					spawn(3)
-						if(carried || thrown) return
 						if(istype(src, /ITEMS/INSTANTS/KFK_Card)) Current_KFK--
 						Items_ACTIVE.Remove(src)
-
 						del src
+			while( timer && (!carried || !thrown || isDeleting || isReallyDeleting) )
+
 
 
 
