@@ -32,8 +32,8 @@ mob
 							return
 
 
-var/sound/MENU = sound('Music/SPC.wav',1, channel=2, volume=1)
-var/sound/GLITCH = sound('Music/glitch.mp3',1, channel=2, volume=5)
-var/sound/WHALE = sound('Music/whale.mp3',1, channel=2, volume=5)
-var/sound/DREAD = sound('Music/dreadfield.mp3',1, channel=2, volume=5)
-var/sound/LAUNDO = sound('Music/castlelaundo.mp3',1, channel=2, volume=5)
+var/sound/MENU = sound('Music/SPC.wav',1, channel=2, volume=30)
+var/sound/GLITCH = sound('Music/glitch.mp3',1, channel=2, volume=30)
+var/sound/WHALE = sound('Music/whale.mp3',1, channel=2, volume=30)
+var/sound/DREAD = sound('Music/dreadfield.mp3',1, channel=2, volume=30)
+var/sound/LAUNDO = sound('Music/castlelaundo.mp3',1, channel=2, volume=30)

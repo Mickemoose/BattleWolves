@@ -356,6 +356,9 @@ obj
 			Hartshorne
 				character="Hartshorne"
 				icon_state="Hartshorne"
+			Hoeppner
+				character="Hoeppner"
+				icon_state="Hoeppner"
 			Froese
 				character="Froese"
 				icon_state="Froese"

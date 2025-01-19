@@ -406,16 +406,12 @@ mob
 						bx += bg.width
 					while(bx > bg.width * -0.5)
 						bx -= bg.width
-				else
-					..()
 
 				if(bg.repeat & REPEAT_Y)
 					while(by < -bg.height * 1.5)
 						by += bg.height
 					while(by > bg.height * -0.5)
 						by -= bg.height
-				else
-					..()
 
 				bg.object.pixel_x = bx + 16
 				bg.object.pixel_y = by + 16

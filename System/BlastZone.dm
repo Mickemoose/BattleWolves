@@ -141,7 +141,7 @@ area
 				if(dir==NORTH)
 					for(var/mob/m in Players_ALIVE)
 						if(m.client)
-							pick(new /UI/StarKO(m.client,M.character), new /UI/ScreenKO(m.client,M.character))
+							pick(new /UI/StarKO(m.client,M.character), new /UI/ScreenKO(m.client,M.character,M))
 							//new /UI/StarKO(m.client,M.character)
 
 

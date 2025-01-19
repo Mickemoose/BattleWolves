@@ -37,7 +37,6 @@ Plans 2023-2024
 - Game options screen (SFX Volume, Music Volume)
 - 4 new Sacrifice KFK summons
 - 4 new Character KFK summons
-- touch up Small res UI
 
 
 
@@ -89,38 +88,16 @@ SPOOP - Spawns with a lab, mixes two vials and BOOM (Explode, Poison Smoke, Petr
 Tenishura - Spawns, puts his hand on his sword anime style, fade out, suddenly fade in to Tenishura striking a random person and then leaving.
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-0.5 first major playable version
-
-- Brendan Laundry Hunter playable
-- 1 of the current KFK ideas implemented
-- Speed Orb implemented
-- Item Setting
-
-0.6
-
-- Becca Satia Matt Hartshorne Dylan
-- Fifth Dimension Stage
-- 4 new KFK cards
-- 4 new items
-- Whale Boat Storm Phase
-- Lava Tech Facility stage
-- Dreadfield Spikey Tree sudden growth and revert
-- Glitch Realm bridge between that glitches out
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Possible future features
+Costumes for cast
+- Classic WP outfits
+- Micke for derek
+- Operator Schnerch
+- PrazonSPBF Brendan
+- Prazolini Turtle Brendan
+- Lando Green Buffalo Landry
+- Demon hunter
+- sailor scout bonka
+-
 
 
-Base Attack & Defend:
-Defend your base and attack the opponennt teams base to make their Core visible.
-steal the Core and bring it back to your base to win.
-
-Payload:
-A team has to transport their payload to the other side of the stage?
-
-Blitz Meter:
-During battle, a meter fills up
-When it hits 100%, You transform into your Blitz Forme
-This makes you faster, stronger and allows you to use your Ultimate Special
 */
